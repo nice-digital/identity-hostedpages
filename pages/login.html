@@ -85,14 +85,20 @@
         //prefill: "street 123",
         validator: function(firstName) {
           return {
-            valid: firstName.length >= 10,
-            hint: "Must have 10 or more chars" // optional
+            valid: firstName.length >= 2,
+            hint: "Must have 2 or more chars" // optional
           };
         }
       },
       {
         name: "lastName",
         placeholder: "Enter your last name",
+        validator: function(lastName) {
+          return {
+            valid: lastName.length >= 2,
+            hint: "Must have 2 or more chars" // optional
+          };
+        }
       }],
     });
 
