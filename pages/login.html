@@ -67,33 +67,33 @@
       // uncomment if you want small buttons for social providers
       // socialButtonStyle: 'small'
       mustAcceptTerms: true,
-      additionalSignUpFields: [{
-        type: "select",
-        name: "title",
-        placeholder: "select your title",
-        options: [
-          {value: "Mr", label: "Mr"},
-          {value: "Mrs", label: "Mrs"},
-          {value: "Miss", label: "Miss"}
-        ],
-      },
-      {
-        name: "firstName",
-        placeholder: "enter your first name",
-        // The following properties are optional
-        //icon: "https://example.com/assests/address_icon.png",
-        //prefill: "street 123",
-        validator: function(firstName) {
-          return {
-            valid: firstName.length >= 10,
-            hint: "Must have 10 or more chars" // optional
-          };
-        }
-      },
-      {
-        name: "lastName",
-        placeholder: "Enter your last name",
-      }],
+      // additionalSignUpFields: [{
+      //   type: "select",
+      //   name: "title",
+      //   placeholder: "select a title",
+      //   options: [
+      //     {value: "Mr", label: "Mr"},
+      //     {value: "Mrs", label: "Mrs"},
+      //     {value: "Miss", label: "Miss"}
+      //   ],
+      // },
+      // {
+      //   name: "firstName",
+      //   placeholder: "enter your first name",
+      //   // The following properties are optional
+      //   //icon: "https://example.com/assests/address_icon.png",
+      //   //prefill: "street 123",
+      //   validator: function(firstName) {
+      //     return {
+      //       valid: firstName.length >= 10,
+      //       hint: "Must have 10 or more chars" // optional
+      //     };
+      //   }
+      // },
+      // {
+      //   name: "lastName",
+      //   placeholder: "Enter your last name",
+      // }],
     });
 
     if(colors.page_background) {
