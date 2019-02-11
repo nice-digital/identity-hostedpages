@@ -70,12 +70,13 @@
       additionalSignUpFields: [{
         type: "select",
         name: "title",
-        placeholder: "select a title",
+        placeholder: "select a title...",
         options: [
           {value: "Mr", label: "Mr"},
           {value: "Mrs", label: "Mrs"},
           {value: "Miss", label: "Miss"}
         ],
+        required: true,
       },
       {
         name: "firstName",
@@ -99,7 +100,14 @@
             hint: "Must have 2 or more chars" // optional
           };
         }
-      }],
+      },
+      {
+    type: "checkbox",
+    name: "allowContactMe",
+    prefill: "true",
+    placeholder: "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
+  }
+      ],
     });
 
     if(colors.page_background) {
