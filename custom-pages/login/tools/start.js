@@ -24,7 +24,7 @@ task(
       if (webpackConfig.debug) {
         webpackConfig.entry.vendor.unshift(
           'react-hot-loader/patch',
-          'webpack-hot-middleware/client',
+          'webpack-hot-middleware/client'
         )
         webpackConfig.module.loaders
           .find(x => x.loader === 'babel-loader')
@@ -38,7 +38,7 @@ task(
       browserSync({
         port: Number(process.env.PORT || 3000),
         ui: {
-          port: Number(process.env.PORT || 3000) + 1,
+          port: Number(process.env.PORT || 3000) + 1
         },
         server: {
           baseDir: './src',
@@ -79,9 +79,9 @@ task(
 
         // no need to watch '*.js' here, webpack will take care of it for us,
         // including full page reloads if HMR won't work
-        files: ['build/**/*.css', 'build/**/*.html'],
+        files: ['build/**/*.css', 'build/**/*.html']
       })
 
       resolve()
-    }),
+    })
 )

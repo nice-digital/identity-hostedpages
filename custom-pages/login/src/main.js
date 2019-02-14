@@ -10,7 +10,7 @@ import AppContainer from './containers/AppContainer'
 // Browser History Setup
 // ========================================================
 const history = useRouterHistory(createHashHistory)({
-  basename: __BASENAME__,
+  basename: __BASENAME__
 })
 
 // ========================================================
@@ -23,7 +23,7 @@ let render = (routerKey = null) => {
 
   ReactDOM.render(
     <AppContainer history={history} routes={routes} routerKey={routerKey} />,
-    MOUNT_NODE,
+    MOUNT_NODE
   )
 }
 

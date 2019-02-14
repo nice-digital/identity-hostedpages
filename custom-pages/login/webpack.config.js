@@ -20,7 +20,6 @@ const config = {
     app: ['./main.js'],
     vendor: [
       'es5-shim',
-      'es5-shim/es5-sham',
       'babel-polyfill',
       'es6-promise',
       'fetch-detector',
@@ -28,7 +27,7 @@ const config = {
       'fetch-jsonp',
       'react',
       'react-dom',
-      'react-router',
+      'react-router'
     ],
   },
 
@@ -106,33 +105,33 @@ const config = {
         test: /\.css/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?-autoprefixer&modules=true&localIdentName=[local]!postcss-loader',
+          'css-loader?-autoprefixer&modules=true&localIdentName=[local]!postcss-loader'
         ),
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?-autoprefixer!postcss-loader!sass-loader',
+          'css-loader?-autoprefixer!postcss-loader!sass-loader'
         ),
       },
       {
         test: /\.json$/,
-        loader: 'json-loader',
+        loader: 'json-loader'
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader',
         query: {
           name: 'assets/[path][name].[ext]',
-          limit: 10000,
+          limit: 10000
         },
       },
       {
         test: /\.(eot|ttf|wav|mp3|ogg)$/,
         loader: 'file-loader',
         query: {
-          name: 'assets/[path][name].[ext]',
+          name: 'assets/[path][name].[ext]'
         },
       },
     ],
@@ -144,7 +143,7 @@ const config = {
       components: path.resolve(__dirname, './src/components/'),
       routes: path.resolve(__dirname, './src/routes/'),
       services: path.resolve(__dirname, './src/services/'),
-      containers: path.resolve(__dirname, './src/containers/'),
+      containers: path.resolve(__dirname, './src/containers/')
     },
   },
 }
@@ -194,7 +193,7 @@ if (!DEBUG) {
       'transform-react-inline-elements',
       'transform-es3-modules-literals',
       'transform-es3-member-expression-literals',
-      'transform-es3-property-literals',
+      'transform-es3-property-literals'
     )
 }
 

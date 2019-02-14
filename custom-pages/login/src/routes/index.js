@@ -10,7 +10,7 @@ export const createRoutes = () => ({
   path: '/',
   component: Layout,
   indexRoute: Home,
-  childRoutes: [NotFound],
+  childRoutes: [NotFound]
 })
 
 /*  Note: childRoutes can be chunked or otherwise loaded programmatically
