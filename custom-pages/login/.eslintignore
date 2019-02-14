@@ -9,3 +9,6 @@
 **/bin/**
 **/tmp/**
 **/test/**
+**/config/**
+**/build/**
+**/scripts/**
