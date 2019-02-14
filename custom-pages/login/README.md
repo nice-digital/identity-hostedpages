@@ -5,6 +5,8 @@
 
 ### Features
 
+NEED TO USE NODE 6.2.2
+
 &nbsp; &nbsp; ✓ Modern JavaScript syntax ([ES2015](http://babeljs.io/docs/learn-es2015/)+) via [Babel](http://babeljs.io/)<br>
 &nbsp; &nbsp; ✓ Modern CSS/SCSS syntax (CSS3+) via [PostCSS](https://github.com/postcss/postcss)<br>
 &nbsp; &nbsp; ✓ Routing and navigation via [React Router](https://github.com/reactjs/react-router)<br>
