@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
+    "semi": ["error", "never"],
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-filename-extension": 0,
+    "react/no-children-prop" : 0,
+    "global-require": 0,
+    "linebreak-style": 0,
+    "no-console": 0,
+    "no-param-reassign": [2, {
+      "props": false
+    }]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true, 
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": true,
+    "window": true
+  }
+}
