@@ -1,6 +1,6 @@
 // We only need to import the modules necessary for initial render
 import Layout from '../components/Layout'
-import Home from './Home'
+import Login from './Login'
 import NotFound from './NotFound'
 
 /*  Note: Instead of using JSX, we recommend using react-router
@@ -9,7 +9,7 @@ import NotFound from './NotFound'
 export const createRoutes = () => ({
   path: '/',
   component: Layout,
-  indexRoute: Home,
+  indexRoute: Login,
   childRoutes: [NotFound]
 })
 

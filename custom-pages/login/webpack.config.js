@@ -19,6 +19,7 @@ const config = {
   entry: {
     app: ['./main.js'],
     vendor: [
+      'auth0-js',
       'es5-shim',
       'babel-polyfill',
       'es6-promise',

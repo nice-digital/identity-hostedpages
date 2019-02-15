@@ -9,7 +9,7 @@ const goBack = (e) => {
 
 export const NotFound = () => (
   <div className={classes.notFound}>
-    <h4>Page not found!</h4>
+    <h4>Something must have gone slightly wrong!</h4>
     <p><a href="#" onClick={goBack}>&larr; Back</a></p>
   </div>
 )

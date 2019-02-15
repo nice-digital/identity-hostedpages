@@ -1,9 +1,13 @@
 :root {
-  --font-base: 'sans-serif';
+  --font-base: Lato, Helvetica, sans-serif;
+  --gutter: 1.2rem;
+  --col-width: 40rem;
+  --top: 3.6rem;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-base);
 }

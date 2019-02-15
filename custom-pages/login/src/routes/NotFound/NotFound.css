@@ -1,3 +1,4 @@
 .notFound {
   padding: 20px;
+  min-width: var(--col-width);
 }
