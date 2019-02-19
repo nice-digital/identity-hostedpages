@@ -35,7 +35,7 @@ const config = {
 
   // Options affecting the output of the compilation
   output: {
-    path: path.resolve(__dirname, 'pages'),
+    path: path.resolve(__dirname, '../pages'),
     publicPath: PRODUCTION ? 'https://alpha.nice.org.uk/Media/Default/js/identity/login/' : '/',
     filename: '[name].js',
     chunkFilename: '[name].js',
