@@ -20,7 +20,7 @@ export class Register extends React.Component {
     console.log('button pressed')
     this.auth0.signup(
       {
-        connection: 'CONNECTION',
+        connection: '',
         email: 'EMAIL@email.com',
         password: 'PASSWORD123',
         user_metadata: {

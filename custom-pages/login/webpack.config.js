@@ -36,9 +36,9 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: PRODUCTION ? 'https://NICE.CDN.domain.com/' : '/',
-    filename: 'assets/[name].js',
-    chunkFilename: 'assets/[name].js',
+    publicPath: PRODUCTION ? 'https://alpha.nice.org.uk/Media/Default/js/identity/login/' : '/',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     sourcePrefix: '  ',
   },
 
@@ -76,7 +76,7 @@ const config = {
       __DEV__: DEBUG,
       __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
     }),
-    new ExtractTextPlugin('assets/styles.css', {
+    new ExtractTextPlugin('styles.css', {
       minimize: !DEBUG,
       allChunks: true,
     }),
