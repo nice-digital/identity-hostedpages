@@ -8,6 +8,7 @@
 
 .navigation{
     text-align: center;
+    width: var(--col-width);
 }
 
 .navigation a:hover{

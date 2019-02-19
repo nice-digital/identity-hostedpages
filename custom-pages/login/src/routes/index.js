@@ -2,6 +2,7 @@
 import Layout from '../components/Layout'
 import Login from './Login'
 import NotFound from './NotFound'
+import Register from './Register'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -10,7 +11,7 @@ export const createRoutes = () => ({
   path: '/',
   component: Layout,
   indexRoute: Login,
-  childRoutes: [NotFound]
+  childRoutes: [Register, NotFound]
 })
 
 /*  Note: childRoutes can be chunked or otherwise loaded programmatically

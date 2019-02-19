@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const args = process.argv.slice(2)
+const PRODUCTION = (args[0] === '--release')
 const DEBUG = !(args[0] === '--release')
 const VERBOSE = args[0] === '--verbose'
 
@@ -35,7 +36,7 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    publicPath: PRODUCTION ? 'https://NICE.CDN.domain.com/' : '/',
     filename: 'assets/[name].js',
     chunkFilename: 'assets/[name].js',
     sourcePrefix: '  ',

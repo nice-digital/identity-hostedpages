@@ -1,16 +1,17 @@
 import React from 'react'
 import auth0 from 'auth0-js'
-import Logo from '../assets/logo.png'
+// import Logo from '../assets/logo.png'
+import { auth } from '../../../services/constants'
 import classes from './LoginForm.css'
 
 export class Login extends React.Component {
   constructor(props) {
     super(props)
     this.auth0 = new auth0.WebAuth({
-      domain: 'dev-nice-identity.auth0.com',
-      clientID: 'RMpYVjKE_B85IO6Euc2i3IstVAstrEHK',
+      domain: auth.domain,
+      clientID: auth.clientID,
       // redirectUri: '',
-      scope: 'openid profile email'
+      scope: auth.scope
     })
   }
 

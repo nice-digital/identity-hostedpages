@@ -13,7 +13,7 @@ body {
 .col{
   height: 100%;
   padding: 5rem;
-  min-width: var(--col-width);
+  width: var(--col-width);
 }
 
 .mainContainer {
