@@ -11,18 +11,18 @@ export class Login extends React.Component {
       domain: auth.domain,
       clientID: auth.clientID,
       // redirectUri: '',
-      scope: auth.scope
     })
   }
 
   doSomething = (e) => {
     e.preventDefault()
     console.log('button pressed')
-    this.auth0.client.login(
+    this.auth0.redirect.loginWithCredentials(
       {
-        realm: '',
+        connection: 'Username-Password-Authentication',
         username: 'alessio.fimognari@amido.com',
-        password: 'Password01!'
+        password: 'Password01!',
+        scope: auth.scope
       },
       () => console.log('I have login!')
     )
