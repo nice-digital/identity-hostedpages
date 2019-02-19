@@ -9,7 +9,7 @@ const DEBUG = !(args[0] === '--release')
 const VERBOSE = args[0] === '--verbose'
 
 /**
- * Webpack configuration (core/main.js => pages/bundle.js)
+ * Webpack configuration (core/main.js => build/bundle.js)
  * http://webpack.github.io/docs/configuration.html
  */
 const config = {
@@ -35,7 +35,7 @@ const config = {
 
   // Options affecting the output of the compilation
   output: {
-    path: path.resolve(__dirname, '../pages'),
+    path: path.resolve(__dirname, './build/assets'),
     publicPath: PRODUCTION ? 'https://alpha.nice.org.uk/Media/Default/js/identity/login/' : '/',
     filename: '[name].js',
     chunkFilename: '[name].js',
