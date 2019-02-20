@@ -21,7 +21,8 @@ export class Login extends React.Component {
       this.auth0 = new auth0.WebAuth({
           domain: auth.domain,
           clientID: auth.clientID,
-          redirectUri: this.redirectUri
+          redirectUri: this.redirectUri,
+          connection: 'Username-Password-Authentication'
       })
   }
 
