@@ -28,8 +28,9 @@ export class Login extends React.Component {
     login = (e) => {
     e.preventDefault()
     const {username, password} = this.state
-    this.auth0.authorize(
-      {
+    // this.auth0.authorize(
+    this.auth0.redirect.login(
+        {
         responseType: auth.responseType,
         username,
         password,
