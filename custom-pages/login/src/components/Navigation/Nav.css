@@ -1,0 +1,16 @@
+@import '../variables.css';
+
+
+.activeRoute {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navigation{
+    text-align: center;
+    width: var(--col-width);
+}
+
+.navigation a:hover{
+    text-decoration: none;
+}

@@ -1,0 +1,22 @@
+@import '../variables.css';
+
+body {
+  font-family: var(--font-base);
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.col{
+  height: 100%;
+  padding: 5rem;
+  width: var(--col-width);
+}
+
+.mainContainer {
+  padding-top: var(--top);
+  min-width: var(--col-width);
+}

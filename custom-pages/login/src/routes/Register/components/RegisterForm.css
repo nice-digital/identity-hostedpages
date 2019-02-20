@@ -1,0 +1,29 @@
+@import '../../../components/variables.css';
+
+.logo {
+  display: block;
+  width: 120px;
+  margin: auto;
+  padding-left: 50px;
+}
+
+.mainpanel {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  min-width: var(--col-width);
+}
+
+.mainpanel .btn {
+  background-color: rgba(69, 21, 81, 1);
+  font-weight: 700;
+  color: #fff;
+}
+
+.mainpanel input,
+.mainpanel a,
+.mainpanel img {
+  padding: 1rem;
+  margin-top: 1rem;
+}
