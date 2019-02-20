@@ -1,5 +1,6 @@
 import React from 'react'
 import auth0 from 'auth0-js'
+import qs from 'qs'
 // import Logo from '../assets/logo.png'
 import { auth } from '../../../services/constants'
 import classes from './LoginForm.css'
@@ -12,6 +13,12 @@ export class Login extends React.Component {
       clientID: auth.clientID,
       // redirectUri: '',
     })
+      this.redirectURI = null
+  }
+
+  componentDidMount(){
+      const query = qs.parse(document.location.search, {ignoreQueryPrefix: true})
+      this.redirectURI = query.redirect_uri ? query.redirect_uri : document.location
   }
 
   doSomething = (e) => {
@@ -22,9 +29,13 @@ export class Login extends React.Component {
         responseType: auth.response_type,
         username: 'alessio.fimognari@amido.com',
         password: 'Password01!',
-        scope: auth.scope
+        scope: auth.scope,
+        redirectUri: this.redirectURI
       },
-      () => console.log('I have login!')
+      err => {
+          if(err) console.error('could not login')
+          console.log('I am in!')
+      }
     )
   }
   render() {

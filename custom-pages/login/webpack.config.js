@@ -20,6 +20,7 @@ const config = {
   entry: {
     app: ['./main.js'],
     vendor: [
+      'qs',
       'auth0-js',
       'es5-shim',
       'babel-polyfill',
@@ -30,7 +31,7 @@ const config = {
       'react',
       'react-dom',
       'react-router'
-    ],
+    ]
   },
 
   // Options affecting the output of the compilation
@@ -39,7 +40,7 @@ const config = {
     publicPath: PRODUCTION ? 'https://s3-eu-west-1.amazonaws.com/hostedpages/' : '/',
     filename: '[name].js',
     chunkFilename: '[name].js',
-    sourcePrefix: '  ',
+    sourcePrefix: '  '
   },
 
   // Switch loaders to debug or release mode
@@ -62,7 +63,7 @@ const config = {
     chunkModules: VERBOSE,
     cached: VERBOSE,
     cachedAssets: VERBOSE,
-    children: false,
+    children: false
   },
 
   // The list of plugins for Webpack compiler
@@ -70,26 +71,26 @@ const config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: Infinity,
+      minChunks: Infinity
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
       __DEV__: DEBUG,
-      __BASENAME__: JSON.stringify(process.env.BASENAME || ''),
+      __BASENAME__: JSON.stringify(process.env.BASENAME || '')
     }),
     new ExtractTextPlugin('styles.css', {
       minimize: !DEBUG,
-      allChunks: true,
+      allChunks: true
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.ejs'),
       filename: 'index.html',
       minify: !DEBUG
         ? {
-          collapseWhitespace: true,
+          collapseWhitespace: true
         }
         : null,
-      hash: true,
+      hash: true
     }),
   ],
 
@@ -101,22 +102,22 @@ const config = {
         include: [path.resolve(__dirname, './src')],
         loader: 'babel-loader',
         query: {
-          plugins: [],
-        },
+          plugins: []
+        }
       },
       {
         test: /\.css/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
           'css-loader?-autoprefixer&modules=true&localIdentName=[local]!postcss-loader'
-        ),
+        )
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
           'css-loader?-autoprefixer!postcss-loader!sass-loader'
-        ),
+        )
       },
       {
         test: /\.json$/,
@@ -128,16 +129,16 @@ const config = {
         query: {
           name: 'assets/[path][name].[ext]',
           limit: 10000
-        },
+        }
       },
       {
         test: /\.(eot|ttf|wav|mp3|ogg)$/,
         loader: 'file-loader',
         query: {
           name: 'assets/[path][name].[ext]'
-        },
-      },
-    ],
+        }
+      }
+    ]
   },
 
   // Alias
@@ -147,8 +148,8 @@ const config = {
       routes: path.resolve(__dirname, './src/routes/'),
       services: path.resolve(__dirname, './src/services/'),
       containers: path.resolve(__dirname, './src/containers/')
-    },
-  },
+    }
+  }
 }
 
 // Optimize the bundle in release (production) mode
@@ -165,14 +166,14 @@ const uglyOptions = !DEBUG
       screw_ie8: false,
     },
     mangle: { screw_ie8: false },
-    output: { screw_ie8: false },
+    output: { screw_ie8: false }
   }
   : {
     mangle: false,
     compress: {
       drop_debugger: false,
       warnings: VERBOSE,
-      screw_ie8: false,
+      screw_ie8: false
     },
     output: {
       beautify: true,
@@ -180,7 +181,7 @@ const uglyOptions = !DEBUG
       bracketize: true,
       indent_level: 2,
       keep_quoted_props: true,
-      screw_ie8: false,
+      screw_ie8: false
     },
   }
 
