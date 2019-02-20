@@ -30,6 +30,7 @@ export class Login extends React.Component {
     const {username, password} = this.state
     this.auth0.login(
         {
+        connection: 'Username-Password-Authentication',
         responseType: auth.responseType,
         username,
         password,
