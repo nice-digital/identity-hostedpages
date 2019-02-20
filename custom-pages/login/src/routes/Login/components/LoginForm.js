@@ -28,14 +28,14 @@ export class Login extends React.Component {
     login = (e) => {
     e.preventDefault()
     const {username, password} = this.state
-    this.auth0.authorize(
+    this.auth0.client.login(
         {
-        // connection: 'Username-Password-Authentication',
-        // responseType: auth.responseType,
-        // username,
-        // password,
-        // scope: auth.scope,
-        // redirectUri: this.redirectUri
+        realm: '',
+        responseType: auth.responseType,
+        username,
+        password,
+        scope: auth.scope,
+        redirectUri: this.redirectUri
       },
       err => {
           if(err) {
@@ -43,7 +43,6 @@ export class Login extends React.Component {
               return false
           }
           console.log('I am in!')
-          document.location = this.redirectUri
       }
     )
   }
