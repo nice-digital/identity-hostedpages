@@ -17,7 +17,7 @@ export class Login extends React.Component {
 
   componentDidMount(){
       const query = qs.parse(document.location.search, {ignoreQueryPrefix: true})
-      this.redirectURI = query.redirect_uri ? query.redirect_uri : document.location
+      this.redirectUri = query.redirect_uri ? query.redirect_uri : document.location
       this.auth0 = new auth0.WebAuth({
           domain: auth.domain,
           clientID: auth.clientID,
