@@ -31,11 +31,11 @@ export class Login extends React.Component {
     this.auth0.authorize(
         {
         // connection: 'Username-Password-Authentication',
-        responseType: auth.responseType,
-        username,
-        password,
-        scope: auth.scope,
-        redirectUri: this.redirectUri
+        // responseType: auth.responseType,
+        // username,
+        // password,
+        // scope: auth.scope,
+        // redirectUri: this.redirectUri
       },
       err => {
           if(err) {
