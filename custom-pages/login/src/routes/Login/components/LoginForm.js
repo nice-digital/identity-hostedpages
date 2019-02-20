@@ -11,9 +11,12 @@ export class Login extends React.Component {
     this.auth0 = new auth0.WebAuth({
       domain: auth.domain,
       clientID: auth.clientID,
-      // redirectUri: '',
     })
       this.redirectURI = null
+      this.state = {
+        username: null,
+          password: null
+      }
   }
 
   componentDidMount(){
@@ -21,14 +24,14 @@ export class Login extends React.Component {
       this.redirectURI = query.redirect_uri ? query.redirect_uri : document.location
   }
 
-  doSomething = (e) => {
+    login = (e) => {
     e.preventDefault()
-    console.log('button pressed')
+    const {username, password} = this.state
     this.auth0.authorize(
       {
-        responseType: auth.response_type,
-        username: 'alessio.fimognari@amido.com',
-        password: 'Password01!',
+        responseType: auth.responseType,
+        username,
+        password,
         scope: auth.scope,
         redirectUri: this.redirectURI
       },
@@ -38,13 +41,20 @@ export class Login extends React.Component {
       }
     )
   }
+
+  handleChange = ({target: {name, value}}) => {
+        this.setState({
+            [name]: value
+        })
+  }
+
   render() {
     return (
       <div className={`panel ${classes.mainpanel}`}>
         {/* <img alt="nice logo" className={classes.logo} src={Logo} /> */}
-        <input name="email" type="email" placeholder="eg: your.name@example.com..." />
-        <input name="password" type="password" />
-        <a href="#" className="btn" onClick={e => this.doSomething(e)}>
+        <input name="username" type="email" placeholder="eg: your.name@example.com..." onChange={this.handleChange}/>
+        <input name="password" type="password" onChange={this.handleChange}/>
+        <a href="#" className="btn" onClick={this.login}>
           Sign in
         </a>
       </div>
