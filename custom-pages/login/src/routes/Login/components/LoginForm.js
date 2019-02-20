@@ -17,9 +17,9 @@ export class Login extends React.Component {
   doSomething = (e) => {
     e.preventDefault()
     console.log('button pressed')
-    this.auth0.redirect.loginWithCredentials(
+    this.auth0.authorize(
       {
-        connection: 'Username-Password-Authentication',
+        responseType: auth.response_type,
         username: 'alessio.fimognari@amido.com',
         password: 'Password01!',
         scope: auth.scope
