@@ -8,11 +8,7 @@ import classes from './LoginForm.css'
 export class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.auth0 = new auth0.WebAuth({
-      domain: auth.domain,
-      clientID: auth.clientID,
-    })
-      this.redirectURI = null
+      this.redirectUri = null
       this.state = {
         username: null,
           password: null
@@ -22,6 +18,11 @@ export class Login extends React.Component {
   componentDidMount(){
       const query = qs.parse(document.location.search, {ignoreQueryPrefix: true})
       this.redirectURI = query.redirect_uri ? query.redirect_uri : document.location
+      this.auth0 = new auth0.WebAuth({
+          domain: auth.domain,
+          clientID: auth.clientID,
+          redirectUri: this.redirectUri
+      })
   }
 
     login = (e) => {
@@ -33,7 +34,7 @@ export class Login extends React.Component {
         username,
         password,
         scope: auth.scope,
-        redirectUri: this.redirectURI
+        redirectUri: this.redirectUri
       },
       err => {
           if(err) console.error('could not login')
