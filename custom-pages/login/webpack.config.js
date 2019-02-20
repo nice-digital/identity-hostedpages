@@ -37,7 +37,7 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, './build/assets'),
-    publicPath: PRODUCTION ? 'https://s3-eu-west-1.amazonaws.com/hostedpages/' : '/',
+    publicPath: PRODUCTION ? 'https://s3-eu-west-1.amazonaws.com/nice-identity-hostedpages/alpha/' : '/',
     filename: '[name].js',
     chunkFilename: '[name].js',
     sourcePrefix: '  '
