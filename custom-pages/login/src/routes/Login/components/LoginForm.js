@@ -21,17 +21,16 @@ export class Login extends React.Component {
       this.auth0 = new auth0.WebAuth({
           domain: auth.domain,
           clientID: auth.clientID,
-          redirectUri: this.redirectUri,
-          connection: 'Username-Password-Authentication'
+          redirectUri: this.redirectUri
       })
   }
 
     login = (e) => {
     e.preventDefault()
     const {username, password} = this.state
-    this.auth0.login(
+    this.auth0.authorize(
         {
-        connection: 'Username-Password-Authentication',
+        // connection: 'Username-Password-Authentication',
         responseType: auth.responseType,
         username,
         password,
@@ -39,8 +38,12 @@ export class Login extends React.Component {
         redirectUri: this.redirectUri
       },
       err => {
-          if(err) console.error('could not login')
+          if(err) {
+              console.error('could not login')
+              return false
+          }
           console.log('I am in!')
+          document.location = this.redirectUri
       }
     )
   }
