@@ -19,11 +19,13 @@ export class Login extends React.Component {
       // popup: false,
       responseType: auth.responseType,
       scope: auth.scope,
-      // redirect: true
+      redirect: true
     }
-    // const config = document.location.origin.includes('localhost') ? {} : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
+    // const config = document.location.origin.includes('localhost')
+    //   ? {}
+    //   : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
     // eslint-disable-next-line
-    config.extraParams = config && config.extraParams || {}
+    config.extraParams = (config && config.extraParams) || {}
     // eslint-disable-next-line
     const params = Object.assign(this.opts, config.internalOptions)
     this.auth0 = new auth0.WebAuth(params)
@@ -44,12 +46,12 @@ export class Login extends React.Component {
     const { username, password } = this.state
     console.log(username, password, this.redirectUri)
     this.auth0.authorize(
-    // this.auth0.login(
+      // this.auth0.login(
       {
         // realm: 'Username-Password-Authentication',
-        redirectUri: this.redirectURI,
-        username,
-        password
+        redirectUri: this.redirectURI
+        // username,
+        // password
       },
       (err) => {
         if (err) {
@@ -70,7 +72,7 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <div className={`panel ${classes.mainpanel}`}>
+      <form className={`panel ${classes.mainpanel}`}>
         {/* <img alt="nice logo" className={classes.logo} src={Logo} /> */}
         <input
           name="username"
@@ -82,7 +84,7 @@ export class Login extends React.Component {
         <a href="#" className="btn" onClick={this.login}>
           Sign in
         </a>
-      </div>
+      </form>
     )
   }
 }
