@@ -19,7 +19,8 @@ export class Login extends React.Component {
       popup: false,
       responseType: auth.responseType,
       scope: auth.scope,
-      redirect: true
+      redirect: true,
+      realm: ''
     }
     this.redirectUri = null
     this.state = {
