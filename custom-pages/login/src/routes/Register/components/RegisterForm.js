@@ -1,40 +1,18 @@
 import React from 'react'
-import auth0 from 'auth0-js'
-import { auth } from '../../../services/constants'
 // import Logo from '../assets/logo.png'
+import AuthApi from '../../../services/AuthApi'
 import classes from './RegisterForm.css'
 
 export class Register extends React.Component {
   constructor(props) {
     super(props)
-    this.auth0 = new auth0.WebAuth({
-      domain: auth.domain,
-      clientID: auth.clientID,
-      // redirectUri: '',
-      scope: auth.scope
-    })
+    this.auth = new AuthApi()
   }
 
   doSomething = (e) => {
     e.preventDefault()
     console.log('button pressed')
-    this.auth0.signup(
-      {
-        connection: '',
-        email: 'EMAIL@email.com',
-        password: 'PASSWORD123',
-        user_metadata: {
-          title: 'Mr.',
-          name: 'silver',
-          surname: 'thisisasurname',
-          allowContactMe: 'true'
-        }
-      },
-      (err) => {
-        if (err) return console.error(`Something went wrong: ${err.message}`)
-        return console.log('success signup without login!')
-      }
-    )
+    this.auth.register()
   }
   render() {
     return (
@@ -44,12 +22,6 @@ export class Register extends React.Component {
         <input name="confirmEmail" type="email" placeholder="eg: your.name@example.com..." />
         <input name="password" type="password" />
         <input name="confirmPassword" type="password" />
-        <select>
-          <option value="null">Select a Title...</option>
-          <option value="Mr">Mr.</option>
-          <option value="Mrs">Mrs.</option>
-          <option value="Miss">Miss</option>
-        </select>
         <input name="name" />
         <input name="surname" />
         <h4>Cookies will be used in the following ways:</h4>
