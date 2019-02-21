@@ -14,8 +14,6 @@ export class Login extends React.Component {
       clientID: auth.clientID,
       plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
-      // audience: '',
-      // responseMode: 'query',
       popup: false,
       responseType: auth.responseType,
       scope: auth.scope,
@@ -44,18 +42,15 @@ export class Login extends React.Component {
   login = (e) => {
     e.preventDefault()
     const { username, password } = this.state
-    console.log(username, password, this.redirectUri)
     this.auth0.login(
-      // this.auth0.login(
       {
-        realm: 'Username-Password-Authentication',
-        // redirectUri: this.redirectURI
+        realm: auth.connection,
         username,
         password
       },
       (err) => {
         if (err) {
-          console.error('could not login')
+          console.error('could not login due to: ', err)
           return false
         }
         console.log('I am in, it should redirect')
