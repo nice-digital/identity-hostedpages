@@ -15,13 +15,13 @@ export class Login extends React.Component {
       plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       audience: '',
-      responseMode: '',
+      responseMode: 'query',
       popup: false,
       responseType: auth.responseType,
-      scope: auth.scope
+      scope: auth.scope,
+      redirect: true
     }
-    this.auth0 = new auth0.WebAuth(this.opts)
-    this.redirectURI = null
+    this.redirectUri = null
     this.state = {
       username: null,
       password: null
@@ -30,22 +30,29 @@ export class Login extends React.Component {
 
   componentDidMount() {
     const query = qs.parse(document.location.search, { ignoreQueryPrefix: true })
-    this.redirectURI = query.redirect_uri ? query.redirect_uri : document.location
+    this.redirectUri = query.redirect_uri ? query.redirect_uri : document.location.origin
+    this.auth0 = new auth0.WebAuth(this.opts)
   }
 
   login = (e) => {
     e.preventDefault()
     const { username, password } = this.state
-    this.auth0.authorize(
+    console.log(username, password, this.redirectUri)
+    // this.auth0.authorize(
+    this.auth0.client.login(
       {
         ...this.opts,
         redirectUri: this.redirectURI,
-        username,
-        password
+        username: 'alessio.fimognari@amido.com',
+        password: 'Password01!'
       },
       (err) => {
-        if (err) console.error('could not login')
-        console.log('I am in!')
+        if (err) {
+          console.error('could not login')
+          return false
+        }
+        console.log('I am in, it should redirect')
+        return true
       }
     )
   }
