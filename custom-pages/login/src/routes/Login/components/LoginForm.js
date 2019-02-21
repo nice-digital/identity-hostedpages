@@ -20,7 +20,8 @@ export class Login extends React.Component {
       responseType: auth.responseType,
       scope: auth.scope,
       redirect: true,
-      realm: ''
+      realm: 'Username-Password-Authentication',
+      connection: 'Username-Password-Authentication'
     }
     this.redirectUri = null
     this.state = {
@@ -40,7 +41,7 @@ export class Login extends React.Component {
     const { username, password } = this.state
     console.log(username, password, this.redirectUri)
     // this.auth0.authorize(
-    this.auth0.client.login(
+    this.auth0.login(
       {
         ...this.opts,
         redirectUri: this.redirectURI,
