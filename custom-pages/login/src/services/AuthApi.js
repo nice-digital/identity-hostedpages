@@ -3,6 +3,7 @@ import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
 import { auth as authOpts } from './constants'
 
 export default class AuthApi {
+  static instance = null
   constructor() {
     this.opts = {
       domain: authOpts.domain,
@@ -21,7 +22,7 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  static login(username, password) {
+  login(username, password) {
     this.instance.login(
       {
         realm: authOpts.connection,
@@ -39,7 +40,7 @@ export default class AuthApi {
     )
   }
 
-  static register(email, password, name, surname, allowContactMe) {
+  register(email, password, name, surname, allowContactMe) {
     this.instance.signup(
       {
         connection: authOpts.connection,
