@@ -40,7 +40,7 @@ export default class AuthApi {
   }
 
   static register(email, password, name, surname, allowContactMe) {
-    this.auth0.signup(
+    this.instance.signup(
       {
         connection: authOpts.connection,
         email,
