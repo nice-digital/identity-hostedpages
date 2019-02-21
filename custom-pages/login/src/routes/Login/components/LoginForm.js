@@ -50,8 +50,8 @@ export class Login extends React.Component {
       {
         realm: 'Username-Password-Authentication',
         // redirectUri: this.redirectURI
-        // username,
-        // password
+        username,
+        password
       },
       (err) => {
         if (err) {
