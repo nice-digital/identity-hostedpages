@@ -21,6 +21,12 @@ export class Login extends React.Component {
       scope: auth.scope,
       // redirect: true
     }
+    // const config = document.location.origin.includes('localhost') ? {} : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
+    // eslint-disable-next-line
+    config.extraParams = config && config.extraParams || {}
+    // eslint-disable-next-line
+    const params = Object.assign(this.opts, config.internalOptions)
+    this.auth0 = new auth0.WebAuth(params)
     this.redirectUri = null
     this.state = {
       username: null,
@@ -31,10 +37,6 @@ export class Login extends React.Component {
   componentDidMount() {
     const query = qs.parse(document.location.search, { ignoreQueryPrefix: true })
     this.redirectUri = query.redirect_uri ? query.redirect_uri : document.location.origin
-    const config = document.location.origin.includes('localhost') ? {} : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
-    config.extraParams = config.extraParams || {}
-    const params = Object.assign(this.opts, config.internalOptions)
-    this.auth0 = new auth0.WebAuth(params)
   }
 
   login = (e) => {
