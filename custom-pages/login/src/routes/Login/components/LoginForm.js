@@ -1,7 +1,7 @@
 import React from 'react'
 import auth0 from 'auth0-js'
 import qs from 'qs'
-// import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
+import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
 // import Logo from '../assets/logo.png'
 import { auth } from '../../../services/constants'
 import classes from './LoginForm.css'
@@ -12,11 +12,11 @@ export class Login extends React.Component {
     this.opts = {
       domain: auth.domain,
       clientID: auth.clientID,
-      // plugins: [new CordovaAuth0Plugin()],
-      // leeway: 1,
+      plugins: [new CordovaAuth0Plugin()],
+      leeway: 1,
       // audience: '',
       // responseMode: 'query',
-      // popup: false,
+      popup: false,
       responseType: auth.responseType,
       scope: auth.scope,
       redirect: true
@@ -45,11 +45,11 @@ export class Login extends React.Component {
     e.preventDefault()
     const { username, password } = this.state
     console.log(username, password, this.redirectUri)
-    this.auth0.authorize(
+    this.auth0.login(
       // this.auth0.login(
       {
-        // realm: 'Username-Password-Authentication',
-        redirectUri: this.redirectURI
+        realm: 'Username-Password-Authentication',
+        // redirectUri: this.redirectURI
         // username,
         // password
       },
