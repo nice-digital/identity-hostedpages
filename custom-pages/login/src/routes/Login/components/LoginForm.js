@@ -21,7 +21,6 @@ export class Login extends React.Component {
       scope: auth.scope,
       redirect: true,
       realm: 'Username-Password-Authentication',
-      connection: 'Username-Password-Authentication'
     }
     this.redirectUri = null
     this.state = {
