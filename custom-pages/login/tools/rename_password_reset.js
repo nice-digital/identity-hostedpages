@@ -13,4 +13,4 @@ const fs = require('fs-extra')
  * Copies static files such as robots.txt, favicon.ico to the
  * output (build) folder.
  */
-module.exports = task('rename_error', fs.copy('./build/error_page.html', '../pages/error_page.html'))
+module.exports = task('rename_error', fs.copy('./build/password_reset.html', '../pages/password_reset.html'))
