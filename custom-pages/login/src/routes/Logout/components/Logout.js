@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthApi from '../../services/AuthApi'
+import AuthApi from '../../../services/AuthApi'
 
 const Logout = () => {
   AuthApi.logout()
