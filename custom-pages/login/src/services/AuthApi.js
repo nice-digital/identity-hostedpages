@@ -5,6 +5,8 @@ import { auth as authOpts } from './constants'
 export default class AuthApi {
   static instance = null
   constructor() {
+    // eslint-disable-next-line
+    config.extraParams = (config && config.extraParams) || {}
     this.opts = {
       domain: authOpts.domain,
       clientID: authOpts.clientID,
@@ -13,10 +15,14 @@ export default class AuthApi {
       popup: false,
       responseType: authOpts.responseType,
       scope: authOpts.scope,
-      redirect: true
+      redirect: true,
+      overrides: {
+        // eslint-disable-next-line
+        __tenant: config.auth0Tenant,
+        // eslint-disable-next-line
+        __token_issuer: config.authorizationServer.issuer
+      }
     }
-    // eslint-disable-next-line
-    config.extraParams = (config && config.extraParams) || {}
     // eslint-disable-next-line
     const params = Object.assign(this.opts, config.internalOptions)
     this.instance = new auth0.WebAuth(params)
