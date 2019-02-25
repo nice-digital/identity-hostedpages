@@ -62,4 +62,8 @@ export default class AuthApi {
       }
     )
   }
+
+  logout() {
+    this.instance.logout()
+  }
 }
