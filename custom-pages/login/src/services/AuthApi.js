@@ -16,12 +16,12 @@ export default class AuthApi {
       responseType: authOpts.responseType,
       scope: authOpts.scope,
       redirect: true,
-      overrides: {
-        // eslint-disable-next-line
-        __tenant: config.auth0Tenant,
-        // eslint-disable-next-line
-        __token_issuer: config.authorizationServer.issuer
-      }
+      // overrides: {
+      //   // eslint-disable-next-line
+      //   __tenant: config.auth0Tenant,
+      //   // eslint-disable-next-line
+      //   __token_issuer: config.authorizationServer.issuer
+      // }
     }
     // eslint-disable-next-line
     const params = Object.assign(this.opts, config.internalOptions)
