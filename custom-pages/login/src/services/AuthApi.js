@@ -64,6 +64,9 @@ export default class AuthApi {
   }
 
   logout() {
-    this.instance.logout()
+    this.instance.logout({
+      clientID: authOpts.clientID,
+      returnTo: authOpts.domain
+    })
   }
 }

@@ -2,7 +2,8 @@ import React from 'react'
 import AuthApi from '../../../services/AuthApi'
 
 const Logout = () => {
-  AuthApi.logout()
+  const instance = new AuthApi()
+  instance.logout()
   return <div> Logging out </div>
 }
 
