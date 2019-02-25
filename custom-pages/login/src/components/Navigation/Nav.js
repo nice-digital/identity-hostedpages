@@ -1,7 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
-import classes from './Nav.css'
+import classes from './Nav.scss'
 
 export const Navigation = () => (
   <div className={`${classes.navigation}`}>

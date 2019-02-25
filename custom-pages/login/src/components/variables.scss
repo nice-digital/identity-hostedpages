@@ -1,7 +1,11 @@
+@import "~@nice-digital/nds-forms/scss/forms";
+@import "~@nice-digital/nds-button/scss/button";
+@import "~@nice-digital/nds-panel/scss/panel";
+
 :root {
   --font-base: Lato, Helvetica, sans-serif;
   --gutter: 1.2rem;
-  --col-width: 50rem;
+  --col-width: 30rem;
   --top: 3.6rem;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 // import Logo from '../assets/logo.png'
 import AuthApi from '../../../services/AuthApi'
-import classes from './RegisterForm.css'
+import classes from './RegisterForm.scss'
 
 export class Register extends React.Component {
   constructor(props) {

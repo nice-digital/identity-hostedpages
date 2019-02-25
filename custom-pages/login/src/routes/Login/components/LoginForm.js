@@ -2,7 +2,7 @@ import React from 'react'
 import AuthApi from '../../../services/AuthApi'
 // import Logo from '../assets/logo.png'
 
-import classes from './LoginForm.css'
+import './LoginForm.scss'
 
 export class Login extends React.Component {
   constructor(props) {
@@ -28,16 +28,25 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <form className={`panel ${classes.mainpanel}`}>
+      <form className="panel mainpanel">
         {/* <img alt="nice logo" className={classes.logo} src={Logo} /> */}
-        <input
-          name="username"
-          type="email"
-          placeholder="eg: your.name@example.com..."
-          onChange={this.handleChange}
-        />
-        <input name="password" type="password" onChange={this.handleChange} />
-        <a href="#" className="btn" onClick={this.login}>
+        <label id="usernameLabel" htmlFor="username">
+          Username
+          <br />
+          <input
+            id="username"
+            name="username"
+            type="email"
+            placeholder="eg: your.name@example.com..."
+            onChange={this.handleChange}
+          />
+        </label>
+        <label htmlFor="password">
+          Password
+          <br />
+          <input name="password" type="password" onChange={this.handleChange} />
+        </label>
+        <a href="#" className="btn btn--cta" onClick={this.login}>
           Sign in
         </a>
       </form>
