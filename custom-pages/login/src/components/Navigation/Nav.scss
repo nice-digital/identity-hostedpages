@@ -7,8 +7,18 @@
 }
 
 .navigation{
-    text-align: center;
+    // text-align: center;
     width: var(--col-width);
+}
+
+.navigationLink{
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.navigation span{
+  padding-right: 5px;
 }
 
 .navigation a:hover{

@@ -1,0 +1,1157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register components should render <Register /> correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Register />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <label
+          htmlFor="email"
+          id="email"
+        >
+          Email
+          <br />
+          <input
+            name="email"
+            placeholder="eg: your.name@example.com..."
+            type="email"
+          />
+        </label>,
+        <label
+          htmlFor="confirmEmail"
+          id="confirmEmail"
+        >
+          Confirm Email
+          <br />
+          <input
+            name="confirmEmail"
+            placeholder="eg: your.name@example.com..."
+            type="email"
+          />
+        </label>,
+        <label
+          htmlFor="password"
+          id="password"
+        >
+          Password
+          <br />
+          <input
+            name="password"
+            type="password"
+          />
+        </label>,
+        <label
+          htmlFor="confirmPassword"
+          id="confirmPassword"
+        >
+          Confirm Password
+          <br />
+          <input
+            name="confirmPassword"
+            type="password"
+          />
+        </label>,
+        <label
+          htmlFor="name"
+          id="name"
+        >
+          Name
+          <br />
+          <input
+            name="name"
+          />
+        </label>,
+        <label
+          htmlFor="surname"
+          id="surname"
+        >
+          Surname
+          <br />
+          <input
+            name="surname"
+          />
+        </label>,
+        <ul>
+          <h6>
+            Cookies will be used in the fulowing ways:
+          </h6>
+          <li>
+            Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+          </li>
+          <li>
+            Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+          </li>
+        </ul>,
+        <label
+          className="checkbox"
+          htmlFor="allowContactMe"
+          id="allowContactMe"
+        >
+          The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community
+          <input
+            name="allowContactMe"
+            type="checkbox"
+            value="true"
+          />
+        </label>,
+        <label
+          className="checkbox"
+          htmlFor="tAndC"
+          id="tAndC"
+        >
+          By signing up, you agree to our terms of service and privacy policy.
+          <input
+            name="tAndC"
+            type="checkbox"
+            value="false"
+          />
+        </label>,
+        <h6>
+          The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+           
+          <a
+            href="#"
+          >
+            privacy notice
+          </a>
+        </h6>,
+        <button
+          className="btn btn--cta"
+          onClick={[Function]}
+        >
+          Sign up
+        </button>,
+      ],
+      "className": "panel mainpanel",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Email",
+            <br />,
+            <input
+              name="email"
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />,
+          ],
+          "htmlFor": "email",
+          "id": "email",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Email",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "email",
+              "placeholder": "eg: your.name@example.com...",
+              "type": "email",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Confirm Email",
+            <br />,
+            <input
+              name="confirmEmail"
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />,
+          ],
+          "htmlFor": "confirmEmail",
+          "id": "confirmEmail",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Confirm Email",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "confirmEmail",
+              "placeholder": "eg: your.name@example.com...",
+              "type": "email",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Password",
+            <br />,
+            <input
+              name="password"
+              type="password"
+            />,
+          ],
+          "htmlFor": "password",
+          "id": "password",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Password",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "password",
+              "type": "password",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Confirm Password",
+            <br />,
+            <input
+              name="confirmPassword"
+              type="password"
+            />,
+          ],
+          "htmlFor": "confirmPassword",
+          "id": "confirmPassword",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Confirm Password",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "confirmPassword",
+              "type": "password",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Name",
+            <br />,
+            <input
+              name="name"
+            />,
+          ],
+          "htmlFor": "name",
+          "id": "name",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Name",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "name",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Surname",
+            <br />,
+            <input
+              name="surname"
+            />,
+          ],
+          "htmlFor": "surname",
+          "id": "surname",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Surname",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "surname",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h6>
+              Cookies will be used in the fulowing ways:
+            </h6>,
+            <li>
+              Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+            </li>,
+            <li>
+              Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+            </li>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Cookies will be used in the fulowing ways:",
+            },
+            "ref": null,
+            "rendered": "Cookies will be used in the fulowing ways:",
+            "type": "h6",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+            },
+            "ref": null,
+            "rendered": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+            },
+            "ref": null,
+            "rendered": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
+            <input
+              name="allowContactMe"
+              type="checkbox"
+              value="true"
+            />,
+          ],
+          "className": "checkbox",
+          "htmlFor": "allowContactMe",
+          "id": "allowContactMe",
+        },
+        "ref": null,
+        "rendered": Array [
+          "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "allowContactMe",
+              "type": "checkbox",
+              "value": "true",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "By signing up, you agree to our terms of service and privacy policy.",
+            <input
+              name="tAndC"
+              type="checkbox"
+              value="false"
+            />,
+          ],
+          "className": "checkbox",
+          "htmlFor": "tAndC",
+          "id": "tAndC",
+        },
+        "ref": null,
+        "rendered": Array [
+          "By signing up, you agree to our terms of service and privacy policy.",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "tAndC",
+              "type": "checkbox",
+              "value": "false",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+            " ",
+            <a
+              href="#"
+            >
+              privacy notice
+            </a>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+          " ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "privacy notice",
+              "href": "#",
+            },
+            "ref": null,
+            "rendered": "privacy notice",
+            "type": "a",
+          },
+        ],
+        "type": "h6",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sign up",
+          "className": "btn btn--cta",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Sign up",
+        "type": "button",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <label
+            htmlFor="email"
+            id="email"
+          >
+            Email
+            <br />
+            <input
+              name="email"
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+          </label>,
+          <label
+            htmlFor="confirmEmail"
+            id="confirmEmail"
+          >
+            Confirm Email
+            <br />
+            <input
+              name="confirmEmail"
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+          </label>,
+          <label
+            htmlFor="password"
+            id="password"
+          >
+            Password
+            <br />
+            <input
+              name="password"
+              type="password"
+            />
+          </label>,
+          <label
+            htmlFor="confirmPassword"
+            id="confirmPassword"
+          >
+            Confirm Password
+            <br />
+            <input
+              name="confirmPassword"
+              type="password"
+            />
+          </label>,
+          <label
+            htmlFor="name"
+            id="name"
+          >
+            Name
+            <br />
+            <input
+              name="name"
+            />
+          </label>,
+          <label
+            htmlFor="surname"
+            id="surname"
+          >
+            Surname
+            <br />
+            <input
+              name="surname"
+            />
+          </label>,
+          <ul>
+            <h6>
+              Cookies will be used in the fulowing ways:
+            </h6>
+            <li>
+              Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+            </li>
+            <li>
+              Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+            </li>
+          </ul>,
+          <label
+            className="checkbox"
+            htmlFor="allowContactMe"
+            id="allowContactMe"
+          >
+            The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community
+            <input
+              name="allowContactMe"
+              type="checkbox"
+              value="true"
+            />
+          </label>,
+          <label
+            className="checkbox"
+            htmlFor="tAndC"
+            id="tAndC"
+          >
+            By signing up, you agree to our terms of service and privacy policy.
+            <input
+              name="tAndC"
+              type="checkbox"
+              value="false"
+            />
+          </label>,
+          <h6>
+            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+             
+            <a
+              href="#"
+            >
+              privacy notice
+            </a>
+          </h6>,
+          <button
+            className="btn btn--cta"
+            onClick={[Function]}
+          >
+            Sign up
+          </button>,
+        ],
+        "className": "panel mainpanel",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Email",
+              <br />,
+              <input
+                name="email"
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />,
+            ],
+            "htmlFor": "email",
+            "id": "email",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Email",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "email",
+                "placeholder": "eg: your.name@example.com...",
+                "type": "email",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Confirm Email",
+              <br />,
+              <input
+                name="confirmEmail"
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />,
+            ],
+            "htmlFor": "confirmEmail",
+            "id": "confirmEmail",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Confirm Email",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "confirmEmail",
+                "placeholder": "eg: your.name@example.com...",
+                "type": "email",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Password",
+              <br />,
+              <input
+                name="password"
+                type="password"
+              />,
+            ],
+            "htmlFor": "password",
+            "id": "password",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Password",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "password",
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Confirm Password",
+              <br />,
+              <input
+                name="confirmPassword"
+                type="password"
+              />,
+            ],
+            "htmlFor": "confirmPassword",
+            "id": "confirmPassword",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Confirm Password",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "confirmPassword",
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Name",
+              <br />,
+              <input
+                name="name"
+              />,
+            ],
+            "htmlFor": "name",
+            "id": "name",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Name",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "name",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Surname",
+              <br />,
+              <input
+                name="surname"
+              />,
+            ],
+            "htmlFor": "surname",
+            "id": "surname",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Surname",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "surname",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h6>
+                Cookies will be used in the fulowing ways:
+              </h6>,
+              <li>
+                Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+              </li>,
+              <li>
+                Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+              </li>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Cookies will be used in the fulowing ways:",
+              },
+              "ref": null,
+              "rendered": "Cookies will be used in the fulowing ways:",
+              "type": "h6",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+              },
+              "ref": null,
+              "rendered": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+              },
+              "ref": null,
+              "rendered": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
+              <input
+                name="allowContactMe"
+                type="checkbox"
+                value="true"
+              />,
+            ],
+            "className": "checkbox",
+            "htmlFor": "allowContactMe",
+            "id": "allowContactMe",
+          },
+          "ref": null,
+          "rendered": Array [
+            "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "allowContactMe",
+                "type": "checkbox",
+                "value": "true",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "By signing up, you agree to our terms of service and privacy policy.",
+              <input
+                name="tAndC"
+                type="checkbox"
+                value="false"
+              />,
+            ],
+            "className": "checkbox",
+            "htmlFor": "tAndC",
+            "id": "tAndC",
+          },
+          "ref": null,
+          "rendered": Array [
+            "By signing up, you agree to our terms of service and privacy policy.",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "tAndC",
+                "type": "checkbox",
+                "value": "false",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+              " ",
+              <a
+                href="#"
+              >
+                privacy notice
+              </a>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+            " ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "privacy notice",
+                "href": "#",
+              },
+              "ref": null,
+              "rendered": "privacy notice",
+              "type": "a",
+            },
+          ],
+          "type": "h6",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign up",
+            "className": "btn btn--cta",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Sign up",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

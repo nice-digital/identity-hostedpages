@@ -1,0 +1,339 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login components should render <Login /> correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        null,
+        <label
+          htmlFor="username"
+          id="usernameLabel"
+        >
+          Username
+          <br />
+          <input
+            id="username"
+            name="username"
+            onChange={[Function]}
+            placeholder="eg: your.name@example.com..."
+            type="email"
+          />
+        </label>,
+        <label
+          htmlFor="password"
+        >
+          Password
+          <br />
+          <input
+            name="password"
+            onChange={[Function]}
+            type="password"
+          />
+        </label>,
+        <button
+          className="btn btn--cta"
+          onClick={[Function]}
+        >
+          Sign in
+        </button>,
+      ],
+      "className": "panel mainpanel",
+    },
+    "ref": null,
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Username",
+            <br />,
+            <input
+              id="username"
+              name="username"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />,
+          ],
+          "htmlFor": "username",
+          "id": "usernameLabel",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Username",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "id": "username",
+              "name": "username",
+              "onChange": [Function],
+              "placeholder": "eg: your.name@example.com...",
+              "type": "email",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Password",
+            <br />,
+            <input
+              name="password"
+              onChange={[Function]}
+              type="password"
+            />,
+          ],
+          "htmlFor": "password",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Password",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "password",
+              "onChange": [Function],
+              "type": "password",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sign in",
+          "className": "btn btn--cta",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Sign in",
+        "type": "button",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          null,
+          <label
+            htmlFor="username"
+            id="usernameLabel"
+          >
+            Username
+            <br />
+            <input
+              id="username"
+              name="username"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+          </label>,
+          <label
+            htmlFor="password"
+          >
+            Password
+            <br />
+            <input
+              name="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </label>,
+          <button
+            className="btn btn--cta"
+            onClick={[Function]}
+          >
+            Sign in
+          </button>,
+        ],
+        "className": "panel mainpanel",
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Username",
+              <br />,
+              <input
+                id="username"
+                name="username"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />,
+            ],
+            "htmlFor": "username",
+            "id": "usernameLabel",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Username",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "username",
+                "name": "username",
+                "onChange": [Function],
+                "placeholder": "eg: your.name@example.com...",
+                "type": "email",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Password",
+              <br />,
+              <input
+                name="password"
+                onChange={[Function]}
+                type="password"
+              />,
+            ],
+            "htmlFor": "password",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Password",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "password",
+                "onChange": [Function],
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign in",
+            "className": "btn btn--cta",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Sign in",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

@@ -1,19 +1,30 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { IndexLink, Link } from 'react-router'
-import classes from './Nav.scss'
+import './Nav.scss'
 
-export const Navigation = () => (
-  <div className={`${classes.navigation}`}>
-    <IndexLink to="/" activeClassName={classes.activeRoute}>
-      Login
-    </IndexLink>
-    {'  ·  '}
-    <Link to="/register" activeClassName={classes.activeRoute}>
-      Register
-    </Link>
-  </div>
-)
+export const Navigation = () => {
+  const register = window.location.href.indexOf('register') !== -1
+  return (
+    <div className="navigation">
+      {register ? (
+        <div className="navigationLink">
+          <span>Already have an NICE Account?</span>
+          <IndexLink to="/" activeClassName="activeRoute">
+            Sign in
+          </IndexLink>
+        </div>
+      ) : (
+        <div className="navigationLink">
+          <span>{'Don\'t have an NICE Account?'}</span>
+          <Link to="/register" activeClassName="activeRoute">
+            Sign up
+          </Link>
+        </div>
+      )}
+    </div>
+  )
+}
 
 // Navigation.propTypes = {
 //   children: PropTypes.element.isRequired

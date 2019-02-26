@@ -1,1 +1,29 @@
 @import '../../../components/variables.scss';
+
+.mainpanel {
+    display: flex;
+    flex-direction: column;
+    // width: 30%;
+    margin: auto;
+    min-width: var(--col-width);
+  }
+  
+  .btn{
+    width: auto;
+  }
+  
+  input{
+    width: 100%;
+  }
+
+  input[type=checkbox]{
+    width: auto;
+    position: absolute;
+    top: 4px;
+    left: -20px;
+  }
+
+  label .checkbox{
+    position: relative;
+    left: 1rem;
+  }

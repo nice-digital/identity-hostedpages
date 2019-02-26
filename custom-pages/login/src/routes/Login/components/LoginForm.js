@@ -10,14 +10,22 @@ export class Login extends React.Component {
     this.auth = new AuthApi()
     this.state = {
       username: null,
-      password: null
+      password: null,
+      error: null,
+      loading: false
     }
   }
 
-  login = (e) => {
+  login = async (e) => {
     e.preventDefault()
+    this.setState({ loading: true })
     const { username, password } = this.state
-    this.auth.login(username, password)
+    try {
+      await this.auth.login(username, password)
+      this.setState({ loading: false })
+    } catch (err) {
+      this.setState({ error: err.message, loading: false })
+    }
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -29,6 +37,7 @@ export class Login extends React.Component {
   render() {
     return (
       <form className="panel mainpanel">
+        {this.state.error && <div>{this.state.error}</div>}
         {/* <img alt="nice logo" className={classes.logo} src={Logo} /> */}
         <label id="usernameLabel" htmlFor="username">
           Username
@@ -46,9 +55,13 @@ export class Login extends React.Component {
           <br />
           <input name="password" type="password" onChange={this.handleChange} />
         </label>
-        <a href="#" className="btn btn--cta" onClick={this.login}>
-          Sign in
-        </a>
+        {!this.state.loading ? (
+          <button className="btn btn--cta" onClick={this.login}>
+            Sign in
+          </button>
+        ) : (
+          'Loading...'
+        )}
       </form>
     )
   }

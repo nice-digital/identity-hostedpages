@@ -109,7 +109,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+      "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
     }
   }
 }
