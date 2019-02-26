@@ -7,9 +7,11 @@
     "npm": ">=3.10"
   },
   "dependencies": {
-    "@nice-digital/design-system": "^1.0.3-alpha.0",
-    "@nice-digital/nds-alert": "^1.0.4-alpha.0",
-    "@nice-digital/nds-forms": "^1.0.4-alpha.0",
+    "@babel/runtime": "^7.3.4",
+    "@nice-digital/design-system": "1.0.5-alpha.0",
+    "@nice-digital/nds-alert": "1.0.4-alpha.0",
+    "@nice-digital/nds-core": "1.0.3-alpha.0",
+    "@nice-digital/nds-forms": "1.0.6-alpha.0",
     "auth0-js": "^9.10.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",

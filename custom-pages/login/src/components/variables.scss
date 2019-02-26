@@ -17,30 +17,17 @@ body {
   background-color: #fff;
 }
 
-.panel {
-  background-color: #fff;
-}
-
-label {
-  margin-bottom: 1rem;
-  color: #666;
-}
-
-input {
-  border: 2px solid #000;
-  height: 2.2rem;
-}
-
-input[type="checkbox"] {
-  border: none;
-}
-
-li {
-  list-style-type: none;
-}
-
 .btn {
   width: 100px !important;
   text-align: center !important;
   margin: 0 !important;
+}
+
+legend{
+  border: none !important;
+  width: auto !important;
+}
+
+label{
+  color: #666 !important;
 }

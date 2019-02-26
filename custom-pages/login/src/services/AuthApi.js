@@ -30,7 +30,7 @@ export default class AuthApi {
   }
 
   login(username, password) {
-    this.instance.login(
+    return this.instance.login(
       {
         realm: authOpts.connection,
         username,
@@ -40,7 +40,7 @@ export default class AuthApi {
         if (err) {
           console.error('could not login due to: ', err.message)
           if (!err.message) {
-            err.message = 'could not login'
+            err.message = 'Invalid username or password'
           }
           throw new Error(err.message)
         }
@@ -50,7 +50,7 @@ export default class AuthApi {
   }
 
   register(email, password, name, surname, allowContactMe) {
-    this.instance.signup(
+    return this.instance.signup(
       {
         connection: authOpts.connection,
         email,

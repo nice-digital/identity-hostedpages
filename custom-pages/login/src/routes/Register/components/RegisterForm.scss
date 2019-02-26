@@ -1,29 +1,26 @@
-@import '../../../components/variables.scss';
+@import "../../../components/variables.scss";
 
 .mainpanel {
-    display: flex;
-    flex-direction: column;
-    // width: 30%;
-    margin: auto;
-    min-width: calc(var(--col-width) -10rem);
-  }
-  
-  .btn{
-    width: auto;
-  }
-  
-  input{
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-width: calc(var(--col-width) -10rem);
+}
 
-  input[type=checkbox]{
-    width: auto;
-    position: absolute;
-    top: 4px;
-    left: -20px;
-  }
+ul{
+  margin-bottom: 1.5rem;
+}
 
-  label .checkbox{
-    position: relative;
-    left: 1rem;
-  }
+li {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: .6rem;
+}
+
+.checkboxFieldset legend{
+  margin-bottom: 0;
+}
+
+.checkboxFieldset label{
+  padding-left: 0;
+}
