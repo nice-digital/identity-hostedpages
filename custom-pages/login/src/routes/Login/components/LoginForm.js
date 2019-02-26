@@ -16,12 +16,12 @@ export class Login extends React.Component {
     }
   }
 
-  login = async (e) => {
+  login = (e) => {
     e.preventDefault()
     this.setState({ loading: true })
     const { username, password } = this.state
     try {
-      await this.auth.login(username, password)
+      this.auth.login(username, password)
       this.setState({ loading: false })
     } catch (err) {
       this.setState({ error: err.message, loading: false })

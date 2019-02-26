@@ -5,7 +5,7 @@
     flex-direction: column;
     // width: 30%;
     margin: auto;
-    min-width: var(--col-width);
+    min-width: calc(var(--col-width) -10rem);
   }
   
   .btn{

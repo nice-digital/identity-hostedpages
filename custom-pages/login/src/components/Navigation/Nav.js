@@ -9,6 +9,7 @@ export const Navigation = () => {
     <div className="navigation">
       {register ? (
         <div className="navigationLink">
+          <h3> Register </h3>
           <span>Already have an NICE Account?</span>
           <IndexLink to="/" activeClassName="activeRoute">
             Sign in
@@ -16,6 +17,7 @@ export const Navigation = () => {
         </div>
       ) : (
         <div className="navigationLink">
+          <h3> Log in </h3>
           <span>{'Don\'t have an NICE Account?'}</span>
           <Link to="/register" activeClassName="activeRoute">
             Sign up

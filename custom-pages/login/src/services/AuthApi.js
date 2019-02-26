@@ -39,10 +39,12 @@ export default class AuthApi {
       (err) => {
         if (err) {
           console.error('could not login due to: ', err.message)
-          return false
+          if (!err.message) {
+            err.message = 'could not login'
+          }
+          throw new Error(err.message)
         }
         console.log('I am in, it should redirect')
-        return true
       }
     )
   }
