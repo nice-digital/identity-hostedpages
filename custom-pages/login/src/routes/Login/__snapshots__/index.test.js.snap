@@ -16,195 +16,64 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        null,
-        <label
-          htmlFor="username"
-          id="usernameLabel"
+      "children": <Fieldset
+        legend="Personal Information"
+      >
+        <Input
+          id="username"
+          label="Username"
+          name="username"
+          onChange={[Function]}
+          placeholder="eg: your.name@example.com..."
+          type="email"
+        />
+        <Input
+          label="Password"
+          name="password"
+          onChange={[Function]}
+          type="password"
+        />
+        <button
+          className="btn btn--cta"
+          disabled={true}
+          onClick={[Function]}
         >
-          Username
-          <br />
-          <input
+          Sign in
+        </button>
+      </Fieldset>,
+      "className": "",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          null,
+          <Input
             id="username"
+            label="Username"
             name="username"
             onChange={[Function]}
             placeholder="eg: your.name@example.com..."
             type="email"
-          />
-        </label>,
-        <label
-          htmlFor="password"
-        >
-          Password
-          <br />
-          <input
+          />,
+          <Input
+            label="Password"
             name="password"
             onChange={[Function]}
             type="password"
-          />
-        </label>,
-        <button
-          className="btn btn--cta"
-          onClick={[Function]}
-        >
-          Sign in
-        </button>,
-      ],
-      "className": "panel mainpanel",
-    },
-    "ref": null,
-    "rendered": Array [
-      null,
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            "Username",
-            <br />,
-            <input
-              id="username"
-              name="username"
-              onChange={[Function]}
-              placeholder="eg: your.name@example.com..."
-              type="email"
-            />,
-          ],
-          "htmlFor": "username",
-          "id": "usernameLabel",
-        },
-        "ref": null,
-        "rendered": Array [
-          "Username",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": "br",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "id": "username",
-              "name": "username",
-              "onChange": [Function],
-              "placeholder": "eg: your.name@example.com...",
-              "type": "email",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "input",
-          },
-        ],
-        "type": "label",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            "Password",
-            <br />,
-            <input
-              name="password"
-              onChange={[Function]}
-              type="password"
-            />,
-          ],
-          "htmlFor": "password",
-        },
-        "ref": null,
-        "rendered": Array [
-          "Password",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": "br",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "name": "password",
-              "onChange": [Function],
-              "type": "password",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "input",
-          },
-        ],
-        "type": "label",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Sign in",
-          "className": "btn btn--cta",
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": "Sign in",
-        "type": "button",
-      },
-    ],
-    "type": "form",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          null,
-          <label
-            htmlFor="username"
-            id="usernameLabel"
-          >
-            Username
-            <br />
-            <input
-              id="username"
-              name="username"
-              onChange={[Function]}
-              placeholder="eg: your.name@example.com..."
-              type="email"
-            />
-          </label>,
-          <label
-            htmlFor="password"
-          >
-            Password
-            <br />
-            <input
-              name="password"
-              onChange={[Function]}
-              type="password"
-            />
-          </label>,
+          />,
           <button
             className="btn btn--cta"
+            disabled={true}
             onClick={[Function]}
           >
             Sign in
           </button>,
         ],
-        "className": "panel mainpanel",
+        "legend": "Personal Information",
       },
       "ref": null,
       "rendered": Array [
@@ -212,95 +81,32 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
-            "children": Array [
-              "Username",
-              <br />,
-              <input
-                id="username"
-                name="username"
-                onChange={[Function]}
-                placeholder="eg: your.name@example.com..."
-                type="email"
-              />,
-            ],
-            "htmlFor": "username",
-            "id": "usernameLabel",
+            "id": "username",
+            "label": "Username",
+            "name": "username",
+            "onChange": [Function],
+            "placeholder": "eg: your.name@example.com...",
+            "type": "email",
           },
           "ref": null,
-          "rendered": Array [
-            "Username",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {},
-              "ref": null,
-              "rendered": null,
-              "type": "br",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "id": "username",
-                "name": "username",
-                "onChange": [Function],
-                "placeholder": "eg: your.name@example.com...",
-                "type": "email",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": "input",
-            },
-          ],
-          "type": "label",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
-            "children": Array [
-              "Password",
-              <br />,
-              <input
-                name="password"
-                onChange={[Function]}
-                type="password"
-              />,
-            ],
-            "htmlFor": "password",
+            "label": "Password",
+            "name": "password",
+            "onChange": [Function],
+            "type": "password",
           },
           "ref": null,
-          "rendered": Array [
-            "Password",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {},
-              "ref": null,
-              "rendered": null,
-              "type": "br",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "name": "password",
-                "onChange": [Function],
-                "type": "password",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": "input",
-            },
-          ],
-          "type": "label",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -309,6 +115,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Sign in",
             "className": "btn btn--cta",
+            "disabled": true,
             "onClick": [Function],
           },
           "ref": null,
@@ -316,6 +123,125 @@ ShallowWrapper {
           "type": "button",
         },
       ],
+      "type": [Function],
+    },
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Fieldset
+          legend="Personal Information"
+        >
+          <Input
+            id="username"
+            label="Username"
+            name="username"
+            onChange={[Function]}
+            placeholder="eg: your.name@example.com..."
+            type="email"
+          />
+          <Input
+            label="Password"
+            name="password"
+            onChange={[Function]}
+            type="password"
+          />
+          <button
+            className="btn btn--cta"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </Fieldset>,
+        "className": "",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            null,
+            <Input
+              id="username"
+              label="Username"
+              name="username"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />,
+            <Input
+              label="Password"
+              name="password"
+              onChange={[Function]}
+              type="password"
+            />,
+            <button
+              className="btn btn--cta"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>,
+          ],
+          "legend": "Personal Information",
+        },
+        "ref": null,
+        "rendered": Array [
+          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "id": "username",
+              "label": "Username",
+              "name": "username",
+              "onChange": [Function],
+              "placeholder": "eg: your.name@example.com...",
+              "type": "email",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "label": "Password",
+              "name": "password",
+              "onChange": [Function],
+              "type": "password",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign in",
+              "className": "btn btn--cta",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Sign in",
+            "type": "button",
+          },
+        ],
+        "type": [Function],
+      },
       "type": "form",
     },
   ],

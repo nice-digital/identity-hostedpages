@@ -19,6 +19,9 @@ ShallowWrapper {
       "children": <div
         className="navigationLink"
       >
+        <h3>
+           Log in 
+        </h3>
         <span>
           Don't have an NICE Account?
         </span>
@@ -40,6 +43,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <h3>
+             Log in 
+          </h3>,
           <span>
             Don't have an NICE Account?
           </span>,
@@ -56,6 +62,17 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Log in ",
+          },
+          "ref": null,
+          "rendered": " Log in ",
+          "type": "h3",
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -96,6 +113,9 @@ ShallowWrapper {
         "children": <div
           className="navigationLink"
         >
+          <h3>
+             Log in 
+          </h3>
           <span>
             Don't have an NICE Account?
           </span>
@@ -117,6 +137,9 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <h3>
+               Log in 
+            </h3>,
             <span>
               Don't have an NICE Account?
             </span>,
@@ -133,6 +156,17 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": " Log in ",
+            },
+            "ref": null,
+            "rendered": " Log in ",
+            "type": "h3",
+          },
           Object {
             "instance": null,
             "key": undefined,

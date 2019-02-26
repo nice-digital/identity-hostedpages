@@ -23,7 +23,7 @@ ShallowWrapper {
           className="col"
         />,
         <div
-          className="mainContainer col"
+          className="mainContainer col rightCol"
         >
           <Navigation />
           <div />
@@ -53,7 +53,7 @@ ShallowWrapper {
             <Navigation />,
             <div />,
           ],
-          "className": "mainContainer col",
+          "className": "mainContainer col rightCol",
         },
         "ref": null,
         "rendered": Array [
@@ -92,7 +92,7 @@ ShallowWrapper {
             className="col"
           />,
           <div
-            className="mainContainer col"
+            className="mainContainer col rightCol"
           >
             <Navigation />
             <div />
@@ -122,7 +122,7 @@ ShallowWrapper {
               <Navigation />,
               <div />,
             ],
-            "className": "mainContainer col",
+            "className": "mainContainer col rightCol",
           },
           "ref": null,
           "rendered": Array [
