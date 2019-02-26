@@ -12,8 +12,12 @@ body {
 
 .col{
   height: 100%;
-  padding: 5rem;
+  padding: 3rem;
   width: var(--col-width);
+}
+
+.rightCol{
+  padding-top: 1.4rem !important;
 }
 
 .mainContainer {

@@ -7,7 +7,7 @@ import './Layout.scss'
 export const CoreLayout = ({ children }) => (
   <div className="wrapper">
     <Header className="col" />
-    <div className="mainContainer col">
+    <div className="mainContainer col rightCol">
       <Nav />
       {children}
     </div>
