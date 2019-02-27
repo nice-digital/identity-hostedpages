@@ -49,7 +49,7 @@ export default class AuthApi {
     )
   }
 
-  register(email, password, name, surname, allowContactMe) {
+  register(email, password, name, surname, allowContactMe, cb) {
     return this.instance.signup(
       {
         connection: authOpts.connection,
@@ -67,6 +67,9 @@ export default class AuthApi {
           return false
         }
         console.log('success signup without login!')
+        if (cb) {
+          cb()
+        }
         return true
       }
     )
