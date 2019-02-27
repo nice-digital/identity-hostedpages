@@ -1,7 +1,6 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
-// import Logo from '../assets/logo.png'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
 
@@ -29,47 +28,60 @@ export class Register extends React.Component {
     }
   }
 
-  doSomething = (e) => {
-    e.preventDefault()
+  getFirstErrorElement() {
+    const { errors } = this.state
+    const getElementWhenValueIsTrue = el => errors[el]
+    const elementName = Object.keys(errors).filter(getElementWhenValueIsTrue)[0]
+    return document.getElementsByName(elementName || 'email')[0]
+  }
+
+  register = (event) => {
+    event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
-    const allowContactMeString = allowContactMe
-      ? allowContactMe.toString()
-      : null
-    this.auth.register(
-      email,
-      password,
-      name,
-      surname,
-      allowContactMeString,
-      () => console.log('yeeeeeeaaaaahhhh')
-    )
+    if (this.isValidForSubmission()) {
+      this.auth.register(
+        email,
+        password,
+        name,
+        surname,
+        allowContactMe.toString(),
+        () => console.log('yeeeeeeaaaaahhhh') // if not automatically redirecting we will manually do so in this callback
+      )
+    } else {
+      this.getFirstErrorElement().scrollIntoView({ block: 'center' })
+    }
   }
 
-  handleCheckboxChange = (e) => {
+  handleCheckboxChange = (event) => {
     this.setState({
-      [e.target.name]: e.target.checked
+      [event.target.name]: event.target.checked
     })
   }
 
-  handleChange = (e) => {
+  handleChange = (event) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value
     })
   }
 
-  clearError = (e) => {
-    this.setState({ errors: { ...this.state.errors, [e.target.name]: false } })
+  clearError = (event) => {
+    this.setState({
+      errors: { ...this.state.errors, [event.target.name]: false }
+    })
   }
 
-  isValid = () => {
-    const { email, password, tAndC } = this.state
-    const isFormValid = !Object.keys(this.state.errors).reduce(
-      (acc, curr) => !!acc || this.state.errors[curr],
-      false
+  isValidForSubmission() {
+    const {
+      email, password, tAndC, name, surname, errors
+    } = this.state
+    const isErrors = Object.keys(errors).reduce(
+      (previousValue, nextElementName) =>
+        previousValue || errors[nextElementName],
+      false // use a positive (error=false) for a start value on the previousValue
     )
-    return isFormValid && email && password && tAndC
+    return email && password && name && surname && tAndC && !isErrors
   }
 
   validate = () => {
@@ -81,17 +93,28 @@ export class Register extends React.Component {
       name,
       surname
     } = this.state
-    const expression = /\S+@\S+\.\S+/
+
+    const tests = {
+      email: () => {
+        const emailRegex = /\S+@\S+\.\S+/
+        return email && !emailRegex.test(email.toLowerCase())
+      },
+      confirmEmail: () => confirmEmail && email && email !== confirmEmail,
+      password: () => password && password.length < 1,
+      confirmPassword: () =>
+        password && confirmPassword && confirmPassword !== password,
+      name: () => name && name.length > 100,
+      surname: () => surname && surname.length > 100
+    }
 
     this.setState({
       errors: {
-        email: email && !expression.test(email.toLowerCase()), // true
-        confirmEmail: confirmEmail && email && email !== confirmEmail,
-        password: password && password.length < 1,
-        confirmPassword:
-          password && confirmPassword && confirmPassword !== password,
-        name: name && name.length > 100,
-        surname: surname && surname.length > 100
+        email: tests.email(),
+        confirmEmail: tests.confirmEmail(),
+        password: tests.password(),
+        confirmPassword: tests.confirmPassword(),
+        name: tests.name(),
+        surname: tests.surname()
       }
     })
   }
@@ -104,7 +127,6 @@ export class Register extends React.Component {
           Your email address should be your work email address if you have one.
         </h6>
         <Fieldset legend="Personal Information">
-          {/* <img alt="nice logo" className={ classes.logo} src={Logo} /> */}
           <Input
             label="Email"
             name="email"
@@ -202,11 +224,7 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button
-            className="btn btn--cta"
-            onClick={e => this.doSomething(e)}
-            disabled={!this.isValid()}
-          >
+          <button className="btn btn--cta" onClick={e => this.register(e)}>
             Register
           </button>
         </Fieldset>
