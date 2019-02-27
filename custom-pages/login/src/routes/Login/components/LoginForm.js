@@ -1,53 +1,80 @@
 import React from 'react'
-import auth0 from 'auth0-js'
-import qs from 'qs'
+import Alert from '@nice-digital/nds-alert'
+import { Input, Fieldset } from '@nice-digital/nds-forms'
+import AuthApi from '../../../services/AuthApi'
 // import Logo from '../assets/logo.png'
-import { auth } from '../../../services/constants'
-import classes from './LoginForm.css'
+
+import './LoginForm.scss'
 
 export class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.auth0 = new auth0.WebAuth({
-      domain: auth.domain,
-      clientID: auth.clientID,
-      // redirectUri: '',
-    })
-      this.redirectURI = null
+    this.auth = new AuthApi()
+    this.state = {
+      username: null,
+      password: null,
+      error: null,
+      loading: false,
+      valid: false
+    }
   }
 
-  componentDidMount(){
-      const query = qs.parse(document.location.search, {ignoreQueryPrefix: true})
-      this.redirectURI = query.redirect_uri ? query.redirect_uri : document.location
-  }
-
-  doSomething = (e) => {
+  login = (e) => {
     e.preventDefault()
-    console.log('button pressed')
-    this.auth0.authorize(
-      {
-        responseType: auth.response_type,
-        username: 'alessio.fimognari@amido.com',
-        password: 'Password01!',
-        scope: auth.scope,
-        redirectUri: this.redirectURI
-      },
-      err => {
-          if(err) console.error('could not login')
-          console.log('I am in!')
+    this.setState({ loading: true }, () => {
+      const { username, password } = this.state
+      try {
+        this.auth.login(username, password)
+        this.setState({ loading: false })
+      } catch (err) {
+        this.setState({ error: err.message, loading: false })
       }
+    })
+  }
+
+  isValid() {
+    const { username, password } = this.state
+    this.setState({ valid: username && password })
+  }
+
+  handleChange = ({ target: { name, value } }) => {
+    this.setState(
+      {
+        [name]: value,
+        error: null
+      },
+      this.isValid
     )
   }
+
   render() {
+    const { error, loading, valid } = this.state
     return (
-      <div className={`panel ${classes.mainpanel}`}>
-        {/* <img alt="nice logo" className={classes.logo} src={Logo} /> */}
-        <input name="email" type="email" placeholder="eg: your.name@example.com..." />
-        <input name="password" type="password" />
-        <a href="#" className="btn" onClick={e => this.doSomething(e)}>
-          Sign in
-        </a>
-      </div>
+      <form className="">
+        <Fieldset legend="Personal Information">
+          {error && <Alert type="error">{error}</Alert>}
+          <Input
+            label="Username"
+            id="username"
+            name="username"
+            type="email"
+            placeholder="eg: your.name@example.com..."
+            onChange={this.handleChange}
+          />
+          <Input name="password" type="password" label="Password" onChange={this.handleChange} />
+          {!loading ? (
+            <button
+              className="btn btn--cta"
+              onClick={this.login}
+              disabled={!valid}
+            >
+              Sign in
+            </button>
+          ) : (
+            'Loading...'
+          )}
+        </Fieldset>
+      </form>
     )
   }
 }

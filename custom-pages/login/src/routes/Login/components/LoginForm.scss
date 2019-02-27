@@ -1,0 +1,17 @@
+@import '../../../components/variables.scss';
+
+.mainpanel {
+  display: flex;
+  flex-direction: column;
+  // width: 30%;
+  margin: auto;
+  min-width: calc(var(--col-width) -10rem);
+}
+
+// .btn{
+//   width: auto;
+// }
+
+// input{
+//   width: 100%;
+// }

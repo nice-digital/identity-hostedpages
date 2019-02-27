@@ -3,7 +3,9 @@
 exports[`Header components should render <Header /> correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Header />,
+  Symbol(enzyme.__unrendered__): <Header
+    className=""
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,22 +20,13 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h1>
-          NICE Accounts
+          NICE accounts
         </h1>,
-        <IndexLink
-          to="/"
-        >
-          Login
-        </IndexLink>,
-        " · ",
-        <Link
-          onlyActiveOnIndex={false}
-          style={Object {}}
-          to="/register"
-        >
-          Register
-        </Link>,
+        <h6>
+          A single sign-in for the different services offered by NICE.
+        </h6>,
       ],
+      "className": "",
     },
     "ref": null,
     "rendered": Array [
@@ -42,40 +35,22 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "NICE Accounts",
+          "children": "NICE accounts",
         },
         "ref": null,
-        "rendered": "NICE Accounts",
+        "rendered": "NICE accounts",
         "type": "h1",
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "host",
         "props": Object {
-          "activeClassName": undefined,
-          "children": "Login",
-          "to": "/",
+          "children": "A single sign-in for the different services offered by NICE.",
         },
         "ref": null,
-        "rendered": "Login",
-        "type": [Function],
-      },
-      " · ",
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "activeClassName": undefined,
-          "children": "Register",
-          "onlyActiveOnIndex": false,
-          "style": Object {},
-          "to": "/register",
-        },
-        "ref": null,
-        "rendered": "Register",
-        "type": [Function],
+        "rendered": "A single sign-in for the different services offered by NICE.",
+        "type": "h6",
       },
     ],
     "type": "div",
@@ -88,22 +63,13 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h1>
-            NICE Accounts
+            NICE accounts
           </h1>,
-          <IndexLink
-            to="/"
-          >
-            Login
-          </IndexLink>,
-          " · ",
-          <Link
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="/register"
-          >
-            Register
-          </Link>,
+          <h6>
+            A single sign-in for the different services offered by NICE.
+          </h6>,
         ],
+        "className": "",
       },
       "ref": null,
       "rendered": Array [
@@ -112,40 +78,22 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "NICE Accounts",
+            "children": "NICE accounts",
           },
           "ref": null,
-          "rendered": "NICE Accounts",
+          "rendered": "NICE accounts",
           "type": "h1",
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "host",
           "props": Object {
-            "activeClassName": undefined,
-            "children": "Login",
-            "to": "/",
+            "children": "A single sign-in for the different services offered by NICE.",
           },
           "ref": null,
-          "rendered": "Login",
-          "type": [Function],
-        },
-        " · ",
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "activeClassName": undefined,
-            "children": "Register",
-            "onlyActiveOnIndex": false,
-            "style": Object {},
-            "to": "/register",
-          },
-          "ref": null,
-          "rendered": "Register",
-          "type": [Function],
+          "rendered": "A single sign-in for the different services offered by NICE.",
+          "type": "h6",
         },
       ],
       "type": "div",
