@@ -34,8 +34,17 @@ export class Register extends React.Component {
     const {
       email, password, name, surname, allowContactMe
     } = this.state
-    this.auth.register(email, password, name, surname, allowContactMe, () =>
-      console.log('yeeeeeeaaaaahhhh'))
+    const allowContactMeString = allowContactMe
+      ? allowContactMe.toString()
+      : null
+    this.auth.register(
+      email,
+      password,
+      name,
+      surname,
+      allowContactMeString,
+      () => console.log('yeeeeeeaaaaahhhh')
+    )
   }
 
   handleCheckboxChange = (e) => {
@@ -76,7 +85,7 @@ export class Register extends React.Component {
 
     this.setState({
       errors: {
-        email: email && !expression.test(email.toLowerCase()),
+        email: email && !expression.test(email.toLowerCase()), // true
         confirmEmail: confirmEmail && email && email !== confirmEmail,
         password: password && password.length < 1,
         confirmPassword:
