@@ -29,7 +29,7 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  login(username, password, cb) {
+  login(username, password, errCallback) {
     this.instance.login(
       {
         realm: authOpts.connection,
@@ -38,8 +38,8 @@ export default class AuthApi {
       },
       (err) => {
         if (err) {
-          if (cb) {
-            setTimeout(() => cb('Invalid username or password'), 5)
+          if (errCallback) {
+            setTimeout(() => errCallback('Invalid username or password'), 5)
           }
           throw new Error(err)
         }
@@ -63,13 +63,12 @@ export default class AuthApi {
       },
       (err) => {
         if (err) {
-          console.error(`Something went wrong: ${err.message}`)
+          if (cb) {
+            cb()
+          }
           return false
         }
-        console.log('success signup without login!')
-        if (cb) {
-          cb()
-        }
+        document.location.hash = '#'
         return true
       }
     )

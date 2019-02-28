@@ -57,8 +57,7 @@ export class Register extends React.Component {
         password,
         name,
         surname,
-        allowContactMe.toString(),
-        () => console.log('yeeeeeeaaaaahhhh') // if not automatically redirecting we will manually do so in this callback
+        allowContactMe.toString()
       )
     } else {
       this.setState(
@@ -119,6 +118,7 @@ export class Register extends React.Component {
         return email && !emailRegex.test(email.toLowerCase())
       },
       confirmEmail: () => confirmEmail && email && email !== confirmEmail,
+      // At least 8 characters in length↵* Contain at least 3 of the following 4 types of characters:↵ * lower case letters (a-z)↵ * upper case letters (A-Z)↵ * numbers (i.e. 0-9)↵ * special characters (e.g. !@#$%^&*)
       password: () => password && password.length < 1,
       confirmPassword: () =>
         password && confirmPassword && confirmPassword !== password,

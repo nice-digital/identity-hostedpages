@@ -51,7 +51,7 @@ export class Login extends React.Component {
         <Fieldset legend="Personal Information">
           {error && <Alert type="error">{error}</Alert>}
           <Input
-            label="Username"
+            label="Email"
             id="username"
             name="username"
             type="email"

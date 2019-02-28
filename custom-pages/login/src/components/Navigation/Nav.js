@@ -18,9 +18,9 @@ export const Navigation = () => {
       ) : (
         <div className="navigationLink">
           <h3> Log in </h3>
-          <span>{'Don\'t have an NICE Account?'}</span>
+          <span>Need a NICE Account?</span>
           <Link to="/register" activeClassName="activeRoute">
-            Sign up
+            Create an account
           </Link>
         </div>
       )}
