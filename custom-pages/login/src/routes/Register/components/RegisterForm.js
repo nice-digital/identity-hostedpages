@@ -160,7 +160,7 @@ export class Register extends React.Component {
         <Fieldset legend="Personal Information">
           <div id="thereIsAnError">
             {showAlert && (
-              <Alert type="error">
+              <Alert type="error" aria-labelledby="error-summary-title">
                 <h5>There is a problem</h5>
                 <a
                   role="link"
@@ -183,6 +183,7 @@ export class Register extends React.Component {
             errorMessage="Please provide a valid email"
             onBlur={this.validate}
             onFocus={this.clearError}
+            aria-describedby="email-error"
           />
           <Input
             label="Confirm Email"
@@ -194,6 +195,7 @@ export class Register extends React.Component {
             errorMessage="Email fields do not match"
             onBlur={this.validate}
             onFocus={this.clearError}
+            aria-describedby="confirmEmail-error"
           />
           <Input
             name="password"
@@ -204,6 +206,7 @@ export class Register extends React.Component {
             errorMessage="Please provide a password"
             onBlur={this.validate}
             onFocus={this.clearError}
+            aria-describedby="password-error"
           />
           <Input
             name="confirmPassword"
@@ -214,6 +217,7 @@ export class Register extends React.Component {
             errorMessage="Password fields do not match"
             onBlur={this.validate}
             onFocus={this.clearError}
+            aria-describedby="confirmPassword-error"
           />
           <Input
             name="name"
@@ -223,6 +227,7 @@ export class Register extends React.Component {
             errorMessage="Name should not exceed 100 characters"
             onBlur={this.validate}
             onFocus={this.clearError}
+            aria-describedby="name-error"
           />
           <Input
             name="surname"
@@ -232,6 +237,7 @@ export class Register extends React.Component {
             errorMessage="Surname should not exceed 100 characters"
             onBlur={this.validate}
             onFocus={this.clearError}
+            aria-describedby="surname-error"
           />
           <ul>
             <h5>Cookies will be used in the following ways:</h5>
@@ -269,6 +275,7 @@ export class Register extends React.Component {
               checked={tAndC}
               onChange={this.handleCheckboxChange}
               error={errors.tAndC}
+              aria-describedby="tandc-error"
             />
           </Fieldset>
           <Alert>
