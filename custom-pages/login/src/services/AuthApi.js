@@ -41,7 +41,7 @@ export default class AuthApi {
           if (cb) {
             setTimeout(() => cb('Invalid username or password'))
           }
-          throw err
+          throw new Error(err)
         }
         console.log('I am in, it should redirect')
         return true
