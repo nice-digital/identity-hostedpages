@@ -20,7 +20,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Header
-          className="col"
+          className="col leftCol"
         />,
         <div
           className="mainContainer col rightCol"
@@ -38,7 +38,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "className": "col",
+          "className": "col leftCol",
         },
         "ref": null,
         "rendered": null,
@@ -89,7 +89,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Header
-            className="col"
+            className="col leftCol"
           />,
           <div
             className="mainContainer col rightCol"
@@ -107,7 +107,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "className": "col",
+            "className": "col leftCol",
           },
           "ref": null,
           "rendered": null,

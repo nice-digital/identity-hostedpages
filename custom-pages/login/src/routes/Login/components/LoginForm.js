@@ -23,12 +23,10 @@ export class Login extends React.Component {
     e.preventDefault()
     this.setState({ loading: true }, () => {
       const { username, password } = this.state
-      try {
-        this.auth.login(username, password)
-        this.setState({ loading: false })
-      } catch (err) {
-        this.setState({ error: err.message, loading: false })
-      }
+      this.auth
+        .login(username, password)
+        .then(() => this.setState({ loading: false }))
+        .catch(err => this.setState({ error: err.message, loading: false }))
     })
   }
 
@@ -61,7 +59,12 @@ export class Login extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
           />
-          <Input name="password" type="password" label="Password" onChange={this.handleChange} />
+          <Input
+            name="password"
+            type="password"
+            label="Password"
+            onChange={this.handleChange}
+          />
           {!loading ? (
             <button
               className="btn btn--cta"

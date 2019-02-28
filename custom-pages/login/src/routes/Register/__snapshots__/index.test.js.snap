@@ -23,7 +23,11 @@ ShallowWrapper {
         <Fieldset
           legend="Personal Information"
         >
+          <div
+            id="thereIsAnError"
+          />
           <Input
+            aria-describedby="email-error"
             error={false}
             errorMessage="Please provide a valid email"
             label="Email"
@@ -35,6 +39,7 @@ ShallowWrapper {
             type="email"
           />
           <Input
+            aria-describedby="confirmEmail-error"
             error={false}
             errorMessage="Email fields do not match"
             label="Confirm Email"
@@ -46,6 +51,7 @@ ShallowWrapper {
             type="email"
           />
           <Input
+            aria-describedby="password-error"
             error={false}
             errorMessage="Please provide a password"
             label="Password"
@@ -56,6 +62,7 @@ ShallowWrapper {
             type="password"
           />
           <Input
+            aria-describedby="confirmPassword-error"
             error={false}
             errorMessage="Password fields do not match"
             label="Confirm Password"
@@ -66,6 +73,7 @@ ShallowWrapper {
             type="password"
           />
           <Input
+            aria-describedby="name-error"
             error={false}
             errorMessage="Name should not exceed 100 characters"
             label="Name"
@@ -75,6 +83,7 @@ ShallowWrapper {
             onFocus={[Function]}
           />
           <Input
+            aria-describedby="surname-error"
             error={false}
             errorMessage="Surname should not exceed 100 characters"
             label="Surname"
@@ -110,7 +119,9 @@ ShallowWrapper {
             legend="Terms and conditions"
           >
             <Checkbox
+              aria-describedby="tandc-error"
               checked={false}
+              error={false}
               label="By signing up, you agree to our terms of service and privacy policy."
               name="tAndC"
               onChange={[Function]}
@@ -126,7 +137,6 @@ ShallowWrapper {
           </Alert>
           <button
             className="btn btn--cta"
-            disabled={true}
             onClick={[Function]}
           >
             Register
@@ -154,7 +164,11 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
+            <div
+              id="thereIsAnError"
+            />,
             <Input
+              aria-describedby="email-error"
               error={false}
               errorMessage="Please provide a valid email"
               label="Email"
@@ -166,6 +180,7 @@ ShallowWrapper {
               type="email"
             />,
             <Input
+              aria-describedby="confirmEmail-error"
               error={false}
               errorMessage="Email fields do not match"
               label="Confirm Email"
@@ -177,6 +192,7 @@ ShallowWrapper {
               type="email"
             />,
             <Input
+              aria-describedby="password-error"
               error={false}
               errorMessage="Please provide a password"
               label="Password"
@@ -187,6 +203,7 @@ ShallowWrapper {
               type="password"
             />,
             <Input
+              aria-describedby="confirmPassword-error"
               error={false}
               errorMessage="Password fields do not match"
               label="Confirm Password"
@@ -197,6 +214,7 @@ ShallowWrapper {
               type="password"
             />,
             <Input
+              aria-describedby="name-error"
               error={false}
               errorMessage="Name should not exceed 100 characters"
               label="Name"
@@ -206,6 +224,7 @@ ShallowWrapper {
               onFocus={[Function]}
             />,
             <Input
+              aria-describedby="surname-error"
               error={false}
               errorMessage="Surname should not exceed 100 characters"
               label="Surname"
@@ -241,7 +260,9 @@ ShallowWrapper {
               legend="Terms and conditions"
             >
               <Checkbox
+                aria-describedby="tandc-error"
                 checked={false}
+                error={false}
                 label="By signing up, you agree to our terms of service and privacy policy."
                 name="tAndC"
                 onChange={[Function]}
@@ -257,7 +278,6 @@ ShallowWrapper {
             </Alert>,
             <button
               className="btn btn--cta"
-              disabled={true}
               onClick={[Function]}
             >
               Register
@@ -270,8 +290,21 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": false,
+              "id": "thereIsAnError",
+            },
+            "ref": null,
+            "rendered": false,
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "aria-describedby": "email-error",
               "error": false,
               "errorMessage": "Please provide a valid email",
               "label": "Email",
@@ -291,6 +324,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "aria-describedby": "confirmEmail-error",
               "error": false,
               "errorMessage": "Email fields do not match",
               "label": "Confirm Email",
@@ -310,6 +344,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "aria-describedby": "password-error",
               "error": false,
               "errorMessage": "Please provide a password",
               "label": "Password",
@@ -328,6 +363,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "aria-describedby": "confirmPassword-error",
               "error": false,
               "errorMessage": "Password fields do not match",
               "label": "Confirm Password",
@@ -346,6 +382,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "aria-describedby": "name-error",
               "error": false,
               "errorMessage": "Name should not exceed 100 characters",
               "label": "Name",
@@ -363,6 +400,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "aria-describedby": "surname-error",
               "error": false,
               "errorMessage": "Surname should not exceed 100 characters",
               "label": "Surname",
@@ -466,30 +504,40 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": <Checkbox
-                checked={false}
-                label="By signing up, you agree to our terms of service and privacy policy."
-                name="tAndC"
-                onChange={[Function]}
-              />,
+              "children": Array [
+                null,
+                <Checkbox
+                  aria-describedby="tandc-error"
+                  checked={false}
+                  error={false}
+                  label="By signing up, you agree to our terms of service and privacy policy."
+                  name="tAndC"
+                  onChange={[Function]}
+                />,
+              ],
               "classNane": "checkboxFieldset",
               "legend": "Terms and conditions",
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "checked": false,
-                "label": "By signing up, you agree to our terms of service and privacy policy.",
-                "name": "tAndC",
-                "onChange": [Function],
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "aria-describedby": "tandc-error",
+                  "checked": false,
+                  "error": false,
+                  "label": "By signing up, you agree to our terms of service and privacy policy.",
+                  "name": "tAndC",
+                  "onChange": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
               },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
+            ],
             "type": [Function],
           },
           Object {
@@ -531,7 +579,6 @@ ShallowWrapper {
             "props": Object {
               "children": "Register",
               "className": "btn btn--cta",
-              "disabled": true,
               "onClick": [Function],
             },
             "ref": null,
@@ -557,7 +604,11 @@ ShallowWrapper {
           <Fieldset
             legend="Personal Information"
           >
+            <div
+              id="thereIsAnError"
+            />
             <Input
+              aria-describedby="email-error"
               error={false}
               errorMessage="Please provide a valid email"
               label="Email"
@@ -569,6 +620,7 @@ ShallowWrapper {
               type="email"
             />
             <Input
+              aria-describedby="confirmEmail-error"
               error={false}
               errorMessage="Email fields do not match"
               label="Confirm Email"
@@ -580,6 +632,7 @@ ShallowWrapper {
               type="email"
             />
             <Input
+              aria-describedby="password-error"
               error={false}
               errorMessage="Please provide a password"
               label="Password"
@@ -590,6 +643,7 @@ ShallowWrapper {
               type="password"
             />
             <Input
+              aria-describedby="confirmPassword-error"
               error={false}
               errorMessage="Password fields do not match"
               label="Confirm Password"
@@ -600,6 +654,7 @@ ShallowWrapper {
               type="password"
             />
             <Input
+              aria-describedby="name-error"
               error={false}
               errorMessage="Name should not exceed 100 characters"
               label="Name"
@@ -609,6 +664,7 @@ ShallowWrapper {
               onFocus={[Function]}
             />
             <Input
+              aria-describedby="surname-error"
               error={false}
               errorMessage="Surname should not exceed 100 characters"
               label="Surname"
@@ -644,7 +700,9 @@ ShallowWrapper {
               legend="Terms and conditions"
             >
               <Checkbox
+                aria-describedby="tandc-error"
                 checked={false}
+                error={false}
                 label="By signing up, you agree to our terms of service and privacy policy."
                 name="tAndC"
                 onChange={[Function]}
@@ -660,7 +718,6 @@ ShallowWrapper {
             </Alert>
             <button
               className="btn btn--cta"
-              disabled={true}
               onClick={[Function]}
             >
               Register
@@ -688,7 +745,11 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
+              <div
+                id="thereIsAnError"
+              />,
               <Input
+                aria-describedby="email-error"
                 error={false}
                 errorMessage="Please provide a valid email"
                 label="Email"
@@ -700,6 +761,7 @@ ShallowWrapper {
                 type="email"
               />,
               <Input
+                aria-describedby="confirmEmail-error"
                 error={false}
                 errorMessage="Email fields do not match"
                 label="Confirm Email"
@@ -711,6 +773,7 @@ ShallowWrapper {
                 type="email"
               />,
               <Input
+                aria-describedby="password-error"
                 error={false}
                 errorMessage="Please provide a password"
                 label="Password"
@@ -721,6 +784,7 @@ ShallowWrapper {
                 type="password"
               />,
               <Input
+                aria-describedby="confirmPassword-error"
                 error={false}
                 errorMessage="Password fields do not match"
                 label="Confirm Password"
@@ -731,6 +795,7 @@ ShallowWrapper {
                 type="password"
               />,
               <Input
+                aria-describedby="name-error"
                 error={false}
                 errorMessage="Name should not exceed 100 characters"
                 label="Name"
@@ -740,6 +805,7 @@ ShallowWrapper {
                 onFocus={[Function]}
               />,
               <Input
+                aria-describedby="surname-error"
                 error={false}
                 errorMessage="Surname should not exceed 100 characters"
                 label="Surname"
@@ -775,7 +841,9 @@ ShallowWrapper {
                 legend="Terms and conditions"
               >
                 <Checkbox
+                  aria-describedby="tandc-error"
                   checked={false}
+                  error={false}
                   label="By signing up, you agree to our terms of service and privacy policy."
                   name="tAndC"
                   onChange={[Function]}
@@ -791,7 +859,6 @@ ShallowWrapper {
               </Alert>,
               <button
                 className="btn btn--cta"
-                disabled={true}
                 onClick={[Function]}
               >
                 Register
@@ -804,8 +871,21 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": false,
+                "id": "thereIsAnError",
+              },
+              "ref": null,
+              "rendered": false,
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "aria-describedby": "email-error",
                 "error": false,
                 "errorMessage": "Please provide a valid email",
                 "label": "Email",
@@ -825,6 +905,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "aria-describedby": "confirmEmail-error",
                 "error": false,
                 "errorMessage": "Email fields do not match",
                 "label": "Confirm Email",
@@ -844,6 +925,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "aria-describedby": "password-error",
                 "error": false,
                 "errorMessage": "Please provide a password",
                 "label": "Password",
@@ -862,6 +944,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "aria-describedby": "confirmPassword-error",
                 "error": false,
                 "errorMessage": "Password fields do not match",
                 "label": "Confirm Password",
@@ -880,6 +963,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "aria-describedby": "name-error",
                 "error": false,
                 "errorMessage": "Name should not exceed 100 characters",
                 "label": "Name",
@@ -897,6 +981,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "aria-describedby": "surname-error",
                 "error": false,
                 "errorMessage": "Surname should not exceed 100 characters",
                 "label": "Surname",
@@ -1000,30 +1085,40 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": <Checkbox
-                  checked={false}
-                  label="By signing up, you agree to our terms of service and privacy policy."
-                  name="tAndC"
-                  onChange={[Function]}
-                />,
+                "children": Array [
+                  null,
+                  <Checkbox
+                    aria-describedby="tandc-error"
+                    checked={false}
+                    error={false}
+                    label="By signing up, you agree to our terms of service and privacy policy."
+                    name="tAndC"
+                    onChange={[Function]}
+                  />,
+                ],
                 "classNane": "checkboxFieldset",
                 "legend": "Terms and conditions",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "checked": false,
-                  "label": "By signing up, you agree to our terms of service and privacy policy.",
-                  "name": "tAndC",
-                  "onChange": [Function],
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "aria-describedby": "tandc-error",
+                    "checked": false,
+                    "error": false,
+                    "label": "By signing up, you agree to our terms of service and privacy policy.",
+                    "name": "tAndC",
+                    "onChange": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
                 },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
+              ],
               "type": [Function],
             },
             Object {
@@ -1065,7 +1160,6 @@ ShallowWrapper {
               "props": Object {
                 "children": "Register",
                 "className": "btn btn--cta",
-                "disabled": true,
                 "onClick": [Function],
               },
               "ref": null,
