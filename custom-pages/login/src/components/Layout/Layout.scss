@@ -1,26 +1,38 @@
-@import '../variables.scss';
+@import "../variables.scss";
 
 body {
   font-family: var(--font-base);
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.col{
+.col {
   height: 100%;
   padding: 3rem;
-  width: var(--col-width);
+  width: var(--col-width-desktop);
 }
 
-.rightCol{
+.rightCol {
   padding-top: 1.4rem !important;
 }
 
 .mainContainer {
   padding-top: var(--top);
-  min-width: var(--col-width);
+  min-width: var(--col-width-desktop);
+}
+
+@media (max-width: 700px) {
+  .leftCol {
+    display: none;
+  }
+  .rightCol{
+    width: var(--col-width-mobile)
+  }
+  .mainContainer {
+    min-width: var(--col-width-mobile);
+  }
 }

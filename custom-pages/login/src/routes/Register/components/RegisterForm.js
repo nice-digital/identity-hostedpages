@@ -1,7 +1,6 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
-// import Logo from '../assets/logo.png'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
 
@@ -24,43 +23,83 @@ export class Register extends React.Component {
         password: false,
         confirmPassword: false,
         name: false,
-        surname: false
-      }
+        surname: false,
+        tAndC: false
+      },
+      showAlert: false
     }
   }
 
-  doSomething = (e) => {
-    e.preventDefault()
+  // componentDidUpdate() {
+  //   if (this.state.showAlert) {
+  //     document
+  //       .getElementById('thereIsAnError')
+  //       .scrollIntoView({ block: 'center' })
+  //   }
+  // }
+
+  getFirstErrorElement() {
+    const { errors } = this.state
+    const getElementWhenValueIsTrue = el => errors[el]
+    const elementName = Object.keys(errors).filter(getElementWhenValueIsTrue)[0]
+    return document.getElementsByName(elementName || 'email')[0]
+  }
+
+  register = (event) => {
+    event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
-    this.auth.register(email, password, name, surname, allowContactMe, () =>
-      console.log('yeeeeeeaaaaahhhh'))
+    this.validate()
+    if (this.isValidForSubmission()) {
+      this.auth.register(
+        email,
+        password,
+        name,
+        surname,
+        allowContactMe.toString(),
+        () => console.log('yeeeeeeaaaaahhhh') // if not automatically redirecting we will manually do so in this callback
+      )
+    } else {
+      this.setState(
+        { showAlert: true },
+        document
+          .getElementById('thereIsAnError')
+          .scrollIntoView({ block: 'center' })
+      )
+    }
   }
 
-  handleCheckboxChange = (e) => {
+  handleCheckboxChange = (event) => {
     this.setState({
-      [e.target.name]: e.target.checked
+      [event.target.name]: event.target.checked,
+      errors: { ...this.state.errors, tAndC: false }
     })
   }
 
-  handleChange = (e) => {
+  handleChange = (event) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value
     })
   }
 
-  clearError = (e) => {
-    this.setState({ errors: { ...this.state.errors, [e.target.name]: false } })
+  clearError = (event) => {
+    this.setState({
+      errors: { ...this.state.errors, [event.target.name]: false },
+      showAlert: false
+    })
   }
 
-  isValid = () => {
-    const { email, password, tAndC } = this.state
-    const isFormValid = !Object.keys(this.state.errors).reduce(
-      (acc, curr) => !!acc || this.state.errors[curr],
-      false
+  isValidForSubmission() {
+    const {
+      email, password, tAndC, name, surname, errors
+    } = this.state
+    const isErrors = Object.keys(errors).reduce(
+      (previousValue, nextElementName) =>
+        previousValue || errors[nextElementName],
+      false // use a positive (error=false) for a start value on the previousValue
     )
-    return isFormValid && email && password && tAndC
+    return email && password && name && surname && tAndC && !isErrors
   }
 
   validate = () => {
@@ -70,32 +109,70 @@ export class Register extends React.Component {
       password,
       confirmPassword,
       name,
-      surname
+      surname,
+      tAndC
     } = this.state
-    const expression = /\S+@\S+\.\S+/
+
+    const tests = {
+      email: () => {
+        const emailRegex = /\S+@\S+\.\S+/
+        return email && !emailRegex.test(email.toLowerCase())
+      },
+      confirmEmail: () => confirmEmail && email && email !== confirmEmail,
+      password: () => password && password.length < 1,
+      confirmPassword: () =>
+        password && confirmPassword && confirmPassword !== password,
+      name: () => name && name.length > 100,
+      surname: () => surname && surname.length > 100,
+      tAndC: () => !tAndC
+    }
 
     this.setState({
       errors: {
-        email: email && !expression.test(email.toLowerCase()),
-        confirmEmail: confirmEmail && email && email !== confirmEmail,
-        password: password && password.length < 1,
-        confirmPassword:
-          password && confirmPassword && confirmPassword !== password,
-        name: name && name.length > 100,
-        surname: surname && surname.length > 100
+        email: tests.email(),
+        confirmEmail: tests.confirmEmail(),
+        password: tests.password(),
+        confirmPassword: tests.confirmPassword(),
+        name: tests.name(),
+        surname: tests.surname(),
+        tAndC: tests.tAndC()
       }
     })
   }
 
+  goToAlert = (e) => {
+    e.preventDefault()
+    this.getFirstErrorElement().scrollIntoView({
+      block: 'center'
+    })
+  }
+
   render() {
-    const { allowContactMe, tAndC, errors } = this.state
+    const {
+      allowContactMe, tAndC, errors, showAlert
+    } = this.state
+
     return (
       <form className="">
         <h6>
           Your email address should be your work email address if you have one.
         </h6>
         <Fieldset legend="Personal Information">
-          {/* <img alt="nice logo" className={ classes.logo} src={Logo} /> */}
+          <div id="thereIsAnError">
+            {showAlert && (
+              <Alert type="error">
+                <h5>There is a problem</h5>
+                <a
+                  role="link"
+                  tabIndex="0"
+                  onKeyPress={this.goToAlert}
+                  onClick={this.goToAlert}
+                >
+                  Click here to see the errors
+                </a>
+              </Alert>
+            )}
+          </div>
           <Input
             label="Email"
             name="email"
@@ -181,11 +258,17 @@ export class Register extends React.Component {
             />
           </Fieldset>
           <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
+            {errors.tAndC ? (
+              <Alert type="error">
+                You must accept Terms and Conditions to be able to register
+              </Alert>
+            ) : null}
             <Checkbox
               name="tAndC"
               label="By signing up, you agree to our terms of service and privacy policy."
               checked={tAndC}
               onChange={this.handleCheckboxChange}
+              error={errors.tAndC}
             />
           </Fieldset>
           <Alert>
@@ -193,11 +276,7 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button
-            className="btn btn--cta"
-            onClick={e => this.doSomething(e)}
-            disabled={!this.isValid()}
-          >
+          <button className="btn btn--cta" onClick={e => this.register(e)}>
             Register
           </button>
         </Fieldset>
