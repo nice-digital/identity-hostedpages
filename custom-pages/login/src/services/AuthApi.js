@@ -29,7 +29,7 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  login(username, password) {
+  async login(username, password) {
     return this.instance.login(
       {
         realm: authOpts.connection,
