@@ -38,12 +38,10 @@ export default class AuthApi {
       },
       (err) => {
         if (err) {
-          if (!err.message) {
-            err.message = 'Invalid username or password'
+          if (cb) {
+            setTimeout(() => cb('Invalid username or password'))
           }
-          console.log('error', err)
-          if (cb) cb(err)
-          return false
+          throw err
         }
         console.log('I am in, it should redirect')
         return true
