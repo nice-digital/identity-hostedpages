@@ -23,10 +23,20 @@ export class Register extends React.Component {
         password: false,
         confirmPassword: false,
         name: false,
-        surname: false
-      }
+        surname: false,
+        tAndC: false
+      },
+      showAlert: false
     }
   }
+
+  // componentDidUpdate() {
+  //   if (this.state.showAlert) {
+  //     document
+  //       .getElementById('thereIsAnError')
+  //       .scrollIntoView({ block: 'center' })
+  //   }
+  // }
 
   getFirstErrorElement() {
     const { errors } = this.state
@@ -40,6 +50,7 @@ export class Register extends React.Component {
     const {
       email, password, name, surname, allowContactMe
     } = this.state
+    this.validate()
     if (this.isValidForSubmission()) {
       this.auth.register(
         email,
@@ -50,13 +61,19 @@ export class Register extends React.Component {
         () => console.log('yeeeeeeaaaaahhhh') // if not automatically redirecting we will manually do so in this callback
       )
     } else {
-      this.getFirstErrorElement().scrollIntoView({ block: 'center' })
+      this.setState(
+        { showAlert: true },
+        document
+          .getElementById('thereIsAnError')
+          .scrollIntoView({ block: 'center' })
+      )
     }
   }
 
   handleCheckboxChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.checked
+      [event.target.name]: event.target.checked,
+      errors: { ...this.state.errors, tAndC: false }
     })
   }
 
@@ -68,7 +85,8 @@ export class Register extends React.Component {
 
   clearError = (event) => {
     this.setState({
-      errors: { ...this.state.errors, [event.target.name]: false }
+      errors: { ...this.state.errors, [event.target.name]: false },
+      showAlert: false
     })
   }
 
@@ -91,7 +109,8 @@ export class Register extends React.Component {
       password,
       confirmPassword,
       name,
-      surname
+      surname,
+      tAndC
     } = this.state
 
     const tests = {
@@ -104,7 +123,8 @@ export class Register extends React.Component {
       confirmPassword: () =>
         password && confirmPassword && confirmPassword !== password,
       name: () => name && name.length > 100,
-      surname: () => surname && surname.length > 100
+      surname: () => surname && surname.length > 100,
+      tAndC: () => !tAndC
     }
 
     this.setState({
@@ -114,19 +134,45 @@ export class Register extends React.Component {
         password: tests.password(),
         confirmPassword: tests.confirmPassword(),
         name: tests.name(),
-        surname: tests.surname()
+        surname: tests.surname(),
+        tAndC: tests.tAndC()
       }
     })
   }
 
+  goToAlert = (e) => {
+    e.preventDefault()
+    this.getFirstErrorElement().scrollIntoView({
+      block: 'center'
+    })
+  }
+
   render() {
-    const { allowContactMe, tAndC, errors } = this.state
+    const {
+      allowContactMe, tAndC, errors, showAlert
+    } = this.state
+
     return (
       <form className="">
         <h6>
           Your email address should be your work email address if you have one.
         </h6>
         <Fieldset legend="Personal Information">
+          <div id="thereIsAnError">
+            {showAlert && (
+              <Alert type="error">
+                <h5>There is a problem</h5>
+                <a
+                  role="link"
+                  tabIndex="0"
+                  onKeyPress={this.goToAlert}
+                  onClick={this.goToAlert}
+                >
+                  Click here to see the errors
+                </a>
+              </Alert>
+            )}
+          </div>
           <Input
             label="Email"
             name="email"
@@ -212,11 +258,17 @@ export class Register extends React.Component {
             />
           </Fieldset>
           <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
+            {errors.tAndC ? (
+              <Alert type="error">
+                You must accept Terms and Conditions to be able to register
+              </Alert>
+            ) : null}
             <Checkbox
               name="tAndC"
               label="By signing up, you agree to our terms of service and privacy policy."
               checked={tAndC}
               onChange={this.handleCheckboxChange}
+              error={errors.tAndC}
             />
           </Fieldset>
           <Alert>
