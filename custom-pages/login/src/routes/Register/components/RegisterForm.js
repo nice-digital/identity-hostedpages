@@ -120,8 +120,11 @@ export class Register extends React.Component {
         return email && !emailRegex.test(email.toLowerCase())
       },
       confirmEmail: () => confirmEmail && email && email !== confirmEmail,
-      // At least 8 characters in length↵* Contain at least 3 of the following 4 types of characters:↵ * lower case letters (a-z)↵ * upper case letters (A-Z)↵ * numbers (i.e. 0-9)↵ * special characters (e.g. !@#$%^&*)
-      password: () => password && password.length < 1,
+      password: () => {
+        // At least 8 characters in length↵* Contain at least 3 of the following 4 types of characters:↵ * lower case letters (a-z)↵ * upper case letters (A-Z)↵ * numbers (i.e. 0-9)↵ * special characters (e.g. !@#$%^&*)
+        const passwordRegex = /(?=.{8,})((?=.*\d)(?=.*[a-z])(?=.*[A-Z])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W!@#$%^&*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[\W!@#$%^&*])).*/
+        return password && !passwordRegex.test(password)
+      },
       confirmPassword: () =>
         password && confirmPassword && confirmPassword !== password,
       name: () => name && name.length > 100,
@@ -162,7 +165,11 @@ export class Register extends React.Component {
         <Fieldset legend="Personal Information">
           <div id="thereIsAnError">
             {showAlert && (
-              <Alert data-qa-sel="problem-alert-register" type="error" aria-labelledby="error-summary-title">
+              <Alert
+                data-qa-sel="problem-alert-register"
+                type="error"
+                aria-labelledby="error-summary-title"
+              >
                 <h5>There is a problem</h5>
                 <a
                   role="link"
@@ -208,7 +215,7 @@ export class Register extends React.Component {
             label="Password"
             onChange={this.handleChange}
             error={errors.password}
-            errorMessage="Please provide a password"
+            errorMessage="Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="password-error"
@@ -293,7 +300,11 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button data-qa-sel="Register-button" className="btn btn--cta" onClick={e => this.register(e)}>
+          <button
+            data-qa-sel="Register-button"
+            className="btn btn--cta"
+            onClick={e => this.register(e)}
+          >
             Register
           </button>
         </Fieldset>
