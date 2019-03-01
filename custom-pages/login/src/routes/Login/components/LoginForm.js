@@ -51,11 +51,11 @@ export class Login extends React.Component {
     const { error, loading, valid } = this.state
     return (
       <form className="">
-        <Fieldset legend="Personal Information">
+        <Fieldset legend="Personal information">
           {error && <Alert type="error">{error}</Alert>}
           <Input
             data-qa-sel="login-email"
-            label="Username"
+            label="Email"
             id="username"
             name="username"
             type="email"

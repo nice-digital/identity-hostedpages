@@ -17,12 +17,12 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <Fieldset
-        legend="Personal Information"
+        legend="Personal information"
       >
         <Input
           data-qa-sel="login-email"
           id="username"
-          label="Username"
+          label="Email"
           name="username"
           onChange={[Function]}
           placeholder="eg: your.name@example.com..."
@@ -57,7 +57,7 @@ ShallowWrapper {
           <Input
             data-qa-sel="login-email"
             id="username"
-            label="Username"
+            label="Email"
             name="username"
             onChange={[Function]}
             placeholder="eg: your.name@example.com..."
@@ -79,7 +79,7 @@ ShallowWrapper {
             Sign in
           </button>,
         ],
-        "legend": "Personal Information",
+        "legend": "Personal information",
       },
       "ref": null,
       "rendered": Array [
@@ -91,7 +91,7 @@ ShallowWrapper {
           "props": Object {
             "data-qa-sel": "login-email",
             "id": "username",
-            "label": "Username",
+            "label": "Email",
             "name": "username",
             "onChange": [Function],
             "placeholder": "eg: your.name@example.com...",
@@ -143,12 +143,12 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <Fieldset
-          legend="Personal Information"
+          legend="Personal information"
         >
           <Input
             data-qa-sel="login-email"
             id="username"
-            label="Username"
+            label="Email"
             name="username"
             onChange={[Function]}
             placeholder="eg: your.name@example.com..."
@@ -183,7 +183,7 @@ ShallowWrapper {
             <Input
               data-qa-sel="login-email"
               id="username"
-              label="Username"
+              label="Email"
               name="username"
               onChange={[Function]}
               placeholder="eg: your.name@example.com..."
@@ -205,7 +205,7 @@ ShallowWrapper {
               Sign in
             </button>,
           ],
-          "legend": "Personal Information",
+          "legend": "Personal information",
         },
         "ref": null,
         "rendered": Array [
@@ -217,7 +217,7 @@ ShallowWrapper {
             "props": Object {
               "data-qa-sel": "login-email",
               "id": "username",
-              "label": "Username",
+              "label": "Email",
               "name": "username",
               "onChange": [Function],
               "placeholder": "eg: your.name@example.com...",
