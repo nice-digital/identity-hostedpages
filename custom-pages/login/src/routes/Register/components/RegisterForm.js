@@ -2,7 +2,7 @@ import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
 // local imports
-import { showNav } from '../../../util'
+import { showNav, getFirstErrorElement, validateFields } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
 
@@ -32,28 +32,13 @@ export class Register extends React.Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   if (this.state.showAlert) {
-  //     document
-  //       .getElementById('thereIsAnError')
-  //       .scrollIntoView({ block: 'center' })
-  //   }
-  // }
-
-  getFirstErrorElement() {
-    const { errors } = this.state
-    const getElementWhenValueIsTrue = el => errors[el]
-    const elementName = Object.keys(errors).filter(getElementWhenValueIsTrue)[0]
-    return document.getElementsByName(elementName || 'email')[0]
-  }
-
   register = (event) => {
     event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
     this.validate()
-    if (this.isValidForSubmission()) {
+    if (this.isFormValidForSubmission()) {
       this.auth.register(
         email,
         password,
@@ -91,7 +76,7 @@ export class Register extends React.Component {
     })
   }
 
-  isValidForSubmission() {
+  isFormValidForSubmission() {
     const {
       email, password, tAndC, name, surname, errors
     } = this.state
@@ -104,34 +89,7 @@ export class Register extends React.Component {
   }
 
   validate = () => {
-    const {
-      email,
-      confirmEmail,
-      password,
-      confirmPassword,
-      name,
-      surname,
-      tAndC
-    } = this.state
-
-    const tests = {
-      email: () => {
-        const emailRegex = /\S+@\S+\.\S+/
-        return email && !emailRegex.test(email.toLowerCase())
-      },
-      confirmEmail: () => confirmEmail && email && email !== confirmEmail,
-      password: () => {
-        // At least 8 characters in length↵* Contain at least 3 of the following 4 types of characters:↵ * lower case letters (a-z)↵ * upper case letters (A-Z)↵ * numbers (i.e. 0-9)↵ * special characters (e.g. !@#$%^&*)
-        const passwordRegex = /(?=.{8,})((?=.*\d)(?=.*[a-z])(?=.*[A-Z])|(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W!@#$%^&*])|(?=.*[a-z])(?=.*[A-Z])(?=.*[\W!@#$%^&*])).*/
-        return password && !passwordRegex.test(password)
-      },
-      confirmPassword: () =>
-        password && confirmPassword && confirmPassword !== password,
-      name: () => name && name.length > 100,
-      surname: () => surname && surname.length > 100,
-      tAndC: () => !tAndC
-    }
-
+    const tests = validateFields(this.state)
     this.setState({
       errors: {
         email: tests.email(),
@@ -147,7 +105,7 @@ export class Register extends React.Component {
 
   goToAlert = (e) => {
     e.preventDefault()
-    this.getFirstErrorElement().scrollIntoView({
+    getFirstErrorElement(this.state.errors).scrollIntoView({
       block: 'center'
     })
   }
@@ -235,7 +193,7 @@ export class Register extends React.Component {
           <Input
             data-qa-sel="name-register"
             name="name"
-            label="Name"
+            label="First Name"
             onChange={this.handleChange}
             error={errors.name}
             errorMessage="Name should not exceed 100 characters"
@@ -246,7 +204,7 @@ export class Register extends React.Component {
           <Input
             data-qa-sel="surname-register"
             name="surname"
-            label="Surname"
+            label="Last Name"
             onChange={this.handleChange}
             error={errors.surname}
             errorMessage="Surname should not exceed 100 characters"
