@@ -54,7 +54,8 @@ export class Login extends React.Component {
         <Fieldset legend="Personal Information">
           {error && <Alert type="error">{error}</Alert>}
           <Input
-            label="Email"
+            data-qa-sel="login-email"
+            label="Username"
             id="username"
             name="username"
             type="email"
@@ -62,6 +63,7 @@ export class Login extends React.Component {
             onChange={this.handleChange}
           />
           <Input
+            data-qa-sel="login-password"
             name="password"
             type="password"
             label="Password"
@@ -69,6 +71,7 @@ export class Login extends React.Component {
           />
           {!loading ? (
             <button
+              data-qa-sel="login-button"
               className="btn btn--cta"
               onClick={this.login}
               disabled={!valid}

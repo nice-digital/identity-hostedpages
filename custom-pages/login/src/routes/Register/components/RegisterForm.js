@@ -162,7 +162,7 @@ export class Register extends React.Component {
         <Fieldset legend="Personal Information">
           <div id="thereIsAnError">
             {showAlert && (
-              <Alert type="error" aria-labelledby="error-summary-title">
+              <Alert data-qa-sel="problem-alert-register" type="error" aria-labelledby="error-summary-title">
                 <h5>There is a problem</h5>
                 <a
                   role="link"
@@ -176,6 +176,7 @@ export class Register extends React.Component {
             )}
           </div>
           <Input
+            data-qa-sel="email-register"
             label="Email"
             name="email"
             type="email"
@@ -188,6 +189,7 @@ export class Register extends React.Component {
             aria-describedby="email-error"
           />
           <Input
+            data-qa-sel="confirm-email-register"
             label="Confirm Email"
             name="confirmEmail"
             type="email"
@@ -200,6 +202,7 @@ export class Register extends React.Component {
             aria-describedby="confirmEmail-error"
           />
           <Input
+            data-qa-sel="password-register"
             name="password"
             type="password"
             label="Password"
@@ -211,6 +214,7 @@ export class Register extends React.Component {
             aria-describedby="password-error"
           />
           <Input
+            data-qa-sel="confirm-password-register"
             name="confirmPassword"
             type="password"
             label="Confirm Password"
@@ -222,6 +226,7 @@ export class Register extends React.Component {
             aria-describedby="confirmPassword-error"
           />
           <Input
+            data-qa-sel="name-register"
             name="name"
             label="Name"
             onChange={this.handleChange}
@@ -232,6 +237,7 @@ export class Register extends React.Component {
             aria-describedby="name-error"
           />
           <Input
+            data-qa-sel="surname-register"
             name="surname"
             label="Surname"
             onChange={this.handleChange}
@@ -257,6 +263,7 @@ export class Register extends React.Component {
             legend="Audience Insight Community - Get involved"
           >
             <Checkbox
+              data-qa-sel="ai-checkbox-register"
               name="allowContactMe"
               checked={allowContactMe}
               label="The Audience Insight Community helps NICE improve its products and
@@ -267,11 +274,12 @@ export class Register extends React.Component {
           </Fieldset>
           <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
             {errors.tAndC ? (
-              <Alert type="error">
+              <Alert data-qa-sel="tc-unchecked-error" type="error">
                 You must accept Terms and Conditions to be able to register
               </Alert>
             ) : null}
             <Checkbox
+              data-qa-sel="tc-checkbox-register"
               name="tAndC"
               label="By signing up, you agree to our terms of service and privacy policy."
               checked={tAndC}
@@ -285,7 +293,7 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button className="btn btn--cta" onClick={e => this.register(e)}>
+          <button data-qa-sel="Register-button" className="btn btn--cta" onClick={e => this.register(e)}>
             Register
           </button>
         </Fieldset>

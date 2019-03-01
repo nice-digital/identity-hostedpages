@@ -11,7 +11,7 @@ export const Navigation = () => {
         <div className="navigationLink">
           <h3> Register </h3>
           <span>Already have an NICE Account?</span>
-          <IndexLink to="/" activeClassName="activeRoute">
+          <IndexLink data-qa-sel="Signin-link-login" to="/" activeClassName="activeRoute">
             Sign in
           </IndexLink>
         </div>
@@ -19,7 +19,7 @@ export const Navigation = () => {
         <div className="navigationLink">
           <h3> Log in </h3>
           <span>Need a NICE Account?</span>
-          <Link to="/register" activeClassName="activeRoute">
+          <Link data-qa-sel="Signup-link-login" to="/register" activeClassName="activeRoute">
             Create an account
           </Link>
         </div>

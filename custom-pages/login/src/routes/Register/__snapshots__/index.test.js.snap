@@ -28,6 +28,7 @@ ShallowWrapper {
           />
           <Input
             aria-describedby="email-error"
+            data-qa-sel="email-register"
             error={false}
             errorMessage="Please provide a valid email"
             label="Email"
@@ -40,6 +41,7 @@ ShallowWrapper {
           />
           <Input
             aria-describedby="confirmEmail-error"
+            data-qa-sel="confirm-email-register"
             error={false}
             errorMessage="Email fields do not match"
             label="Confirm Email"
@@ -52,6 +54,7 @@ ShallowWrapper {
           />
           <Input
             aria-describedby="password-error"
+            data-qa-sel="password-register"
             error={false}
             errorMessage="Please provide a password"
             label="Password"
@@ -63,6 +66,7 @@ ShallowWrapper {
           />
           <Input
             aria-describedby="confirmPassword-error"
+            data-qa-sel="confirm-password-register"
             error={false}
             errorMessage="Password fields do not match"
             label="Confirm Password"
@@ -74,6 +78,7 @@ ShallowWrapper {
           />
           <Input
             aria-describedby="name-error"
+            data-qa-sel="name-register"
             error={false}
             errorMessage="Name should not exceed 100 characters"
             label="Name"
@@ -84,6 +89,7 @@ ShallowWrapper {
           />
           <Input
             aria-describedby="surname-error"
+            data-qa-sel="surname-register"
             error={false}
             errorMessage="Surname should not exceed 100 characters"
             label="Surname"
@@ -109,6 +115,7 @@ ShallowWrapper {
           >
             <Checkbox
               checked={false}
+              data-qa-sel="ai-checkbox-register"
               label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
               name="allowContactMe"
               onChange={[Function]}
@@ -121,6 +128,7 @@ ShallowWrapper {
             <Checkbox
               aria-describedby="tandc-error"
               checked={false}
+              data-qa-sel="tc-checkbox-register"
               error={false}
               label="By signing up, you agree to our terms of service and privacy policy."
               name="tAndC"
@@ -137,6 +145,7 @@ ShallowWrapper {
           </Alert>
           <button
             className="btn btn--cta"
+            data-qa-sel="Register-button"
             onClick={[Function]}
           >
             Register
@@ -169,6 +178,7 @@ ShallowWrapper {
             />,
             <Input
               aria-describedby="email-error"
+              data-qa-sel="email-register"
               error={false}
               errorMessage="Please provide a valid email"
               label="Email"
@@ -181,6 +191,7 @@ ShallowWrapper {
             />,
             <Input
               aria-describedby="confirmEmail-error"
+              data-qa-sel="confirm-email-register"
               error={false}
               errorMessage="Email fields do not match"
               label="Confirm Email"
@@ -193,6 +204,7 @@ ShallowWrapper {
             />,
             <Input
               aria-describedby="password-error"
+              data-qa-sel="password-register"
               error={false}
               errorMessage="Please provide a password"
               label="Password"
@@ -204,6 +216,7 @@ ShallowWrapper {
             />,
             <Input
               aria-describedby="confirmPassword-error"
+              data-qa-sel="confirm-password-register"
               error={false}
               errorMessage="Password fields do not match"
               label="Confirm Password"
@@ -215,6 +228,7 @@ ShallowWrapper {
             />,
             <Input
               aria-describedby="name-error"
+              data-qa-sel="name-register"
               error={false}
               errorMessage="Name should not exceed 100 characters"
               label="Name"
@@ -225,6 +239,7 @@ ShallowWrapper {
             />,
             <Input
               aria-describedby="surname-error"
+              data-qa-sel="surname-register"
               error={false}
               errorMessage="Surname should not exceed 100 characters"
               label="Surname"
@@ -250,6 +265,7 @@ ShallowWrapper {
             >
               <Checkbox
                 checked={false}
+                data-qa-sel="ai-checkbox-register"
                 label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
                 name="allowContactMe"
                 onChange={[Function]}
@@ -262,6 +278,7 @@ ShallowWrapper {
               <Checkbox
                 aria-describedby="tandc-error"
                 checked={false}
+                data-qa-sel="tc-checkbox-register"
                 error={false}
                 label="By signing up, you agree to our terms of service and privacy policy."
                 name="tAndC"
@@ -278,6 +295,7 @@ ShallowWrapper {
             </Alert>,
             <button
               className="btn btn--cta"
+              data-qa-sel="Register-button"
               onClick={[Function]}
             >
               Register
@@ -305,6 +323,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "aria-describedby": "email-error",
+              "data-qa-sel": "email-register",
               "error": false,
               "errorMessage": "Please provide a valid email",
               "label": "Email",
@@ -325,6 +344,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "aria-describedby": "confirmEmail-error",
+              "data-qa-sel": "confirm-email-register",
               "error": false,
               "errorMessage": "Email fields do not match",
               "label": "Confirm Email",
@@ -345,6 +365,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "aria-describedby": "password-error",
+              "data-qa-sel": "password-register",
               "error": false,
               "errorMessage": "Please provide a password",
               "label": "Password",
@@ -364,6 +385,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "aria-describedby": "confirmPassword-error",
+              "data-qa-sel": "confirm-password-register",
               "error": false,
               "errorMessage": "Password fields do not match",
               "label": "Confirm Password",
@@ -383,6 +405,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "aria-describedby": "name-error",
+              "data-qa-sel": "name-register",
               "error": false,
               "errorMessage": "Name should not exceed 100 characters",
               "label": "Name",
@@ -401,6 +424,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "aria-describedby": "surname-error",
+              "data-qa-sel": "surname-register",
               "error": false,
               "errorMessage": "Surname should not exceed 100 characters",
               "label": "Surname",
@@ -475,6 +499,7 @@ ShallowWrapper {
             "props": Object {
               "children": <Checkbox
                 checked={false}
+                data-qa-sel="ai-checkbox-register"
                 label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
                 name="allowContactMe"
                 onChange={[Function]}
@@ -489,6 +514,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "checked": false,
+                "data-qa-sel": "ai-checkbox-register",
                 "label": "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
                 "name": "allowContactMe",
                 "onChange": [Function],
@@ -509,6 +535,7 @@ ShallowWrapper {
                 <Checkbox
                   aria-describedby="tandc-error"
                   checked={false}
+                  data-qa-sel="tc-checkbox-register"
                   error={false}
                   label="By signing up, you agree to our terms of service and privacy policy."
                   name="tAndC"
@@ -528,6 +555,7 @@ ShallowWrapper {
                 "props": Object {
                   "aria-describedby": "tandc-error",
                   "checked": false,
+                  "data-qa-sel": "tc-checkbox-register",
                   "error": false,
                   "label": "By signing up, you agree to our terms of service and privacy policy.",
                   "name": "tAndC",
@@ -579,6 +607,7 @@ ShallowWrapper {
             "props": Object {
               "children": "Register",
               "className": "btn btn--cta",
+              "data-qa-sel": "Register-button",
               "onClick": [Function],
             },
             "ref": null,
@@ -609,6 +638,7 @@ ShallowWrapper {
             />
             <Input
               aria-describedby="email-error"
+              data-qa-sel="email-register"
               error={false}
               errorMessage="Please provide a valid email"
               label="Email"
@@ -621,6 +651,7 @@ ShallowWrapper {
             />
             <Input
               aria-describedby="confirmEmail-error"
+              data-qa-sel="confirm-email-register"
               error={false}
               errorMessage="Email fields do not match"
               label="Confirm Email"
@@ -633,6 +664,7 @@ ShallowWrapper {
             />
             <Input
               aria-describedby="password-error"
+              data-qa-sel="password-register"
               error={false}
               errorMessage="Please provide a password"
               label="Password"
@@ -644,6 +676,7 @@ ShallowWrapper {
             />
             <Input
               aria-describedby="confirmPassword-error"
+              data-qa-sel="confirm-password-register"
               error={false}
               errorMessage="Password fields do not match"
               label="Confirm Password"
@@ -655,6 +688,7 @@ ShallowWrapper {
             />
             <Input
               aria-describedby="name-error"
+              data-qa-sel="name-register"
               error={false}
               errorMessage="Name should not exceed 100 characters"
               label="Name"
@@ -665,6 +699,7 @@ ShallowWrapper {
             />
             <Input
               aria-describedby="surname-error"
+              data-qa-sel="surname-register"
               error={false}
               errorMessage="Surname should not exceed 100 characters"
               label="Surname"
@@ -690,6 +725,7 @@ ShallowWrapper {
             >
               <Checkbox
                 checked={false}
+                data-qa-sel="ai-checkbox-register"
                 label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
                 name="allowContactMe"
                 onChange={[Function]}
@@ -702,6 +738,7 @@ ShallowWrapper {
               <Checkbox
                 aria-describedby="tandc-error"
                 checked={false}
+                data-qa-sel="tc-checkbox-register"
                 error={false}
                 label="By signing up, you agree to our terms of service and privacy policy."
                 name="tAndC"
@@ -718,6 +755,7 @@ ShallowWrapper {
             </Alert>
             <button
               className="btn btn--cta"
+              data-qa-sel="Register-button"
               onClick={[Function]}
             >
               Register
@@ -750,6 +788,7 @@ ShallowWrapper {
               />,
               <Input
                 aria-describedby="email-error"
+                data-qa-sel="email-register"
                 error={false}
                 errorMessage="Please provide a valid email"
                 label="Email"
@@ -762,6 +801,7 @@ ShallowWrapper {
               />,
               <Input
                 aria-describedby="confirmEmail-error"
+                data-qa-sel="confirm-email-register"
                 error={false}
                 errorMessage="Email fields do not match"
                 label="Confirm Email"
@@ -774,6 +814,7 @@ ShallowWrapper {
               />,
               <Input
                 aria-describedby="password-error"
+                data-qa-sel="password-register"
                 error={false}
                 errorMessage="Please provide a password"
                 label="Password"
@@ -785,6 +826,7 @@ ShallowWrapper {
               />,
               <Input
                 aria-describedby="confirmPassword-error"
+                data-qa-sel="confirm-password-register"
                 error={false}
                 errorMessage="Password fields do not match"
                 label="Confirm Password"
@@ -796,6 +838,7 @@ ShallowWrapper {
               />,
               <Input
                 aria-describedby="name-error"
+                data-qa-sel="name-register"
                 error={false}
                 errorMessage="Name should not exceed 100 characters"
                 label="Name"
@@ -806,6 +849,7 @@ ShallowWrapper {
               />,
               <Input
                 aria-describedby="surname-error"
+                data-qa-sel="surname-register"
                 error={false}
                 errorMessage="Surname should not exceed 100 characters"
                 label="Surname"
@@ -831,6 +875,7 @@ ShallowWrapper {
               >
                 <Checkbox
                   checked={false}
+                  data-qa-sel="ai-checkbox-register"
                   label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
                   name="allowContactMe"
                   onChange={[Function]}
@@ -843,6 +888,7 @@ ShallowWrapper {
                 <Checkbox
                   aria-describedby="tandc-error"
                   checked={false}
+                  data-qa-sel="tc-checkbox-register"
                   error={false}
                   label="By signing up, you agree to our terms of service and privacy policy."
                   name="tAndC"
@@ -859,6 +905,7 @@ ShallowWrapper {
               </Alert>,
               <button
                 className="btn btn--cta"
+                data-qa-sel="Register-button"
                 onClick={[Function]}
               >
                 Register
@@ -886,6 +933,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "aria-describedby": "email-error",
+                "data-qa-sel": "email-register",
                 "error": false,
                 "errorMessage": "Please provide a valid email",
                 "label": "Email",
@@ -906,6 +954,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "aria-describedby": "confirmEmail-error",
+                "data-qa-sel": "confirm-email-register",
                 "error": false,
                 "errorMessage": "Email fields do not match",
                 "label": "Confirm Email",
@@ -926,6 +975,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "aria-describedby": "password-error",
+                "data-qa-sel": "password-register",
                 "error": false,
                 "errorMessage": "Please provide a password",
                 "label": "Password",
@@ -945,6 +995,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "aria-describedby": "confirmPassword-error",
+                "data-qa-sel": "confirm-password-register",
                 "error": false,
                 "errorMessage": "Password fields do not match",
                 "label": "Confirm Password",
@@ -964,6 +1015,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "aria-describedby": "name-error",
+                "data-qa-sel": "name-register",
                 "error": false,
                 "errorMessage": "Name should not exceed 100 characters",
                 "label": "Name",
@@ -982,6 +1034,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "aria-describedby": "surname-error",
+                "data-qa-sel": "surname-register",
                 "error": false,
                 "errorMessage": "Surname should not exceed 100 characters",
                 "label": "Surname",
@@ -1056,6 +1109,7 @@ ShallowWrapper {
               "props": Object {
                 "children": <Checkbox
                   checked={false}
+                  data-qa-sel="ai-checkbox-register"
                   label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
                   name="allowContactMe"
                   onChange={[Function]}
@@ -1070,6 +1124,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "checked": false,
+                  "data-qa-sel": "ai-checkbox-register",
                   "label": "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
                   "name": "allowContactMe",
                   "onChange": [Function],
@@ -1090,6 +1145,7 @@ ShallowWrapper {
                   <Checkbox
                     aria-describedby="tandc-error"
                     checked={false}
+                    data-qa-sel="tc-checkbox-register"
                     error={false}
                     label="By signing up, you agree to our terms of service and privacy policy."
                     name="tAndC"
@@ -1109,6 +1165,7 @@ ShallowWrapper {
                   "props": Object {
                     "aria-describedby": "tandc-error",
                     "checked": false,
+                    "data-qa-sel": "tc-checkbox-register",
                     "error": false,
                     "label": "By signing up, you agree to our terms of service and privacy policy.",
                     "name": "tAndC",
@@ -1160,6 +1217,7 @@ ShallowWrapper {
               "props": Object {
                 "children": "Register",
                 "className": "btn btn--cta",
+                "data-qa-sel": "Register-button",
                 "onClick": [Function],
               },
               "ref": null,
