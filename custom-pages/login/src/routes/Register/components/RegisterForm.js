@@ -155,7 +155,7 @@ export class Register extends React.Component {
           />
           <Input
             data-qa-sel="confirm-email-register"
-            label="Confirm Email"
+            label="Confirm email"
             name="confirmEmail"
             type="email"
             placeholder="eg: your.name@example.com..."
@@ -182,7 +182,7 @@ export class Register extends React.Component {
             data-qa-sel="confirm-password-register"
             name="confirmPassword"
             type="password"
-            label="Confirm Password"
+            label="Confirm password"
             onChange={this.handleChange}
             error={errors.confirmPassword}
             errorMessage="Password fields do not match"
