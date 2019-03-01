@@ -16,7 +16,7 @@ export const RegisterSuccess = () => {
         To complete registration, please check your email account and confirm
         your details using the activation link.
       </h5>
-      <Alert type="info">
+      <Alert type="caution">
         Note: if you do not receive an activation email please check your spam
         folder.
       </Alert>
