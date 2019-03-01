@@ -27,6 +27,7 @@ ShallowWrapper {
         </span>
         <Link
           activeClassName="activeRoute"
+          data-qa-sel="Signin-link-login"
           onlyActiveOnIndex={false}
           style={Object {}}
           to="/register"
@@ -51,6 +52,7 @@ ShallowWrapper {
           </span>,
           <Link
             activeClassName="activeRoute"
+            data-qa-sel="Signin-link-login"
             onlyActiveOnIndex={false}
             style={Object {}}
             to="/register"
@@ -91,6 +93,7 @@ ShallowWrapper {
           "props": Object {
             "activeClassName": "activeRoute",
             "children": "Sign up",
+            "data-qa-sel": "Signin-link-login",
             "onlyActiveOnIndex": false,
             "style": Object {},
             "to": "/register",
@@ -121,6 +124,7 @@ ShallowWrapper {
           </span>
           <Link
             activeClassName="activeRoute"
+            data-qa-sel="Signin-link-login"
             onlyActiveOnIndex={false}
             style={Object {}}
             to="/register"
@@ -145,6 +149,7 @@ ShallowWrapper {
             </span>,
             <Link
               activeClassName="activeRoute"
+              data-qa-sel="Signin-link-login"
               onlyActiveOnIndex={false}
               style={Object {}}
               to="/register"
@@ -185,6 +190,7 @@ ShallowWrapper {
             "props": Object {
               "activeClassName": "activeRoute",
               "children": "Sign up",
+              "data-qa-sel": "Signin-link-login",
               "onlyActiveOnIndex": false,
               "style": Object {},
               "to": "/register",
