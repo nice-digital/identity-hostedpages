@@ -20,6 +20,7 @@ ShallowWrapper {
         legend="Personal Information"
       >
         <Input
+          data-qa-sel="login-email"
           id="username"
           label="Username"
           name="username"
@@ -28,6 +29,7 @@ ShallowWrapper {
           type="email"
         />
         <Input
+          data-qa-sel="login-password"
           label="Password"
           name="password"
           onChange={[Function]}
@@ -35,6 +37,7 @@ ShallowWrapper {
         />
         <button
           className="btn btn--cta"
+          data-qa-sel="login-button"
           disabled={true}
           onClick={[Function]}
         >
@@ -52,6 +55,7 @@ ShallowWrapper {
         "children": Array [
           null,
           <Input
+            data-qa-sel="login-email"
             id="username"
             label="Username"
             name="username"
@@ -60,6 +64,7 @@ ShallowWrapper {
             type="email"
           />,
           <Input
+            data-qa-sel="login-password"
             label="Password"
             name="password"
             onChange={[Function]}
@@ -67,6 +72,7 @@ ShallowWrapper {
           />,
           <button
             className="btn btn--cta"
+            data-qa-sel="login-button"
             disabled={true}
             onClick={[Function]}
           >
@@ -83,6 +89,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "data-qa-sel": "login-email",
             "id": "username",
             "label": "Username",
             "name": "username",
@@ -99,6 +106,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "data-qa-sel": "login-password",
             "label": "Password",
             "name": "password",
             "onChange": [Function],
@@ -115,6 +123,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Sign in",
             "className": "btn btn--cta",
+            "data-qa-sel": "login-button",
             "disabled": true,
             "onClick": [Function],
           },
@@ -137,6 +146,7 @@ ShallowWrapper {
           legend="Personal Information"
         >
           <Input
+            data-qa-sel="login-email"
             id="username"
             label="Username"
             name="username"
@@ -145,6 +155,7 @@ ShallowWrapper {
             type="email"
           />
           <Input
+            data-qa-sel="login-password"
             label="Password"
             name="password"
             onChange={[Function]}
@@ -152,6 +163,7 @@ ShallowWrapper {
           />
           <button
             className="btn btn--cta"
+            data-qa-sel="login-button"
             disabled={true}
             onClick={[Function]}
           >
@@ -169,6 +181,7 @@ ShallowWrapper {
           "children": Array [
             null,
             <Input
+              data-qa-sel="login-email"
               id="username"
               label="Username"
               name="username"
@@ -177,6 +190,7 @@ ShallowWrapper {
               type="email"
             />,
             <Input
+              data-qa-sel="login-password"
               label="Password"
               name="password"
               onChange={[Function]}
@@ -184,6 +198,7 @@ ShallowWrapper {
             />,
             <button
               className="btn btn--cta"
+              data-qa-sel="login-button"
               disabled={true}
               onClick={[Function]}
             >
@@ -200,6 +215,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "data-qa-sel": "login-email",
               "id": "username",
               "label": "Username",
               "name": "username",
@@ -216,6 +232,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "data-qa-sel": "login-password",
               "label": "Password",
               "name": "password",
               "onChange": [Function],
@@ -232,6 +249,7 @@ ShallowWrapper {
             "props": Object {
               "children": "Sign in",
               "className": "btn btn--cta",
+              "data-qa-sel": "login-button",
               "disabled": true,
               "onClick": [Function],
             },
