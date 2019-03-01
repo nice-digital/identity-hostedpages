@@ -19,14 +19,13 @@ export class Login extends React.Component {
     }
   }
 
+  requestErrorCallback = err => this.setState({ error: err, loading: false })
+
   login = (e) => {
     e.preventDefault()
     this.setState({ loading: true }, () => {
       const { username, password } = this.state
-      this.auth
-        .login(username, password)
-        .then(() => this.setState({ loading: false }))
-        .catch(err => this.setState({ error: err.message, loading: false }))
+      this.auth.login(username, password, this.requestErrorCallback)
     })
   }
 

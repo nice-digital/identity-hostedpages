@@ -29,8 +29,8 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  async login(username, password) {
-    return this.instance.login(
+  login(username, password, cb) {
+    this.instance.login(
       {
         realm: authOpts.connection,
         username,
@@ -38,13 +38,13 @@ export default class AuthApi {
       },
       (err) => {
         if (err) {
-          if (!err.message) {
-            err.message = 'Invalid username or password'
+          if (cb) {
+            setTimeout(() => cb('Invalid username or password'), 5)
           }
-          console.log('error', err)
-          throw new Error(err.message)
+          throw new Error(err)
         }
         console.log('I am in, it should redirect')
+        return true
       }
     )
   }
