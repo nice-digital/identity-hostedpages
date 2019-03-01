@@ -1,6 +1,8 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
+// local imports
+import { showNav } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
 
@@ -151,7 +153,7 @@ export class Register extends React.Component {
     const {
       allowContactMe, tAndC, errors, showAlert
     } = this.state
-
+    showNav()
     return (
       <form className="">
         <h6>

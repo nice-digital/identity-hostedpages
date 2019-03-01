@@ -68,16 +68,9 @@ export default class AuthApi {
           }
           return false
         }
-        document.location.hash = '#'
+        document.location.hash = '#/regsuccess'
         return true
       }
     )
-  }
-
-  logout() {
-    this.instance.logout({
-      clientID: authOpts.clientID,
-      returnTo: authOpts.domain
-    })
   }
 }

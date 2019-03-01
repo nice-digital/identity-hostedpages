@@ -1,6 +1,8 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
+// local imports
+import { showNav } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 // import Logo from '../assets/logo.png'
 
@@ -45,6 +47,7 @@ export class Login extends React.Component {
   }
 
   render() {
+    showNav()
     const { error, loading, valid } = this.state
     return (
       <form className="">

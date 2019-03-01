@@ -21,7 +21,7 @@ ShallowWrapper {
       >
         <Input
           id="username"
-          label="Username"
+          label="Email"
           name="username"
           onChange={[Function]}
           placeholder="eg: your.name@example.com..."
@@ -53,7 +53,7 @@ ShallowWrapper {
           null,
           <Input
             id="username"
-            label="Username"
+            label="Email"
             name="username"
             onChange={[Function]}
             placeholder="eg: your.name@example.com..."
@@ -84,7 +84,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "id": "username",
-            "label": "Username",
+            "label": "Email",
             "name": "username",
             "onChange": [Function],
             "placeholder": "eg: your.name@example.com...",
@@ -138,7 +138,7 @@ ShallowWrapper {
         >
           <Input
             id="username"
-            label="Username"
+            label="Email"
             name="username"
             onChange={[Function]}
             placeholder="eg: your.name@example.com..."
@@ -170,7 +170,7 @@ ShallowWrapper {
             null,
             <Input
               id="username"
-              label="Username"
+              label="Email"
               name="username"
               onChange={[Function]}
               placeholder="eg: your.name@example.com..."
@@ -201,7 +201,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "id": "username",
-              "label": "Username",
+              "label": "Email",
               "name": "username",
               "onChange": [Function],
               "placeholder": "eg: your.name@example.com...",
