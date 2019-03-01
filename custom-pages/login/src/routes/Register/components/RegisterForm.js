@@ -120,7 +120,7 @@ export class Register extends React.Component {
         <h6>
           Your email address should be your work email address if you have one.
         </h6>
-        <Fieldset legend="Personal Information">
+        <Fieldset legend="Personal information">
           <div id="thereIsAnError">
             {showAlert && (
               <Alert
@@ -193,7 +193,7 @@ export class Register extends React.Component {
           <Input
             data-qa-sel="name-register"
             name="name"
-            label="First Name"
+            label="First name"
             onChange={this.handleChange}
             error={errors.name}
             errorMessage="Name should not exceed 100 characters"
@@ -204,7 +204,7 @@ export class Register extends React.Component {
           <Input
             data-qa-sel="surname-register"
             name="surname"
-            label="Last Name"
+            label="Last name"
             onChange={this.handleChange}
             error={errors.surname}
             errorMessage="Surname should not exceed 100 characters"

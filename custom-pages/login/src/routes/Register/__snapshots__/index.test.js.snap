@@ -21,7 +21,7 @@ ShallowWrapper {
           Your email address should be your work email address if you have one.
         </h6>,
         <Fieldset
-          legend="Personal Information"
+          legend="Personal information"
         >
           <div
             id="thereIsAnError"
@@ -81,7 +81,7 @@ ShallowWrapper {
             data-qa-sel="name-register"
             error={false}
             errorMessage="Name should not exceed 100 characters"
-            label="First Name"
+            label="First name"
             name="name"
             onBlur={[Function]}
             onChange={[Function]}
@@ -92,7 +92,7 @@ ShallowWrapper {
             data-qa-sel="surname-register"
             error={false}
             errorMessage="Surname should not exceed 100 characters"
-            label="Last Name"
+            label="Last name"
             name="surname"
             onBlur={[Function]}
             onChange={[Function]}
@@ -231,7 +231,7 @@ ShallowWrapper {
               data-qa-sel="name-register"
               error={false}
               errorMessage="Name should not exceed 100 characters"
-              label="First Name"
+              label="First name"
               name="name"
               onBlur={[Function]}
               onChange={[Function]}
@@ -242,7 +242,7 @@ ShallowWrapper {
               data-qa-sel="surname-register"
               error={false}
               errorMessage="Surname should not exceed 100 characters"
-              label="Last Name"
+              label="Last name"
               name="surname"
               onBlur={[Function]}
               onChange={[Function]}
@@ -301,7 +301,7 @@ ShallowWrapper {
               Register
             </button>,
           ],
-          "legend": "Personal Information",
+          "legend": "Personal information",
         },
         "ref": null,
         "rendered": Array [
@@ -408,7 +408,7 @@ ShallowWrapper {
               "data-qa-sel": "name-register",
               "error": false,
               "errorMessage": "Name should not exceed 100 characters",
-              "label": "First Name",
+              "label": "First name",
               "name": "name",
               "onBlur": [Function],
               "onChange": [Function],
@@ -427,7 +427,7 @@ ShallowWrapper {
               "data-qa-sel": "surname-register",
               "error": false,
               "errorMessage": "Surname should not exceed 100 characters",
-              "label": "Last Name",
+              "label": "Last name",
               "name": "surname",
               "onBlur": [Function],
               "onChange": [Function],
@@ -631,7 +631,7 @@ ShallowWrapper {
             Your email address should be your work email address if you have one.
           </h6>,
           <Fieldset
-            legend="Personal Information"
+            legend="Personal information"
           >
             <div
               id="thereIsAnError"
@@ -691,7 +691,7 @@ ShallowWrapper {
               data-qa-sel="name-register"
               error={false}
               errorMessage="Name should not exceed 100 characters"
-              label="First Name"
+              label="First name"
               name="name"
               onBlur={[Function]}
               onChange={[Function]}
@@ -702,7 +702,7 @@ ShallowWrapper {
               data-qa-sel="surname-register"
               error={false}
               errorMessage="Surname should not exceed 100 characters"
-              label="Last Name"
+              label="Last name"
               name="surname"
               onBlur={[Function]}
               onChange={[Function]}
@@ -841,7 +841,7 @@ ShallowWrapper {
                 data-qa-sel="name-register"
                 error={false}
                 errorMessage="Name should not exceed 100 characters"
-                label="First Name"
+                label="First name"
                 name="name"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -852,7 +852,7 @@ ShallowWrapper {
                 data-qa-sel="surname-register"
                 error={false}
                 errorMessage="Surname should not exceed 100 characters"
-                label="Last Name"
+                label="Last name"
                 name="surname"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -911,7 +911,7 @@ ShallowWrapper {
                 Register
               </button>,
             ],
-            "legend": "Personal Information",
+            "legend": "Personal information",
           },
           "ref": null,
           "rendered": Array [
@@ -1018,7 +1018,7 @@ ShallowWrapper {
                 "data-qa-sel": "name-register",
                 "error": false,
                 "errorMessage": "Name should not exceed 100 characters",
-                "label": "First Name",
+                "label": "First name",
                 "name": "name",
                 "onBlur": [Function],
                 "onChange": [Function],
@@ -1037,7 +1037,7 @@ ShallowWrapper {
                 "data-qa-sel": "surname-register",
                 "error": false,
                 "errorMessage": "Surname should not exceed 100 characters",
-                "label": "Last Name",
+                "label": "Last name",
                 "name": "surname",
                 "onBlur": [Function],
                 "onChange": [Function],
