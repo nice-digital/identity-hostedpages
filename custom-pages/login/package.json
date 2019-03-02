@@ -116,6 +116,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
-    }
+    },
+    "testResultsProcessor": "jest-teamcity-reporter"
   }
 }
