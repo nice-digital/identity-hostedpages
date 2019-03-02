@@ -16,8 +16,10 @@ function login(email, password, callback) {
     }    
   }, function(err, response, body) {
     if (err) return callback(err);
-    if (response.statusCode === 401) return callback(new Error('Invalid apikey configured'));
-    if (response.statusCode === 403 || response.statusCode === 204) return callback(new WrongUsernameOrPasswordError(email));
+    if (response.statusCode === 401 ||
+        response.statusCode === 403 || 
+        response.statusCode === 204) 
+      return callback(new WrongUsernameOrPasswordError(email));
     
     const user = JSON.parse(body);
 
