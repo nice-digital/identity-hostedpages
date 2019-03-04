@@ -34,6 +34,8 @@
     "lint": "npm run eslint && npm run stylelint",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:ci": "cross-env CI=true npm test --env=jsdom --testResultsProcessor=jest-teamcity-reporter",
+    "test:ci:coverage": "npm run test:ci -- --coverage ",
     "clean": "node tools/clean",
     "build": "node tools/build --release",
     "build:debug": "node tools/build",
@@ -62,6 +64,7 @@
     "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "browser-sync": "2.2.2",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.7",
     "del": "^3.0.0",
     "enzyme-adapter-react-14": "^1.3.0",
@@ -80,6 +83,7 @@
     "jest-css-modules-transform": "^2.1.1",
     "jest-enzyme": "^7.0.1",
     "jest-junit": "^6.2.1",
+    "jest-teamcity-reporter": "^0.9.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.5.3",
     "pixrem": "^4.0.1",
@@ -112,6 +116,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
-    }
+    },
+    "testResultsProcessor": "jest-teamcity-reporter"
   }
 }
