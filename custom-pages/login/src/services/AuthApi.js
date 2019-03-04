@@ -33,6 +33,7 @@ export default class AuthApi {
     this.instance.login(
       {
         realm: authOpts.connection,
+        responseType: authOpts.responseType,
         username,
         password
       },
@@ -53,6 +54,7 @@ export default class AuthApi {
     return this.instance.signup(
       {
         connection: authOpts.connection,
+        responseType: authOpts.responseType,
         email,
         password,
         user_metadata: {
