@@ -18,7 +18,7 @@
 
 <body>
   <script>
-    var config = document.location.origin.indexOf('localhost') !== -1 ? {} : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
+    var config = document.location.host.indexOf('localhost') !== -1 ? {} : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
   </script>
   <div id="container"></div>
 </body>
