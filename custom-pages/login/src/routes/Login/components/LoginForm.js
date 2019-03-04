@@ -24,7 +24,7 @@ export class Login extends React.Component {
   requestErrorCallback = err => this.setState({ error: err, loading: false })
 
   login = (e) => {
-    e.preventDefault()
+    if (e) e.preventDefault()
     try {
       this.setState({ loading: true }, () => {
         const { username, password } = this.state
