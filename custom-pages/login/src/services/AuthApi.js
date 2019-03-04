@@ -39,7 +39,7 @@ export default class AuthApi {
       (err) => {
         if (err) {
           if (errorCallback) {
-            setTimeout(() => errorCallback('Invalid username or password'), 5)
+            setTimeout(() => errorCallback('Invalid email or password'), 5)
           }
           throw new Error(err)
         }
