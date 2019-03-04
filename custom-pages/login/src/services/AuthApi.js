@@ -15,7 +15,7 @@ export default class AuthApi {
       plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       popup: false,
-      responseType: authOpts.responseType,
+      responseType: authOpts.responseType || 'code',
       scope: authOpts.scope,
       redirect: true
       // overrides: {
