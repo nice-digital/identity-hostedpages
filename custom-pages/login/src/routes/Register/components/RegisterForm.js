@@ -1,6 +1,8 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
+// local imports
+import { showNav, getFirstErrorElement, validateFields } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
 
@@ -30,35 +32,19 @@ export class Register extends React.Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   if (this.state.showAlert) {
-  //     document
-  //       .getElementById('thereIsAnError')
-  //       .scrollIntoView({ block: 'center' })
-  //   }
-  // }
-
-  getFirstErrorElement() {
-    const { errors } = this.state
-    const getElementWhenValueIsTrue = el => errors[el]
-    const elementName = Object.keys(errors).filter(getElementWhenValueIsTrue)[0]
-    return document.getElementsByName(elementName || 'email')[0]
-  }
-
   register = (event) => {
     event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
     this.validate()
-    if (this.isValidForSubmission()) {
+    if (this.isFormValidForSubmission()) {
       this.auth.register(
         email,
         password,
         name,
         surname,
-        allowContactMe.toString(),
-        () => console.log('yeeeeeeaaaaahhhh') // if not automatically redirecting we will manually do so in this callback
+        allowContactMe.toString()
       )
     } else {
       this.setState(
@@ -90,7 +76,7 @@ export class Register extends React.Component {
     })
   }
 
-  isValidForSubmission() {
+  isFormValidForSubmission() {
     const {
       email, password, tAndC, name, surname, errors
     } = this.state
@@ -103,30 +89,7 @@ export class Register extends React.Component {
   }
 
   validate = () => {
-    const {
-      email,
-      confirmEmail,
-      password,
-      confirmPassword,
-      name,
-      surname,
-      tAndC
-    } = this.state
-
-    const tests = {
-      email: () => {
-        const emailRegex = /\S+@\S+\.\S+/
-        return email && !emailRegex.test(email.toLowerCase())
-      },
-      confirmEmail: () => confirmEmail && email && email !== confirmEmail,
-      password: () => password && password.length < 1,
-      confirmPassword: () =>
-        password && confirmPassword && confirmPassword !== password,
-      name: () => name && name.length > 100,
-      surname: () => surname && surname.length > 100,
-      tAndC: () => !tAndC
-    }
-
+    const tests = validateFields(this.state)
     this.setState({
       errors: {
         email: tests.email(),
@@ -142,7 +105,7 @@ export class Register extends React.Component {
 
   goToAlert = (e) => {
     e.preventDefault()
-    this.getFirstErrorElement().scrollIntoView({
+    getFirstErrorElement(this.state.errors).scrollIntoView({
       block: 'center'
     })
   }
@@ -151,16 +114,20 @@ export class Register extends React.Component {
     const {
       allowContactMe, tAndC, errors, showAlert
     } = this.state
-
+    showNav()
     return (
       <form className="">
         <h6>
           Your email address should be your work email address if you have one.
         </h6>
-        <Fieldset legend="Personal Information">
+        <Fieldset legend="Personal information">
           <div id="thereIsAnError">
             {showAlert && (
-              <Alert data-qa-sel="problem-alert-register" type="error" aria-labelledby="error-summary-title">
+              <Alert
+                data-qa-sel="problem-alert-register"
+                type="error"
+                aria-labelledby="error-summary-title"
+              >
                 <h5>There is a problem</h5>
                 <a
                   role="link"
@@ -188,7 +155,7 @@ export class Register extends React.Component {
           />
           <Input
             data-qa-sel="confirm-email-register"
-            label="Confirm Email"
+            label="Confirm email"
             name="confirmEmail"
             type="email"
             placeholder="eg: your.name@example.com..."
@@ -206,7 +173,7 @@ export class Register extends React.Component {
             label="Password"
             onChange={this.handleChange}
             error={errors.password}
-            errorMessage="Please provide a password"
+            errorMessage="Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="password-error"
@@ -215,7 +182,7 @@ export class Register extends React.Component {
             data-qa-sel="confirm-password-register"
             name="confirmPassword"
             type="password"
-            label="Confirm Password"
+            label="Confirm password"
             onChange={this.handleChange}
             error={errors.confirmPassword}
             errorMessage="Password fields do not match"
@@ -226,7 +193,7 @@ export class Register extends React.Component {
           <Input
             data-qa-sel="name-register"
             name="name"
-            label="Name"
+            label="First name"
             onChange={this.handleChange}
             error={errors.name}
             errorMessage="Name should not exceed 100 characters"
@@ -237,7 +204,7 @@ export class Register extends React.Component {
           <Input
             data-qa-sel="surname-register"
             name="surname"
-            label="Surname"
+            label="Last name"
             onChange={this.handleChange}
             error={errors.surname}
             errorMessage="Surname should not exceed 100 characters"
@@ -291,7 +258,11 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button data-qa-sel="Register-button" className="btn btn--cta" onClick={e => this.register(e)}>
+          <button
+            data-qa-sel="Register-button"
+            className="btn btn--cta"
+            onClick={e => this.register(e)}
+          >
             Register
           </button>
         </Fieldset>
