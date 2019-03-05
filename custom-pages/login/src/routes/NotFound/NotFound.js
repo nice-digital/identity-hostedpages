@@ -1,6 +1,6 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
-import classes from './NotFound.css'
+import './NotFound.scss'
 
 const goBack = (e) => {
   e.preventDefault()
@@ -8,7 +8,7 @@ const goBack = (e) => {
 }
 
 export const NotFound = () => (
-  <div className={classes.notFound}>
+  <div className="notFound">
     <h4>Something must have gone slightly wrong!</h4>
     <p><a href="#" onClick={goBack}>&larr; Back</a></p>
   </div>
