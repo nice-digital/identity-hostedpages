@@ -49,6 +49,26 @@ export default class AuthApi {
     )
   }
 
+  forgotPassword(email, errorCallback) {
+    this.instance.changePassword(
+      {
+        connection: authOpts.connection,
+        responseType: authOpts.responseType,
+        email
+      },
+      (err) => {
+        if (err) {
+          if (errorCallback) {
+            setTimeout(() => errorCallback('There has been an issue, try a different email'), 5)
+          }
+          return false
+        }
+        document.location.hash = '#/forgotsuccess'
+        return true
+      }
+    )
+  }
+
   register(email, password, name, surname, allowContactMe, errorCallback) {
     return this.instance.signup(
       {

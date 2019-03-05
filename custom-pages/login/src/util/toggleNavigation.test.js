@@ -13,6 +13,7 @@ describe('toggleNavigation ', () => {
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function))
     jest.advanceTimersByTime(1) // 1ms
     expect(global.document.querySelector).toBeCalledWith('.navigation')
+    expect(global.document.querySelector).toBeCalledWith('.forgotPasswordLink')
   })
 
   it('should invoke setTimeout for hideNav', () => {
@@ -22,5 +23,6 @@ describe('toggleNavigation ', () => {
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function))
     jest.advanceTimersByTime(1) // 1ms
     expect(global.document.querySelector).toBeCalledWith('.navigation')
+    expect(global.document.querySelector).toBeCalledWith('.forgotPasswordLink')
   })
 })
