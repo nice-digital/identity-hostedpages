@@ -33,7 +33,7 @@ export class Register extends React.Component {
   }
 
   register = (event) => {
-    event.preventDefault()
+    if (event) event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
@@ -104,7 +104,7 @@ export class Register extends React.Component {
   }
 
   goToAlert = (e) => {
-    e.preventDefault()
+    if (e) e.preventDefault()
     getFirstErrorElement(this.state.errors).scrollIntoView({
       block: 'center'
     })
@@ -226,7 +226,8 @@ export class Register extends React.Component {
           <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
             {errors.tAndC ? (
               <Alert data-qa-sel="tc-unchecked-error" type="error">
-                You must accept Terms and Conditions to be able to create an account.
+                You must accept Terms and Conditions to be able to create an
+                account.
               </Alert>
             ) : null}
             <Checkbox
