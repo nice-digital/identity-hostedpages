@@ -247,7 +247,7 @@ export class Register extends React.Component {
               data-qa-sel="ai-checkbox-register"
               name="allowContactMe"
               checked={allowContactMe}
-              label="Our insignt community helps us improve our products and services. "
+              label="Our insight community helps us improve our products and services. "
               onChange={this.handleCheckboxChange}
             />
           </Fieldset>
