@@ -84,6 +84,7 @@
     "jest-enzyme": "^7.0.1",
     "jest-junit": "^6.2.1",
     "jest-teamcity-reporter": "^0.9.0",
+    "jsdom": "^13.2.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.5.3",
     "pixrem": "^4.0.1",

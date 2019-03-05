@@ -44,7 +44,6 @@ export default class AuthApi {
           }
           throw new Error(err)
         }
-        console.log('I am in, it should redirect')
         return true
       }
     )
