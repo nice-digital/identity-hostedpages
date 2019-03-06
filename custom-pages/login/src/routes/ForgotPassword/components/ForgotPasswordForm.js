@@ -5,7 +5,6 @@ import { Link } from 'react-router'
 // local imports
 import { hideNav } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
-// import Logo from '../assets/logo.png'
 
 import './ForgotPasswordForm.scss'
 
