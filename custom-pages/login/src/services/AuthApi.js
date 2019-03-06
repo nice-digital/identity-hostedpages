@@ -29,6 +29,11 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
+  // TODO
+  // fetchClientSettings(){
+  //   url: urljoin(clientBaseUrl, 'client', `${clientID}.js?t${+new Date()}`),
+  // }
+
   login(username, password, errorCallback) {
     this.instance.login(
       {
