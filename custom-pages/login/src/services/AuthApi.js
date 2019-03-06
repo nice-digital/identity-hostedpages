@@ -59,7 +59,11 @@ export default class AuthApi {
       (err) => {
         if (err) {
           if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue, try a different email'), 5)
+            setTimeout(
+              () =>
+                errorCallback('There has been an issue, try a different email'),
+              5
+            )
           }
           return false
         }
@@ -67,6 +71,42 @@ export default class AuthApi {
         return true
       }
     )
+  }
+
+  resetPassword = (password, errorCallback) => {
+    if (window.rfConfig) {
+      const data = {
+        connection: authOpts.connection,
+        responseType: authOpts.responseType,
+        email: window.rfConfig.email,
+        _csrf: window.rfConfig.csrf_token,
+        ticket: window.rfConfig.ticket,
+        newPassword: password,
+        confirmNewPassword: password
+      }
+
+      fetch('/lo/reset', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then((res) => {
+          if (res.status === 200) {
+            document.location.hash = '#/resetsuccess'
+          } else if (errorCallback) {
+            setTimeout(() => errorCallback('There has been an issue'), 5)
+          }
+        })
+        .catch((err) => {
+          if (errorCallback) {
+            setTimeout(() => errorCallback('There has been an issue'), 5)
+          }
+          throw err
+        })
+    }
   }
 
   register(email, password, name, surname, allowContactMe, errorCallback) {

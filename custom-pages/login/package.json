@@ -40,6 +40,7 @@
     "build": "node tools/build --release",
     "build:debug": "node tools/build",
     "start": "node tools/start",
+    "start:password_reset": "node tools/start.password_reset",
     "rimraf": "rimraf node_modules"
   },
   "devDependencies": {
