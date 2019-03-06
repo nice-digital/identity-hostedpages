@@ -74,13 +74,14 @@ export default class AuthApi {
   }
 
   resetPassword = (password, errorCallback) => {
-    if (window.rfConfig) {
+    console.debug(window.rpConfig)
+    if (window.rpConfig) {
       const data = {
         connection: authOpts.connection,
         responseType: authOpts.responseType,
-        email: window.rfConfig.email,
-        _csrf: window.rfConfig.csrf_token,
-        ticket: window.rfConfig.ticket,
+        email: window.rpConfig.email,
+        _csrf: window.rpConfig.csrf_token,
+        ticket: window.rpConfig.ticket,
         newPassword: password,
         confirmNewPassword: password
       }
