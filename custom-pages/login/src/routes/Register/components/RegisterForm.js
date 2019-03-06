@@ -213,46 +213,45 @@ export class Register extends React.Component {
             aria-describedby="surname-error"
           />
           <ul>
-            <h5>Cookies will be used in the following ways:</h5>
+            <h5>We use cookies:</h5>
             <li>
-              Analytical purposes – for monitoring usage of the NICE websites in
-              order to improve our services
+              To monitor usage of the NICE websites in order to improve our
+              services
             </li>
             <li>
-              Your preferences – to remember what you view on our websites and
-              to enable us to tailor our services to you
+              To remember what you view on our websites and enable us to tailor
+              our services to you.
             </li>
           </ul>
-          <Fieldset
-            classNane="checkboxFieldset"
-            legend="Audience Insight Community - Get involved"
-          >
-            <Checkbox
-              data-qa-sel="ai-checkbox-register"
-              name="allowContactMe"
-              checked={allowContactMe}
-              label="The Audience Insight Community helps NICE improve its products and
-            services - please tick this box if you would like to get involved.
-            Find out more about the Audience Insight Community"
-              onChange={this.handleCheckboxChange}
-            />
-          </Fieldset>
           <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
             {errors.tAndC ? (
               <Alert data-qa-sel="tc-unchecked-error" type="error">
-                You must accept Terms and Conditions to be able to register
+                You must accept Terms and Conditions to be able to create an account.
               </Alert>
             ) : null}
             <Checkbox
               data-qa-sel="tc-checkbox-register"
               name="tAndC"
-              label="By signing up, you agree to our terms of service and privacy policy."
+              label="I agree to NICE's terms and conditions, and the use of cookies."
               checked={tAndC}
               onChange={this.handleCheckboxChange}
               error={errors.tAndC}
               aria-describedby="tandc-error"
             />
           </Fieldset>
+          <Fieldset
+            classNane="checkboxFieldset"
+            legend="Join our Audience Insight Community"
+          >
+            <Checkbox
+              data-qa-sel="ai-checkbox-register"
+              name="allowContactMe"
+              checked={allowContactMe}
+              label="Our insight community helps us improve our products and services. "
+              onChange={this.handleCheckboxChange}
+            />
+          </Fieldset>
+
           <Alert>
             The information you provide on this form will be used by us to
             administer your NICE account. For more information about how we

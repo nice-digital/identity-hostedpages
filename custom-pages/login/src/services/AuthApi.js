@@ -15,7 +15,7 @@ export default class AuthApi {
       plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       popup: false,
-      responseType: authOpts.responseType,
+      responseType: authOpts.responseType || 'code',
       scope: authOpts.scope,
       redirect: true
       // overrides: {
@@ -33,13 +33,14 @@ export default class AuthApi {
     this.instance.login(
       {
         realm: authOpts.connection,
+        responseType: authOpts.responseType,
         username,
         password
       },
       (err) => {
         if (err) {
           if (errorCallback) {
-            setTimeout(() => errorCallback('Invalid username or password'), 5)
+            setTimeout(() => errorCallback('Invalid email or password'), 5)
           }
           throw new Error(err)
         }
@@ -53,6 +54,7 @@ export default class AuthApi {
     return this.instance.signup(
       {
         connection: authOpts.connection,
+        responseType: authOpts.responseType,
         email,
         password,
         user_metadata: {

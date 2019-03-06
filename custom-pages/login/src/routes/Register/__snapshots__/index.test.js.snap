@@ -100,27 +100,15 @@ ShallowWrapper {
           />
           <ul>
             <h5>
-              Cookies will be used in the following ways:
+              We use cookies:
             </h5>
             <li>
-              Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+              To monitor usage of the NICE websites in order to improve our services
             </li>
             <li>
-              Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+              To remember what you view on our websites and enable us to tailor our services to you.
             </li>
           </ul>
-          <Fieldset
-            classNane="checkboxFieldset"
-            legend="Audience Insight Community - Get involved"
-          >
-            <Checkbox
-              checked={false}
-              data-qa-sel="ai-checkbox-register"
-              label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
-              name="allowContactMe"
-              onChange={[Function]}
-            />
-          </Fieldset>
           <Fieldset
             classNane="checkboxFieldset"
             legend="Terms and conditions"
@@ -130,8 +118,20 @@ ShallowWrapper {
               checked={false}
               data-qa-sel="tc-checkbox-register"
               error={false}
-              label="By signing up, you agree to our terms of service and privacy policy."
+              label="I agree to NICE's terms and conditions, and the use of cookies."
               name="tAndC"
+              onChange={[Function]}
+            />
+          </Fieldset>
+          <Fieldset
+            classNane="checkboxFieldset"
+            legend="Join our Audience Insight Community"
+          >
+            <Checkbox
+              checked={false}
+              data-qa-sel="ai-checkbox-register"
+              label="Our insight community helps us improve our products and services. "
+              name="allowContactMe"
               onChange={[Function]}
             />
           </Fieldset>
@@ -250,27 +250,15 @@ ShallowWrapper {
             />,
             <ul>
               <h5>
-                Cookies will be used in the following ways:
+                We use cookies:
               </h5>
               <li>
-                Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+                To monitor usage of the NICE websites in order to improve our services
               </li>
               <li>
-                Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+                To remember what you view on our websites and enable us to tailor our services to you.
               </li>
             </ul>,
-            <Fieldset
-              classNane="checkboxFieldset"
-              legend="Audience Insight Community - Get involved"
-            >
-              <Checkbox
-                checked={false}
-                data-qa-sel="ai-checkbox-register"
-                label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
-                name="allowContactMe"
-                onChange={[Function]}
-              />
-            </Fieldset>,
             <Fieldset
               classNane="checkboxFieldset"
               legend="Terms and conditions"
@@ -280,8 +268,20 @@ ShallowWrapper {
                 checked={false}
                 data-qa-sel="tc-checkbox-register"
                 error={false}
-                label="By signing up, you agree to our terms of service and privacy policy."
+                label="I agree to NICE's terms and conditions, and the use of cookies."
                 name="tAndC"
+                onChange={[Function]}
+              />
+            </Fieldset>,
+            <Fieldset
+              classNane="checkboxFieldset"
+              legend="Join our Audience Insight Community"
+            >
+              <Checkbox
+                checked={false}
+                data-qa-sel="ai-checkbox-register"
+                label="Our insight community helps us improve our products and services. "
+                name="allowContactMe"
                 onChange={[Function]}
               />
             </Fieldset>,
@@ -444,13 +444,13 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <h5>
-                  Cookies will be used in the following ways:
+                  We use cookies:
                 </h5>,
                 <li>
-                  Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+                  To monitor usage of the NICE websites in order to improve our services
                 </li>,
                 <li>
-                  Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+                  To remember what you view on our websites and enable us to tailor our services to you.
                 </li>,
               ],
             },
@@ -461,10 +461,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Cookies will be used in the following ways:",
+                  "children": "We use cookies:",
                 },
                 "ref": null,
-                "rendered": "Cookies will be used in the following ways:",
+                "rendered": "We use cookies:",
                 "type": "h5",
               },
               Object {
@@ -472,10 +472,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+                  "children": "To monitor usage of the NICE websites in order to improve our services",
                 },
                 "ref": null,
-                "rendered": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+                "rendered": "To monitor usage of the NICE websites in order to improve our services",
                 "type": "li",
               },
               Object {
@@ -483,47 +483,14 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+                  "children": "To remember what you view on our websites and enable us to tailor our services to you.",
                 },
                 "ref": null,
-                "rendered": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+                "rendered": "To remember what you view on our websites and enable us to tailor our services to you.",
                 "type": "li",
               },
             ],
             "type": "ul",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": <Checkbox
-                checked={false}
-                data-qa-sel="ai-checkbox-register"
-                label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
-                name="allowContactMe"
-                onChange={[Function]}
-              />,
-              "classNane": "checkboxFieldset",
-              "legend": "Audience Insight Community - Get involved",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "checked": false,
-                "data-qa-sel": "ai-checkbox-register",
-                "label": "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
-                "name": "allowContactMe",
-                "onChange": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            "type": [Function],
           },
           Object {
             "instance": null,
@@ -537,7 +504,7 @@ ShallowWrapper {
                   checked={false}
                   data-qa-sel="tc-checkbox-register"
                   error={false}
-                  label="By signing up, you agree to our terms of service and privacy policy."
+                  label="I agree to NICE's terms and conditions, and the use of cookies."
                   name="tAndC"
                   onChange={[Function]}
                 />,
@@ -557,7 +524,7 @@ ShallowWrapper {
                   "checked": false,
                   "data-qa-sel": "tc-checkbox-register",
                   "error": false,
-                  "label": "By signing up, you agree to our terms of service and privacy policy.",
+                  "label": "I agree to NICE's terms and conditions, and the use of cookies.",
                   "name": "tAndC",
                   "onChange": [Function],
                 },
@@ -566,6 +533,39 @@ ShallowWrapper {
                 "type": [Function],
               },
             ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Checkbox
+                checked={false}
+                data-qa-sel="ai-checkbox-register"
+                label="Our insight community helps us improve our products and services. "
+                name="allowContactMe"
+                onChange={[Function]}
+              />,
+              "classNane": "checkboxFieldset",
+              "legend": "Join our Audience Insight Community",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "checked": false,
+                "data-qa-sel": "ai-checkbox-register",
+                "label": "Our insight community helps us improve our products and services. ",
+                "name": "allowContactMe",
+                "onChange": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             "type": [Function],
           },
           Object {
@@ -710,27 +710,15 @@ ShallowWrapper {
             />
             <ul>
               <h5>
-                Cookies will be used in the following ways:
+                We use cookies:
               </h5>
               <li>
-                Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+                To monitor usage of the NICE websites in order to improve our services
               </li>
               <li>
-                Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+                To remember what you view on our websites and enable us to tailor our services to you.
               </li>
             </ul>
-            <Fieldset
-              classNane="checkboxFieldset"
-              legend="Audience Insight Community - Get involved"
-            >
-              <Checkbox
-                checked={false}
-                data-qa-sel="ai-checkbox-register"
-                label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
-                name="allowContactMe"
-                onChange={[Function]}
-              />
-            </Fieldset>
             <Fieldset
               classNane="checkboxFieldset"
               legend="Terms and conditions"
@@ -740,8 +728,20 @@ ShallowWrapper {
                 checked={false}
                 data-qa-sel="tc-checkbox-register"
                 error={false}
-                label="By signing up, you agree to our terms of service and privacy policy."
+                label="I agree to NICE's terms and conditions, and the use of cookies."
                 name="tAndC"
+                onChange={[Function]}
+              />
+            </Fieldset>
+            <Fieldset
+              classNane="checkboxFieldset"
+              legend="Join our Audience Insight Community"
+            >
+              <Checkbox
+                checked={false}
+                data-qa-sel="ai-checkbox-register"
+                label="Our insight community helps us improve our products and services. "
+                name="allowContactMe"
                 onChange={[Function]}
               />
             </Fieldset>
@@ -860,27 +860,15 @@ ShallowWrapper {
               />,
               <ul>
                 <h5>
-                  Cookies will be used in the following ways:
+                  We use cookies:
                 </h5>
                 <li>
-                  Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+                  To monitor usage of the NICE websites in order to improve our services
                 </li>
                 <li>
-                  Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+                  To remember what you view on our websites and enable us to tailor our services to you.
                 </li>
               </ul>,
-              <Fieldset
-                classNane="checkboxFieldset"
-                legend="Audience Insight Community - Get involved"
-              >
-                <Checkbox
-                  checked={false}
-                  data-qa-sel="ai-checkbox-register"
-                  label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
-                  name="allowContactMe"
-                  onChange={[Function]}
-                />
-              </Fieldset>,
               <Fieldset
                 classNane="checkboxFieldset"
                 legend="Terms and conditions"
@@ -890,8 +878,20 @@ ShallowWrapper {
                   checked={false}
                   data-qa-sel="tc-checkbox-register"
                   error={false}
-                  label="By signing up, you agree to our terms of service and privacy policy."
+                  label="I agree to NICE's terms and conditions, and the use of cookies."
                   name="tAndC"
+                  onChange={[Function]}
+                />
+              </Fieldset>,
+              <Fieldset
+                classNane="checkboxFieldset"
+                legend="Join our Audience Insight Community"
+              >
+                <Checkbox
+                  checked={false}
+                  data-qa-sel="ai-checkbox-register"
+                  label="Our insight community helps us improve our products and services. "
+                  name="allowContactMe"
                   onChange={[Function]}
                 />
               </Fieldset>,
@@ -1054,13 +1054,13 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <h5>
-                    Cookies will be used in the following ways:
+                    We use cookies:
                   </h5>,
                   <li>
-                    Analytical purposes – for monitoring usage of the NICE websites in order to improve our services
+                    To monitor usage of the NICE websites in order to improve our services
                   </li>,
                   <li>
-                    Your preferences – to remember what you view on our websites and to enable us to tailor our services to you
+                    To remember what you view on our websites and enable us to tailor our services to you.
                   </li>,
                 ],
               },
@@ -1071,10 +1071,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Cookies will be used in the following ways:",
+                    "children": "We use cookies:",
                   },
                   "ref": null,
-                  "rendered": "Cookies will be used in the following ways:",
+                  "rendered": "We use cookies:",
                   "type": "h5",
                 },
                 Object {
@@ -1082,10 +1082,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+                    "children": "To monitor usage of the NICE websites in order to improve our services",
                   },
                   "ref": null,
-                  "rendered": "Analytical purposes – for monitoring usage of the NICE websites in order to improve our services",
+                  "rendered": "To monitor usage of the NICE websites in order to improve our services",
                   "type": "li",
                 },
                 Object {
@@ -1093,47 +1093,14 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+                    "children": "To remember what you view on our websites and enable us to tailor our services to you.",
                   },
                   "ref": null,
-                  "rendered": "Your preferences – to remember what you view on our websites and to enable us to tailor our services to you",
+                  "rendered": "To remember what you view on our websites and enable us to tailor our services to you.",
                   "type": "li",
                 },
               ],
               "type": "ul",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": <Checkbox
-                  checked={false}
-                  data-qa-sel="ai-checkbox-register"
-                  label="The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community"
-                  name="allowContactMe"
-                  onChange={[Function]}
-                />,
-                "classNane": "checkboxFieldset",
-                "legend": "Audience Insight Community - Get involved",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "checked": false,
-                  "data-qa-sel": "ai-checkbox-register",
-                  "label": "The Audience Insight Community helps NICE improve its products and services - please tick this box if you would like to get involved. Find out more about the Audience Insight Community",
-                  "name": "allowContactMe",
-                  "onChange": [Function],
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": [Function],
             },
             Object {
               "instance": null,
@@ -1147,7 +1114,7 @@ ShallowWrapper {
                     checked={false}
                     data-qa-sel="tc-checkbox-register"
                     error={false}
-                    label="By signing up, you agree to our terms of service and privacy policy."
+                    label="I agree to NICE's terms and conditions, and the use of cookies."
                     name="tAndC"
                     onChange={[Function]}
                   />,
@@ -1167,7 +1134,7 @@ ShallowWrapper {
                     "checked": false,
                     "data-qa-sel": "tc-checkbox-register",
                     "error": false,
-                    "label": "By signing up, you agree to our terms of service and privacy policy.",
+                    "label": "I agree to NICE's terms and conditions, and the use of cookies.",
                     "name": "tAndC",
                     "onChange": [Function],
                   },
@@ -1176,6 +1143,39 @@ ShallowWrapper {
                   "type": [Function],
                 },
               ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Checkbox
+                  checked={false}
+                  data-qa-sel="ai-checkbox-register"
+                  label="Our insight community helps us improve our products and services. "
+                  name="allowContactMe"
+                  onChange={[Function]}
+                />,
+                "classNane": "checkboxFieldset",
+                "legend": "Join our Audience Insight Community",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "checked": false,
+                  "data-qa-sel": "ai-checkbox-register",
+                  "label": "Our insight community helps us improve our products and services. ",
+                  "name": "allowContactMe",
+                  "onChange": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
               "type": [Function],
             },
             Object {

@@ -25,10 +25,15 @@ export class Login extends React.Component {
 
   login = (e) => {
     e.preventDefault()
-    this.setState({ loading: true }, () => {
-      const { username, password } = this.state
-      this.auth.login(username, password, this.requestErrorCallback)
-    })
+    try {
+      this.setState({ loading: true }, () => {
+        const { username, password } = this.state
+        this.auth.login(username, password, this.requestErrorCallback)
+      })
+    } catch (err) {
+      // console.log(err)
+      this.setState({ loading: false })
+    }
   }
 
   isValid() {
