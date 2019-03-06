@@ -20,7 +20,7 @@ const history = useRouterHistory(createHashHistory)({
 const MOUNT_NODE = document.getElementById('container')
 
 let render = (routerKey = null) => {
-  const routes = require('./routes/ResetPassword').default()
+  const routes = require('./routes/password_reset').default()
 
   ReactDOM.render(
     <AppContainer history={history} routes={routes} routerKey={routerKey} />,
