@@ -33,11 +33,11 @@ describe('validateFields ', () => {
     const confirmEmailValidation = validateFields({}).confirmEmail()
     expect(confirmEmailValidation).toBe(undefined)
   })
-  it('should return tests.confirmEmail => falsey with no confirmEmail', () => {
+  it('should return tests.confirmEmail => true with no confirmEmail', () => {
     const confirmEmailValidation = validateFields({
       email: 'someEmail@provider.com'
     }).confirmEmail()
-    expect(confirmEmailValidation).toBe(undefined)
+    expect(confirmEmailValidation).toBe(true)
   })
 
   // password
@@ -85,11 +85,11 @@ describe('validateFields ', () => {
     const confirmPasswordValidation = validateFields({}).confirmPassword()
     expect(confirmPasswordValidation).toBe(undefined)
   })
-  it('should return tests.confirmPassword => falsey with no confirmPassword', () => {
+  it('should return tests.confirmPassword => true with no confirmPassword', () => {
     const confirmPasswordValidation = validateFields({
       password: 'Password01!'
     }).confirmPassword()
-    expect(confirmPasswordValidation).toBe(undefined)
+    expect(confirmPasswordValidation).toBe(true)
   })
 
   // name and surname

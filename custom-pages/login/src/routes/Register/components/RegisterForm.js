@@ -38,6 +38,7 @@ export class Register extends React.Component {
       email, password, name, surname, allowContactMe
     } = this.state
     this.validate()
+    this.catchBlanks()
     if (this.isFormValidForSubmission()) {
       this.auth.register(
         email,
@@ -86,6 +87,27 @@ export class Register extends React.Component {
       false // use a positive (error=false) for a start value on the previousValue
     )
     return email && password && name && surname && tAndC && !isErrors
+  }
+
+  catchBlanks() {
+    const {
+      email,
+      password,
+      name,
+      surname,
+      confirmEmail,
+      confirmPassword
+    } = this.state
+    this.setState({
+      errors: {
+        email: !email,
+        password: !password,
+        name: !name,
+        surname: !surname,
+        confirmEmail: !confirmEmail,
+        confirmPassword: !confirmPassword
+      }
+    })
   }
 
   validate = () => {
@@ -196,7 +218,7 @@ export class Register extends React.Component {
             label="First name"
             onChange={this.handleChange}
             error={errors.name}
-            errorMessage="Name should not exceed 100 characters"
+            errorMessage="Name is mamndatory and it should not exceed 100 characters"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="name-error"
@@ -207,7 +229,7 @@ export class Register extends React.Component {
             label="Last name"
             onChange={this.handleChange}
             error={errors.surname}
-            errorMessage="Surname should not exceed 100 characters"
+            errorMessage="Surname is mandatory and it should not exceed 100 characters"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="surname-error"
