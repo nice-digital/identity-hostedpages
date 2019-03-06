@@ -58,9 +58,13 @@ export class Register extends React.Component {
   }
 
   handleCheckboxChange = (event) => {
+    const errors =
+      event.target.name === 'tAndC'
+        ? { ...this.state.errors, tAndC: false }
+        : this.state.errors
     this.setState({
       [event.target.name]: event.target.checked,
-      errors: { ...this.state.errors, tAndC: false }
+      errors
     })
   }
 
@@ -96,7 +100,8 @@ export class Register extends React.Component {
       name,
       surname,
       confirmEmail,
-      confirmPassword
+      confirmPassword,
+      tAndC
     } = this.state
     this.setState({
       errors: {
@@ -105,7 +110,8 @@ export class Register extends React.Component {
         name: !name,
         surname: !surname,
         confirmEmail: !confirmEmail,
-        confirmPassword: !confirmPassword
+        confirmPassword: !confirmPassword,
+        tAndC: !tAndC
       }
     })
   }
