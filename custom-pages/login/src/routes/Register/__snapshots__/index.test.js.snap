@@ -130,7 +130,7 @@ ShallowWrapper {
             <Checkbox
               checked={false}
               data-qa-sel="ai-checkbox-register"
-              label="Our insignt community helps us improve our products and services. "
+              label="Our insight community helps us improve our products and services. "
               name="allowContactMe"
               onChange={[Function]}
             />
@@ -280,7 +280,7 @@ ShallowWrapper {
               <Checkbox
                 checked={false}
                 data-qa-sel="ai-checkbox-register"
-                label="Our insignt community helps us improve our products and services. "
+                label="Our insight community helps us improve our products and services. "
                 name="allowContactMe"
                 onChange={[Function]}
               />
@@ -543,7 +543,7 @@ ShallowWrapper {
               "children": <Checkbox
                 checked={false}
                 data-qa-sel="ai-checkbox-register"
-                label="Our insignt community helps us improve our products and services. "
+                label="Our insight community helps us improve our products and services. "
                 name="allowContactMe"
                 onChange={[Function]}
               />,
@@ -558,7 +558,7 @@ ShallowWrapper {
               "props": Object {
                 "checked": false,
                 "data-qa-sel": "ai-checkbox-register",
-                "label": "Our insignt community helps us improve our products and services. ",
+                "label": "Our insight community helps us improve our products and services. ",
                 "name": "allowContactMe",
                 "onChange": [Function],
               },
@@ -740,7 +740,7 @@ ShallowWrapper {
               <Checkbox
                 checked={false}
                 data-qa-sel="ai-checkbox-register"
-                label="Our insignt community helps us improve our products and services. "
+                label="Our insight community helps us improve our products and services. "
                 name="allowContactMe"
                 onChange={[Function]}
               />
@@ -890,7 +890,7 @@ ShallowWrapper {
                 <Checkbox
                   checked={false}
                   data-qa-sel="ai-checkbox-register"
-                  label="Our insignt community helps us improve our products and services. "
+                  label="Our insight community helps us improve our products and services. "
                   name="allowContactMe"
                   onChange={[Function]}
                 />
@@ -1153,7 +1153,7 @@ ShallowWrapper {
                 "children": <Checkbox
                   checked={false}
                   data-qa-sel="ai-checkbox-register"
-                  label="Our insignt community helps us improve our products and services. "
+                  label="Our insight community helps us improve our products and services. "
                   name="allowContactMe"
                   onChange={[Function]}
                 />,
@@ -1168,7 +1168,7 @@ ShallowWrapper {
                 "props": Object {
                   "checked": false,
                   "data-qa-sel": "ai-checkbox-register",
-                  "label": "Our insignt community helps us improve our products and services. ",
+                  "label": "Our insight community helps us improve our products and services. ",
                   "name": "allowContactMe",
                   "onChange": [Function],
                 },
