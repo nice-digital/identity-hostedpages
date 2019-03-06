@@ -21,7 +21,7 @@ ShallowWrapper {
           Forgot password
         </h3>,
         <h5>
-          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.
+          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
         </h5>,
         <form
           className=""
@@ -76,10 +76,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
         },
         "ref": null,
-        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
         "type": "h5",
       },
       Object {
@@ -207,7 +207,7 @@ ShallowWrapper {
             Forgot password
           </h3>,
           <h5>
-            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.
+            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
           </h5>,
           <form
             className=""
@@ -262,10 +262,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
           },
           "ref": null,
-          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
           "type": "h5",
         },
         Object {
@@ -423,7 +423,7 @@ ShallowWrapper {
           Forgot password
         </h3>,
         <h5>
-          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.
+          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
         </h5>,
         <form
           className=""
@@ -483,10 +483,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
         },
         "ref": null,
-        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
         "type": "h5",
       },
       Object {
@@ -634,7 +634,7 @@ ShallowWrapper {
             Forgot password
           </h3>,
           <h5>
-            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.
+            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
           </h5>,
           <form
             className=""
@@ -694,10 +694,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
           },
           "ref": null,
-          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
           "type": "h5",
         },
         Object {
@@ -875,7 +875,7 @@ ShallowWrapper {
           Forgot password
         </h3>,
         <h5>
-          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.
+          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
         </h5>,
         <form
           className=""
@@ -930,10 +930,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
         },
         "ref": null,
-        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
         "type": "h5",
       },
       Object {
@@ -1061,7 +1061,7 @@ ShallowWrapper {
             Forgot password
           </h3>,
           <h5>
-            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.
+            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
           </h5>,
           <form
             className=""
@@ -1116,10 +1116,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
           },
           "ref": null,
-          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we'll send you a email with a link you can use to reset your password.",
+          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
           "type": "h5",
         },
         Object {

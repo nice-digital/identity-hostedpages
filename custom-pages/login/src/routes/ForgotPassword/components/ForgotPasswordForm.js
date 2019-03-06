@@ -52,7 +52,7 @@ export class ForgotPassword extends React.Component {
         <h5>
           If you have forgotten your password, please use the password reset
           feature below. Enter the email address you registered with below and
-          click the reset password button. If your account can be found we'll
+          click the reset password button. If your account can be found we will
           send you a email with a link you can use to reset your password.
         </h5>
         <form className="">
