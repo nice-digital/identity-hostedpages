@@ -71,13 +71,13 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, username, password, errorCallback) {
+  login(connection, email, password, errorCallback) {
     if (connection === authOpts.connection) {
       this.instance.login(
         {
           realm: authOpts.connection,
           responseType: authOpts.responseType,
-          username,
+          email,
           password
         },
         (err) => {
@@ -87,7 +87,6 @@ export default class AuthApi {
             }
             throw new Error(err)
           }
-          return true
         }
       )
     } else {
@@ -95,7 +94,7 @@ export default class AuthApi {
         {
           connection,
           responseType: authOpts.responseType,
-          username
+          email
         },
         (err) => {
           if (err) {
@@ -104,7 +103,6 @@ export default class AuthApi {
             }
             throw new Error(err)
           }
-          return true
         }
       )
     }
