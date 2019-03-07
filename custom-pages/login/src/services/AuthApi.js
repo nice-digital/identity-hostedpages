@@ -61,11 +61,11 @@ export default class AuthApi {
     strategies.reduce((acc, curr) => {
       acc[curr.name] = {
         ...curr,
-        domainString: curr.conmnections.length
-          ? curr.conmnections[0].domain
+        domainString: curr.connections.length
+          ? curr.connections[0].domain
           : null,
-        connectionName: curr.conmnections.length
-          ? curr.conmnections[0].name
+        connectionName: curr.connections.length
+          ? curr.connections[0].name
           : null
       }
       return acc
