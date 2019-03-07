@@ -46,7 +46,7 @@ export default class AuthApi {
 
   fetchClientSettings = () => {
     if (window.config) {
-      const source = `${window.config.clientConfigurationBaseUrl}/client/${authOpts.clientID}.js?t${+new Date()}`
+      const source = `${window.config.clientConfigurationBaseUrl}client/${authOpts.clientID}.js?t${+new Date()}`
       // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
       this.createAuth0Namespace()
       const scriptTag = document.createElement('script')
