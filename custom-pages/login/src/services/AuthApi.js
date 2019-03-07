@@ -8,6 +8,9 @@ export default class AuthApi {
     if (!window.config) {
       window.config = {}
     }
+    if (window.config.extraParams) {
+      this.fetchClientSettings()
+    }
     window.config.extraParams = window.config.extraParams || {}
     this.opts = {
       domain: authOpts.domain,
@@ -29,15 +32,39 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  // TODO
-  // fetchClientSettings(){
-  //   url: urljoin(clientBaseUrl, 'client', `${clientID}.js?t${+new Date()}`),
-  // }
+  createAuth0Namespace = () => {
+    window.Auth0 = {
+      setClient: (res) => {
+        window.Auth0 = {
+          ...window.Auth0,
+          internalSettings: res,
+          strategies: this.getStategies(res.strategies)
+        }
+      }
+    }
+  }
 
-  login(username, password, errorCallback) {
+  fetchClientSettings = () => {
+    if (window.config) {
+      const source = `${window.config.clientConfigurationBaseUrl}/client/${authOpts.clientID}.js?t${+new Date()}`
+      // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
+      this.createAuth0Namespace()
+      const scriptTag = document.createElement('script')
+      scriptTag.src = source
+      document.body.appendChild(scriptTag)
+    }
+  }
+
+  getStategies = strategies =>
+    strategies.reduce((acc, curr) => {
+      acc[curr.name] = curr
+      return acc
+    }, {})
+
+  login(connection, username, password, errorCallback) {
     this.instance.login(
       {
-        realm: authOpts.connection,
+        realm: connection || authOpts.connection,
         responseType: authOpts.responseType,
         username,
         password

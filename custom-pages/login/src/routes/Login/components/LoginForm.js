@@ -4,6 +4,7 @@ import { Input, Fieldset } from '@nice-digital/nds-forms'
 // local imports
 import { showNav } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
+import { auth as authOpts } from '../../../services/constants'
 // import Logo from '../assets/logo.png'
 
 import './LoginForm.scss'
@@ -17,7 +18,9 @@ export class Login extends React.Component {
       password: null,
       error: null,
       loading: false,
-      valid: false
+      valid: false,
+      isAD: false,
+      connection: authOpts.connection
     }
   }
 
@@ -27,8 +30,13 @@ export class Login extends React.Component {
     if (e) e.preventDefault()
     try {
       this.setState({ loading: true }, () => {
-        const { username, password } = this.state
-        this.auth.login(username, password, this.requestErrorCallback)
+        const { username, password, connection } = this.state
+        this.auth.login(
+          connection,
+          username,
+          password,
+          this.requestErrorCallback
+        )
       })
     } catch (err) {
       // console.log(err)
@@ -37,8 +45,33 @@ export class Login extends React.Component {
   }
 
   isValid() {
-    const { username, password } = this.state
-    this.setState({ valid: username && password })
+    const { username, password, isAD } = this.state
+    this.setState({ valid: (username && password) || (username && isAD) })
+  }
+
+  isDomainInUsername = () => {
+    const { username } = this.state
+    try {
+      const domain =
+        window.Auth0 && window.Auth0.strategies && window.Auth0.strategies.waad
+          ? window.Auth0.strategies.waad.connections[0].domain
+          : null
+      if (username && domain && typeof domain === 'string') {
+        const isAD = username.toLowerCase().indexOf(domain.toLowerCase()) !== -1
+        const connection = window.Auth0.strategies.waad.connections[0].name
+        this.setState(
+          {
+            isAD,
+            connection: isAD ? connection : this.state.connection
+          },
+          this.isValid
+        )
+      } else {
+        this.isValid()
+      }
+    } catch (e) {
+      this.isValid()
+    }
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -47,13 +80,16 @@ export class Login extends React.Component {
         [name]: value,
         error: null
       },
-      this.isValid
+      this.isDomainInUsername
     )
   }
 
   render() {
     showNav()
-    const { error, loading, valid } = this.state
+    const {
+      error, loading, valid, isAD
+    } = this.state
+
     return (
       <form className="">
         <Fieldset legend="Personal information">
@@ -67,13 +103,15 @@ export class Login extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
           />
-          <Input
-            data-qa-sel="login-password"
-            name="password"
-            type="password"
-            label="Password"
-            onChange={this.handleChange}
-          />
+          {!isAD && (
+            <Input
+              data-qa-sel="login-password"
+              name="password"
+              type="password"
+              label="Password"
+              onChange={this.handleChange}
+            />
+          )}
           {!loading ? (
             <button
               data-qa-sel="login-button"
