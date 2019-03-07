@@ -46,7 +46,9 @@ export default class AuthApi {
 
   fetchClientSettings = () => {
     if (window.config) {
-      const source = `${window.config.clientConfigurationBaseUrl}client/${authOpts.clientID}.js?t${+new Date()}`
+      const source = `${window.config.clientConfigurationBaseUrl}client/${
+        authOpts.clientID
+      }.js?t${+new Date()}`
       // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
       this.createAuth0Namespace()
       const scriptTag = document.createElement('script')
@@ -57,28 +59,55 @@ export default class AuthApi {
 
   getStategies = strategies =>
     strategies.reduce((acc, curr) => {
-      acc[curr.name] = curr
+      acc[curr.name] = {
+        ...curr,
+        domainString: curr.conmnections.length
+          ? curr.conmnections[0].domain
+          : null,
+        connectionName: curr.conmnections.length
+          ? curr.conmnections[0].name
+          : null
+      }
       return acc
     }, {})
 
   login(connection, username, password, errorCallback) {
-    this.instance.login(
-      {
-        realm: connection || authOpts.connection,
-        responseType: authOpts.responseType,
-        username,
-        password
-      },
-      (err) => {
-        if (err) {
-          if (errorCallback) {
-            setTimeout(() => errorCallback('Invalid email or password'), 5)
+    if (connection === authOpts.connection) {
+      this.instance.login(
+        {
+          realm: authOpts.connection,
+          responseType: authOpts.responseType,
+          username,
+          password
+        },
+        (err) => {
+          if (err) {
+            if (errorCallback) {
+              setTimeout(() => errorCallback('Invalid email or password'))
+            }
+            throw new Error(err)
           }
-          throw new Error(err)
+          return true
         }
-        return true
-      }
-    )
+      )
+    } else {
+      this.instance.authorize(
+        {
+          connection,
+          responseType: authOpts.responseType,
+          username
+        },
+        (err) => {
+          if (err) {
+            if (errorCallback) {
+              setTimeout(() => errorCallback('Somethign has gone wrong'))
+            }
+            throw new Error(err)
+          }
+          return true
+        }
+      )
+    }
   }
 
   forgotPassword(email, errorCallback) {
