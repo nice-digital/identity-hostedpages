@@ -1,6 +1,7 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-14'
+import { auth as authOpts } from '../../services/constants'
 import Login from './'
 
 Enzyme.configure({ adapter: new Adapter() })
@@ -44,6 +45,7 @@ describe('Login components', () => {
   it('should call the AuthApi login when login is invoked', () => {
     const username = 'username'
     const password = 'pwd'
+    const { connection } = authOpts
 
     el.setState({
       username,
@@ -51,6 +53,11 @@ describe('Login components', () => {
     }).update()
 
     instance.login()
-    expect(instance.auth.login).toBeCalledWith(username, password, functionSignature)
+    expect(instance.auth.login).toBeCalledWith(
+      connection,
+      username,
+      password,
+      functionSignature
+    )
   })
 })
