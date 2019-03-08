@@ -88,7 +88,8 @@ export default class AuthApi {
         email,
         sso: true,
         login_hint: email,
-        response_mode: 'form_post'
+        response_mode: 'form_post',
+        redirect_uri: window.Auth0.internalSettings.callback
       }
       method = 'authorize'
     }
