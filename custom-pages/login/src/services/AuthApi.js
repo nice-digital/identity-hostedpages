@@ -72,40 +72,29 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
-    if (connection === authOpts.connection) {
-      this.instance.login(
-        {
-          realm: authOpts.connection,
-          responseType: authOpts.responseType,
-          email,
-          password
-        },
-        (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback('Invalid email or password'))
-            }
-            throw new Error(err)
-          }
-        }
-      )
+    let options
+    if (connection !== authOpts.connection) {
+      options = {
+        connection,
+        responseType: authOpts.responseType,
+        email
+      }
     } else {
-      this.instance.authorize(
-        {
-          connection,
-          responseType: authOpts.responseType,
-          email
-        },
-        (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback('Somethign has gone wrong'))
-            }
-            throw new Error(err)
-          }
-        }
-      )
+      options = {
+        realm: authOpts.connection,
+        responseType: authOpts.responseType,
+        email,
+        password
+      }
     }
+    this.instance.login(options, (err) => {
+      if (err) {
+        if (errorCallback) {
+          setTimeout(() => errorCallback('Invalid email or password'))
+        }
+        throw new Error(err)
+      }
+    })
   }
 
   forgotPassword(email, errorCallback) {
