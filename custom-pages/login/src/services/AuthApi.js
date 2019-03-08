@@ -85,8 +85,8 @@ export default class AuthApi {
       options = {
         connection,
         responseType: authOpts.responseType,
-        email,
-        sso: true,
+        // email,
+        // sso: true,
         login_hint: email,
         response_mode: 'form_post'
       }
