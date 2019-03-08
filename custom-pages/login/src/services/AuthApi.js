@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js'
 import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
+import pathOr from 'ramda/src/pathOr'
 import { auth as authOpts } from './constants'
 
 export default class AuthApi {
@@ -71,6 +72,11 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
+    const redirectUri = pathOr(
+      null,
+      ['internalSettings', 'callback'],
+      window.Auth0
+    )
     let options
     let method
     if (connection === authOpts.connection) {
@@ -88,8 +94,10 @@ export default class AuthApi {
         email,
         sso: true,
         login_hint: email,
-        response_mode: 'form_post',
-        redirect_uri: window.Auth0.internalSettings.callback
+        response_mode: 'form_post'
+      }
+      if (redirectUri) {
+        options.redirect_uri = redirectUri
       }
       method = 'authorize'
     }
