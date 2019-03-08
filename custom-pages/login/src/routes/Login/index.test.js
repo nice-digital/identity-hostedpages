@@ -12,6 +12,16 @@ describe('Login components', () => {
   const auth = {
     login: jest.fn()
   }
+  window.Auth0 = {
+    strategies: {
+      waad: {
+        domainString: 'gotham.com'
+      },
+      'google-oauth2': {
+        connectionName: 'google'
+      }
+    }
+  }
   jest.mock('../../services/AuthApi')
 
   beforeEach(() => {

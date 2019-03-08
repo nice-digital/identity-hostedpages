@@ -48,7 +48,7 @@ export default class AuthApi {
         const source = `${window.config.clientConfigurationBaseUrl}client/${
           authOpts.clientID
         }.js?t${+new Date()}`
-        // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
+        // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}` // local
         this.createAuth0Namespace(resolver)
         const scriptTag = document.createElement('script')
         scriptTag.src = source

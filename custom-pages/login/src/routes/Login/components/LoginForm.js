@@ -107,7 +107,7 @@ export class Login extends React.Component {
               <button
                 data-qa-sel="login-button"
                 className="btn btn--cta"
-                onClick={this.login}
+                onClick={e => this.login(e, false)}
                 disabled={!username}
               >
                 Sign in
