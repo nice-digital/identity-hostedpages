@@ -72,10 +72,10 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
-    if (connection !== authOpts.connection) {
+    if (connection === authOpts.connection) {
       this.instance.login(
         {
-          realm: authOpts.connection,
+          realm: connection,
           responseType: authOpts.responseType,
           email,
           password
