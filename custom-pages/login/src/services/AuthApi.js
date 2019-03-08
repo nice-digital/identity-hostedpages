@@ -8,9 +8,6 @@ export default class AuthApi {
     if (!window.config) {
       window.config = {}
     }
-    if (window.config.extraParams) {
-      this.fetchClientSettings()
-    }
     window.config.extraParams = window.config.extraParams || {}
     this.opts = {
       domain: authOpts.domain,
@@ -32,7 +29,7 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  createAuth0Namespace = () => {
+  createAuth0Namespace = (promiseResolver) => {
     window.Auth0 = {
       setClient: (res) => {
         window.Auth0 = {
@@ -40,22 +37,24 @@ export default class AuthApi {
           internalSettings: res,
           strategies: this.getStategies(res.strategies)
         }
+        promiseResolver()
       }
     }
   }
 
-  fetchClientSettings = () => {
-    if (window.config) {
-      const source = `${window.config.clientConfigurationBaseUrl}client/${
-        authOpts.clientID
-      }.js?t${+new Date()}`
-      // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
-      this.createAuth0Namespace()
-      const scriptTag = document.createElement('script')
-      scriptTag.src = source
-      document.body.appendChild(scriptTag)
-    }
-  }
+  fetchClientSettings = () =>
+    new Promise((resolver) => {
+      if (window.config) {
+        const source = `${window.config.clientConfigurationBaseUrl}client/${
+          authOpts.clientID
+        }.js?t${+new Date()}`
+        // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
+        this.createAuth0Namespace(resolver)
+        const scriptTag = document.createElement('script')
+        scriptTag.src = source
+        document.body.appendChild(scriptTag)
+      }
+    })
 
   getStategies = strategies =>
     strategies.reduce((acc, curr) => {
@@ -72,43 +71,38 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
+    let options
+    let method
     if (connection === authOpts.connection) {
-      this.instance.login(
-        {
-          realm: connection,
-          responseType: authOpts.responseType,
-          email,
-          password
-        },
-        (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback('Invalid email or password'))
-            }
-            throw new Error(err)
-          }
-        }
-      )
+      options = {
+        realm: connection,
+        responseType: authOpts.responseType,
+        email,
+        password
+      }
+      method = 'login'
     } else {
-      this.instance.authorize(
-        {
-          connection,
-          responseType: authOpts.responseType,
-          email,
-          sso: true,
-          login_hint: email,
-          response_mode: 'form_post'
-        },
-        (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback('Somethign has gone wrong'))
-            }
-            throw new Error(err)
-          }
-        }
-      )
+      options = {
+        connection,
+        responseType: authOpts.responseType,
+        email,
+        sso: true,
+        login_hint: email,
+        response_mode: 'form_post'
+      }
+      method = 'authorize'
     }
+    this.instance[method](options, (err) => {
+      if (err) {
+        if (errorCallback) {
+          setTimeout(() =>
+            errorCallback(method === 'login'
+              ? 'Invalid email or password'
+              : 'Something has gone wrong'))
+        }
+        throw new Error(err)
+      }
+    })
   }
 
   forgotPassword(email, errorCallback) {

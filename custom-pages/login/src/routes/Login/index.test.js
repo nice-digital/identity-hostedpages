@@ -12,14 +12,12 @@ describe('Login components', () => {
   const auth = {
     login: jest.fn()
   }
-  const functionSignature = 'a function signature'
   jest.mock('../../services/AuthApi')
 
   beforeEach(() => {
     el = shallow(<Login.component />)
     instance = el.instance()
     instance.auth = auth
-    instance.requestErrorCallback = functionSignature
   })
 
   it('should render <Login /> correctly', () => {
@@ -57,7 +55,7 @@ describe('Login components', () => {
       connection,
       username,
       password,
-      functionSignature
+      expect.any(Function)
     )
   })
 })

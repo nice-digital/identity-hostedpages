@@ -35,14 +35,16 @@ ShallowWrapper {
           onChange={[Function]}
           type="password"
         />
-        <button
-          className="btn btn--cta"
-          data-qa-sel="login-button"
-          disabled={true}
-          onClick={[Function]}
-        >
-          Sign in
-        </button>
+        <div>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="login-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </div>
       </Fieldset>,
       "className": "",
     },
@@ -70,14 +72,16 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />,
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>,
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>,
         ],
         "legend": "Personal information",
       },
@@ -121,15 +125,38 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Sign in",
-            "className": "btn btn--cta",
-            "data-qa-sel": "login-button",
-            "disabled": true,
-            "onClick": [Function],
+            "children": Array [
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>,
+              false,
+            ],
           },
           "ref": null,
-          "rendered": "Sign in",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign in",
+                "className": "btn btn--cta",
+                "data-qa-sel": "login-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Sign in",
+              "type": "button",
+            },
+            false,
+          ],
+          "type": "div",
         },
       ],
       "type": [Function],
@@ -161,14 +188,16 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>
         </Fieldset>,
         "className": "",
       },
@@ -196,14 +225,16 @@ ShallowWrapper {
               onChange={[Function]}
               type="password"
             />,
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>,
+            <div>
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>
+            </div>,
           ],
           "legend": "Personal information",
         },
@@ -247,15 +278,38 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Sign in",
-              "className": "btn btn--cta",
-              "data-qa-sel": "login-button",
-              "disabled": true,
-              "onClick": [Function],
+              "children": Array [
+                <button
+                  className="btn btn--cta"
+                  data-qa-sel="login-button"
+                  disabled={true}
+                  onClick={[Function]}
+                >
+                  Sign in
+                </button>,
+                false,
+              ],
             },
             "ref": null,
-            "rendered": "Sign in",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign in",
+                  "className": "btn btn--cta",
+                  "data-qa-sel": "login-button",
+                  "disabled": true,
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Sign in",
+                "type": "button",
+              },
+              false,
+            ],
+            "type": "div",
           },
         ],
         "type": [Function],
@@ -322,14 +376,16 @@ ShallowWrapper {
           onChange={[Function]}
           type="password"
         />
-        <button
-          className="btn btn--cta"
-          data-qa-sel="login-button"
-          disabled={true}
-          onClick={[Function]}
-        >
-          Sign in
-        </button>
+        <div>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="login-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </div>
       </Fieldset>,
       "className": "",
     },
@@ -361,14 +417,16 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />,
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>,
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>,
         ],
         "legend": "Personal information",
       },
@@ -423,15 +481,38 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Sign in",
-            "className": "btn btn--cta",
-            "data-qa-sel": "login-button",
-            "disabled": true,
-            "onClick": [Function],
+            "children": Array [
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>,
+              false,
+            ],
           },
           "ref": null,
-          "rendered": "Sign in",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign in",
+                "className": "btn btn--cta",
+                "data-qa-sel": "login-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Sign in",
+              "type": "button",
+            },
+            false,
+          ],
+          "type": "div",
         },
       ],
       "type": [Function],
@@ -468,14 +549,16 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>
         </Fieldset>,
         "className": "",
       },
@@ -507,14 +590,16 @@ ShallowWrapper {
               onChange={[Function]}
               type="password"
             />,
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>,
+            <div>
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>
+            </div>,
           ],
           "legend": "Personal information",
         },
@@ -569,15 +654,38 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Sign in",
-              "className": "btn btn--cta",
-              "data-qa-sel": "login-button",
-              "disabled": true,
-              "onClick": [Function],
+              "children": Array [
+                <button
+                  className="btn btn--cta"
+                  data-qa-sel="login-button"
+                  disabled={true}
+                  onClick={[Function]}
+                >
+                  Sign in
+                </button>,
+                false,
+              ],
             },
             "ref": null,
-            "rendered": "Sign in",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign in",
+                  "className": "btn btn--cta",
+                  "data-qa-sel": "login-button",
+                  "disabled": true,
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Sign in",
+                "type": "button",
+              },
+              false,
+            ],
+            "type": "div",
           },
         ],
         "type": [Function],
@@ -639,14 +747,16 @@ ShallowWrapper {
           onChange={[Function]}
           type="password"
         />
-        <button
-          className="btn btn--cta"
-          data-qa-sel="login-button"
-          disabled={false}
-          onClick={[Function]}
-        >
-          Sign in
-        </button>
+        <div>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="login-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </div>
       </Fieldset>,
       "className": "",
     },
@@ -674,14 +784,16 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />,
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={false}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>,
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>,
         ],
         "legend": "Personal information",
       },
@@ -725,15 +837,38 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Sign in",
-            "className": "btn btn--cta",
-            "data-qa-sel": "login-button",
-            "disabled": false,
-            "onClick": [Function],
+            "children": Array [
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>,
+              false,
+            ],
           },
           "ref": null,
-          "rendered": "Sign in",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign in",
+                "className": "btn btn--cta",
+                "data-qa-sel": "login-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Sign in",
+              "type": "button",
+            },
+            false,
+          ],
+          "type": "div",
         },
       ],
       "type": [Function],
@@ -765,14 +900,16 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={false}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>
         </Fieldset>,
         "className": "",
       },
@@ -800,14 +937,16 @@ ShallowWrapper {
               onChange={[Function]}
               type="password"
             />,
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>,
+            <div>
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>
+            </div>,
           ],
           "legend": "Personal information",
         },
@@ -851,15 +990,38 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Sign in",
-              "className": "btn btn--cta",
-              "data-qa-sel": "login-button",
-              "disabled": false,
-              "onClick": [Function],
+              "children": Array [
+                <button
+                  className="btn btn--cta"
+                  data-qa-sel="login-button"
+                  disabled={true}
+                  onClick={[Function]}
+                >
+                  Sign in
+                </button>,
+                false,
+              ],
             },
             "ref": null,
-            "rendered": "Sign in",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign in",
+                  "className": "btn btn--cta",
+                  "data-qa-sel": "login-button",
+                  "disabled": true,
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Sign in",
+                "type": "button",
+              },
+              false,
+            ],
+            "type": "div",
           },
         ],
         "type": [Function],
