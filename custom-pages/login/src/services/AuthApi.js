@@ -75,6 +75,7 @@ export default class AuthApi {
     let options
     if (connection !== authOpts.connection) {
       options = {
+        realm: connection,
         connection,
         responseType: authOpts.responseType,
         email
@@ -90,7 +91,7 @@ export default class AuthApi {
     this.instance.login(options, (err) => {
       if (err) {
         if (errorCallback) {
-          setTimeout(() => errorCallback('Invalid email or password'))
+          setTimeout(() => errorCallback('Invalid credentials'))
         }
         throw new Error(err)
       }
