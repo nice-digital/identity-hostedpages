@@ -17,8 +17,7 @@ export const RegisterSuccess = () => {
         your details using the activation link.
       </h5>
       <Alert type="caution">
-        Note: if you do not receive an activation email please check your spam
-        folder.
+        Note: check your spam folder if you do not receive the activation email.
       </Alert>
       <p>
         <a href="#">&larr; Take me back to Login</a>

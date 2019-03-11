@@ -30,7 +30,7 @@ ShallowWrapper {
             aria-describedby="email-error"
             data-qa-sel="email-register"
             error={false}
-            errorMessage="Please provide a valid email"
+            errorMessage="Please provide an email address"
             label="Email"
             name="email"
             onBlur={[Function]}
@@ -43,7 +43,7 @@ ShallowWrapper {
             aria-describedby="confirmEmail-error"
             data-qa-sel="confirm-email-register"
             error={false}
-            errorMessage="Email fields do not match"
+            errorMessage="Email address doesn't match"
             label="Confirm email"
             name="confirmEmail"
             onBlur={[Function]}
@@ -80,7 +80,7 @@ ShallowWrapper {
             aria-describedby="name-error"
             data-qa-sel="name-register"
             error={false}
-            errorMessage="Name is mamndatory and it should not exceed 100 characters"
+            errorMessage="Name is mandatory and it should not exceed 100 characters"
             label="First name"
             name="name"
             onBlur={[Function]}
@@ -180,7 +180,7 @@ ShallowWrapper {
               aria-describedby="email-error"
               data-qa-sel="email-register"
               error={false}
-              errorMessage="Please provide a valid email"
+              errorMessage="Please provide an email address"
               label="Email"
               name="email"
               onBlur={[Function]}
@@ -193,7 +193,7 @@ ShallowWrapper {
               aria-describedby="confirmEmail-error"
               data-qa-sel="confirm-email-register"
               error={false}
-              errorMessage="Email fields do not match"
+              errorMessage="Email address doesn't match"
               label="Confirm email"
               name="confirmEmail"
               onBlur={[Function]}
@@ -230,7 +230,7 @@ ShallowWrapper {
               aria-describedby="name-error"
               data-qa-sel="name-register"
               error={false}
-              errorMessage="Name is mamndatory and it should not exceed 100 characters"
+              errorMessage="Name is mandatory and it should not exceed 100 characters"
               label="First name"
               name="name"
               onBlur={[Function]}
@@ -325,7 +325,7 @@ ShallowWrapper {
               "aria-describedby": "email-error",
               "data-qa-sel": "email-register",
               "error": false,
-              "errorMessage": "Please provide a valid email",
+              "errorMessage": "Please provide an email address",
               "label": "Email",
               "name": "email",
               "onBlur": [Function],
@@ -346,7 +346,7 @@ ShallowWrapper {
               "aria-describedby": "confirmEmail-error",
               "data-qa-sel": "confirm-email-register",
               "error": false,
-              "errorMessage": "Email fields do not match",
+              "errorMessage": "Email address doesn't match",
               "label": "Confirm email",
               "name": "confirmEmail",
               "onBlur": [Function],
@@ -407,7 +407,7 @@ ShallowWrapper {
               "aria-describedby": "name-error",
               "data-qa-sel": "name-register",
               "error": false,
-              "errorMessage": "Name is mamndatory and it should not exceed 100 characters",
+              "errorMessage": "Name is mandatory and it should not exceed 100 characters",
               "label": "First name",
               "name": "name",
               "onBlur": [Function],
@@ -640,7 +640,7 @@ ShallowWrapper {
               aria-describedby="email-error"
               data-qa-sel="email-register"
               error={false}
-              errorMessage="Please provide a valid email"
+              errorMessage="Please provide an email address"
               label="Email"
               name="email"
               onBlur={[Function]}
@@ -653,7 +653,7 @@ ShallowWrapper {
               aria-describedby="confirmEmail-error"
               data-qa-sel="confirm-email-register"
               error={false}
-              errorMessage="Email fields do not match"
+              errorMessage="Email address doesn't match"
               label="Confirm email"
               name="confirmEmail"
               onBlur={[Function]}
@@ -690,7 +690,7 @@ ShallowWrapper {
               aria-describedby="name-error"
               data-qa-sel="name-register"
               error={false}
-              errorMessage="Name is mamndatory and it should not exceed 100 characters"
+              errorMessage="Name is mandatory and it should not exceed 100 characters"
               label="First name"
               name="name"
               onBlur={[Function]}
@@ -790,7 +790,7 @@ ShallowWrapper {
                 aria-describedby="email-error"
                 data-qa-sel="email-register"
                 error={false}
-                errorMessage="Please provide a valid email"
+                errorMessage="Please provide an email address"
                 label="Email"
                 name="email"
                 onBlur={[Function]}
@@ -803,7 +803,7 @@ ShallowWrapper {
                 aria-describedby="confirmEmail-error"
                 data-qa-sel="confirm-email-register"
                 error={false}
-                errorMessage="Email fields do not match"
+                errorMessage="Email address doesn't match"
                 label="Confirm email"
                 name="confirmEmail"
                 onBlur={[Function]}
@@ -840,7 +840,7 @@ ShallowWrapper {
                 aria-describedby="name-error"
                 data-qa-sel="name-register"
                 error={false}
-                errorMessage="Name is mamndatory and it should not exceed 100 characters"
+                errorMessage="Name is mandatory and it should not exceed 100 characters"
                 label="First name"
                 name="name"
                 onBlur={[Function]}
@@ -935,7 +935,7 @@ ShallowWrapper {
                 "aria-describedby": "email-error",
                 "data-qa-sel": "email-register",
                 "error": false,
-                "errorMessage": "Please provide a valid email",
+                "errorMessage": "Please provide an email address",
                 "label": "Email",
                 "name": "email",
                 "onBlur": [Function],
@@ -956,7 +956,7 @@ ShallowWrapper {
                 "aria-describedby": "confirmEmail-error",
                 "data-qa-sel": "confirm-email-register",
                 "error": false,
-                "errorMessage": "Email fields do not match",
+                "errorMessage": "Email address doesn't match",
                 "label": "Confirm email",
                 "name": "confirmEmail",
                 "onBlur": [Function],
@@ -1017,7 +1017,7 @@ ShallowWrapper {
                 "aria-describedby": "name-error",
                 "data-qa-sel": "name-register",
                 "error": false,
-                "errorMessage": "Name is mamndatory and it should not exceed 100 characters",
+                "errorMessage": "Name is mandatory and it should not exceed 100 characters",
                 "label": "First name",
                 "name": "name",
                 "onBlur": [Function],
@@ -1280,7 +1280,7 @@ ShallowWrapper {
             aria-describedby="email-error"
             data-qa-sel="email-register"
             error={false}
-            errorMessage="Please provide a valid email"
+            errorMessage="Email address is in an invalid format"
             label="Email"
             name="email"
             onBlur={[Function]}
@@ -1293,7 +1293,7 @@ ShallowWrapper {
             aria-describedby="confirmEmail-error"
             data-qa-sel="confirm-email-register"
             error={false}
-            errorMessage="Email fields do not match"
+            errorMessage="Email address doesn't match"
             label="Confirm email"
             name="confirmEmail"
             onBlur={[Function]}
@@ -1330,7 +1330,7 @@ ShallowWrapper {
             aria-describedby="name-error"
             data-qa-sel="name-register"
             error={false}
-            errorMessage="Name is mamndatory and it should not exceed 100 characters"
+            errorMessage="Name is mandatory and it should not exceed 100 characters"
             label="First name"
             name="name"
             onBlur={[Function]}
@@ -1430,7 +1430,7 @@ ShallowWrapper {
               aria-describedby="email-error"
               data-qa-sel="email-register"
               error={false}
-              errorMessage="Please provide a valid email"
+              errorMessage="Email address is in an invalid format"
               label="Email"
               name="email"
               onBlur={[Function]}
@@ -1443,7 +1443,7 @@ ShallowWrapper {
               aria-describedby="confirmEmail-error"
               data-qa-sel="confirm-email-register"
               error={false}
-              errorMessage="Email fields do not match"
+              errorMessage="Email address doesn't match"
               label="Confirm email"
               name="confirmEmail"
               onBlur={[Function]}
@@ -1480,7 +1480,7 @@ ShallowWrapper {
               aria-describedby="name-error"
               data-qa-sel="name-register"
               error={false}
-              errorMessage="Name is mamndatory and it should not exceed 100 characters"
+              errorMessage="Name is mandatory and it should not exceed 100 characters"
               label="First name"
               name="name"
               onBlur={[Function]}
@@ -1575,7 +1575,7 @@ ShallowWrapper {
               "aria-describedby": "email-error",
               "data-qa-sel": "email-register",
               "error": false,
-              "errorMessage": "Please provide a valid email",
+              "errorMessage": "Email address is in an invalid format",
               "label": "Email",
               "name": "email",
               "onBlur": [Function],
@@ -1596,7 +1596,7 @@ ShallowWrapper {
               "aria-describedby": "confirmEmail-error",
               "data-qa-sel": "confirm-email-register",
               "error": false,
-              "errorMessage": "Email fields do not match",
+              "errorMessage": "Email address doesn't match",
               "label": "Confirm email",
               "name": "confirmEmail",
               "onBlur": [Function],
@@ -1657,7 +1657,7 @@ ShallowWrapper {
               "aria-describedby": "name-error",
               "data-qa-sel": "name-register",
               "error": false,
-              "errorMessage": "Name is mamndatory and it should not exceed 100 characters",
+              "errorMessage": "Name is mandatory and it should not exceed 100 characters",
               "label": "First name",
               "name": "name",
               "onBlur": [Function],
@@ -1890,7 +1890,7 @@ ShallowWrapper {
               aria-describedby="email-error"
               data-qa-sel="email-register"
               error={false}
-              errorMessage="Please provide a valid email"
+              errorMessage="Email address is in an invalid format"
               label="Email"
               name="email"
               onBlur={[Function]}
@@ -1903,7 +1903,7 @@ ShallowWrapper {
               aria-describedby="confirmEmail-error"
               data-qa-sel="confirm-email-register"
               error={false}
-              errorMessage="Email fields do not match"
+              errorMessage="Email address doesn't match"
               label="Confirm email"
               name="confirmEmail"
               onBlur={[Function]}
@@ -1940,7 +1940,7 @@ ShallowWrapper {
               aria-describedby="name-error"
               data-qa-sel="name-register"
               error={false}
-              errorMessage="Name is mamndatory and it should not exceed 100 characters"
+              errorMessage="Name is mandatory and it should not exceed 100 characters"
               label="First name"
               name="name"
               onBlur={[Function]}
@@ -2040,7 +2040,7 @@ ShallowWrapper {
                 aria-describedby="email-error"
                 data-qa-sel="email-register"
                 error={false}
-                errorMessage="Please provide a valid email"
+                errorMessage="Email address is in an invalid format"
                 label="Email"
                 name="email"
                 onBlur={[Function]}
@@ -2053,7 +2053,7 @@ ShallowWrapper {
                 aria-describedby="confirmEmail-error"
                 data-qa-sel="confirm-email-register"
                 error={false}
-                errorMessage="Email fields do not match"
+                errorMessage="Email address doesn't match"
                 label="Confirm email"
                 name="confirmEmail"
                 onBlur={[Function]}
@@ -2090,7 +2090,7 @@ ShallowWrapper {
                 aria-describedby="name-error"
                 data-qa-sel="name-register"
                 error={false}
-                errorMessage="Name is mamndatory and it should not exceed 100 characters"
+                errorMessage="Name is mandatory and it should not exceed 100 characters"
                 label="First name"
                 name="name"
                 onBlur={[Function]}
@@ -2185,7 +2185,7 @@ ShallowWrapper {
                 "aria-describedby": "email-error",
                 "data-qa-sel": "email-register",
                 "error": false,
-                "errorMessage": "Please provide a valid email",
+                "errorMessage": "Email address is in an invalid format",
                 "label": "Email",
                 "name": "email",
                 "onBlur": [Function],
@@ -2206,7 +2206,7 @@ ShallowWrapper {
                 "aria-describedby": "confirmEmail-error",
                 "data-qa-sel": "confirm-email-register",
                 "error": false,
-                "errorMessage": "Email fields do not match",
+                "errorMessage": "Email address doesn't match",
                 "label": "Confirm email",
                 "name": "confirmEmail",
                 "onBlur": [Function],
@@ -2267,7 +2267,7 @@ ShallowWrapper {
                 "aria-describedby": "name-error",
                 "data-qa-sel": "name-register",
                 "error": false,
-                "errorMessage": "Name is mamndatory and it should not exceed 100 characters",
+                "errorMessage": "Name is mandatory and it should not exceed 100 characters",
                 "label": "First name",
                 "name": "name",
                 "onBlur": [Function],
@@ -2530,7 +2530,7 @@ ShallowWrapper {
             aria-describedby="email-error"
             data-qa-sel="email-register"
             error={false}
-            errorMessage="Please provide a valid email"
+            errorMessage="Please provide an email address"
             label="Email"
             name="email"
             onBlur={[Function]}
@@ -2543,7 +2543,7 @@ ShallowWrapper {
             aria-describedby="confirmEmail-error"
             data-qa-sel="confirm-email-register"
             error={false}
-            errorMessage="Email fields do not match"
+            errorMessage="Email address doesn't match"
             label="Confirm email"
             name="confirmEmail"
             onBlur={[Function]}
@@ -2580,7 +2580,7 @@ ShallowWrapper {
             aria-describedby="name-error"
             data-qa-sel="name-register"
             error={false}
-            errorMessage="Name is mamndatory and it should not exceed 100 characters"
+            errorMessage="Name is mandatory and it should not exceed 100 characters"
             label="First name"
             name="name"
             onBlur={[Function]}
@@ -2680,7 +2680,7 @@ ShallowWrapper {
               aria-describedby="email-error"
               data-qa-sel="email-register"
               error={false}
-              errorMessage="Please provide a valid email"
+              errorMessage="Please provide an email address"
               label="Email"
               name="email"
               onBlur={[Function]}
@@ -2693,7 +2693,7 @@ ShallowWrapper {
               aria-describedby="confirmEmail-error"
               data-qa-sel="confirm-email-register"
               error={false}
-              errorMessage="Email fields do not match"
+              errorMessage="Email address doesn't match"
               label="Confirm email"
               name="confirmEmail"
               onBlur={[Function]}
@@ -2730,7 +2730,7 @@ ShallowWrapper {
               aria-describedby="name-error"
               data-qa-sel="name-register"
               error={false}
-              errorMessage="Name is mamndatory and it should not exceed 100 characters"
+              errorMessage="Name is mandatory and it should not exceed 100 characters"
               label="First name"
               name="name"
               onBlur={[Function]}
@@ -2825,7 +2825,7 @@ ShallowWrapper {
               "aria-describedby": "email-error",
               "data-qa-sel": "email-register",
               "error": false,
-              "errorMessage": "Please provide a valid email",
+              "errorMessage": "Please provide an email address",
               "label": "Email",
               "name": "email",
               "onBlur": [Function],
@@ -2846,7 +2846,7 @@ ShallowWrapper {
               "aria-describedby": "confirmEmail-error",
               "data-qa-sel": "confirm-email-register",
               "error": false,
-              "errorMessage": "Email fields do not match",
+              "errorMessage": "Email address doesn't match",
               "label": "Confirm email",
               "name": "confirmEmail",
               "onBlur": [Function],
@@ -2907,7 +2907,7 @@ ShallowWrapper {
               "aria-describedby": "name-error",
               "data-qa-sel": "name-register",
               "error": false,
-              "errorMessage": "Name is mamndatory and it should not exceed 100 characters",
+              "errorMessage": "Name is mandatory and it should not exceed 100 characters",
               "label": "First name",
               "name": "name",
               "onBlur": [Function],
@@ -3140,7 +3140,7 @@ ShallowWrapper {
               aria-describedby="email-error"
               data-qa-sel="email-register"
               error={false}
-              errorMessage="Please provide a valid email"
+              errorMessage="Please provide an email address"
               label="Email"
               name="email"
               onBlur={[Function]}
@@ -3153,7 +3153,7 @@ ShallowWrapper {
               aria-describedby="confirmEmail-error"
               data-qa-sel="confirm-email-register"
               error={false}
-              errorMessage="Email fields do not match"
+              errorMessage="Email address doesn't match"
               label="Confirm email"
               name="confirmEmail"
               onBlur={[Function]}
@@ -3190,7 +3190,7 @@ ShallowWrapper {
               aria-describedby="name-error"
               data-qa-sel="name-register"
               error={false}
-              errorMessage="Name is mamndatory and it should not exceed 100 characters"
+              errorMessage="Name is mandatory and it should not exceed 100 characters"
               label="First name"
               name="name"
               onBlur={[Function]}
@@ -3290,7 +3290,7 @@ ShallowWrapper {
                 aria-describedby="email-error"
                 data-qa-sel="email-register"
                 error={false}
-                errorMessage="Please provide a valid email"
+                errorMessage="Please provide an email address"
                 label="Email"
                 name="email"
                 onBlur={[Function]}
@@ -3303,7 +3303,7 @@ ShallowWrapper {
                 aria-describedby="confirmEmail-error"
                 data-qa-sel="confirm-email-register"
                 error={false}
-                errorMessage="Email fields do not match"
+                errorMessage="Email address doesn't match"
                 label="Confirm email"
                 name="confirmEmail"
                 onBlur={[Function]}
@@ -3340,7 +3340,7 @@ ShallowWrapper {
                 aria-describedby="name-error"
                 data-qa-sel="name-register"
                 error={false}
-                errorMessage="Name is mamndatory and it should not exceed 100 characters"
+                errorMessage="Name is mandatory and it should not exceed 100 characters"
                 label="First name"
                 name="name"
                 onBlur={[Function]}
@@ -3435,7 +3435,7 @@ ShallowWrapper {
                 "aria-describedby": "email-error",
                 "data-qa-sel": "email-register",
                 "error": false,
-                "errorMessage": "Please provide a valid email",
+                "errorMessage": "Please provide an email address",
                 "label": "Email",
                 "name": "email",
                 "onBlur": [Function],
@@ -3456,7 +3456,7 @@ ShallowWrapper {
                 "aria-describedby": "confirmEmail-error",
                 "data-qa-sel": "confirm-email-register",
                 "error": false,
-                "errorMessage": "Email fields do not match",
+                "errorMessage": "Email address doesn't match",
                 "label": "Confirm email",
                 "name": "confirmEmail",
                 "onBlur": [Function],
@@ -3517,7 +3517,7 @@ ShallowWrapper {
                 "aria-describedby": "name-error",
                 "data-qa-sel": "name-register",
                 "error": false,
-                "errorMessage": "Name is mamndatory and it should not exceed 100 characters",
+                "errorMessage": "Name is mandatory and it should not exceed 100 characters",
                 "label": "First name",
                 "name": "name",
                 "onBlur": [Function],

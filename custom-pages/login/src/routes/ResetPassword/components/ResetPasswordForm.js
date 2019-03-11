@@ -141,7 +141,7 @@ export class ResetPassword extends React.Component {
               className="btn btn--cta"
               onClick={e => this.resetPassword(e)}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>
         </form>

@@ -140,7 +140,7 @@ export class Register extends React.Component {
 
   render() {
     const {
-      allowContactMe, tAndC, errors, showAlert
+      allowContactMe, tAndC, errors, showAlert, email
     } = this.state
     showNav()
     return (
@@ -176,7 +176,11 @@ export class Register extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
             error={errors.email}
-            errorMessage="Please provide a valid email"
+            errorMessage={`${
+              !email
+                ? 'Please provide an email address'
+                : 'Email address is in an invalid format'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="email-error"
@@ -189,7 +193,7 @@ export class Register extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
             error={errors.confirmEmail}
-            errorMessage="Email fields do not match"
+            errorMessage="Email address doesn't match"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="confirmEmail-error"
@@ -224,7 +228,7 @@ export class Register extends React.Component {
             label="First name"
             onChange={this.handleChange}
             error={errors.name}
-            errorMessage="Name is mamndatory and it should not exceed 100 characters"
+            errorMessage="Name is mandatory and it should not exceed 100 characters"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="name-error"

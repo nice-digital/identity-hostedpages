@@ -61,7 +61,7 @@ ShallowWrapper {
               data-qa-sel="ResetPassword-button"
               onClick={[Function]}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>
         </form>,
@@ -131,7 +131,7 @@ ShallowWrapper {
               data-qa-sel="ResetPassword-button"
               onClick={[Function]}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>,
           "className": "",
@@ -175,7 +175,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>,
             ],
             "legend": "Personal information",
@@ -239,13 +239,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Reset Password",
+                "children": "Reset password",
                 "className": "btn btn--cta",
                 "data-qa-sel": "ResetPassword-button",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Reset Password",
+              "rendered": "Reset password",
               "type": "button",
             },
           ],
@@ -307,7 +307,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>
             </Fieldset>
           </form>,
@@ -377,7 +377,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>
             </Fieldset>,
             "className": "",
@@ -421,7 +421,7 @@ ShallowWrapper {
                   data-qa-sel="ResetPassword-button"
                   onClick={[Function]}
                 >
-                  Reset Password
+                  Reset password
                 </button>,
               ],
               "legend": "Personal information",
@@ -485,13 +485,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Reset Password",
+                  "children": "Reset password",
                   "className": "btn btn--cta",
                   "data-qa-sel": "ResetPassword-button",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": "Reset Password",
+                "rendered": "Reset password",
                 "type": "button",
               },
             ],
@@ -583,7 +583,7 @@ ShallowWrapper {
               data-qa-sel="ResetPassword-button"
               onClick={[Function]}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>
         </form>,
@@ -653,7 +653,7 @@ ShallowWrapper {
               data-qa-sel="ResetPassword-button"
               onClick={[Function]}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>,
           "className": "",
@@ -697,7 +697,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>,
             ],
             "legend": "Personal information",
@@ -761,13 +761,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Reset Password",
+                "children": "Reset password",
                 "className": "btn btn--cta",
                 "data-qa-sel": "ResetPassword-button",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Reset Password",
+              "rendered": "Reset password",
               "type": "button",
             },
           ],
@@ -829,7 +829,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>
             </Fieldset>
           </form>,
@@ -899,7 +899,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>
             </Fieldset>,
             "className": "",
@@ -943,7 +943,7 @@ ShallowWrapper {
                   data-qa-sel="ResetPassword-button"
                   onClick={[Function]}
                 >
-                  Reset Password
+                  Reset password
                 </button>,
               ],
               "legend": "Personal information",
@@ -1007,13 +1007,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Reset Password",
+                  "children": "Reset password",
                   "className": "btn btn--cta",
                   "data-qa-sel": "ResetPassword-button",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": "Reset Password",
+                "rendered": "Reset password",
                 "type": "button",
               },
             ],
@@ -1105,7 +1105,7 @@ ShallowWrapper {
               data-qa-sel="ResetPassword-button"
               onClick={[Function]}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>
         </form>,
@@ -1175,7 +1175,7 @@ ShallowWrapper {
               data-qa-sel="ResetPassword-button"
               onClick={[Function]}
             >
-              Reset Password
+              Reset password
             </button>
           </Fieldset>,
           "className": "",
@@ -1219,7 +1219,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>,
             ],
             "legend": "Personal information",
@@ -1283,13 +1283,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Reset Password",
+                "children": "Reset password",
                 "className": "btn btn--cta",
                 "data-qa-sel": "ResetPassword-button",
                 "onClick": [Function],
               },
               "ref": null,
-              "rendered": "Reset Password",
+              "rendered": "Reset password",
               "type": "button",
             },
           ],
@@ -1351,7 +1351,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>
             </Fieldset>
           </form>,
@@ -1421,7 +1421,7 @@ ShallowWrapper {
                 data-qa-sel="ResetPassword-button"
                 onClick={[Function]}
               >
-                Reset Password
+                Reset password
               </button>
             </Fieldset>,
             "className": "",
@@ -1465,7 +1465,7 @@ ShallowWrapper {
                   data-qa-sel="ResetPassword-button"
                   onClick={[Function]}
                 >
-                  Reset Password
+                  Reset password
                 </button>,
               ],
               "legend": "Personal information",
@@ -1529,13 +1529,13 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Reset Password",
+                  "children": "Reset password",
                   "className": "btn btn--cta",
                   "data-qa-sel": "ResetPassword-button",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": "Reset Password",
+                "rendered": "Reset password",
                 "type": "button",
               },
             ],

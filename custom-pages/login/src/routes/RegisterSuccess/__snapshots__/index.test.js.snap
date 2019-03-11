@@ -26,7 +26,7 @@ ShallowWrapper {
         <Alert
           type="caution"
         >
-          Note: if you do not receive an activation email please check your spam folder.
+          Note: check your spam folder if you do not receive the activation email.
         </Alert>,
         <p>
           <a
@@ -66,11 +66,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": "Note: if you do not receive an activation email please check your spam folder.",
+          "children": "Note: check your spam folder if you do not receive the activation email.",
           "type": "caution",
         },
         "ref": null,
-        "rendered": "Note: if you do not receive an activation email please check your spam folder.",
+        "rendered": "Note: check your spam folder if you do not receive the activation email.",
         "type": [Function],
       },
       Object {
@@ -118,7 +118,7 @@ ShallowWrapper {
           <Alert
             type="caution"
           >
-            Note: if you do not receive an activation email please check your spam folder.
+            Note: check your spam folder if you do not receive the activation email.
           </Alert>,
           <p>
             <a
@@ -158,11 +158,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "Note: if you do not receive an activation email please check your spam folder.",
+            "children": "Note: check your spam folder if you do not receive the activation email.",
             "type": "caution",
           },
           "ref": null,
-          "rendered": "Note: if you do not receive an activation email please check your spam folder.",
+          "rendered": "Note: check your spam folder if you do not receive the activation email.",
           "type": [Function],
         },
         Object {
