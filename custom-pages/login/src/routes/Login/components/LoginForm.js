@@ -117,7 +117,7 @@ export class Login extends React.Component {
               <button
                 data-qa-sel="login-button-social"
                 className="iconBtn social"
-                // style={{ float: 'right' }}
+                style={{ float: 'right' }}
                 onClick={e => this.login(e, true)}
               >
                 <span className="buttonLabel">Or sign in with</span>

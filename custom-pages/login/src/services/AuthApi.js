@@ -27,7 +27,7 @@ export default class AuthApi {
       // }
     }
     const params = Object.assign(this.opts, window.config.internalOptions)
-    this.instance = new Auth0(params)
+    this.instance = new Auth0.WebAuth(params)
   }
 
   createAuth0Namespace = (promiseResolver) => {
