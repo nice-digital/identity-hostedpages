@@ -1,4 +1,4 @@
-import auth0 from 'auth0-js'
+import Auth0 from 'auth0-js'
 // import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
 import pathOr from 'ramda/src/pathOr'
 import { auth as authOpts } from './constants'
@@ -27,7 +27,7 @@ export default class AuthApi {
       // }
     }
     const params = Object.assign(this.opts, window.config.internalOptions)
-    this.instance = new auth0.WebAuth(params)
+    this.instance = new Auth0(params)
   }
 
   createAuth0Namespace = (promiseResolver) => {
