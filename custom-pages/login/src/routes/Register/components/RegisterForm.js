@@ -140,7 +140,14 @@ export class Register extends React.Component {
 
   render() {
     const {
-      allowContactMe, tAndC, errors, showAlert, email
+      allowContactMe,
+      tAndC,
+      errors,
+      showAlert,
+      email,
+      password,
+      name,
+      surname
     } = this.state
     showNav()
     return (
@@ -178,7 +185,7 @@ export class Register extends React.Component {
             error={errors.email}
             errorMessage={`${
               !email
-                ? 'Please provide an email address'
+                ? 'This field is required'
                 : 'Email address is in an invalid format'
             }`}
             onBlur={this.validate}
@@ -205,7 +212,11 @@ export class Register extends React.Component {
             label="Password"
             onChange={this.handleChange}
             error={errors.password}
-            errorMessage="Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)"
+            errorMessage={`${
+              !password
+                ? 'This field is required'
+                : 'Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="password-error"
@@ -228,7 +239,11 @@ export class Register extends React.Component {
             label="First name"
             onChange={this.handleChange}
             error={errors.name}
-            errorMessage="Name is mandatory and it should not exceed 100 characters"
+            errorMessage={`${
+              !name
+                ? 'This field is required'
+                : 'First name should not exceed 100 characters'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="name-error"
@@ -239,7 +254,11 @@ export class Register extends React.Component {
             label="Last name"
             onChange={this.handleChange}
             error={errors.surname}
-            errorMessage="Surname is mandatory and it should not exceed 100 characters"
+            errorMessage={`${
+              !surname
+                ? 'This field is required'
+                : 'Last name should not exceed 100 characters'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="surname-error"
