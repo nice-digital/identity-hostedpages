@@ -1,26 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="renderer" content="webkit" />
+    <title>NICE Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="renderer" content="webkit" />
-  <title>NICE Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="/node_modules/@nice-digital/design-system/dist/stylesheets/nice.min.css"> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
-  <script src="https://cdn.auth0.com/js/base64.js"></script>
-</head>
+    <!--[if IE 8]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+    <![endif]-->
 
-<body>
-  <script>
-    var config = document.location.origin.indexOf('localhost') !== -1 ? {} : JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))))
-  </script>
-  <div id="container"></div>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+    <script src="https://cdn.auth0.com/js/base64.js"></script>
+  </head>
 
+  <body>
+    <script>
+      var config =
+        document.location.host.indexOf("localhost") !== -1
+          ? {}
+          : JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));
+    </script>
+    <div id="container"></div>
+  </body>
 </html>

@@ -15,7 +15,7 @@ export default class AuthApi {
       plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       popup: false,
-      responseType: authOpts.responseType,
+      responseType: authOpts.responseType || 'code',
       scope: authOpts.scope,
       redirect: true
       // overrides: {
@@ -29,17 +29,18 @@ export default class AuthApi {
     this.instance = new auth0.WebAuth(params)
   }
 
-  login(username, password, cb) {
+  login(username, password, errorCallback) {
     this.instance.login(
       {
         realm: authOpts.connection,
+        responseType: authOpts.responseType,
         username,
         password
       },
       (err) => {
         if (err) {
-          if (cb) {
-            setTimeout(() => cb('Invalid username or password'), 5)
+          if (errorCallback) {
+            setTimeout(() => errorCallback('Invalid email or password'), 5)
           }
           throw new Error(err)
         }
@@ -49,10 +50,11 @@ export default class AuthApi {
     )
   }
 
-  register(email, password, name, surname, allowContactMe, cb) {
+  register(email, password, name, surname, allowContactMe, errorCallback) {
     return this.instance.signup(
       {
         connection: authOpts.connection,
+        responseType: authOpts.responseType,
         email,
         password,
         user_metadata: {
@@ -63,22 +65,14 @@ export default class AuthApi {
       },
       (err) => {
         if (err) {
-          console.error(`Something went wrong: ${err.message}`)
+          if (errorCallback) {
+            errorCallback()
+          }
           return false
         }
-        console.log('success signup without login!')
-        if (cb) {
-          cb()
-        }
+        document.location.hash = '#/regsuccess'
         return true
       }
     )
-  }
-
-  logout() {
-    this.instance.logout({
-      clientID: authOpts.clientID,
-      returnTo: authOpts.domain
-    })
   }
 }

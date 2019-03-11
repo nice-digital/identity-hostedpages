@@ -1,6 +1,8 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
+// local imports
+import { showNav } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 // import Logo from '../assets/logo.png'
 
@@ -23,10 +25,15 @@ export class Login extends React.Component {
 
   login = (e) => {
     e.preventDefault()
-    this.setState({ loading: true }, () => {
-      const { username, password } = this.state
-      this.auth.login(username, password, this.requestErrorCallback)
-    })
+    try {
+      this.setState({ loading: true }, () => {
+        const { username, password } = this.state
+        this.auth.login(username, password, this.requestErrorCallback)
+      })
+    } catch (err) {
+      // console.log(err)
+      this.setState({ loading: false })
+    }
   }
 
   isValid() {
@@ -45,14 +52,15 @@ export class Login extends React.Component {
   }
 
   render() {
+    showNav()
     const { error, loading, valid } = this.state
     return (
       <form className="">
-        <Fieldset legend="Personal Information">
+        <Fieldset legend="Personal information">
           {error && <Alert type="error">{error}</Alert>}
           <Input
             data-qa-sel="login-email"
-            label="Username"
+            label="Email"
             id="username"
             name="username"
             type="email"

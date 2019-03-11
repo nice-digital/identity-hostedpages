@@ -23,7 +23,7 @@ ShallowWrapper {
            Log in 
         </h3>
         <span>
-          Don't have an NICE Account?
+          Need a NICE Account?
         </span>
         <Link
           activeClassName="activeRoute"
@@ -32,7 +32,7 @@ ShallowWrapper {
           style={Object {}}
           to="/register"
         >
-          Sign up
+          Create an account
         </Link>
       </div>,
       "className": "navigation",
@@ -48,7 +48,7 @@ ShallowWrapper {
              Log in 
           </h3>,
           <span>
-            Don't have an NICE Account?
+            Need a NICE Account?
           </span>,
           <Link
             activeClassName="activeRoute"
@@ -57,7 +57,7 @@ ShallowWrapper {
             style={Object {}}
             to="/register"
           >
-            Sign up
+            Create an account
           </Link>,
         ],
         "className": "navigationLink",
@@ -80,10 +80,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Don't have an NICE Account?",
+            "children": "Need a NICE Account?",
           },
           "ref": null,
-          "rendered": "Don't have an NICE Account?",
+          "rendered": "Need a NICE Account?",
           "type": "span",
         },
         Object {
@@ -92,14 +92,14 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "activeClassName": "activeRoute",
-            "children": "Sign up",
+            "children": "Create an account",
             "data-qa-sel": "Signup-link-login",
             "onlyActiveOnIndex": false,
             "style": Object {},
             "to": "/register",
           },
           "ref": null,
-          "rendered": "Sign up",
+          "rendered": "Create an account",
           "type": [Function],
         },
       ],
@@ -120,7 +120,7 @@ ShallowWrapper {
              Log in 
           </h3>
           <span>
-            Don't have an NICE Account?
+            Need a NICE Account?
           </span>
           <Link
             activeClassName="activeRoute"
@@ -129,7 +129,7 @@ ShallowWrapper {
             style={Object {}}
             to="/register"
           >
-            Sign up
+            Create an account
           </Link>
         </div>,
         "className": "navigation",
@@ -145,7 +145,7 @@ ShallowWrapper {
                Log in 
             </h3>,
             <span>
-              Don't have an NICE Account?
+              Need a NICE Account?
             </span>,
             <Link
               activeClassName="activeRoute"
@@ -154,7 +154,7 @@ ShallowWrapper {
               style={Object {}}
               to="/register"
             >
-              Sign up
+              Create an account
             </Link>,
           ],
           "className": "navigationLink",
@@ -177,10 +177,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Don't have an NICE Account?",
+              "children": "Need a NICE Account?",
             },
             "ref": null,
-            "rendered": "Don't have an NICE Account?",
+            "rendered": "Need a NICE Account?",
             "type": "span",
           },
           Object {
@@ -189,14 +189,14 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "activeClassName": "activeRoute",
-              "children": "Sign up",
+              "children": "Create an account",
               "data-qa-sel": "Signup-link-login",
               "onlyActiveOnIndex": false,
               "style": Object {},
               "to": "/register",
             },
             "ref": null,
-            "rendered": "Sign up",
+            "rendered": "Create an account",
             "type": [Function],
           },
         ],
