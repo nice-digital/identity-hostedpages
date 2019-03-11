@@ -149,7 +149,7 @@ export class Register extends React.Component {
       name,
       surname
     } = this.state
-    showNav()
+    showNav(true)
     return (
       <form className="">
         <h6>
@@ -309,14 +309,14 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button
-            data-qa-sel="Register-button"
-            className="btn btn--cta"
-            onClick={e => this.register(e)}
-          >
-            Register
-          </button>
         </Fieldset>
+        <button
+          data-qa-sel="Register-button"
+          className="btn btn--cta"
+          onClick={e => this.register(e)}
+        >
+          Register
+        </button>
       </form>
     )
   }

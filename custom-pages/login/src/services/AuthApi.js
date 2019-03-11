@@ -46,10 +46,14 @@ export default class AuthApi {
   fetchClientSettings = () =>
     new Promise((resolver) => {
       if (window.config) {
-        const source = `${window.config.clientConfigurationBaseUrl}client/${
-          authOpts.clientID
-        }.js?t${+new Date()}`
-        // const source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}` // local
+        let source
+        if (document.location.host.indexOf('localhost') !== -1) {
+          source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
+        } else {
+          source = `${window.config.clientConfigurationBaseUrl}client/${
+            authOpts.clientID
+          }.js?t${+new Date()}`
+        }
         this.createAuth0Namespace(resolver)
         const scriptTag = document.createElement('script')
         scriptTag.src = source

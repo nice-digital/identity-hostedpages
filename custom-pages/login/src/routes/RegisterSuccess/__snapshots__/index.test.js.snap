@@ -18,10 +18,10 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h3>
-          Thank you!
+          Thank you
         </h3>,
         <h5>
-          To complete registration, please check your email account and confirm your details using the activation link.
+          We've sent you an email with an activation link. To verify your details and start using your account, click on the link.
         </h5>,
         <Alert
           type="caution"
@@ -44,10 +44,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Thank you!",
+          "children": "Thank you",
         },
         "ref": null,
-        "rendered": "Thank you!",
+        "rendered": "Thank you",
         "type": "h3",
       },
       Object {
@@ -55,10 +55,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "To complete registration, please check your email account and confirm your details using the activation link.",
+          "children": "We've sent you an email with an activation link. To verify your details and start using your account, click on the link.",
         },
         "ref": null,
-        "rendered": "To complete registration, please check your email account and confirm your details using the activation link.",
+        "rendered": "We've sent you an email with an activation link. To verify your details and start using your account, click on the link.",
         "type": "h5",
       },
       Object {
@@ -110,10 +110,10 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h3>
-            Thank you!
+            Thank you
           </h3>,
           <h5>
-            To complete registration, please check your email account and confirm your details using the activation link.
+            We've sent you an email with an activation link. To verify your details and start using your account, click on the link.
           </h5>,
           <Alert
             type="caution"
@@ -136,10 +136,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Thank you!",
+            "children": "Thank you",
           },
           "ref": null,
-          "rendered": "Thank you!",
+          "rendered": "Thank you",
           "type": "h3",
         },
         Object {
@@ -147,10 +147,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "To complete registration, please check your email account and confirm your details using the activation link.",
+            "children": "We've sent you an email with an activation link. To verify your details and start using your account, click on the link.",
           },
           "ref": null,
-          "rendered": "To complete registration, please check your email account and confirm your details using the activation link.",
+          "rendered": "We've sent you an email with an activation link. To verify your details and start using your account, click on the link.",
           "type": "h5",
         },
         Object {

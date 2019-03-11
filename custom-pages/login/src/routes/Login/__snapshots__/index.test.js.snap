@@ -16,160 +16,8 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <Fieldset
-        legend="Personal information"
-      >
-        <Input
-          data-qa-sel="login-email"
-          id="username"
-          label="Email"
-          name="username"
-          onChange={[Function]}
-          placeholder="eg: your.name@example.com..."
-          type="email"
-        />
-        <Input
-          data-qa-sel="login-password"
-          label="Password"
-          name="password"
-          onChange={[Function]}
-          type="password"
-        />
-        <div>
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>
-        </div>
-      </Fieldset>,
-      "className": "",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          null,
-          <Input
-            data-qa-sel="login-email"
-            id="username"
-            label="Email"
-            name="username"
-            onChange={[Function]}
-            placeholder="eg: your.name@example.com..."
-            type="email"
-          />,
-          <Input
-            data-qa-sel="login-password"
-            label="Password"
-            name="password"
-            onChange={[Function]}
-            type="password"
-          />,
-          <div>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>
-          </div>,
-        ],
-        "legend": "Personal information",
-      },
-      "ref": null,
-      "rendered": Array [
-        null,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data-qa-sel": "login-email",
-            "id": "username",
-            "label": "Email",
-            "name": "username",
-            "onChange": [Function],
-            "placeholder": "eg: your.name@example.com...",
-            "type": "email",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data-qa-sel": "login-password",
-            "label": "Password",
-            "name": "password",
-            "onChange": [Function],
-            "type": "password",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <button
-                className="btn btn--cta"
-                data-qa-sel="login-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Sign in
-              </button>,
-              false,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Sign in",
-                "className": "btn btn--cta",
-                "data-qa-sel": "login-button",
-                "disabled": true,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Sign in",
-              "type": "button",
-            },
-            false,
-          ],
-          "type": "div",
-        },
-      ],
-      "type": [Function],
-    },
-    "type": "form",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <Fieldset
+      "children": Array [
+        <Fieldset
           legend="Personal information"
         >
           <Input
@@ -188,21 +36,23 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />
-          <div>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>
-          </div>
         </Fieldset>,
-        "className": "",
-      },
-      "ref": null,
-      "rendered": Object {
+        <div>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="login-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </div>,
+      ],
+      "className": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
@@ -225,16 +75,6 @@ ShallowWrapper {
               onChange={[Function]}
               type="password"
             />,
-            <div>
-              <button
-                className="btn btn--cta"
-                data-qa-sel="login-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Sign in
-              </button>
-            </div>,
           ],
           "legend": "Personal information",
         },
@@ -273,150 +113,77 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>,
+            false,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <button
-                  className="btn btn--cta"
-                  data-qa-sel="login-button"
-                  disabled={true}
-                  onClick={[Function]}
-                >
-                  Sign in
-                </button>,
-                false,
-              ],
+              "children": "Sign in",
+              "className": "btn btn--cta",
+              "data-qa-sel": "login-button",
+              "disabled": true,
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Sign in",
-                  "className": "btn btn--cta",
-                  "data-qa-sel": "login-button",
-                  "disabled": true,
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Sign in",
-                "type": "button",
-              },
-              false,
-            ],
-            "type": "div",
+            "rendered": "Sign in",
+            "type": "button",
           },
+          false,
         ],
-        "type": [Function],
+        "type": "div",
       },
-      "type": "form",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFourteenAdapter {
-      "options": Object {
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "prevContext": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": true,
-          },
-        },
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
+    ],
+    "type": "form",
   },
-}
-`;
-
-exports[`Login components should render correctly when there is an error 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Login />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <Fieldset
-        legend="Personal information"
-      >
-        <Alert
-          type="error"
-        >
-          this is an error
-        </Alert>
-        <Input
-          data-qa-sel="login-email"
-          id="username"
-          label="Email"
-          name="username"
-          onChange={[Function]}
-          placeholder="eg: your.name@example.com..."
-          type="email"
-        />
-        <Input
-          data-qa-sel="login-password"
-          label="Password"
-          name="password"
-          onChange={[Function]}
-          type="password"
-        />
-        <div>
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>
-        </div>
-      </Fieldset>,
-      "className": "",
-    },
-    "ref": null,
-    "rendered": Object {
+  Symbol(enzyme.__nodes__): Array [
+    Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Alert
-            type="error"
+          <Fieldset
+            legend="Personal information"
           >
-            this is an error
-          </Alert>,
-          <Input
-            data-qa-sel="login-email"
-            id="username"
-            label="Email"
-            name="username"
-            onChange={[Function]}
-            placeholder="eg: your.name@example.com..."
-            type="email"
-          />,
-          <Input
-            data-qa-sel="login-password"
-            label="Password"
-            name="password"
-            onChange={[Function]}
-            type="password"
-          />,
+            <Input
+              data-qa-sel="login-email"
+              id="username"
+              label="Email"
+              name="username"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+            <Input
+              data-qa-sel="login-password"
+              label="Password"
+              name="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </Fieldset>,
           <div>
             <button
               className="btn btn--cta"
@@ -428,7 +195,7 @@ ShallowWrapper {
             </button>
           </div>,
         ],
-        "legend": "Personal information",
+        "className": "",
       },
       "ref": null,
       "rendered": Array [
@@ -437,43 +204,63 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": "this is an error",
-            "type": "error",
+            "children": Array [
+              null,
+              <Input
+                data-qa-sel="login-email"
+                id="username"
+                label="Email"
+                name="username"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />,
+              <Input
+                data-qa-sel="login-password"
+                label="Password"
+                name="password"
+                onChange={[Function]}
+                type="password"
+              />,
+            ],
+            "legend": "Personal information",
           },
           "ref": null,
-          "rendered": "this is an error",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data-qa-sel": "login-email",
-            "id": "username",
-            "label": "Email",
-            "name": "username",
-            "onChange": [Function],
-            "placeholder": "eg: your.name@example.com...",
-            "type": "email",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data-qa-sel": "login-password",
-            "label": "Password",
-            "name": "password",
-            "onChange": [Function],
-            "type": "password",
-          },
-          "ref": null,
-          "rendered": null,
+          "rendered": Array [
+            null,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data-qa-sel": "login-email",
+                "id": "username",
+                "label": "Email",
+                "name": "username",
+                "onChange": [Function],
+                "placeholder": "eg: your.name@example.com...",
+                "type": "email",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data-qa-sel": "login-password",
+                "label": "Password",
+                "name": "password",
+                "onChange": [Function],
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
         Object {
@@ -515,17 +302,46 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": [Function],
+      "type": "form",
     },
-    "type": "form",
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
   },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <Fieldset
+}
+`;
+
+exports[`Login components should render correctly when there is an error 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Fieldset
           legend="Personal information"
         >
           <Alert
@@ -549,21 +365,23 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />
-          <div>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>
-          </div>
         </Fieldset>,
-        "className": "",
-      },
-      "ref": null,
-      "rendered": Object {
+        <div>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="login-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </div>,
+      ],
+      "className": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
@@ -590,16 +408,6 @@ ShallowWrapper {
               onChange={[Function]}
               type="password"
             />,
-            <div>
-              <button
-                className="btn btn--cta"
-                data-qa-sel="login-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Sign in
-              </button>
-            </div>,
           ],
           "legend": "Personal information",
         },
@@ -649,141 +457,82 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>,
+            false,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <button
-                  className="btn btn--cta"
-                  data-qa-sel="login-button"
-                  disabled={true}
-                  onClick={[Function]}
-                >
-                  Sign in
-                </button>,
-                false,
-              ],
+              "children": "Sign in",
+              "className": "btn btn--cta",
+              "data-qa-sel": "login-button",
+              "disabled": true,
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Sign in",
-                  "className": "btn btn--cta",
-                  "data-qa-sel": "login-button",
-                  "disabled": true,
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Sign in",
-                "type": "button",
-              },
-              false,
-            ],
-            "type": "div",
+            "rendered": "Sign in",
+            "type": "button",
           },
+          false,
         ],
-        "type": [Function],
+        "type": "div",
       },
-      "type": "form",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFourteenAdapter {
-      "options": Object {
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "prevContext": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": true,
-          },
-        },
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
+    ],
+    "type": "form",
   },
-}
-`;
-
-exports[`Login components should render correctly when there is username and password 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Login />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <Fieldset
-        legend="Personal information"
-      >
-        <Input
-          data-qa-sel="login-email"
-          id="username"
-          label="Email"
-          name="username"
-          onChange={[Function]}
-          placeholder="eg: your.name@example.com..."
-          type="email"
-        />
-        <Input
-          data-qa-sel="login-password"
-          label="Password"
-          name="password"
-          onChange={[Function]}
-          type="password"
-        />
-        <div>
-          <button
-            className="btn btn--cta"
-            data-qa-sel="login-button"
-            disabled={true}
-            onClick={[Function]}
-          >
-            Sign in
-          </button>
-        </div>
-      </Fieldset>,
-      "className": "",
-    },
-    "ref": null,
-    "rendered": Object {
+  Symbol(enzyme.__nodes__): Array [
+    Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
         "children": Array [
-          null,
-          <Input
-            data-qa-sel="login-email"
-            id="username"
-            label="Email"
-            name="username"
-            onChange={[Function]}
-            placeholder="eg: your.name@example.com..."
-            type="email"
-          />,
-          <Input
-            data-qa-sel="login-password"
-            label="Password"
-            name="password"
-            onChange={[Function]}
-            type="password"
-          />,
+          <Fieldset
+            legend="Personal information"
+          >
+            <Alert
+              type="error"
+            >
+              this is an error
+            </Alert>
+            <Input
+              data-qa-sel="login-email"
+              id="username"
+              label="Email"
+              name="username"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+            <Input
+              data-qa-sel="login-password"
+              label="Password"
+              name="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </Fieldset>,
           <div>
             <button
               className="btn btn--cta"
@@ -795,41 +544,87 @@ ShallowWrapper {
             </button>
           </div>,
         ],
-        "legend": "Personal information",
+        "className": "",
       },
       "ref": null,
       "rendered": Array [
-        null,
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "data-qa-sel": "login-email",
-            "id": "username",
-            "label": "Email",
-            "name": "username",
-            "onChange": [Function],
-            "placeholder": "eg: your.name@example.com...",
-            "type": "email",
+            "children": Array [
+              <Alert
+                type="error"
+              >
+                this is an error
+              </Alert>,
+              <Input
+                data-qa-sel="login-email"
+                id="username"
+                label="Email"
+                name="username"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />,
+              <Input
+                data-qa-sel="login-password"
+                label="Password"
+                name="password"
+                onChange={[Function]}
+                type="password"
+              />,
+            ],
+            "legend": "Personal information",
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "data-qa-sel": "login-password",
-            "label": "Password",
-            "name": "password",
-            "onChange": [Function],
-            "type": "password",
-          },
-          "ref": null,
-          "rendered": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "this is an error",
+                "type": "error",
+              },
+              "ref": null,
+              "rendered": "this is an error",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data-qa-sel": "login-email",
+                "id": "username",
+                "label": "Email",
+                "name": "username",
+                "onChange": [Function],
+                "placeholder": "eg: your.name@example.com...",
+                "type": "email",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data-qa-sel": "login-password",
+                "label": "Password",
+                "name": "password",
+                "onChange": [Function],
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
         Object {
@@ -871,17 +666,46 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": [Function],
+      "type": "form",
     },
-    "type": "form",
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
   },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <Fieldset
+}
+`;
+
+exports[`Login components should render correctly when there is username and password 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Fieldset
           legend="Personal information"
         >
           <Input
@@ -900,21 +724,23 @@ ShallowWrapper {
             onChange={[Function]}
             type="password"
           />
-          <div>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="login-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Sign in
-            </button>
-          </div>
         </Fieldset>,
-        "className": "",
-      },
-      "ref": null,
-      "rendered": Object {
+        <div>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="login-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Sign in
+          </button>
+        </div>,
+      ],
+      "className": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
@@ -937,16 +763,6 @@ ShallowWrapper {
               onChange={[Function]}
               type="password"
             />,
-            <div>
-              <button
-                className="btn btn--cta"
-                data-qa-sel="login-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Sign in
-              </button>
-            </div>,
           ],
           "legend": "Personal information",
         },
@@ -985,47 +801,195 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>,
+            false,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <button
-                  className="btn btn--cta"
-                  data-qa-sel="login-button"
-                  disabled={true}
-                  onClick={[Function]}
-                >
-                  Sign in
-                </button>,
-                false,
-              ],
+              "children": "Sign in",
+              "className": "btn btn--cta",
+              "data-qa-sel": "login-button",
+              "disabled": true,
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Sign in",
-                  "className": "btn btn--cta",
-                  "data-qa-sel": "login-button",
-                  "disabled": true,
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Sign in",
-                "type": "button",
+            "rendered": "Sign in",
+            "type": "button",
+          },
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Fieldset
+            legend="Personal information"
+          >
+            <Input
+              data-qa-sel="login-email"
+              id="username"
+              label="Email"
+              name="username"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+            <Input
+              data-qa-sel="login-password"
+              label="Password"
+              name="password"
+              onChange={[Function]}
+              type="password"
+            />
+          </Fieldset>,
+          <div>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="login-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Sign in
+            </button>
+          </div>,
+        ],
+        "className": "",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              null,
+              <Input
+                data-qa-sel="login-email"
+                id="username"
+                label="Email"
+                name="username"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />,
+              <Input
+                data-qa-sel="login-password"
+                label="Password"
+                name="password"
+                onChange={[Function]}
+                type="password"
+              />,
+            ],
+            "legend": "Personal information",
+          },
+          "ref": null,
+          "rendered": Array [
+            null,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data-qa-sel": "login-email",
+                "id": "username",
+                "label": "Email",
+                "name": "username",
+                "onChange": [Function],
+                "placeholder": "eg: your.name@example.com...",
+                "type": "email",
               },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "data-qa-sel": "login-password",
+                "label": "Password",
+                "name": "password",
+                "onChange": [Function],
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                className="btn btn--cta"
+                data-qa-sel="login-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Sign in
+              </button>,
               false,
             ],
-            "type": "div",
           },
-        ],
-        "type": [Function],
-      },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign in",
+                "className": "btn btn--cta",
+                "data-qa-sel": "login-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Sign in",
+              "type": "button",
+            },
+            false,
+          ],
+          "type": "div",
+        },
+      ],
       "type": "form",
     },
   ],

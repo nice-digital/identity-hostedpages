@@ -143,14 +143,14 @@ ShallowWrapper {
               privacy notice
             </a>
           </Alert>
-          <button
-            className="btn btn--cta"
-            data-qa-sel="Register-button"
-            onClick={[Function]}
-          >
-            Register
-          </button>
         </Fieldset>,
+        <button
+          className="btn btn--cta"
+          data-qa-sel="Register-button"
+          onClick={[Function]}
+        >
+          Register
+        </button>,
       ],
       "className": "",
     },
@@ -293,13 +293,6 @@ ShallowWrapper {
                 privacy notice
               </a>
             </Alert>,
-            <button
-              className="btn btn--cta"
-              data-qa-sel="Register-button"
-              onClick={[Function]}
-            >
-              Register
-            </button>,
           ],
           "legend": "Personal information",
         },
@@ -600,22 +593,22 @@ ShallowWrapper {
             ],
             "type": [Function],
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Register",
-              "className": "btn btn--cta",
-              "data-qa-sel": "Register-button",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Register",
-            "type": "button",
-          },
         ],
         "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Register",
+          "className": "btn btn--cta",
+          "data-qa-sel": "Register-button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Register",
+        "type": "button",
       },
     ],
     "type": "form",
@@ -753,14 +746,14 @@ ShallowWrapper {
                 privacy notice
               </a>
             </Alert>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="Register-button"
-              onClick={[Function]}
-            >
-              Register
-            </button>
           </Fieldset>,
+          <button
+            className="btn btn--cta"
+            data-qa-sel="Register-button"
+            onClick={[Function]}
+          >
+            Register
+          </button>,
         ],
         "className": "",
       },
@@ -903,13 +896,6 @@ ShallowWrapper {
                   privacy notice
                 </a>
               </Alert>,
-              <button
-                className="btn btn--cta"
-                data-qa-sel="Register-button"
-                onClick={[Function]}
-              >
-                Register
-              </button>,
             ],
             "legend": "Personal information",
           },
@@ -1210,22 +1196,22 @@ ShallowWrapper {
               ],
               "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Register",
-                "className": "btn btn--cta",
-                "data-qa-sel": "Register-button",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Register",
-              "type": "button",
-            },
           ],
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Register",
+            "className": "btn btn--cta",
+            "data-qa-sel": "Register-button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Register",
+          "type": "button",
         },
       ],
       "type": "form",
@@ -1393,14 +1379,14 @@ ShallowWrapper {
               privacy notice
             </a>
           </Alert>
-          <button
-            className="btn btn--cta"
-            data-qa-sel="Register-button"
-            onClick={[Function]}
-          >
-            Register
-          </button>
         </Fieldset>,
+        <button
+          className="btn btn--cta"
+          data-qa-sel="Register-button"
+          onClick={[Function]}
+        >
+          Register
+        </button>,
       ],
       "className": "",
     },
@@ -1543,13 +1529,6 @@ ShallowWrapper {
                 privacy notice
               </a>
             </Alert>,
-            <button
-              className="btn btn--cta"
-              data-qa-sel="Register-button"
-              onClick={[Function]}
-            >
-              Register
-            </button>,
           ],
           "legend": "Personal information",
         },
@@ -1850,22 +1829,22 @@ ShallowWrapper {
             ],
             "type": [Function],
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Register",
-              "className": "btn btn--cta",
-              "data-qa-sel": "Register-button",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Register",
-            "type": "button",
-          },
         ],
         "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Register",
+          "className": "btn btn--cta",
+          "data-qa-sel": "Register-button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Register",
+        "type": "button",
       },
     ],
     "type": "form",
@@ -2003,14 +1982,14 @@ ShallowWrapper {
                 privacy notice
               </a>
             </Alert>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="Register-button"
-              onClick={[Function]}
-            >
-              Register
-            </button>
           </Fieldset>,
+          <button
+            className="btn btn--cta"
+            data-qa-sel="Register-button"
+            onClick={[Function]}
+          >
+            Register
+          </button>,
         ],
         "className": "",
       },
@@ -2153,13 +2132,6 @@ ShallowWrapper {
                   privacy notice
                 </a>
               </Alert>,
-              <button
-                className="btn btn--cta"
-                data-qa-sel="Register-button"
-                onClick={[Function]}
-              >
-                Register
-              </button>,
             ],
             "legend": "Personal information",
           },
@@ -2460,22 +2432,22 @@ ShallowWrapper {
               ],
               "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Register",
-                "className": "btn btn--cta",
-                "data-qa-sel": "Register-button",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Register",
-              "type": "button",
-            },
           ],
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Register",
+            "className": "btn btn--cta",
+            "data-qa-sel": "Register-button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Register",
+          "type": "button",
         },
       ],
       "type": "form",
@@ -2643,14 +2615,14 @@ ShallowWrapper {
               privacy notice
             </a>
           </Alert>
-          <button
-            className="btn btn--cta"
-            data-qa-sel="Register-button"
-            onClick={[Function]}
-          >
-            Register
-          </button>
         </Fieldset>,
+        <button
+          className="btn btn--cta"
+          data-qa-sel="Register-button"
+          onClick={[Function]}
+        >
+          Register
+        </button>,
       ],
       "className": "",
     },
@@ -2793,13 +2765,6 @@ ShallowWrapper {
                 privacy notice
               </a>
             </Alert>,
-            <button
-              className="btn btn--cta"
-              data-qa-sel="Register-button"
-              onClick={[Function]}
-            >
-              Register
-            </button>,
           ],
           "legend": "Personal information",
         },
@@ -3100,22 +3065,22 @@ ShallowWrapper {
             ],
             "type": [Function],
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Register",
-              "className": "btn btn--cta",
-              "data-qa-sel": "Register-button",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Register",
-            "type": "button",
-          },
         ],
         "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Register",
+          "className": "btn btn--cta",
+          "data-qa-sel": "Register-button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Register",
+        "type": "button",
       },
     ],
     "type": "form",
@@ -3253,14 +3218,14 @@ ShallowWrapper {
                 privacy notice
               </a>
             </Alert>
-            <button
-              className="btn btn--cta"
-              data-qa-sel="Register-button"
-              onClick={[Function]}
-            >
-              Register
-            </button>
           </Fieldset>,
+          <button
+            className="btn btn--cta"
+            data-qa-sel="Register-button"
+            onClick={[Function]}
+          >
+            Register
+          </button>,
         ],
         "className": "",
       },
@@ -3403,13 +3368,6 @@ ShallowWrapper {
                   privacy notice
                 </a>
               </Alert>,
-              <button
-                className="btn btn--cta"
-                data-qa-sel="Register-button"
-                onClick={[Function]}
-              >
-                Register
-              </button>,
             ],
             "legend": "Personal information",
           },
@@ -3710,22 +3668,22 @@ ShallowWrapper {
               ],
               "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Register",
-                "className": "btn btn--cta",
-                "data-qa-sel": "Register-button",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Register",
-              "type": "button",
-            },
           ],
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Register",
+            "className": "btn btn--cta",
+            "data-qa-sel": "Register-button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Register",
+          "type": "button",
         },
       ],
       "type": "form",
