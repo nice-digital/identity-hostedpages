@@ -67,19 +67,19 @@ export class ForgotPassword extends React.Component {
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
             />
-            {!loading ? (
-              <button
-                data-qa-sel="forgotPassword-button"
-                className="btn btn--cta"
-                onClick={this.forgotPassword}
-                disabled={!email}
-              >
-                Reset Password
-              </button>
-            ) : (
-              'Loading...'
-            )}
           </Fieldset>
+          {!loading ? (
+            <button
+              data-qa-sel="forgotPassword-button"
+              className="btn btn--cta"
+              onClick={this.forgotPassword}
+              disabled={!email}
+            >
+              Reset password
+            </button>
+          ) : (
+            'Loading...'
+          )}
         </form>
         <Link data-qa-sel="forgotPassword-link-to-login" to="/">
           Return to sign in

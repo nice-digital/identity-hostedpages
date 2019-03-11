@@ -1,5 +1,5 @@
 import auth0 from 'auth0-js'
-import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
+// import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
 import pathOr from 'ramda/src/pathOr'
 import { auth as authOpts } from './constants'
 
@@ -13,7 +13,7 @@ export default class AuthApi {
     this.opts = {
       domain: authOpts.domain,
       clientID: authOpts.clientID,
-      plugins: [new CordovaAuth0Plugin()],
+      // plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       popup: false,
       responseType: authOpts.responseType || 'code',

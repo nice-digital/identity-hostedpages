@@ -38,15 +38,15 @@ ShallowWrapper {
               placeholder="eg: your.name@example.com..."
               type="email"
             />
-            <button
-              className="btn btn--cta"
-              data-qa-sel="forgotPassword-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Reset Password
-            </button>
           </Fieldset>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="forgotPassword-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Reset password
+          </button>
         </form>,
         <Link
           data-qa-sel="forgotPassword-link-to-login"
@@ -87,37 +87,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Fieldset
-            legend="Personal information"
-          >
-            <Input
-              data-qa-sel="forgotPassword-email"
-              id="email"
-              label="Email"
-              name="email"
-              onChange={[Function]}
-              placeholder="eg: your.name@example.com..."
-              type="email"
-            />
-            <button
-              className="btn btn--cta"
-              data-qa-sel="forgotPassword-button"
-              disabled={true}
-              onClick={[Function]}
+          "children": Array [
+            <Fieldset
+              legend="Personal information"
             >
-              Reset Password
-            </button>
-          </Fieldset>,
-          "className": "",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
-              null,
               <Input
                 data-qa-sel="forgotPassword-email"
                 id="email"
@@ -126,56 +99,79 @@ ShallowWrapper {
                 onChange={[Function]}
                 placeholder="eg: your.name@example.com..."
                 type="email"
-              />,
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>,
-            ],
-            "legend": "Personal information",
-          },
-          "ref": null,
-          "rendered": Array [
-            null,
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "data-qa-sel": "forgotPassword-email",
-                "id": "email",
-                "label": "Email",
-                "name": "email",
-                "onChange": [Function],
-                "placeholder": "eg: your.name@example.com...",
-                "type": "email",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Reset Password",
-                "className": "btn btn--cta",
-                "data-qa-sel": "forgotPassword-button",
-                "disabled": true,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Reset Password",
-              "type": "button",
-            },
+              />
+            </Fieldset>,
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>,
           ],
-          "type": [Function],
+          "className": "",
         },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                null,
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />,
+              ],
+              "legend": "Personal information",
+            },
+            "ref": null,
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "data-qa-sel": "forgotPassword-email",
+                  "id": "email",
+                  "label": "Email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "eg: your.name@example.com...",
+                  "type": "email",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset password",
+              "className": "btn btn--cta",
+              "data-qa-sel": "forgotPassword-button",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reset password",
+            "type": "button",
+          },
+        ],
         "type": "form",
       },
       Object {
@@ -224,15 +220,15 @@ ShallowWrapper {
                 placeholder="eg: your.name@example.com..."
                 type="email"
               />
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>
             </Fieldset>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>
           </form>,
           <Link
             data-qa-sel="forgotPassword-link-to-login"
@@ -273,37 +269,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Fieldset
-              legend="Personal information"
-            >
-              <Input
-                data-qa-sel="forgotPassword-email"
-                id="email"
-                label="Email"
-                name="email"
-                onChange={[Function]}
-                placeholder="eg: your.name@example.com..."
-                type="email"
-              />
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
+            "children": Array [
+              <Fieldset
+                legend="Personal information"
               >
-                Reset Password
-              </button>
-            </Fieldset>,
-            "className": "",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                null,
                 <Input
                   data-qa-sel="forgotPassword-email"
                   id="email"
@@ -312,56 +281,79 @@ ShallowWrapper {
                   onChange={[Function]}
                   placeholder="eg: your.name@example.com..."
                   type="email"
-                />,
-                <button
-                  className="btn btn--cta"
-                  data-qa-sel="forgotPassword-button"
-                  disabled={true}
-                  onClick={[Function]}
-                >
-                  Reset Password
-                </button>,
-              ],
-              "legend": "Personal information",
-            },
-            "ref": null,
-            "rendered": Array [
-              null,
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "data-qa-sel": "forgotPassword-email",
-                  "id": "email",
-                  "label": "Email",
-                  "name": "email",
-                  "onChange": [Function],
-                  "placeholder": "eg: your.name@example.com...",
-                  "type": "email",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Reset Password",
-                  "className": "btn btn--cta",
-                  "data-qa-sel": "forgotPassword-button",
-                  "disabled": true,
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Reset Password",
-                "type": "button",
-              },
+                />
+              </Fieldset>,
+              <button
+                className="btn btn--cta"
+                data-qa-sel="forgotPassword-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Reset password
+              </button>,
             ],
-            "type": [Function],
+            "className": "",
           },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  null,
+                  <Input
+                    data-qa-sel="forgotPassword-email"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="eg: your.name@example.com..."
+                    type="email"
+                  />,
+                ],
+                "legend": "Personal information",
+              },
+              "ref": null,
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "data-qa-sel": "forgotPassword-email",
+                    "id": "email",
+                    "label": "Email",
+                    "name": "email",
+                    "onChange": [Function],
+                    "placeholder": "eg: your.name@example.com...",
+                    "type": "email",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Reset password",
+                "className": "btn btn--cta",
+                "data-qa-sel": "forgotPassword-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Reset password",
+              "type": "button",
+            },
+          ],
           "type": "form",
         },
         Object {
@@ -445,15 +437,15 @@ ShallowWrapper {
               placeholder="eg: your.name@example.com..."
               type="email"
             />
-            <button
-              className="btn btn--cta"
-              data-qa-sel="forgotPassword-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Reset Password
-            </button>
           </Fieldset>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="forgotPassword-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Reset password
+          </button>
         </form>,
         <Link
           data-qa-sel="forgotPassword-link-to-login"
@@ -494,46 +486,15 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Fieldset
-            legend="Personal information"
-          >
-            <Alert
-              type="error"
+          "children": Array [
+            <Fieldset
+              legend="Personal information"
             >
-              this is an error
-            </Alert>
-            <Input
-              data-qa-sel="forgotPassword-email"
-              id="email"
-              label="Email"
-              name="email"
-              onChange={[Function]}
-              placeholder="eg: your.name@example.com..."
-              type="email"
-            />
-            <button
-              className="btn btn--cta"
-              data-qa-sel="forgotPassword-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Reset Password
-            </button>
-          </Fieldset>,
-          "className": "",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
               <Alert
                 type="error"
               >
                 this is an error
-              </Alert>,
+              </Alert>
               <Input
                 data-qa-sel="forgotPassword-email"
                 id="email"
@@ -542,67 +503,94 @@ ShallowWrapper {
                 onChange={[Function]}
                 placeholder="eg: your.name@example.com..."
                 type="email"
-              />,
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>,
-            ],
-            "legend": "Personal information",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": "this is an error",
-                "type": "error",
-              },
-              "ref": null,
-              "rendered": "this is an error",
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "data-qa-sel": "forgotPassword-email",
-                "id": "email",
-                "label": "Email",
-                "name": "email",
-                "onChange": [Function],
-                "placeholder": "eg: your.name@example.com...",
-                "type": "email",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Reset Password",
-                "className": "btn btn--cta",
-                "data-qa-sel": "forgotPassword-button",
-                "disabled": true,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Reset Password",
-              "type": "button",
-            },
+              />
+            </Fieldset>,
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>,
           ],
-          "type": [Function],
+          "className": "",
         },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <Alert
+                  type="error"
+                >
+                  this is an error
+                </Alert>,
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />,
+              ],
+              "legend": "Personal information",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "this is an error",
+                  "type": "error",
+                },
+                "ref": null,
+                "rendered": "this is an error",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "data-qa-sel": "forgotPassword-email",
+                  "id": "email",
+                  "label": "Email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "eg: your.name@example.com...",
+                  "type": "email",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset password",
+              "className": "btn btn--cta",
+              "data-qa-sel": "forgotPassword-button",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reset password",
+            "type": "button",
+          },
+        ],
         "type": "form",
       },
       Object {
@@ -656,15 +644,15 @@ ShallowWrapper {
                 placeholder="eg: your.name@example.com..."
                 type="email"
               />
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>
             </Fieldset>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>
           </form>,
           <Link
             data-qa-sel="forgotPassword-link-to-login"
@@ -705,46 +693,15 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Fieldset
-              legend="Personal information"
-            >
-              <Alert
-                type="error"
+            "children": Array [
+              <Fieldset
+                legend="Personal information"
               >
-                this is an error
-              </Alert>
-              <Input
-                data-qa-sel="forgotPassword-email"
-                id="email"
-                label="Email"
-                name="email"
-                onChange={[Function]}
-                placeholder="eg: your.name@example.com..."
-                type="email"
-              />
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>
-            </Fieldset>,
-            "className": "",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
                 <Alert
                   type="error"
                 >
                   this is an error
-                </Alert>,
+                </Alert>
                 <Input
                   data-qa-sel="forgotPassword-email"
                   id="email"
@@ -753,67 +710,94 @@ ShallowWrapper {
                   onChange={[Function]}
                   placeholder="eg: your.name@example.com..."
                   type="email"
-                />,
-                <button
-                  className="btn btn--cta"
-                  data-qa-sel="forgotPassword-button"
-                  disabled={true}
-                  onClick={[Function]}
-                >
-                  Reset Password
-                </button>,
-              ],
-              "legend": "Personal information",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": "this is an error",
-                  "type": "error",
-                },
-                "ref": null,
-                "rendered": "this is an error",
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "data-qa-sel": "forgotPassword-email",
-                  "id": "email",
-                  "label": "Email",
-                  "name": "email",
-                  "onChange": [Function],
-                  "placeholder": "eg: your.name@example.com...",
-                  "type": "email",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Reset Password",
-                  "className": "btn btn--cta",
-                  "data-qa-sel": "forgotPassword-button",
-                  "disabled": true,
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Reset Password",
-                "type": "button",
-              },
+                />
+              </Fieldset>,
+              <button
+                className="btn btn--cta"
+                data-qa-sel="forgotPassword-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Reset password
+              </button>,
             ],
-            "type": [Function],
+            "className": "",
           },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <Alert
+                    type="error"
+                  >
+                    this is an error
+                  </Alert>,
+                  <Input
+                    data-qa-sel="forgotPassword-email"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="eg: your.name@example.com..."
+                    type="email"
+                  />,
+                ],
+                "legend": "Personal information",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "this is an error",
+                    "type": "error",
+                  },
+                  "ref": null,
+                  "rendered": "this is an error",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "data-qa-sel": "forgotPassword-email",
+                    "id": "email",
+                    "label": "Email",
+                    "name": "email",
+                    "onChange": [Function],
+                    "placeholder": "eg: your.name@example.com...",
+                    "type": "email",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Reset password",
+                "className": "btn btn--cta",
+                "data-qa-sel": "forgotPassword-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Reset password",
+              "type": "button",
+            },
+          ],
           "type": "form",
         },
         Object {
@@ -892,15 +876,15 @@ ShallowWrapper {
               placeholder="eg: your.name@example.com..."
               type="email"
             />
-            <button
-              className="btn btn--cta"
-              data-qa-sel="forgotPassword-button"
-              disabled={true}
-              onClick={[Function]}
-            >
-              Reset Password
-            </button>
           </Fieldset>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="forgotPassword-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Reset password
+          </button>
         </form>,
         <Link
           data-qa-sel="forgotPassword-link-to-login"
@@ -941,37 +925,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Fieldset
-            legend="Personal information"
-          >
-            <Input
-              data-qa-sel="forgotPassword-email"
-              id="email"
-              label="Email"
-              name="email"
-              onChange={[Function]}
-              placeholder="eg: your.name@example.com..."
-              type="email"
-            />
-            <button
-              className="btn btn--cta"
-              data-qa-sel="forgotPassword-button"
-              disabled={true}
-              onClick={[Function]}
+          "children": Array [
+            <Fieldset
+              legend="Personal information"
             >
-              Reset Password
-            </button>
-          </Fieldset>,
-          "className": "",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
-              null,
               <Input
                 data-qa-sel="forgotPassword-email"
                 id="email"
@@ -980,56 +937,79 @@ ShallowWrapper {
                 onChange={[Function]}
                 placeholder="eg: your.name@example.com..."
                 type="email"
-              />,
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>,
-            ],
-            "legend": "Personal information",
-          },
-          "ref": null,
-          "rendered": Array [
-            null,
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "data-qa-sel": "forgotPassword-email",
-                "id": "email",
-                "label": "Email",
-                "name": "email",
-                "onChange": [Function],
-                "placeholder": "eg: your.name@example.com...",
-                "type": "email",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Reset Password",
-                "className": "btn btn--cta",
-                "data-qa-sel": "forgotPassword-button",
-                "disabled": true,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Reset Password",
-              "type": "button",
-            },
+              />
+            </Fieldset>,
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>,
           ],
-          "type": [Function],
+          "className": "",
         },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                null,
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />,
+              ],
+              "legend": "Personal information",
+            },
+            "ref": null,
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "data-qa-sel": "forgotPassword-email",
+                  "id": "email",
+                  "label": "Email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "eg: your.name@example.com...",
+                  "type": "email",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset password",
+              "className": "btn btn--cta",
+              "data-qa-sel": "forgotPassword-button",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reset password",
+            "type": "button",
+          },
+        ],
         "type": "form",
       },
       Object {
@@ -1078,15 +1058,15 @@ ShallowWrapper {
                 placeholder="eg: your.name@example.com..."
                 type="email"
               />
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
-              >
-                Reset Password
-              </button>
             </Fieldset>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>
           </form>,
           <Link
             data-qa-sel="forgotPassword-link-to-login"
@@ -1127,37 +1107,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Fieldset
-              legend="Personal information"
-            >
-              <Input
-                data-qa-sel="forgotPassword-email"
-                id="email"
-                label="Email"
-                name="email"
-                onChange={[Function]}
-                placeholder="eg: your.name@example.com..."
-                type="email"
-              />
-              <button
-                className="btn btn--cta"
-                data-qa-sel="forgotPassword-button"
-                disabled={true}
-                onClick={[Function]}
+            "children": Array [
+              <Fieldset
+                legend="Personal information"
               >
-                Reset Password
-              </button>
-            </Fieldset>,
-            "className": "",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                null,
                 <Input
                   data-qa-sel="forgotPassword-email"
                   id="email"
@@ -1166,56 +1119,79 @@ ShallowWrapper {
                   onChange={[Function]}
                   placeholder="eg: your.name@example.com..."
                   type="email"
-                />,
-                <button
-                  className="btn btn--cta"
-                  data-qa-sel="forgotPassword-button"
-                  disabled={true}
-                  onClick={[Function]}
-                >
-                  Reset Password
-                </button>,
-              ],
-              "legend": "Personal information",
-            },
-            "ref": null,
-            "rendered": Array [
-              null,
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "data-qa-sel": "forgotPassword-email",
-                  "id": "email",
-                  "label": "Email",
-                  "name": "email",
-                  "onChange": [Function],
-                  "placeholder": "eg: your.name@example.com...",
-                  "type": "email",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Reset Password",
-                  "className": "btn btn--cta",
-                  "data-qa-sel": "forgotPassword-button",
-                  "disabled": true,
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Reset Password",
-                "type": "button",
-              },
+                />
+              </Fieldset>,
+              <button
+                className="btn btn--cta"
+                data-qa-sel="forgotPassword-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Reset password
+              </button>,
             ],
-            "type": [Function],
+            "className": "",
           },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  null,
+                  <Input
+                    data-qa-sel="forgotPassword-email"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="eg: your.name@example.com..."
+                    type="email"
+                  />,
+                ],
+                "legend": "Personal information",
+              },
+              "ref": null,
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "data-qa-sel": "forgotPassword-email",
+                    "id": "email",
+                    "label": "Email",
+                    "name": "email",
+                    "onChange": [Function],
+                    "placeholder": "eg: your.name@example.com...",
+                    "type": "email",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Reset password",
+                "className": "btn btn--cta",
+                "data-qa-sel": "forgotPassword-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Reset password",
+              "type": "button",
+            },
+          ],
           "type": "form",
         },
         Object {

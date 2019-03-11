@@ -8,10 +8,10 @@
 // })
 
 // eslint-disable-next-line
-export const auth = Object.freeze({
+export const auth = {
   domain: '#{AUTH0_DOMAIN}',
   clientID: '#{AUTH0_APP_CLIENT_ID}',
   scope: 'openid profile email',
   responseType: 'code',
   connection: '#{AUTH0_CONNECTION}'
-})
+}
