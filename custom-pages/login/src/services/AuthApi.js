@@ -10,11 +10,6 @@ export default class AuthApi {
       window.config = {}
     }
     window.config.extraParams = window.config.extraParams || {}
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
     this.opts = {
       domain: authOpts.domain,
       clientID: authOpts.clientID,
@@ -23,9 +18,7 @@ export default class AuthApi {
       popup: false,
       responseType: 'code',
       scope: authOpts.scope,
-      redirect: true,
-      redirectUri,
-      redirect_uri: redirectUri
+      redirect: true
       // overrides: {
       //   // eslint-disable-next-line
       //   __tenant: config.auth0Tenant,
@@ -34,7 +27,7 @@ export default class AuthApi {
       // }
     }
     const params = Object.assign(this.opts, window.config.internalOptions)
-    this.instance = new Auth0(params)
+    this.instance = new Auth0.WebAuth(params)
   }
 
   createAuth0Namespace = (promiseResolver) => {
@@ -92,30 +85,27 @@ export default class AuthApi {
     let method
     if (connection === authOpts.connection) {
       options = {
-        ...window.config.extraParams,
-        connection,
         realm: connection,
         responseType: 'code',
         email,
-        password,
-        redirectUri,
-        redirect_uri: redirectUri
+        password
       }
       method = 'login'
     } else {
       options = {
-        ...window.config.extraParams,
         connection,
         responseType: 'code',
         email,
         sso: true,
         login_hint: email,
-        response_mode: 'form_post',
-        redirect_uri: redirectUri
+        response_mode: 'form_post'
+      }
+      if (redirectUri) {
+        options.redirect_uri = redirectUri
       }
       method = 'authorize'
     }
-    console.log('about to fire login with redirect_uri: ', options.redirect_uri)
+    console.log('about to fire login')
     this.instance[method](options, (err) => {
       console.log('login callback hit!!!')
       if (err) {
@@ -127,7 +117,6 @@ export default class AuthApi {
         }
         throw new Error(err)
       }
-      // window.locatiom.host = redirectUri // v7
     })
   }
 
