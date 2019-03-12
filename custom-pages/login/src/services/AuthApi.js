@@ -85,6 +85,7 @@ export default class AuthApi {
     let method
     if (connection === authOpts.connection) {
       options = {
+        connection,
         realm: connection,
         responseType: 'code',
         email,
