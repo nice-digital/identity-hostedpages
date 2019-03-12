@@ -89,7 +89,8 @@ export default class AuthApi {
         realm: connection,
         responseType: 'code',
         email,
-        password
+        password,
+        redirectUri
       }
       method = 'login'
     } else {
@@ -104,11 +105,10 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      method = 'login' // v7
-      // method = 'authorize' //v9
+      method = 'authorize'
     }
     console.log('about to fire login')
-    this.instance[method](options, (err) => {
+    this.instance[method]({ ...options, ...window.config.extraParams }, (err) => {
       console.log('login callback hit!!!')
       if (err) {
         if (errorCallback) {
