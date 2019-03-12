@@ -1,5 +1,4 @@
 import Auth0 from 'auth0-js'
-// import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
 import pathOr from 'ramda/src/pathOr'
 import fetch from 'fetch-ie8'
 import { auth as authOpts } from './constants'
@@ -15,7 +14,6 @@ export default class AuthApi {
     this.opts = {
       domain: authOpts.domain,
       clientID: authOpts.clientID,
-      // plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       popup: false,
       responseType: 'code',
@@ -112,7 +110,7 @@ export default class AuthApi {
       }
       console.log('about to fire login')
       this.instance[method](options, (err) => {
-        console.log('login callback hit!!!')
+        console.log('login callback')
         if (err) {
           if (errorCallback) {
             setTimeout(() =>
@@ -127,7 +125,6 @@ export default class AuthApi {
   }
 
   loginIE8 = (connection, email, password, errorCallback) => {
-    console.log('loginIE8')
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
@@ -215,12 +212,12 @@ export default class AuthApi {
           if (res.status === 200) {
             document.location.hash = '#/resetsuccess'
           } else if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue'), 5)
+            setTimeout(() => errorCallback('There has been an issue'))
           }
         })
         .catch((err) => {
           if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue'), 5)
+            setTimeout(() => errorCallback('There has been an issue'))
           }
           throw err
         })
@@ -228,6 +225,9 @@ export default class AuthApi {
   }
 
   register(email, password, name, surname, allowContactMe, errorCallback) {
+    if (isIE8(email, password, name, surname, allowContactMe, errorCallback)) {
+      return this.registerIE8()
+    }
     return this.instance.signup(
       {
         connection: authOpts.connection,
@@ -251,5 +251,54 @@ export default class AuthApi {
         return true
       }
     )
+  }
+
+  registerIE8 = (
+    email,
+    password,
+    name,
+    surname,
+    allowContactMe,
+    errorCallback
+  ) => {
+    console.log('loginIE8')
+    const redirectUri = pathOr(
+      null,
+      ['internalSettings', 'callback'],
+      window.Auth0
+    )
+    const data = {
+      ...window.config.extraParams,
+      responseType: authOpts.responseType,
+      email,
+      password,
+      user_metadata: {
+        name,
+        surname,
+        allowContactMe
+      }
+    }
+
+    fetch('/dbconnections/signup', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          document.location = redirectUri
+        } else if (errorCallback) {
+          setTimeout(() => errorCallback('There has been an issue'))
+        }
+      })
+      .catch((err) => {
+        if (errorCallback) {
+          setTimeout(() => errorCallback('There has been an issue'))
+        }
+        throw err
+      })
   }
 }
