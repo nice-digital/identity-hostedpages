@@ -103,7 +103,8 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      method = 'authorize'
+      method = 'login' // v7
+      // method = 'authorize' //v9
     }
     console.log('about to fire login')
     this.instance[method](options, (err) => {
