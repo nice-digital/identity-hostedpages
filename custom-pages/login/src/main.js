@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom'
 import createHashHistory from 'history/lib/createHashHistory'
 import { useRouterHistory } from 'react-router'
 import AppContainer from './containers/AppContainer'
-import './util/IE8Polyfill'
 
 
 // ========================================================

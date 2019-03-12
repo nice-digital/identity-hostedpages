@@ -111,24 +111,24 @@
   // ES5: Make obj[index] an alias for obj._getter(index)/obj._setter(index, value)
   // for index in 0 ... obj.length
   function makeArrayAccessors(obj) {
-    // if ('TYPED_ARRAY_POLYFILL_NO_ARRAY_ACCESSORS' in global)
+    if ('TYPED_ARRAY_POLYFILL_NO_ARRAY_ACCESSORS' in global)
       return;
 
-    // if (obj.length > MAX_ARRAY_LENGTH) throw RangeError('Array too large for polyfill');
+    if (obj.length > MAX_ARRAY_LENGTH) throw RangeError('Array too large for polyfill');
 
-    // function makeArrayAccessor(index) {
-    //   Object.defineProperty(obj, index, {
-    //     'get': function() { return obj._getter(index); },
-    //     'set': function(v) { obj._setter(index, v); },
-    //     enumerable: true,
-    //     configurable: false
-    //   });
-    // }
+    function makeArrayAccessor(index) {
+      Object.defineProperty(obj, index, {
+        'get': function() { return obj._getter(index); },
+        'set': function(v) { obj._setter(index, v); },
+        enumerable: true,
+        configurable: false
+      });
+    }
 
-    // var i;
-    // for (i = 0; i < obj.length; i += 1) {
-    //   makeArrayAccessor(i);
-    // }
+    var i;
+    for (i = 0; i < obj.length; i += 1) {
+      makeArrayAccessor(i);
+    }
   }
 
   // Internal conversion functions:

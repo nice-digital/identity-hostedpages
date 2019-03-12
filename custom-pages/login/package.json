@@ -12,7 +12,7 @@
     "@nice-digital/nds-alert": "1.0.4-alpha.0",
     "@nice-digital/nds-core": "1.0.3-alpha.0",
     "@nice-digital/nds-forms": "1.0.6-alpha.0",
-    "auth0-js": "^9.10.0",
+    "auth0-js": "^7.6.1",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "core-js": "^2.6.5",
