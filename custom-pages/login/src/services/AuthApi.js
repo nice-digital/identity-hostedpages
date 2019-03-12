@@ -78,7 +78,7 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
-    if (isIE8) {
+    if (isIE8()) {
       this.loginIE8(connection, email, password, errorCallback)
     } else {
       const redirectUri = pathOr(
