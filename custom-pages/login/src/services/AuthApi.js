@@ -16,7 +16,7 @@ export default class AuthApi {
       // plugins: [new CordovaAuth0Plugin()],
       leeway: 1,
       popup: false,
-      responseType: authOpts.responseType || 'code',
+      responseType: 'code',
       scope: authOpts.scope,
       redirect: true
       // overrides: {
@@ -86,7 +86,7 @@ export default class AuthApi {
     if (connection === authOpts.connection) {
       options = {
         realm: connection,
-        responseType: authOpts.responseType,
+        responseType: 'code',
         email,
         password
       }
@@ -94,7 +94,7 @@ export default class AuthApi {
     } else {
       options = {
         connection,
-        responseType: authOpts.responseType,
+        responseType: 'code',
         email,
         sso: true,
         login_hint: email,
@@ -105,7 +105,9 @@ export default class AuthApi {
       }
       method = 'authorize'
     }
+    console.log('about to fire login')
     this.instance[method](options, (err) => {
+      console.log('login callback hit!!!')
       if (err) {
         if (errorCallback) {
           setTimeout(() =>

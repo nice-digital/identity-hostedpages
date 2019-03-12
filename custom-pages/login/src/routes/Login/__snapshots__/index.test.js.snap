@@ -41,7 +41,6 @@ ShallowWrapper {
           <button
             className="btn btn--cta"
             data-qa-sel="login-button"
-            disabled={true}
             onClick={[Function]}
           >
             Sign in
@@ -125,7 +124,6 @@ ShallowWrapper {
             <button
               className="btn btn--cta"
               data-qa-sel="login-button"
-              disabled={true}
               onClick={[Function]}
             >
               Sign in
@@ -143,7 +141,6 @@ ShallowWrapper {
               "children": "Sign in",
               "className": "btn btn--cta",
               "data-qa-sel": "login-button",
-              "disabled": true,
               "onClick": [Function],
             },
             "ref": null,
@@ -188,7 +185,6 @@ ShallowWrapper {
             <button
               className="btn btn--cta"
               data-qa-sel="login-button"
-              disabled={true}
               onClick={[Function]}
             >
               Sign in
@@ -272,7 +268,6 @@ ShallowWrapper {
               <button
                 className="btn btn--cta"
                 data-qa-sel="login-button"
-                disabled={true}
                 onClick={[Function]}
               >
                 Sign in
@@ -290,7 +285,6 @@ ShallowWrapper {
                 "children": "Sign in",
                 "className": "btn btn--cta",
                 "data-qa-sel": "login-button",
-                "disabled": true,
                 "onClick": [Function],
               },
               "ref": null,
@@ -370,7 +364,6 @@ ShallowWrapper {
           <button
             className="btn btn--cta"
             data-qa-sel="login-button"
-            disabled={true}
             onClick={[Function]}
           >
             Sign in
@@ -469,7 +462,6 @@ ShallowWrapper {
             <button
               className="btn btn--cta"
               data-qa-sel="login-button"
-              disabled={true}
               onClick={[Function]}
             >
               Sign in
@@ -487,7 +479,6 @@ ShallowWrapper {
               "children": "Sign in",
               "className": "btn btn--cta",
               "data-qa-sel": "login-button",
-              "disabled": true,
               "onClick": [Function],
             },
             "ref": null,
@@ -537,7 +528,6 @@ ShallowWrapper {
             <button
               className="btn btn--cta"
               data-qa-sel="login-button"
-              disabled={true}
               onClick={[Function]}
             >
               Sign in
@@ -636,7 +626,6 @@ ShallowWrapper {
               <button
                 className="btn btn--cta"
                 data-qa-sel="login-button"
-                disabled={true}
                 onClick={[Function]}
               >
                 Sign in
@@ -654,7 +643,6 @@ ShallowWrapper {
                 "children": "Sign in",
                 "className": "btn btn--cta",
                 "data-qa-sel": "login-button",
-                "disabled": true,
                 "onClick": [Function],
               },
               "ref": null,
@@ -729,7 +717,6 @@ ShallowWrapper {
           <button
             className="btn btn--cta"
             data-qa-sel="login-button"
-            disabled={true}
             onClick={[Function]}
           >
             Sign in
@@ -813,7 +800,6 @@ ShallowWrapper {
             <button
               className="btn btn--cta"
               data-qa-sel="login-button"
-              disabled={true}
               onClick={[Function]}
             >
               Sign in
@@ -831,7 +817,6 @@ ShallowWrapper {
               "children": "Sign in",
               "className": "btn btn--cta",
               "data-qa-sel": "login-button",
-              "disabled": true,
               "onClick": [Function],
             },
             "ref": null,
@@ -876,7 +861,6 @@ ShallowWrapper {
             <button
               className="btn btn--cta"
               data-qa-sel="login-button"
-              disabled={true}
               onClick={[Function]}
             >
               Sign in
@@ -960,7 +944,6 @@ ShallowWrapper {
               <button
                 className="btn btn--cta"
                 data-qa-sel="login-button"
-                disabled={true}
                 onClick={[Function]}
               >
                 Sign in
@@ -978,7 +961,6 @@ ShallowWrapper {
                 "children": "Sign in",
                 "className": "btn btn--cta",
                 "data-qa-sel": "login-button",
-                "disabled": true,
                 "onClick": [Function],
               },
               "ref": null,

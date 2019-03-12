@@ -15,6 +15,7 @@
     "auth0-js": "^9.10.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "core-js": "^2.6.5",
     "enzyme": "^3.8.0",
     "es5-shim": "^4.5.12",
     "es6-promise": "^4.1.1",

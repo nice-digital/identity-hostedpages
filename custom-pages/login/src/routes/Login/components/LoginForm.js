@@ -77,7 +77,7 @@ export class Login extends React.Component {
   render() {
     showNav()
     const {
-      username, error, loading, isAD, showGoogleLogin
+      error, loading, isAD, showGoogleLogin
     } = this.state
 
     return (
@@ -109,7 +109,7 @@ export class Login extends React.Component {
               data-qa-sel="login-button"
               className="btn btn--cta"
               onClick={e => this.login(e, false)}
-              disabled={!username}
+              // disabled={!username}
             >
               Sign in
             </button>
