@@ -108,10 +108,7 @@ export default class AuthApi {
       }
       method = 'authorize'
     }
-    if (redirectUri) {
-      options.redirect_uri = redirectUri
-    }
-    console.log('about to fire login with options: ', options)
+    console.log('about to fire login with redirect_uri: ', options.redirect_uri)
     this.instance[method](options, (err) => {
       console.log('login callback hit!!!')
       if (err) {
