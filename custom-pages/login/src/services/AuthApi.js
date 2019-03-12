@@ -85,6 +85,7 @@ export default class AuthApi {
     let method
     if (connection === authOpts.connection) {
       options = {
+        ...window.config.extraParams,
         connection,
         realm: connection,
         responseType: 'code',
@@ -92,26 +93,25 @@ export default class AuthApi {
         password,
         redirectUri
       }
-      if (redirectUri) {
-        options.redirect_uri = redirectUri
-      }
       method = 'login'
     } else {
       options = {
+        ...window.config.extraParams,
         connection,
         responseType: 'code',
         email,
         sso: true,
         login_hint: email,
-        response_mode: 'form_post'
-      }
-      if (redirectUri) {
-        options.redirect_uri = redirectUri
+        response_mode: 'form_post',
+        redirect_uri: redirectUri
       }
       method = 'authorize'
     }
-    console.log('about to fire login')
-    this.instance[method]({ ...options, ...window.config.extraParams }, (err) => {
+    if (redirectUri) {
+      options.redirect_uri = redirectUri
+    }
+    console.log('about to fire login with options: ', options)
+    this.instance[method](options, (err) => {
       console.log('login callback hit!!!')
       if (err) {
         if (errorCallback) {
