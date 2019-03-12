@@ -92,6 +92,9 @@ export default class AuthApi {
         password,
         redirectUri
       }
+      if (redirectUri) {
+        options.redirect_uri = redirectUri
+      }
       method = 'login'
     } else {
       options = {
@@ -119,7 +122,7 @@ export default class AuthApi {
         }
         throw new Error(err)
       }
-      window.locatiom.host = redirectUri // v7
+      // window.locatiom.host = redirectUri // v7
     })
   }
 
