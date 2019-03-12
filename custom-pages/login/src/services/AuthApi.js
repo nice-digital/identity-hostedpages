@@ -1,7 +1,9 @@
 import Auth0 from 'auth0-js'
 // import CordovaAuth0Plugin from 'auth0-js/dist/cordova-auth0-plugin.min'
 import pathOr from 'ramda/src/pathOr'
+import fetch from 'fetch-ie8'
 import { auth as authOpts } from './constants'
+import isIE8 from '../util/isIE8'
 
 export default class AuthApi {
   static instance = null
@@ -76,48 +78,92 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
+    if (isIE8) {
+      this.loginIE8(connection, email, password, errorCallback)
+    } else {
+      const redirectUri = pathOr(
+        null,
+        ['internalSettings', 'callback'],
+        window.Auth0
+      )
+      let options
+      let method
+      if (connection === authOpts.connection) {
+        options = {
+          realm: connection,
+          responseType: authOpts.responseType,
+          email,
+          password
+        }
+        method = 'login'
+      } else {
+        options = {
+          connection,
+          responseType: authOpts.responseType,
+          email,
+          sso: true,
+          login_hint: email,
+          response_mode: 'form_post'
+        }
+        if (redirectUri) {
+          options.redirect_uri = redirectUri
+        }
+        method = 'authorize'
+      }
+      console.log('about to fire login')
+      this.instance[method](options, (err) => {
+        console.log('login callback hit!!!')
+        if (err) {
+          if (errorCallback) {
+            setTimeout(() =>
+              errorCallback(method === 'login'
+                ? 'Invalid email or password'
+                : 'Something has gone wrong'))
+          }
+          throw new Error(err)
+        }
+      })
+    }
+  }
+
+  loginIE8 = (connection, email, password, errorCallback) => {
+    console.log('loginIE8')
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    let options
-    let method
-    if (connection === authOpts.connection) {
-      options = {
-        realm: connection,
-        responseType: 'code',
-        email,
-        password
-      }
-      method = 'login'
-    } else {
-      options = {
-        connection,
-        responseType: 'code',
-        email,
-        sso: true,
-        login_hint: email,
-        response_mode: 'form_post'
-      }
-      if (redirectUri) {
-        options.redirect_uri = redirectUri
-      }
-      method = 'authorize'
+    const data = {
+      ...window.config.extraParams,
+      connection,
+      responseType: authOpts.responseType,
+      email,
+      sso: true,
+      login_hint: email,
+      response_mode: 'form_post'
     }
-    console.log('about to fire login')
-    this.instance[method](options, (err) => {
-      console.log('login callback hit!!!')
-      if (err) {
-        if (errorCallback) {
-          setTimeout(() =>
-            errorCallback(method === 'login'
-              ? 'Invalid email or password'
-              : 'Something has gone wrong'))
-        }
-        throw new Error(err)
-      }
+
+    fetch('/usernamepassword/login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     })
+      .then((res) => {
+        if (res.status === 200) {
+          document.location = redirectUri
+        } else if (errorCallback) {
+          setTimeout(() => errorCallback('There has been an issue'))
+        }
+      })
+      .catch((err) => {
+        if (errorCallback) {
+          setTimeout(() => errorCallback('There has been an issue'))
+        }
+        throw err
+      })
   }
 
   forgotPassword(email, errorCallback) {
