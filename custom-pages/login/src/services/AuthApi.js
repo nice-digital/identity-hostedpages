@@ -91,7 +91,8 @@ export default class AuthApi {
         responseType: 'code',
         email,
         password,
-        redirectUri
+        redirectUri,
+        redirect_uri: redirectUri
       }
       method = 'login'
     } else {
