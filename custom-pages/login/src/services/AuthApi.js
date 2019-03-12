@@ -119,6 +119,7 @@ export default class AuthApi {
         }
         throw new Error(err)
       }
+      window.locatiom.host = redirectUri // v7
     })
   }
 
