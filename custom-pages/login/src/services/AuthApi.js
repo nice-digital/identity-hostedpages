@@ -10,6 +10,11 @@ export default class AuthApi {
       window.config = {}
     }
     window.config.extraParams = window.config.extraParams || {}
+    const redirectUri = pathOr(
+      null,
+      ['internalSettings', 'callback'],
+      window.Auth0
+    )
     this.opts = {
       domain: authOpts.domain,
       clientID: authOpts.clientID,
@@ -18,7 +23,9 @@ export default class AuthApi {
       popup: false,
       responseType: 'code',
       scope: authOpts.scope,
-      redirect: true
+      redirect: true,
+      redirectUri,
+      redirect_uri: redirectUri
       // overrides: {
       //   // eslint-disable-next-line
       //   __tenant: config.auth0Tenant,
