@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-undef */
 import Auth0 from 'auth0-js'
 import pathOr from 'ramda/src/pathOr'
 import fetch from 'fetch-ie8'
@@ -12,6 +14,7 @@ export default class AuthApi {
     }
     window.config.extraParams = window.config.extraParams || {}
     this.opts = {
+      ...window.config.extraParams,
       domain: authOpts.domain,
       clientID: authOpts.clientID,
       leeway: 1,
@@ -26,8 +29,8 @@ export default class AuthApi {
       //   __token_issuer: config.authorizationServer.issuer
       // }
     }
-    const params = Object.assign(this.opts, window.config.internalOptions)
-    this.instance = new Auth0.WebAuth(params)
+    this.params = Object.assign(this.opts, window.config.internalOptions)
+    this.instance = new Auth0.WebAuth(this.params)
   }
 
   createAuth0Namespace = (promiseResolver) => {
@@ -46,14 +49,9 @@ export default class AuthApi {
   fetchClientSettings = () =>
     new Promise((resolver) => {
       if (window.config) {
-        let source
-        if (document.location.host.indexOf('localhost') !== -1) {
-          source = `https://cdn.eu.auth0.com/client/ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf.js?t${+new Date()}`
-        } else {
-          source = `${window.config.clientConfigurationBaseUrl}client/${
-            authOpts.clientID
-          }.js?t${+new Date()}`
-        }
+        const source = `${
+          __DEV__ ? authOpts.auth0CDN : window.config.clientConfigurationBaseUrl
+        }/client/${authOpts.clientID}.js?t${+new Date()}`
         this.createAuth0Namespace(resolver)
         const scriptTag = document.createElement('script')
         scriptTag.src = source
@@ -76,39 +74,39 @@ export default class AuthApi {
     }, {})
 
   login(connection, email, password, errorCallback) {
-    if (isIE8()) {
-      this.loginIE8(connection, email, password, errorCallback)
-    } else {
-      const redirectUri = pathOr(
-        null,
-        ['internalSettings', 'callback'],
-        window.Auth0
-      )
-      let options
-      let method
-      if (connection === authOpts.connection) {
-        options = {
-          realm: connection,
-          responseType: authOpts.responseType,
-          email,
-          password
-        }
-        method = 'login'
-      } else {
-        options = {
-          connection,
-          responseType: authOpts.responseType,
-          email,
-          sso: true,
-          login_hint: email,
-          response_mode: 'form_post'
-        }
-        if (redirectUri) {
-          options.redirect_uri = redirectUri
-        }
-        method = 'authorize'
+    const redirectUri = pathOr(
+      null,
+      ['internalSettings', 'callback'],
+      window.Auth0
+    )
+    let options
+    let method
+    if (connection === authOpts.connection) {
+      options = {
+        ...this.params,
+        realm: connection,
+        email,
+        password
       }
-      console.log('about to fire login')
+      method = 'login'
+    } else {
+      options = {
+        ...this.params,
+        connection,
+        email,
+        sso: true,
+        login_hint: email,
+        response_mode: 'form_post'
+      }
+      method = 'authorize'
+    }
+    if (redirectUri) {
+      options.redirect_uri = redirectUri
+    }
+    console.log('about to fire login')
+    if (isIE8()) {
+      this.loginIE8(options, errorCallback)
+    } else {
       this.instance[method](options, (err) => {
         console.log('login callback')
         if (err) {
@@ -124,22 +122,12 @@ export default class AuthApi {
     }
   }
 
-  loginIE8 = (connection, email, password, errorCallback) => {
+  loginIE8 = (data, errorCallback) => {
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    const data = {
-      ...window.config.extraParams,
-      connection,
-      responseType: authOpts.responseType,
-      email,
-      sso: true,
-      login_hint: email,
-      response_mode: 'form_post'
-    }
-
     fetch('/usernamepassword/login', {
       method: 'POST',
       headers: {
@@ -225,50 +213,9 @@ export default class AuthApi {
   }
 
   register(email, password, name, surname, allowContactMe, errorCallback) {
-    if (isIE8(email, password, name, surname, allowContactMe, errorCallback)) {
-      return this.registerIE8()
-    }
-    return this.instance.signup(
-      {
-        connection: authOpts.connection,
-        responseType: authOpts.responseType,
-        email,
-        password,
-        user_metadata: {
-          name,
-          surname,
-          allowContactMe
-        }
-      },
-      (err) => {
-        if (err) {
-          if (errorCallback) {
-            errorCallback()
-          }
-          return false
-        }
-        document.location.hash = '#/regsuccess'
-        return true
-      }
-    )
-  }
-
-  registerIE8 = (
-    email,
-    password,
-    name,
-    surname,
-    allowContactMe,
-    errorCallback
-  ) => {
-    console.log('loginIE8')
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
-    const data = {
-      ...window.config.extraParams,
+    const options = {
+      ...this.params,
+      connection: authOpts.connection,
       responseType: authOpts.responseType,
       email,
       password,
@@ -278,7 +225,28 @@ export default class AuthApi {
         allowContactMe
       }
     }
+    if (isIE8()) {
+      return this.registerIE8(options, errorCallback)
+    }
+    return this.instance.signup(options, (err) => {
+      if (err) {
+        if (errorCallback) {
+          setTimeout(() => errorCallback())
+        }
+        return false
+      }
+      document.location.hash = '#/regsuccess'
+      return true
+    })
+  }
 
+  registerIE8 = (data, errorCallback) => {
+    console.log('registerIE8')
+    const redirectUri = pathOr(
+      null,
+      ['internalSettings', 'callback'],
+      window.Auth0
+    )
     fetch('/dbconnections/signup', {
       method: 'POST',
       headers: {
