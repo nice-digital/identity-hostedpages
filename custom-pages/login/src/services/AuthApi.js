@@ -135,7 +135,7 @@ export default class AuthApi {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({ ...data, client_id: authOpts.clientID, redirect_uri: redirectUri })
     })
       .then((res) => {
         if (res.status === 200) {
@@ -227,9 +227,9 @@ export default class AuthApi {
       }
     }
     if (isIE8()) {
-      return this.registerIE8(options, errorCallback)
+      this.registerIE8(options, errorCallback)
     }
-    return this.instance.signup(options, (err) => {
+    this.instance.signup(options, (err) => {
       if (err) {
         if (errorCallback) {
           setTimeout(() => errorCallback())
@@ -254,7 +254,7 @@ export default class AuthApi {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({ ...data, client_id: authOpts.clientID, redirect_uri: redirectUri })
     })
       .then((res) => {
         if (res.status === 200) {

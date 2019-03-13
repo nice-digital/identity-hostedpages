@@ -5,6 +5,7 @@ import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
 import { showNav, getFirstErrorElement, validateFields } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
+import isIE8 from '../../../util/isIE8'
 
 export class Register extends React.Component {
   constructor(props) {
@@ -32,14 +33,25 @@ export class Register extends React.Component {
     }
   }
 
+  scrollIntoErrorPanel = () => {
+    if (!isIE8()) {
+      document
+        .getElementById('thereIsAnError')
+        .scrollIntoView({ block: 'center' })
+    }
+    return true
+  }
+
   register = (event) => {
     if (event) event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
-    this.validate()
-    this.catchBlanks()
-    if (this.isFormValidForSubmission()) {
+    if (!isIE8()) {
+      this.validate()
+      this.catchBlanks()
+    }
+    if (this.isFormValidForSubmission() || isIE8()) {
       this.auth.register(
         email,
         password,
@@ -48,12 +60,7 @@ export class Register extends React.Component {
         allowContactMe.toString()
       )
     } else {
-      this.setState(
-        { showAlert: true },
-        document
-          .getElementById('thereIsAnError')
-          .scrollIntoView({ block: 'center' })
-      )
+      this.setState({ showAlert: true }, this.scrollIntoErrorPanel)
     }
   }
 
@@ -133,9 +140,11 @@ export class Register extends React.Component {
 
   goToAlert = (e) => {
     if (e) e.preventDefault()
-    getFirstErrorElement(this.state.errors).scrollIntoView({
-      block: 'center'
-    })
+    if (!isIE8()) {
+      getFirstErrorElement(this.state.errors).scrollIntoView({
+        block: 'center'
+      })
+    }
   }
 
   render() {
