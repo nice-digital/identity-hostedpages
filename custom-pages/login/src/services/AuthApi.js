@@ -6,6 +6,7 @@ import fetch from 'fetch-ie8'
 import { auth as authOpts } from './constants'
 import isIE8 from '../util/isIE8'
 
+const __DEV__ = global.__DEV__ || false
 export default class AuthApi {
   static instance = null
   constructor() {

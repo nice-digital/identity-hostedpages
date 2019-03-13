@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
 // eslint-disable-next-line
-
+const __DEV__ = global.__DEV__ || false
 // eslint-disable-next-line
 export const auth = {
   domain: __DEV__ ? 'alpha-nice-identity.eu.auth0.com' : '#{AUTH0_DOMAIN}',
