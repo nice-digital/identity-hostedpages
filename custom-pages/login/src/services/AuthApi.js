@@ -74,7 +74,7 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, email, password, errorCallback) {
+  login(connection, username, password, errorCallback) {
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
@@ -86,7 +86,7 @@ export default class AuthApi {
       options = {
         ...this.params,
         realm: connection,
-        email,
+        username,
         password
       }
       method = 'login'
@@ -94,9 +94,9 @@ export default class AuthApi {
       options = {
         ...this.params,
         connection,
-        email,
+        username,
         sso: true,
-        login_hint: email,
+        login_hint: username,
         response_mode: 'form_post'
       }
       method = 'authorize'
@@ -258,7 +258,7 @@ export default class AuthApi {
     })
       .then((res) => {
         if (res.status === 200) {
-          document.location = redirectUri
+          // document.location = redirectUri
         } else if (errorCallback) {
           setTimeout(() => errorCallback('There has been an issue'))
         }
