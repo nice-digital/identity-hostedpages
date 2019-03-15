@@ -1,9 +1,11 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
+import pathOr from 'ramda/src/pathOr'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
 // local imports
-import { showNav } from '../../../util'
+import { showNav, isDomainInUsername } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
+import { auth as authOpts } from '../../../services/constants'
 // import Logo from '../assets/logo.png'
 
 import './LoginForm.scss'
@@ -17,18 +19,41 @@ export class Login extends React.Component {
       password: null,
       error: null,
       loading: false,
-      valid: false
+      isAD: false,
+      connection: authOpts.connection,
+      showGoogleLogin: false
     }
   }
+  componentDidMount() {
+    this.auth.fetchClientSettings().then(() => {
+      this.googleConnection = pathOr(
+        null,
+        ['strategies', 'google-oauth2', 'connectionName'],
+        window.Auth0
+      )
+      this.ADConnection = pathOr(
+        null,
+        ['strategies', 'waad', 'connectionName'],
+        window.Auth0
+      )
+      this.setState({ showGoogleLogin: !!this.googleConnection })
+    })
+  }
 
-  requestErrorCallback = err => this.setState({ error: err, loading: false })
-
-  login = (e) => {
-    e.preventDefault()
+  login = (e, isGoogle) => {
+    if (e) e.preventDefault()
+    const requestErrorCallback = err =>
+      this.setState({ error: err, loading: false })
     try {
       this.setState({ loading: true }, () => {
-        const { username, password } = this.state
-        this.auth.login(username, password, this.requestErrorCallback)
+        const { username, password, connection } = this.state
+        const loginConnection = isGoogle ? this.googleConnection : connection
+        this.auth.login(
+          loginConnection,
+          username,
+          password,
+          requestErrorCallback
+        )
       })
     } catch (err) {
       // console.log(err)
@@ -36,24 +61,25 @@ export class Login extends React.Component {
     }
   }
 
-  isValid() {
-    const { username, password } = this.state
-    this.setState({ valid: username && password })
-  }
-
   handleChange = ({ target: { name, value } }) => {
-    this.setState(
-      {
-        [name]: value,
-        error: null
-      },
-      this.isValid
-    )
+    let isAD = null
+    if (name === 'username') {
+      isAD = isDomainInUsername(value)
+    }
+    this.setState({
+      [name]: value,
+      error: null,
+      isAD,
+      connection: isAD ? this.ADConnection : this.state.connection
+    })
   }
 
   render() {
     showNav()
-    const { error, loading, valid } = this.state
+    const {
+      error, loading, isAD, showGoogleLogin
+    } = this.state
+
     return (
       <form className="">
         <Fieldset legend="Personal information">
@@ -67,26 +93,45 @@ export class Login extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
           />
-          <Input
-            data-qa-sel="login-password"
-            name="password"
-            type="password"
-            label="Password"
-            onChange={this.handleChange}
-          />
-          {!loading ? (
+          {!isAD && (
+            <Input
+              data-qa-sel="login-password"
+              name="password"
+              type="password"
+              label="Password"
+              onChange={this.handleChange}
+            />
+          )}
+        </Fieldset>
+        {!loading ? (
+          <div>
             <button
               data-qa-sel="login-button"
               className="btn btn--cta"
-              onClick={this.login}
-              disabled={!valid}
+              onClick={e => this.login(e, false)}
+              // disabled={!username}
             >
               Sign in
             </button>
-          ) : (
-            'Loading...'
-          )}
-        </Fieldset>
+            {showGoogleLogin && (
+              <button
+                data-qa-sel="login-button-social"
+                className="iconBtn social"
+                style={{ float: 'right' }}
+                onClick={e => this.login(e, true)}
+              >
+                <span className="buttonLabel">Or sign in with</span>
+                <img
+                  className="iconBtn-icon"
+                  alt="Sign in with google"
+                  src="https://d2i72ju5buk5xz.cloudfront.net/gsc/OLZUJZ/b2/91/66/b29166a7cbbb4366a0489f51425d4eef/images/sign_in_nice_org_v1/u1197.png?token=e0f2a5088357cc15a5a882ace3c75abd"
+                />
+              </button>
+            )}
+          </div>
+        ) : (
+          'Loading...'
+        )}
       </form>
     )
   }

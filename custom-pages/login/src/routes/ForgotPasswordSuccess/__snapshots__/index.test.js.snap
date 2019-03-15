@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterSuccess components should render <RegisterSuccess /> correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ForgotPasswordSuccess />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          Success
+        </h3>,
+        <h5
+          data-qa-sel="forgotPasswordSuccess-message1"
+        >
+          If that email address is in our records, we will send an email to you containing instructions on how to reset your password. You may have to wait a few minutes for the email. If you can’t find the email, please check your spam and deleted items folders.
+        </h5>,
+        <h5
+          data-qa-sel="forgotPasswordSuccess-message2"
+        >
+          Please act on the email straight away.
+        </h5>,
+        <Link
+          data-qa-sel="forgotPasswordSuccess-link-to-login"
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/"
+        >
+           Return to Sign in 
+        </Link>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Success",
+        },
+        "ref": null,
+        "rendered": "Success",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "If that email address is in our records, we will send an email to you containing instructions on how to reset your password. You may have to wait a few minutes for the email. If you can’t find the email, please check your spam and deleted items folders.",
+          "data-qa-sel": "forgotPasswordSuccess-message1",
+        },
+        "ref": null,
+        "rendered": "If that email address is in our records, we will send an email to you containing instructions on how to reset your password. You may have to wait a few minutes for the email. If you can’t find the email, please check your spam and deleted items folders.",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Please act on the email straight away.",
+          "data-qa-sel": "forgotPasswordSuccess-message2",
+        },
+        "ref": null,
+        "rendered": "Please act on the email straight away.",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": " Return to Sign in ",
+          "data-qa-sel": "forgotPasswordSuccess-link-to-login",
+          "onlyActiveOnIndex": false,
+          "style": Object {},
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": " Return to Sign in ",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Success
+          </h3>,
+          <h5
+            data-qa-sel="forgotPasswordSuccess-message1"
+          >
+            If that email address is in our records, we will send an email to you containing instructions on how to reset your password. You may have to wait a few minutes for the email. If you can’t find the email, please check your spam and deleted items folders.
+          </h5>,
+          <h5
+            data-qa-sel="forgotPasswordSuccess-message2"
+          >
+            Please act on the email straight away.
+          </h5>,
+          <Link
+            data-qa-sel="forgotPasswordSuccess-link-to-login"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/"
+          >
+             Return to Sign in 
+          </Link>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Success",
+          },
+          "ref": null,
+          "rendered": "Success",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "If that email address is in our records, we will send an email to you containing instructions on how to reset your password. You may have to wait a few minutes for the email. If you can’t find the email, please check your spam and deleted items folders.",
+            "data-qa-sel": "forgotPasswordSuccess-message1",
+          },
+          "ref": null,
+          "rendered": "If that email address is in our records, we will send an email to you containing instructions on how to reset your password. You may have to wait a few minutes for the email. If you can’t find the email, please check your spam and deleted items folders.",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Please act on the email straight away.",
+            "data-qa-sel": "forgotPasswordSuccess-message2",
+          },
+          "ref": null,
+          "rendered": "Please act on the email straight away.",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": " Return to Sign in ",
+            "data-qa-sel": "forgotPasswordSuccess-link-to-login",
+            "onlyActiveOnIndex": false,
+            "style": Object {},
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": " Return to Sign in ",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

@@ -5,6 +5,7 @@ import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
 import { showNav, getFirstErrorElement, validateFields } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
+import isIE8 from '../../../util/isIE8'
 
 export class Register extends React.Component {
   constructor(props) {
@@ -32,13 +33,25 @@ export class Register extends React.Component {
     }
   }
 
+  scrollIntoErrorPanel = () => {
+    if (!isIE8()) {
+      document
+        .getElementById('thereIsAnError')
+        .scrollIntoView({ block: 'center' })
+    }
+    return true
+  }
+
   register = (event) => {
-    event.preventDefault()
+    if (event) event.preventDefault()
     const {
       email, password, name, surname, allowContactMe
     } = this.state
-    this.validate()
-    if (this.isFormValidForSubmission()) {
+    if (!isIE8()) {
+      this.validate()
+      this.catchBlanks()
+    }
+    if (this.isFormValidForSubmission() || isIE8()) {
       this.auth.register(
         email,
         password,
@@ -47,19 +60,18 @@ export class Register extends React.Component {
         allowContactMe.toString()
       )
     } else {
-      this.setState(
-        { showAlert: true },
-        document
-          .getElementById('thereIsAnError')
-          .scrollIntoView({ block: 'center' })
-      )
+      this.setState({ showAlert: true }, this.scrollIntoErrorPanel)
     }
   }
 
   handleCheckboxChange = (event) => {
+    const errors =
+      event.target.name === 'tAndC'
+        ? { ...this.state.errors, tAndC: false }
+        : this.state.errors
     this.setState({
       [event.target.name]: event.target.checked,
-      errors: { ...this.state.errors, tAndC: false }
+      errors
     })
   }
 
@@ -88,6 +100,29 @@ export class Register extends React.Component {
     return email && password && name && surname && tAndC && !isErrors
   }
 
+  catchBlanks() {
+    const {
+      email,
+      password,
+      name,
+      surname,
+      confirmEmail,
+      confirmPassword,
+      tAndC
+    } = this.state
+    this.setState({
+      errors: {
+        email: !email,
+        password: !password,
+        name: !name,
+        surname: !surname,
+        confirmEmail: !confirmEmail,
+        confirmPassword: !confirmPassword,
+        tAndC: !tAndC
+      }
+    })
+  }
+
   validate = () => {
     const tests = validateFields(this.state)
     this.setState({
@@ -104,17 +139,26 @@ export class Register extends React.Component {
   }
 
   goToAlert = (e) => {
-    e.preventDefault()
-    getFirstErrorElement(this.state.errors).scrollIntoView({
-      block: 'center'
-    })
+    if (e) e.preventDefault()
+    if (!isIE8()) {
+      getFirstErrorElement(this.state.errors).scrollIntoView({
+        block: 'center'
+      })
+    }
   }
 
   render() {
     const {
-      allowContactMe, tAndC, errors, showAlert
+      allowContactMe,
+      tAndC,
+      errors,
+      showAlert,
+      email,
+      password,
+      name,
+      surname
     } = this.state
-    showNav()
+    showNav(true)
     return (
       <form className="">
         <h6>
@@ -148,7 +192,11 @@ export class Register extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
             error={errors.email}
-            errorMessage="Please provide a valid email"
+            errorMessage={`${
+              !email
+                ? 'This field is required'
+                : 'Email address is in an invalid format'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="email-error"
@@ -161,7 +209,7 @@ export class Register extends React.Component {
             placeholder="eg: your.name@example.com..."
             onChange={this.handleChange}
             error={errors.confirmEmail}
-            errorMessage="Email fields do not match"
+            errorMessage="Email address doesn't match"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="confirmEmail-error"
@@ -173,7 +221,11 @@ export class Register extends React.Component {
             label="Password"
             onChange={this.handleChange}
             error={errors.password}
-            errorMessage="Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)"
+            errorMessage={`${
+              !password
+                ? 'This field is required'
+                : 'Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="password-error"
@@ -185,7 +237,7 @@ export class Register extends React.Component {
             label="Confirm password"
             onChange={this.handleChange}
             error={errors.confirmPassword}
-            errorMessage="Password fields do not match"
+            errorMessage="Password doesn't match"
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="confirmPassword-error"
@@ -196,7 +248,11 @@ export class Register extends React.Component {
             label="First name"
             onChange={this.handleChange}
             error={errors.name}
-            errorMessage="Name should not exceed 100 characters"
+            errorMessage={`${
+              !name
+                ? 'This field is required'
+                : 'First name should not exceed 100 characters'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="name-error"
@@ -207,7 +263,11 @@ export class Register extends React.Component {
             label="Last name"
             onChange={this.handleChange}
             error={errors.surname}
-            errorMessage="Surname should not exceed 100 characters"
+            errorMessage={`${
+              !surname
+                ? 'This field is required'
+                : 'Last name should not exceed 100 characters'
+            }`}
             onBlur={this.validate}
             onFocus={this.clearError}
             aria-describedby="surname-error"
@@ -226,7 +286,8 @@ export class Register extends React.Component {
           <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
             {errors.tAndC ? (
               <Alert data-qa-sel="tc-unchecked-error" type="error">
-                You must accept Terms and Conditions to be able to create an account.
+                You must accept Terms and Conditions to be able to create an
+                account.
               </Alert>
             ) : null}
             <Checkbox
@@ -257,14 +318,14 @@ export class Register extends React.Component {
             administer your NICE account. For more information about how we
             process your data, see our <a href="#">privacy notice</a>
           </Alert>
-          <button
-            data-qa-sel="Register-button"
-            className="btn btn--cta"
-            onClick={e => this.register(e)}
-          >
-            Register
-          </button>
         </Fieldset>
+        <button
+          data-qa-sel="Register-button"
+          className="btn btn--cta"
+          onClick={e => this.register(e)}
+        >
+          Register
+        </button>
       </form>
     )
   }

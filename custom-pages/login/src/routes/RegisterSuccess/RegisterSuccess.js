@@ -11,14 +11,13 @@ export const RegisterSuccess = () => {
   hideNav()
   return (
     <div>
-      <h3>Thank you!</h3>
+      <h3>Thank you</h3>
       <h5>
-        To complete registration, please check your email account and confirm
-        your details using the activation link.
+        We've sent you an email with an activation link. To verify your details
+        and start using your account, click on the link.
       </h5>
       <Alert type="caution">
-        Note: if you do not receive an activation email please check your spam
-        folder.
+        Note: check your spam folder if you do not receive the activation email.
       </Alert>
       <p>
         <a href="#">&larr; Take me back to Login</a>
