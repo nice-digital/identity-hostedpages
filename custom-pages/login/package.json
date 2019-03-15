@@ -36,7 +36,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "cross-env CI=true npm test --env=jsdom --testResultsProcessor=jest-teamcity-reporter",
+    "test:ci": "cross-env CI=true react-scripts test --env=jsdom --testResultsProcessor=jest-teamcity-reporter",
     "test:ci:coverage": "npm run test:ci -- --coverage ",
     "clean": "node tools/clean",
     "build": "node tools/build --release",
