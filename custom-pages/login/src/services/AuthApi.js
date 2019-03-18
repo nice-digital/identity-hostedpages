@@ -50,9 +50,14 @@ export default class AuthApi {
   fetchClientSettings = () =>
     new Promise((resolver) => {
       if (window.config) {
-        let cdnBaseUrl = (__DEV__ ? authOpts.auth0CDN : window.config.clientConfigurationBaseUrl)
-        cdnBaseUrl += cdnBaseUrl.endsWith('/') ? '' : '/'
-        const source = `${cdnBaseUrl}client/${authOpts.clientID}.js?t${+new Date()}`
+        let cdnBaseUrl = __DEV__
+          ? authOpts.auth0CDN
+          : window.config.clientConfigurationBaseUrl
+        cdnBaseUrl +=
+          cdnBaseUrl.lastIndexOf('/') === cdnBaseUrl.length - 1 ? '' : '/'
+        const source = `${cdnBaseUrl}client/${
+          authOpts.clientID
+        }.js?t${+new Date()}`
         this.createAuth0Namespace(resolver)
         const scriptTag = document.createElement('script')
         scriptTag.src = source
