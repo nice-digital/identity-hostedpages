@@ -144,12 +144,14 @@ export default class AuthApi {
       },
       body: JSON.stringify({
         ...data,
+        connection: options.realm || options.connection,
         client_id: authOpts.clientID,
         redirect_uri: redirectUri
       })
     })
       .then((res) => {
         if (res.status === 200) {
+          console.log('login callback 200 yeah')
           // document.location = redirectUri
         } else if (errorCallback) {
           setTimeout(() => errorCallback('There has been an issue'))
