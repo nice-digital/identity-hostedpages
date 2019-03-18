@@ -110,7 +110,7 @@ export default class AuthApi {
       }
       console.log('about to fire login')
       if (isIE8()) {
-        this.loginIE8(options, errorCallback)
+        this.loginIE8(options, method, errorCallback)
       } else {
         this.instance[method](options, (err) => {
           console.log('login callback')
@@ -130,13 +130,13 @@ export default class AuthApi {
     }
   }
 
-  loginIE8 = (data, errorCallback) => {
+  loginIE8 = (data, method, errorCallback) => {
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    fetch('/usernamepassword/login', {
+    fetch(method === 'login' ? '/usernamepassword/login' : method, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
