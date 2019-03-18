@@ -151,23 +151,24 @@ export default class AuthApi {
     })
       .then((res) => {
         if (res.status === 200) {
-          console.log('login callback 200 yeah')
-          console.log('res', JSON.stringify(res))
-          console.log('res._bodyInit', JSON.stringify(res._bodyInit))
-          const div = document.createElement('div')
-          div.innerHTML = res._bodyInit
-          const form = document.body.appendChild(div).children[0]
-          form.submit()
+          this.submitWSForm(res._bodyInit)
         } else if (errorCallback) {
           setTimeout(() => errorCallback('There has been an issue'))
         }
       })
       .catch((err) => {
         if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback('Invalid email or password'))
         }
         throw err
       })
+  }
+
+  submitWSForm = (responseForm) => {
+    const div = document.createElement('div')
+    div.innerHTML = responseForm
+    const formElement = document.body.appendChild(div).children[0]
+    formElement.submit()
   }
 
   forgotPassword(email, errorCallback) {
