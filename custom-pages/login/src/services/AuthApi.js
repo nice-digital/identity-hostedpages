@@ -137,7 +137,7 @@ export default class AuthApi {
       window.Auth0
     )
     fetch(method === 'login' ? '/usernamepassword/login' : method, {
-      method: 'POST',
+      method: method === login ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
