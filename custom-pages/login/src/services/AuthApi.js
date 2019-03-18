@@ -144,7 +144,7 @@ export default class AuthApi {
       },
       body: JSON.stringify({
         ...data,
-        connection: options.realm || options.connection,
+        connection: data.realm || data.connection,
         client_id: authOpts.clientID,
         redirect_uri: redirectUri
       })
