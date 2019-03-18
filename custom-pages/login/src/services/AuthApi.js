@@ -50,9 +50,14 @@ export default class AuthApi {
   fetchClientSettings = () =>
     new Promise((resolver) => {
       if (window.config) {
-        const source = `${
-          __DEV__ ? authOpts.auth0CDN : window.config.clientConfigurationBaseUrl
-        }/client/${authOpts.clientID}.js?t${+new Date()}`
+        let cdnBaseUrl = __DEV__
+          ? authOpts.auth0CDN
+          : window.config.clientConfigurationBaseUrl
+        cdnBaseUrl +=
+          cdnBaseUrl.lastIndexOf('/') === cdnBaseUrl.length - 1 ? '' : '/'
+        const source = `${cdnBaseUrl}client/${
+          authOpts.clientID
+        }.js?t${+new Date()}`
         this.createAuth0Namespace(resolver)
         const scriptTag = document.createElement('script')
         scriptTag.src = source
@@ -135,7 +140,11 @@ export default class AuthApi {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ ...data, client_id: authOpts.clientID, redirect_uri: redirectUri })
+      body: JSON.stringify({
+        ...data,
+        client_id: authOpts.clientID,
+        redirect_uri: redirectUri
+      })
     })
       .then((res) => {
         if (res.status === 200) {
@@ -254,7 +263,11 @@ export default class AuthApi {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ ...data, client_id: authOpts.clientID, redirect_uri: redirectUri })
+      body: JSON.stringify({
+        ...data,
+        client_id: authOpts.clientID,
+        redirect_uri: redirectUri
+      })
     })
       .then((res) => {
         if (res.status === 200) {
