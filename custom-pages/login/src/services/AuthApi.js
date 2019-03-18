@@ -153,9 +153,9 @@ export default class AuthApi {
         if (res.status === 200) {
           console.log('login callback 200 yeah')
           console.log('res', JSON.stringify(res))
-          console.log('res.body.form', JSON.stringify(res.body.form))
+          console.log('res._bodyInit', JSON.stringify(res._bodyInit))
           const div = document.createElement('div')
-          div.innerHTML = res.body.form
+          div.innerHTML = res._bodyInit
           const form = document.body.appendChild(div).children[0]
           form.submit()
         } else if (errorCallback) {
