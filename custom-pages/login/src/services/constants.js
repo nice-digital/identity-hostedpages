@@ -4,9 +4,9 @@
 const __DEV__ = global.__DEV__ || false
 // eslint-disable-next-line
 export const auth = {
-  domain: __DEV__ ? 'alpha-nice-identity.eu.auth0.com' : '#{AUTH0_DOMAIN}',
+  domain: __DEV__ ? 'dev-nice-identity.eu.auth0.com' : '#{AUTH0_DOMAIN}',
   clientID: __DEV__
-    ? 'ETzPLUtLTkCs8tHDjBfxNJKnnUzQGlmf'
+    ? 'RMpYVjKE_B85IO6Euc2i3IstVAstrEHK'
     : '#{AUTH0_APP_CLIENT_ID}',
   scope: 'openid profile email',
   responseType: 'code',
