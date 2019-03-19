@@ -132,7 +132,7 @@ export class Register extends React.Component {
         password: tests.password(),
         confirmPassword: tests.confirmPassword(),
         name: tests.name(),
-        surname: tests.surname(),
+        surname: tests.surname()
         // tAndC: tests.tAndC()
       }
     })
@@ -316,7 +316,10 @@ export class Register extends React.Component {
           <Alert>
             The information you provide on this form will be used by us to
             administer your NICE account. For more information about how we
-            process your data, see our <a href="https://www.nice.org.uk/privacy-notice">privacy notice</a>
+            process your data, see our{' '}
+            <a href="https://www.nice.org.uk/privacy-notice" target="_blank" rel="noopener noreferrer">
+              privacy notice
+            </a>
           </Alert>
         </Fieldset>
         <button
