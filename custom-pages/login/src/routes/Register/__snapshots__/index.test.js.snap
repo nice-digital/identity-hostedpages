@@ -309,11 +309,17 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": false,
+              "children": Array [
+                false,
+                null,
+              ],
               "id": "thereIsAnError",
             },
             "ref": null,
-            "rendered": false,
+            "rendered": Array [
+              false,
+              null,
+            ],
             "type": "div",
           },
           Object {
@@ -924,11 +930,17 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": false,
+                "children": Array [
+                  false,
+                  null,
+                ],
                 "id": "thereIsAnError",
               },
               "ref": null,
-              "rendered": false,
+              "rendered": Array [
+                false,
+                null,
+              ],
               "type": "div",
             },
             Object {
@@ -1569,11 +1581,17 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": false,
+              "children": Array [
+                false,
+                null,
+              ],
               "id": "thereIsAnError",
             },
             "ref": null,
-            "rendered": false,
+            "rendered": Array [
+              false,
+              null,
+            ],
             "type": "div",
           },
           Object {
@@ -2184,11 +2202,17 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": false,
+                "children": Array [
+                  false,
+                  null,
+                ],
                 "id": "thereIsAnError",
               },
               "ref": null,
-              "rendered": false,
+              "rendered": Array [
+                false,
+                null,
+              ],
               "type": "div",
             },
             Object {
@@ -2829,11 +2853,17 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": false,
+              "children": Array [
+                false,
+                null,
+              ],
               "id": "thereIsAnError",
             },
             "ref": null,
-            "rendered": false,
+            "rendered": Array [
+              false,
+              null,
+            ],
             "type": "div",
           },
           Object {
@@ -3444,11 +3474,17 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": false,
+                "children": Array [
+                  false,
+                  null,
+                ],
                 "id": "thereIsAnError",
               },
               "ref": null,
-              "rendered": false,
+              "rendered": Array [
+                false,
+                null,
+              ],
               "type": "div",
             },
             Object {

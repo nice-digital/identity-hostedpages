@@ -58,6 +58,6 @@ describe('Register components', () => {
     }).update()
 
     instance.register()
-    expect(instance.auth.register).toBeCalledWith(props.email, props.password, props.name, props.surname, props.allowContactMe)
+    expect(instance.auth.register).toBeCalledWith(props.email, props.password, props.name, props.surname, props.allowContactMe, expect.any(Function))
   })
 })

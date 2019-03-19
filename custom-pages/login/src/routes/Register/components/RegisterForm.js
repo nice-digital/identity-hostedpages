@@ -29,7 +29,9 @@ export class Register extends React.Component {
         surname: false,
         tAndC: false
       },
-      showAlert: false
+      showAlert: false,
+      serverSideError: null,
+      loading: false
     }
   }
 
@@ -44,21 +46,34 @@ export class Register extends React.Component {
 
   register = (event) => {
     if (event) event.preventDefault()
+    const errorCallback = err =>
+      this.setState(
+        { serverSideError: err.description, loading: false },
+        this.scrollIntoErrorPanel
+      )
     const {
       email, password, name, surname, allowContactMe
     } = this.state
+
     if (!isIE8()) {
       this.validate()
       this.catchBlanks()
     }
     if (this.isFormValidForSubmission() || isIE8()) {
-      this.auth.register(
-        email,
-        password,
-        name,
-        surname,
-        allowContactMe.toString()
-      )
+      try {
+        this.setState({ loading: true })
+        this.auth.register(
+          email,
+          password,
+          name,
+          surname,
+          allowContactMe.toString(),
+          errorCallback
+        )
+      } catch (err) {
+        this.setState({ loading: false })
+        throw new Error(err)
+      }
     } else {
       this.setState({ showAlert: true }, this.scrollIntoErrorPanel)
     }
@@ -77,14 +92,16 @@ export class Register extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      serverSideError: null
     })
   }
 
   clearError = (event) => {
     this.setState({
       errors: { ...this.state.errors, [event.target.name]: false },
-      showAlert: false
+      showAlert: false,
+      serverSideError: null
     })
   }
 
@@ -156,7 +173,9 @@ export class Register extends React.Component {
       email,
       password,
       name,
-      surname
+      surname,
+      loading,
+      serverSideError
     } = this.state
     showNav(true)
     return (
@@ -181,6 +200,15 @@ export class Register extends React.Component {
                 >
                   Click here to see the errors
                 </a>
+              </Alert>
+            )}
+            {serverSideError && (
+              <Alert
+                data-qa-sel="problem-alert-register-serverError"
+                type="error"
+                aria-labelledby="error-server-title"
+              >
+                <h5>{serverSideError}</h5>
               </Alert>
             )}
           </div>
@@ -317,18 +345,26 @@ export class Register extends React.Component {
             The information you provide on this form will be used by us to
             administer your NICE account. For more information about how we
             process your data, see our{' '}
-            <a href="https://www.nice.org.uk/privacy-notice" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.nice.org.uk/privacy-notice"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               privacy notice
             </a>
           </Alert>
         </Fieldset>
-        <button
-          data-qa-sel="Register-button"
-          className="btn btn--cta"
-          onClick={e => this.register(e)}
-        >
-          Register
-        </button>
+        {!loading ? (
+          <button
+            data-qa-sel="Register-button"
+            className="btn btn--cta"
+            onClick={e => this.register(e)}
+          >
+            Register
+          </button>
+        ) : (
+          'Loading...'
+        )}
       </form>
     )
   }
