@@ -108,25 +108,20 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      console.log('about to fire login')
       if (isIE8()) {
         this.loginIE8(options, method, errorCallback)
       } else {
         this.instance[method](options, (err) => {
-          console.log('login callback')
           if (err) {
             if (errorCallback) {
-              setTimeout(() =>
-                errorCallback(method === 'login'
-                  ? 'Invalid email or password'
-                  : 'Something has gone wrong'))
+              setTimeout(() => errorCallback(err))
             }
-            throw new Error(err)
+            console.log(err)
           }
         })
       }
     } catch (e) {
-      throw new Error(e)
+      console.log(err)
     }
   }
 
@@ -160,7 +155,7 @@ export default class AuthApi {
         if (errorCallback) {
           setTimeout(() => errorCallback('Invalid email or password'))
         }
-        throw err
+        console.log(err)
       })
   }
 
@@ -207,7 +202,7 @@ export default class AuthApi {
       if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
       }
-      throw err
+      console.log(err)
     }
     console.debug(window.rpConfig)
     if (window.rpConfig) {
@@ -302,7 +297,7 @@ export default class AuthApi {
         if (errorCallback) {
           setTimeout(() => errorCallback(err))
         }
-        throw err
+        console.log(err)
       })
   }
 }

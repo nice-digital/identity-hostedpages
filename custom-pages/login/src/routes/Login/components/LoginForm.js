@@ -43,7 +43,7 @@ export class Login extends React.Component {
   login = (e, isGoogle) => {
     if (e) e.preventDefault()
     const requestErrorCallback = err =>
-      this.setState({ error: err, loading: false })
+      this.setState({ error: err.description || err.error_description, loading: false })
     try {
       this.setState({ loading: true }, () => {
         const { username, password, connection } = this.state
