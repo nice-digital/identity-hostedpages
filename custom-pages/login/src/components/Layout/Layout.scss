@@ -26,11 +26,12 @@ body {
 }
 
 @media (max-width: 700px) {
-  .leftCol {
-    display: none;
+  .wrapper {
+    flex-direction: column;
   }
-  .rightCol{
-    width: var(--col-width-mobile)
+  .rightCol, .leftCol{
+    width: var(--col-width-mobile);
+    padding-bottom: 0;
   }
   .mainContainer {
     min-width: var(--col-width-mobile);
