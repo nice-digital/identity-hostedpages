@@ -108,12 +108,10 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      console.log('about to fire login')
       if (isIE8()) {
         this.loginIE8(options, method, errorCallback)
       } else {
         this.instance[method](options, (err) => {
-          console.log('login callback')
           if (err) {
             if (errorCallback) {
               setTimeout(() =>
@@ -196,7 +194,6 @@ export default class AuthApi {
   }
 
   resetPassword = (password, errorCallback) => {
-    console.debug(window.rpConfig)
     if (window.rpConfig) {
       const data = {
         connection: authOpts.connection,
@@ -261,7 +258,6 @@ export default class AuthApi {
   }
 
   registerIE8 = (data, errorCallback) => {
-    console.log('registerIE8')
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
