@@ -9,13 +9,18 @@ import { hideNav } from '../../util'
 import './ResetPasswordSuccess.scss'
 
 export const ResetPasswordSuccess = () => {
+  setTimeout(() => (document.location = '/login'), 5000)
   hideNav()
   return (
     <div>
       <h3>Thank you!</h3>
       <Alert type="success">
-        Your password has been changed and you will need to sign in with it, if this page
-        does not automatically refresh <Link data-qa-sel="resetPasswordSuccess-link-to-login" to="/"> click here </Link>
+        Your password has been changed and you will need to sign in with it, if
+        this page does not automatically refresh{' '}
+        <Link data-qa-sel="resetPasswordSuccess-link-to-login" to="/login">
+          {' '}
+          click here{' '}
+        </Link>
       </Alert>
     </div>
   )

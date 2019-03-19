@@ -130,7 +130,7 @@ export class ResetPassword extends React.Component {
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"

@@ -23,14 +23,17 @@ ShallowWrapper {
         <Alert
           type="success"
         >
-          Your password has been changed and you will need to sign in with it, if this page does not automatically refresh 
+          Your password has been changed and you will need to sign in with it, if this page does not automatically refresh
+           
           <Link
             data-qa-sel="resetPasswordSuccess-link-to-login"
             onlyActiveOnIndex={false}
             style={Object {}}
-            to="/"
+            to="/login"
           >
-             click here 
+             
+            click here
+             
           </Link>
         </Alert>,
       ],
@@ -54,34 +57,46 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
+            "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh",
+            " ",
             <Link
               data-qa-sel="resetPasswordSuccess-link-to-login"
               onlyActiveOnIndex={false}
               style={Object {}}
-              to="/"
+              to="/login"
             >
-               click here 
+               
+              click here
+               
             </Link>,
           ],
           "type": "success",
         },
         "ref": null,
         "rendered": Array [
-          "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
+          "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh",
+          " ",
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": " click here ",
+              "children": Array [
+                " ",
+                "click here",
+                " ",
+              ],
               "data-qa-sel": "resetPasswordSuccess-link-to-login",
               "onlyActiveOnIndex": false,
               "style": Object {},
-              "to": "/",
+              "to": "/login",
             },
             "ref": null,
-            "rendered": " click here ",
+            "rendered": Array [
+              " ",
+              "click here",
+              " ",
+            ],
             "type": [Function],
           },
         ],
@@ -103,14 +118,17 @@ ShallowWrapper {
           <Alert
             type="success"
           >
-            Your password has been changed and you will need to sign in with it, if this page does not automatically refresh 
+            Your password has been changed and you will need to sign in with it, if this page does not automatically refresh
+             
             <Link
               data-qa-sel="resetPasswordSuccess-link-to-login"
               onlyActiveOnIndex={false}
               style={Object {}}
-              to="/"
+              to="/login"
             >
-               click here 
+               
+              click here
+               
             </Link>
           </Alert>,
         ],
@@ -134,34 +152,46 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
+              "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh",
+              " ",
               <Link
                 data-qa-sel="resetPasswordSuccess-link-to-login"
                 onlyActiveOnIndex={false}
                 style={Object {}}
-                to="/"
+                to="/login"
               >
-                 click here 
+                 
+                click here
+                 
               </Link>,
             ],
             "type": "success",
           },
           "ref": null,
           "rendered": Array [
-            "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
+            "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh",
+            " ",
             Object {
               "instance": null,
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": " click here ",
+                "children": Array [
+                  " ",
+                  "click here",
+                  " ",
+                ],
                 "data-qa-sel": "resetPasswordSuccess-link-to-login",
                 "onlyActiveOnIndex": false,
                 "style": Object {},
-                "to": "/",
+                "to": "/login",
               },
               "ref": null,
-              "rendered": " click here ",
+              "rendered": Array [
+                " ",
+                "click here",
+                " ",
+              ],
               "type": [Function],
             },
           ],

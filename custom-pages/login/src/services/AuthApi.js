@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import Auth0 from 'auth0-js'
 import pathOr from 'ramda/src/pathOr'
-import fetch from 'fetch-ie8'
+import ie8Fetch from 'fetch-ie8'
 import { auth as authOpts } from './constants'
 import { isIE8, ensureTrailingSlash } from '../util'
 
@@ -136,7 +136,7 @@ export default class AuthApi {
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    fetch(method === 'login' ? '/usernamepassword/login' : method, {
+    ie8Fetch(method === 'login' ? '/usernamepassword/login' : method, {
       method: method === 'login' ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
@@ -196,6 +196,19 @@ export default class AuthApi {
   }
 
   resetPassword = (password, errorCallback) => {
+    const callback = (res) => {
+      if (res.status === 200) {
+        document.location.hash = '#/resetsuccess'
+      } else if (errorCallback) {
+        setTimeout(() => errorCallback('There has been an issue'))
+      }
+    }
+    const catchCallback = (err) => {
+      if (errorCallback) {
+        setTimeout(() => errorCallback('There has been an issue'))
+      }
+      throw err
+    }
     console.debug(window.rpConfig)
     if (window.rpConfig) {
       const data = {
@@ -207,28 +220,27 @@ export default class AuthApi {
         newPassword: password,
         confirmNewPassword: password
       }
-
-      fetch('/lo/reset', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            document.location.hash = '#/resetsuccess'
-          } else if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue'))
-          }
+      if (isIE8()) {
+        ie8Fetch('/lo/reset', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
-        .catch((err) => {
-          if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue'))
-          }
-          throw err
+      } else {
+        fetch('/lo/reset', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
+          .then(callback)
+          .catch(catchCallback)
+      }
     }
   }
 
@@ -251,7 +263,7 @@ export default class AuthApi {
     this.instance.signup(options, (err) => {
       if (err) {
         if (errorCallback) {
-          setTimeout(() => errorCallback())
+          setTimeout(() => errorCallback(err))
         }
         return false
       }
@@ -267,7 +279,7 @@ export default class AuthApi {
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    fetch('/dbconnections/signup', {
+    ie8Fetch('/dbconnections/signup', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -283,12 +295,12 @@ export default class AuthApi {
         if (res.status === 200) {
           // document.location = redirectUri
         } else if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback(res))
         }
       })
       .catch((err) => {
         if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback(err))
         }
         throw err
       })
