@@ -22,7 +22,7 @@ export default class AuthApi {
       popup: false,
       responseType: 'code',
       scope: authOpts.scope,
-      redirect: true
+      redirect: true,
       // overrides: {
       //   // eslint-disable-next-line
       //   __tenant: config.auth0Tenant,
@@ -91,7 +91,8 @@ export default class AuthApi {
           ...this.params,
           realm: connection,
           username,
-          password
+          password,
+          auto_login: false
         }
         method = 'login'
       } else {
@@ -101,7 +102,8 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post'
+          response_mode: 'form_post',
+          auto_login: false
         }
         method = 'authorize'
       }

@@ -9,7 +9,7 @@ import { hideNav } from '../../util'
 import './ResetPasswordSuccess.scss'
 
 export const ResetPasswordSuccess = () => {
-  setTimeout(() => (document.location = '/login'), 5000)
+  // setTimeout(() => (document.location = '/login'), 5000)
   hideNav()
   return (
     <div>
