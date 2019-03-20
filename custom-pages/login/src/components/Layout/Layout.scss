@@ -29,11 +29,17 @@ body {
   .wrapper {
     flex-direction: column;
   }
-  .rightCol, .leftCol{
-    width: var(--col-width-mobile);
+  .rightCol,
+  .leftCol {
+    width: 100%;
+    min-width: var(--col-width-mobile);
     padding-bottom: 0;
   }
   .mainContainer {
     min-width: var(--col-width-mobile);
+  }
+
+  .navigation {
+    width: calc(var(--col-width-mobile)-5rem);
   }
 }
