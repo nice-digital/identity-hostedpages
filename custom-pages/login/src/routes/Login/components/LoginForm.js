@@ -2,7 +2,6 @@ import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import pathOr from 'ramda/src/pathOr'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
-import qs from 'qs'
 // local imports
 import { showNav, isDomainInUsername } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
@@ -24,9 +23,10 @@ export class Login extends React.Component {
       connection: authOpts.connection,
       showGoogleLogin: false
     }
-    this.querystring = qs.parse(document.location.search, {
-      ignoreQueryPrefix: true
-    })
+    const myerrorIndex = document.location.search.indexOf('myerror')
+    if (myerrorIndex) {
+      this.querystringError = document.location.search.substring(myerrorIndex + 8)
+    }
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ export class Login extends React.Component {
   }
 
   showAuth0RulesError = () => {
-    this.setState({ error: this.querystring.myerror })
+    this.setState({ error: this.querystringError })
   }
 
   login = (e, isGoogle) => {
