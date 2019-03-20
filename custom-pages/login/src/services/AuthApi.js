@@ -171,6 +171,7 @@ export default class AuthApi {
   forgotPassword(email, errorCallback) {
     this.instance.changePassword(
       {
+        ...this.params,
         connection: authOpts.connection,
         responseType: authOpts.responseType,
         email
