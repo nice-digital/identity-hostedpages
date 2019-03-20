@@ -2,6 +2,7 @@ import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import pathOr from 'ramda/src/pathOr'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
+import qs from 'qs'
 // local imports
 import { showNav, isDomainInUsername } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
@@ -23,7 +24,11 @@ export class Login extends React.Component {
       connection: authOpts.connection,
       showGoogleLogin: false
     }
+    this.querystring = qs.parse(document.location.search, {
+      ignoreQueryPrefix: true
+    })
   }
+
   componentDidMount() {
     this.auth.fetchClientSettings().then(() => {
       this.googleConnection = pathOr(
@@ -36,14 +41,24 @@ export class Login extends React.Component {
         ['strategies', 'waad', 'connectionName'],
         window.Auth0
       )
-      this.setState({ showGoogleLogin: !!this.googleConnection })
+      this.setState(
+        { showGoogleLogin: !!this.googleConnection },
+        this.showAuth0RulesError
+      )
     })
+  }
+
+  showAuth0RulesError = () => {
+    this.setState({ error: this.querystring.myerror })
   }
 
   login = (e, isGoogle) => {
     if (e) e.preventDefault()
     const requestErrorCallback = err =>
-      this.setState({ error: err.description || err.error_description, loading: false })
+      this.setState({
+        error: err.description || err.error_description,
+        loading: false
+      })
     try {
       this.setState({ loading: true }, () => {
         const { username, password, connection } = this.state
