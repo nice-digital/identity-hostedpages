@@ -79,11 +79,11 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback) {
     try {
-      // const redirectUri = pathOr(
-      //   null,
-      //   ['internalSettings', 'callback'],
-      //   window.Auth0
-      // )
+      const redirectUri = pathOr(
+        null,
+        ['internalSettings', 'callback'],
+        window.Auth0
+      )
       let options
       let method
       if (connection === authOpts.connection) {
@@ -107,9 +107,9 @@ export default class AuthApi {
         }
         method = 'authorize'
       }
-      // if (redirectUri) {
-      //   options.redirect_uri = redirectUri
-      // }
+      if (redirectUri) {
+        options.redirect_uri = redirectUri
+      }
       if (isIE8()) {
         this.loginIE8(options, method, errorCallback)
       } else {
