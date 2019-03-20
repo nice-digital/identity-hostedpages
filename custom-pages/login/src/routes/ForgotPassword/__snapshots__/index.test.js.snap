@@ -1,0 +1,1233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForgotPassword components should render <ForgotPassword /> correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ForgotPassword />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          Forgot password
+        </h3>,
+        <h5>
+          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
+        </h5>,
+        <form
+          className=""
+        >
+          <Fieldset
+            legend="Personal information"
+          >
+            <Input
+              data-qa-sel="forgotPassword-email"
+              id="email"
+              label="Email"
+              name="email"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+          </Fieldset>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="forgotPassword-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Reset password
+          </button>
+        </form>,
+        <Link
+          data-qa-sel="forgotPassword-link-to-login"
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/"
+        >
+          Return to sign in
+        </Link>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Forgot password",
+        },
+        "ref": null,
+        "rendered": "Forgot password",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+        },
+        "ref": null,
+        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Fieldset
+              legend="Personal information"
+            >
+              <Input
+                data-qa-sel="forgotPassword-email"
+                id="email"
+                label="Email"
+                name="email"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />
+            </Fieldset>,
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>,
+          ],
+          "className": "",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                null,
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />,
+              ],
+              "legend": "Personal information",
+            },
+            "ref": null,
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "data-qa-sel": "forgotPassword-email",
+                  "id": "email",
+                  "label": "Email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "eg: your.name@example.com...",
+                  "type": "email",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset password",
+              "className": "btn btn--cta",
+              "data-qa-sel": "forgotPassword-button",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reset password",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Return to sign in",
+          "data-qa-sel": "forgotPassword-link-to-login",
+          "onlyActiveOnIndex": false,
+          "style": Object {},
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": "Return to sign in",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Forgot password
+          </h3>,
+          <h5>
+            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
+          </h5>,
+          <form
+            className=""
+          >
+            <Fieldset
+              legend="Personal information"
+            >
+              <Input
+                data-qa-sel="forgotPassword-email"
+                id="email"
+                label="Email"
+                name="email"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />
+            </Fieldset>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>
+          </form>,
+          <Link
+            data-qa-sel="forgotPassword-link-to-login"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/"
+          >
+            Return to sign in
+          </Link>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Forgot password",
+          },
+          "ref": null,
+          "rendered": "Forgot password",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+          },
+          "ref": null,
+          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Fieldset
+                legend="Personal information"
+              >
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />
+              </Fieldset>,
+              <button
+                className="btn btn--cta"
+                data-qa-sel="forgotPassword-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Reset password
+              </button>,
+            ],
+            "className": "",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  null,
+                  <Input
+                    data-qa-sel="forgotPassword-email"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="eg: your.name@example.com..."
+                    type="email"
+                  />,
+                ],
+                "legend": "Personal information",
+              },
+              "ref": null,
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "data-qa-sel": "forgotPassword-email",
+                    "id": "email",
+                    "label": "Email",
+                    "name": "email",
+                    "onChange": [Function],
+                    "placeholder": "eg: your.name@example.com...",
+                    "type": "email",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Reset password",
+                "className": "btn btn--cta",
+                "data-qa-sel": "forgotPassword-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Reset password",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Return to sign in",
+            "data-qa-sel": "forgotPassword-link-to-login",
+            "onlyActiveOnIndex": false,
+            "style": Object {},
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Return to sign in",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ForgotPassword components should render correctly when there is an error 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ForgotPassword />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          Forgot password
+        </h3>,
+        <h5>
+          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
+        </h5>,
+        <form
+          className=""
+        >
+          <Fieldset
+            legend="Personal information"
+          >
+            <Alert
+              type="error"
+            >
+              this is an error
+            </Alert>
+            <Input
+              data-qa-sel="forgotPassword-email"
+              id="email"
+              label="Email"
+              name="email"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+          </Fieldset>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="forgotPassword-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Reset password
+          </button>
+        </form>,
+        <Link
+          data-qa-sel="forgotPassword-link-to-login"
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/"
+        >
+          Return to sign in
+        </Link>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Forgot password",
+        },
+        "ref": null,
+        "rendered": "Forgot password",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+        },
+        "ref": null,
+        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Fieldset
+              legend="Personal information"
+            >
+              <Alert
+                type="error"
+              >
+                this is an error
+              </Alert>
+              <Input
+                data-qa-sel="forgotPassword-email"
+                id="email"
+                label="Email"
+                name="email"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />
+            </Fieldset>,
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>,
+          ],
+          "className": "",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <Alert
+                  type="error"
+                >
+                  this is an error
+                </Alert>,
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />,
+              ],
+              "legend": "Personal information",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "this is an error",
+                  "type": "error",
+                },
+                "ref": null,
+                "rendered": "this is an error",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "data-qa-sel": "forgotPassword-email",
+                  "id": "email",
+                  "label": "Email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "eg: your.name@example.com...",
+                  "type": "email",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset password",
+              "className": "btn btn--cta",
+              "data-qa-sel": "forgotPassword-button",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reset password",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Return to sign in",
+          "data-qa-sel": "forgotPassword-link-to-login",
+          "onlyActiveOnIndex": false,
+          "style": Object {},
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": "Return to sign in",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Forgot password
+          </h3>,
+          <h5>
+            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
+          </h5>,
+          <form
+            className=""
+          >
+            <Fieldset
+              legend="Personal information"
+            >
+              <Alert
+                type="error"
+              >
+                this is an error
+              </Alert>
+              <Input
+                data-qa-sel="forgotPassword-email"
+                id="email"
+                label="Email"
+                name="email"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />
+            </Fieldset>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>
+          </form>,
+          <Link
+            data-qa-sel="forgotPassword-link-to-login"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/"
+          >
+            Return to sign in
+          </Link>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Forgot password",
+          },
+          "ref": null,
+          "rendered": "Forgot password",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+          },
+          "ref": null,
+          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Fieldset
+                legend="Personal information"
+              >
+                <Alert
+                  type="error"
+                >
+                  this is an error
+                </Alert>
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />
+              </Fieldset>,
+              <button
+                className="btn btn--cta"
+                data-qa-sel="forgotPassword-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Reset password
+              </button>,
+            ],
+            "className": "",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <Alert
+                    type="error"
+                  >
+                    this is an error
+                  </Alert>,
+                  <Input
+                    data-qa-sel="forgotPassword-email"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="eg: your.name@example.com..."
+                    type="email"
+                  />,
+                ],
+                "legend": "Personal information",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "this is an error",
+                    "type": "error",
+                  },
+                  "ref": null,
+                  "rendered": "this is an error",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "data-qa-sel": "forgotPassword-email",
+                    "id": "email",
+                    "label": "Email",
+                    "name": "email",
+                    "onChange": [Function],
+                    "placeholder": "eg: your.name@example.com...",
+                    "type": "email",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Reset password",
+                "className": "btn btn--cta",
+                "data-qa-sel": "forgotPassword-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Reset password",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Return to sign in",
+            "data-qa-sel": "forgotPassword-link-to-login",
+            "onlyActiveOnIndex": false,
+            "style": Object {},
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Return to sign in",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ForgotPassword components should render correctly when there is email 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ForgotPassword />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          Forgot password
+        </h3>,
+        <h5>
+          If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
+        </h5>,
+        <form
+          className=""
+        >
+          <Fieldset
+            legend="Personal information"
+          >
+            <Input
+              data-qa-sel="forgotPassword-email"
+              id="email"
+              label="Email"
+              name="email"
+              onChange={[Function]}
+              placeholder="eg: your.name@example.com..."
+              type="email"
+            />
+          </Fieldset>
+          <button
+            className="btn btn--cta"
+            data-qa-sel="forgotPassword-button"
+            disabled={true}
+            onClick={[Function]}
+          >
+            Reset password
+          </button>
+        </form>,
+        <Link
+          data-qa-sel="forgotPassword-link-to-login"
+          onlyActiveOnIndex={false}
+          style={Object {}}
+          to="/"
+        >
+          Return to sign in
+        </Link>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Forgot password",
+        },
+        "ref": null,
+        "rendered": "Forgot password",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+        },
+        "ref": null,
+        "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Fieldset
+              legend="Personal information"
+            >
+              <Input
+                data-qa-sel="forgotPassword-email"
+                id="email"
+                label="Email"
+                name="email"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />
+            </Fieldset>,
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>,
+          ],
+          "className": "",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                null,
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />,
+              ],
+              "legend": "Personal information",
+            },
+            "ref": null,
+            "rendered": Array [
+              null,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "data-qa-sel": "forgotPassword-email",
+                  "id": "email",
+                  "label": "Email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "eg: your.name@example.com...",
+                  "type": "email",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset password",
+              "className": "btn btn--cta",
+              "data-qa-sel": "forgotPassword-button",
+              "disabled": true,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reset password",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Return to sign in",
+          "data-qa-sel": "forgotPassword-link-to-login",
+          "onlyActiveOnIndex": false,
+          "style": Object {},
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": "Return to sign in",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Forgot password
+          </h3>,
+          <h5>
+            If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.
+          </h5>,
+          <form
+            className=""
+          >
+            <Fieldset
+              legend="Personal information"
+            >
+              <Input
+                data-qa-sel="forgotPassword-email"
+                id="email"
+                label="Email"
+                name="email"
+                onChange={[Function]}
+                placeholder="eg: your.name@example.com..."
+                type="email"
+              />
+            </Fieldset>
+            <button
+              className="btn btn--cta"
+              data-qa-sel="forgotPassword-button"
+              disabled={true}
+              onClick={[Function]}
+            >
+              Reset password
+            </button>
+          </form>,
+          <Link
+            data-qa-sel="forgotPassword-link-to-login"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/"
+          >
+            Return to sign in
+          </Link>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Forgot password",
+          },
+          "ref": null,
+          "rendered": "Forgot password",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+          },
+          "ref": null,
+          "rendered": "If you have forgotten your password, please use the password reset feature below. Enter the email address you registered with below and click the reset password button. If your account can be found we will send you a email with a link you can use to reset your password.",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Fieldset
+                legend="Personal information"
+              >
+                <Input
+                  data-qa-sel="forgotPassword-email"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="eg: your.name@example.com..."
+                  type="email"
+                />
+              </Fieldset>,
+              <button
+                className="btn btn--cta"
+                data-qa-sel="forgotPassword-button"
+                disabled={true}
+                onClick={[Function]}
+              >
+                Reset password
+              </button>,
+            ],
+            "className": "",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  null,
+                  <Input
+                    data-qa-sel="forgotPassword-email"
+                    id="email"
+                    label="Email"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="eg: your.name@example.com..."
+                    type="email"
+                  />,
+                ],
+                "legend": "Personal information",
+              },
+              "ref": null,
+              "rendered": Array [
+                null,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "data-qa-sel": "forgotPassword-email",
+                    "id": "email",
+                    "label": "Email",
+                    "name": "email",
+                    "onChange": [Function],
+                    "placeholder": "eg: your.name@example.com...",
+                    "type": "email",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Reset password",
+                "className": "btn btn--cta",
+                "data-qa-sel": "forgotPassword-button",
+                "disabled": true,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Reset password",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Return to sign in",
+            "data-qa-sel": "forgotPassword-link-to-login",
+            "onlyActiveOnIndex": false,
+            "style": Object {},
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Return to sign in",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFourteenAdapter {
+      "options": Object {
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "prevContext": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": true,
+          },
+        },
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

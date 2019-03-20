@@ -4,7 +4,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createHashHistory from 'history/lib/createHashHistory'
 import { useRouterHistory } from 'react-router'
+import { Promise } from 'es6-promise'
 import AppContainer from './containers/AppContainer'
+
+// if IE8
+global.Promise = global.Promise || Promise
 
 
 // ========================================================

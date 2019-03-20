@@ -15,6 +15,7 @@
     "auth0-js": "^9.10.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "core-js": "^2.6.5",
     "enzyme": "^3.8.0",
     "es5-shim": "^4.5.12",
     "es6-promise": "^4.1.1",
@@ -24,6 +25,7 @@
     "history": "2.1.2",
     "prop-types": "^15.6.0",
     "qs": "^6.6.0",
+    "ramda": "^0.26.1",
     "react": "0.14.9",
     "react-dom": "0.14.9",
     "react-router": "2.3.0"
@@ -34,12 +36,12 @@
     "lint": "npm run eslint && npm run stylelint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "cross-env CI=true npm test --env=jsdom --testResultsProcessor=jest-teamcity-reporter",
-    "test:ci:coverage": "npm run test:ci -- --coverage ",
+    "test:ci": "npm run test -- --ci --coverage --testResultsProcessor=jest-teamcity-reporter",
     "clean": "node tools/clean",
     "build": "node tools/build --release",
     "build:debug": "node tools/build",
     "start": "node tools/start",
+    "start:password_reset": "node tools/start.password_reset",
     "rimraf": "rimraf node_modules"
   },
   "devDependencies": {
@@ -84,6 +86,7 @@
     "jest-enzyme": "^7.0.1",
     "jest-junit": "^6.2.1",
     "jest-teamcity-reporter": "^0.9.0",
+    "jsdom": "^13.2.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.5.3",
     "pixrem": "^4.0.1",

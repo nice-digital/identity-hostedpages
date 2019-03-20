@@ -10,11 +10,12 @@
 
 const task = require('./task')
 
-module.exports = task('build', () => Promise.resolve()
-  .then(() => require('./clean'))
-  .then(() => require('./copy'))
-  .then(() => require('./bundle'))
-  .then(() => require('./rename'))
-  .then(() => require('./rename_error'))
-  .then(() => require('./rename_password_reset'))
-)
+module.exports = task('build', () =>
+  Promise.resolve()
+    .then(() => require('./clean'))
+    .then(() => require('./copy'))
+    .then(() => require('./bundle'))
+    .then(() => require('./bundle.password_reset'))
+    .then(() => require('./rename'))
+    .then(() => require('./rename_error'))
+    .then(() => require('./rename_password_reset')))

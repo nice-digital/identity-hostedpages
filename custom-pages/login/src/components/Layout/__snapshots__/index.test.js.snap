@@ -27,6 +27,15 @@ ShallowWrapper {
         >
           <Navigation />
           <div />
+          <Link
+            className="forgotPasswordLink"
+            data-qa-sel="forgotPassword-link"
+            onlyActiveOnIndex={false}
+            style={Object {}}
+            to="/forgotPassword"
+          >
+            Forgot password?
+          </Link>
         </div>,
       ],
       "className": "wrapper",
@@ -52,6 +61,15 @@ ShallowWrapper {
           "children": Array [
             <Navigation />,
             <div />,
+            <Link
+              className="forgotPasswordLink"
+              data-qa-sel="forgotPassword-link"
+              onlyActiveOnIndex={false}
+              style={Object {}}
+              to="/forgotPassword"
+            >
+              Forgot password?
+            </Link>,
           ],
           "className": "mainContainer col rightCol",
         },
@@ -75,6 +93,22 @@ ShallowWrapper {
             "rendered": null,
             "type": "div",
           },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Forgot password?",
+              "className": "forgotPasswordLink",
+              "data-qa-sel": "forgotPassword-link",
+              "onlyActiveOnIndex": false,
+              "style": Object {},
+              "to": "/forgotPassword",
+            },
+            "ref": null,
+            "rendered": "Forgot password?",
+            "type": [Function],
+          },
         ],
         "type": "div",
       },
@@ -96,6 +130,15 @@ ShallowWrapper {
           >
             <Navigation />
             <div />
+            <Link
+              className="forgotPasswordLink"
+              data-qa-sel="forgotPassword-link"
+              onlyActiveOnIndex={false}
+              style={Object {}}
+              to="/forgotPassword"
+            >
+              Forgot password?
+            </Link>
           </div>,
         ],
         "className": "wrapper",
@@ -121,6 +164,15 @@ ShallowWrapper {
             "children": Array [
               <Navigation />,
               <div />,
+              <Link
+                className="forgotPasswordLink"
+                data-qa-sel="forgotPassword-link"
+                onlyActiveOnIndex={false}
+                style={Object {}}
+                to="/forgotPassword"
+              >
+                Forgot password?
+              </Link>,
             ],
             "className": "mainContainer col rightCol",
           },
@@ -143,6 +195,22 @@ ShallowWrapper {
               "ref": null,
               "rendered": null,
               "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Forgot password?",
+                "className": "forgotPasswordLink",
+                "data-qa-sel": "forgotPassword-link",
+                "onlyActiveOnIndex": false,
+                "style": Object {},
+                "to": "/forgotPassword",
+              },
+              "ref": null,
+              "rendered": "Forgot password?",
+              "type": [Function],
             },
           ],
           "type": "div",
