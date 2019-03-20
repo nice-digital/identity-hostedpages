@@ -4,7 +4,7 @@ import Auth0 from 'auth0-js'
 import pathOr from 'ramda/src/pathOr'
 import fetch from 'fetch-ie8'
 import { auth as authOpts } from './constants'
-import isIE8 from '../util/isIE8'
+import { isIE8, ensureTrailingSlash } from '../util'
 
 const __DEV__ = global.__DEV__ || false
 export default class AuthApi {
@@ -50,12 +50,10 @@ export default class AuthApi {
   fetchClientSettings = () =>
     new Promise((resolver) => {
       if (window.config) {
-        let cdnBaseUrl = __DEV__
+        const cdnBaseUrl = __DEV__
           ? authOpts.auth0CDN
           : window.config.clientConfigurationBaseUrl
-        cdnBaseUrl +=
-          cdnBaseUrl.lastIndexOf('/') === cdnBaseUrl.length - 1 ? '' : '/'
-        const source = `${cdnBaseUrl}client/${
+        const source = `${ensureTrailingSlash(cdnBaseUrl)}client/${
           authOpts.clientID
         }.js?t${+new Date()}`
         this.createAuth0Namespace(resolver)
@@ -80,85 +78,95 @@ export default class AuthApi {
     }, {})
 
   login(connection, username, password, errorCallback) {
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
-    let options
-    let method
-    if (connection === authOpts.connection) {
-      options = {
-        ...this.params,
-        realm: connection,
-        username,
-        password
-      }
-      method = 'login'
-    } else {
-      options = {
-        ...this.params,
-        connection,
-        username,
-        sso: true,
-        login_hint: username,
-        response_mode: 'form_post'
-      }
-      method = 'authorize'
-    }
-    if (redirectUri) {
-      options.redirect_uri = redirectUri
-    }
-    console.log('about to fire login')
-    if (isIE8()) {
-      this.loginIE8(options, errorCallback)
-    } else {
-      this.instance[method](options, (err) => {
-        console.log('login callback')
-        if (err) {
-          if (errorCallback) {
-            setTimeout(() =>
-              errorCallback(method === 'login'
-                ? 'Invalid email or password'
-                : 'Something has gone wrong'))
-          }
-          throw new Error(err)
+    try {
+      const redirectUri = pathOr(
+        null,
+        ['internalSettings', 'callback'],
+        window.Auth0
+      )
+      let options
+      let method
+      if (connection === authOpts.connection) {
+        options = {
+          ...this.params,
+          realm: connection,
+          username,
+          password
         }
-      })
+        method = 'login'
+      } else {
+        options = {
+          ...this.params,
+          connection,
+          username,
+          sso: true,
+          login_hint: username,
+          response_mode: 'form_post'
+        }
+        method = 'authorize'
+      }
+      if (redirectUri) {
+        options.redirect_uri = redirectUri
+      }
+      if (isIE8()) {
+        this.loginIE8(options, method, errorCallback)
+      } else {
+        this.instance[method](options, (err) => {
+          if (err) {
+            if (errorCallback) {
+              setTimeout(() =>
+                errorCallback(method === 'login'
+                  ? 'Invalid email or password'
+                  : 'Something has gone wrong'))
+            }
+            throw new Error(err)
+          }
+        })
+      }
+    } catch (e) {
+      throw new Error(e)
     }
   }
 
-  loginIE8 = (data, errorCallback) => {
+  loginIE8 = (data, method, errorCallback) => {
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    fetch('/usernamepassword/login', {
-      method: 'POST',
+    fetch(method === 'login' ? '/usernamepassword/login' : method, {
+      method: method === 'login' ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         ...data,
+        connection: data.realm || data.connection,
         client_id: authOpts.clientID,
         redirect_uri: redirectUri
       })
     })
       .then((res) => {
         if (res.status === 200) {
-          document.location = redirectUri
+          this.submitWSForm(res._bodyInit)
         } else if (errorCallback) {
           setTimeout(() => errorCallback('There has been an issue'))
         }
       })
       .catch((err) => {
         if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback('Invalid email or password'))
         }
         throw err
       })
+  }
+
+  submitWSForm = (responseForm) => {
+    const div = document.createElement('div')
+    div.innerHTML = responseForm
+    const formElement = document.body.appendChild(div).children[0]
+    formElement.submit()
   }
 
   forgotPassword(email, errorCallback) {
@@ -186,7 +194,6 @@ export default class AuthApi {
   }
 
   resetPassword = (password, errorCallback) => {
-    console.debug(window.rpConfig)
     if (window.rpConfig) {
       const data = {
         connection: authOpts.connection,
@@ -251,7 +258,6 @@ export default class AuthApi {
   }
 
   registerIE8 = (data, errorCallback) => {
-    console.log('registerIE8')
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
