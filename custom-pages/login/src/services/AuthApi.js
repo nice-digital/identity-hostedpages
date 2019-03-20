@@ -22,7 +22,7 @@ export default class AuthApi {
       popup: false,
       responseType: 'code',
       scope: authOpts.scope,
-      redirect: true,
+      redirect: true
       // overrides: {
       //   // eslint-disable-next-line
       //   __tenant: config.auth0Tenant,
@@ -226,6 +226,8 @@ export default class AuthApi {
           },
           body: JSON.stringify(data)
         })
+          .then(callback)
+          .catch(catchCallback)
       } else {
         fetch('/lo/reset', {
           method: 'POST',
@@ -270,7 +272,6 @@ export default class AuthApi {
   }
 
   registerIE8 = (data, errorCallback) => {
-    console.log('registerIE8')
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
