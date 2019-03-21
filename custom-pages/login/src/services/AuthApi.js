@@ -346,19 +346,19 @@ export default class AuthApi {
     const callback = (res) => {
       if (res.status === 200) {
         setTimeout(() => callerCallback(null)) // this will reset the error
-      } else if (errorCallback) {
+      } else {
         setTimeout(() =>
           callerCallback('something has gone wrong when sending the email'))
       }
     }
     const catchCallback = (err) => {
-      if (errorCallback) {
-        setTimeout(() =>
-          callerCallback('something has gone wrong when sending the email'))
-      }
+      setTimeout(() =>
+        callerCallback('something has gone wrong when sending the email'))
       console.log(JSON.stringify(err))
     }
+
     const data = {
+      ...this.params,
       user_id: userId,
       client_id: authOpts.clientID
     }
