@@ -4,6 +4,7 @@ exports[`AppContainer components should create an instance of AuthApi correctly 
 AuthApi {
   "createAuth0Namespace": [Function],
   "fetchClientSettings": [Function],
+  "forgotPasswordIE8": [Function],
   "getStategies": [Function],
   "instance": WebAuth {
     "_universalLogin": HostedPages {

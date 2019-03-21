@@ -169,19 +169,21 @@ export default class AuthApi {
   }
 
   forgotPassword(email, errorCallback) {
-    this.instance.changePassword(
-      {
-        ...this.params,
-        connection: authOpts.connection,
-        responseType: authOpts.responseType,
-        email
-      },
-      (err) => {
+    const options = {
+      ...this.params,
+      connection: authOpts.connection,
+      responseType: authOpts.responseType,
+      email
+    }
+    if (isIE8()) {
+      this.forgotPasswordIE8(options, errorCallback)
+    } else {
+      this.instance.changePassword(options, (err) => {
         if (err) {
           if (errorCallback) {
             setTimeout(
               () =>
-                errorCallback('There has been an issue, try a different email'),
+                errorCallback(err),
               5
             )
           }
@@ -189,8 +191,34 @@ export default class AuthApi {
         }
         document.location.hash = '#/forgotsuccess'
         return true
-      }
-    )
+      })
+    }
+  }
+
+  forgotPasswordIE8 = (data, errorCallback) => {
+    ie8Fetch('/dbconnections/change_password', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...data
+      })
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          document.location.hash = '#/forgotsuccess'
+        } else if (errorCallback) {
+          setTimeout(() => errorCallback(res))
+        }
+      })
+      .catch((err) => {
+        if (errorCallback) {
+          setTimeout(() => errorCallback(err))
+        }
+        console.log(err)
+      })
   }
 
   resetPassword = (password, errorCallback) => {
