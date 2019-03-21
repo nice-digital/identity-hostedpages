@@ -92,7 +92,6 @@ export default class AuthApi {
           realm: connection,
           username,
           password,
-          auto_login: false
         }
         method = 'login'
       } else {
@@ -103,7 +102,6 @@ export default class AuthApi {
           sso: true,
           login_hint: username,
           response_mode: 'form_post',
-          auto_login: false
         }
         method = 'authorize'
       }
@@ -118,12 +116,12 @@ export default class AuthApi {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
             }
-            console.log(err)
+            console.log(JSON.stringify(err))
           }
         })
       }
     } catch (e) {
-      console.log(err)
+      console.log(JSON.stringify(err))
     }
   }
 
@@ -157,7 +155,7 @@ export default class AuthApi {
         if (errorCallback) {
           setTimeout(() => errorCallback('Invalid email or password'))
         }
-        console.log(err)
+        console.log(JSON.stringify(err))
       })
   }
 
@@ -217,7 +215,7 @@ export default class AuthApi {
         if (errorCallback) {
           setTimeout(() => errorCallback(err))
         }
-        console.log(err)
+        console.log(JSON.stringify(err))
       })
   }
 
@@ -233,9 +231,9 @@ export default class AuthApi {
       if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
       }
-      console.log(err)
+      console.log(JSON.stringify(err))
     }
-    console.debug(window.rpConfig)
+    console.log(window.rpConfig.toString())
     if (window.rpConfig) {
       const data = {
         connection: authOpts.connection,
