@@ -132,7 +132,8 @@ export default class AuthApi {
       window.Auth0
     )
     ie8Fetch(method === 'login' ? '/usernamepassword/login' : method, {
-      method: method === 'login' ? 'POST' : 'GET',
+      // method: method === 'login' ? 'POST' : 'GET',
+      method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -148,12 +149,12 @@ export default class AuthApi {
         if (res.status === 200) {
           this.submitWSForm(res._bodyInit)
         } else if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback(res))
         }
       })
       .catch((err) => {
         if (errorCallback) {
-          setTimeout(() => errorCallback('Invalid email or password'))
+          setTimeout(() => errorCallback(err))
         }
         console.log(JSON.stringify(err))
       })
