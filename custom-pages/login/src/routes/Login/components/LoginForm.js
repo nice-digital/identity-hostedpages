@@ -98,7 +98,7 @@ export class Login extends React.Component {
     }
     this.setState({
       [name]: value,
-      error: null,
+      // error: null,
       isAD,
       connection: isAD ? this.ADConnection : authOpts.connection
     })
