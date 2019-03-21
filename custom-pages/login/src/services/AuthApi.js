@@ -360,7 +360,8 @@ export default class AuthApi {
     const data = {
       ...this.params,
       user_id: userId,
-      client_id: authOpts.clientID
+      client_id: authOpts.clientID,
+      scope: 'openid update:users'
     }
     if (isIE8()) {
       ie8Fetch('/api/v2/jobs/verification-email', {
