@@ -149,9 +149,17 @@ export default class AuthApi {
       })
     } else {
       // collate options as querystring params instead?
-      authorizeUrl = method + qs.stringify(data, { addQueryPrefix: true })
+      authorizeUrl =
+        method +
+        qs.stringify(
+          { ...data, client_id: data.clientID },
+          { addQueryPrefix: true }
+        )
     }
-    ie8Fetch(method === 'login' ? '/usernamepassword/login' : authorizeUrl, options)
+    ie8Fetch(
+      method === 'login' ? '/usernamepassword/login' : authorizeUrl,
+      options
+    )
       .then((res) => {
         if (res.status === 200) {
           this.submitWSForm(res._bodyInit)
