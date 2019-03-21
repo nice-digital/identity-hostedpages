@@ -8,7 +8,7 @@ export const auth = {
   clientID: __DEV__
     ? 'RMpYVjKE_B85IO6Euc2i3IstVAstrEHK'
     : '#{AUTH0_APP_CLIENT_ID}',
-  scope: 'openid profile email',
+  scope: 'openid profile email update:users',
   responseType: 'code',
   connection: __DEV__
     ? 'Identity'
