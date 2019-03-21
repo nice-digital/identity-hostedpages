@@ -132,8 +132,7 @@ export default class AuthApi {
       window.Auth0
     )
     ie8Fetch(method === 'login' ? '/usernamepassword/login' : method, {
-      // method: method === 'login' ? 'POST' : 'GET',
-      method: 'GET',
+      method: method === 'login' ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
