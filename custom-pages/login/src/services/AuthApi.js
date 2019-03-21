@@ -148,11 +148,15 @@ export default class AuthApi {
         redirect_uri: redirectUri
       })
     } else {
+      const GETOptions = { ...data, client_id: data.clientID }
+      delete GETOptions.clientID
+      delete GETOptions.redirectURI
+      delete GETOptions.username
       // collate options as querystring params instead?
       authorizeUrl =
         method +
         qs.stringify(
-          { ...data, client_id: data.clientID },
+          GETOptions,
           { addQueryPrefix: true }
         )
     }
