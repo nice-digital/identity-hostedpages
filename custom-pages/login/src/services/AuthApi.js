@@ -341,8 +341,49 @@ export default class AuthApi {
       })
   }
 
-  resendActivationEmail = (callback) => {
-    console.log('resending email')
-    callback('something has gone wrong')
+  resendActivationEmail = (userId, callerCallback) => {
+    console.log('resending email to: ', userId)
+    const callback = (res) => {
+      if (res.status === 200) {
+        setTimeout(() => callerCallback(null)) // this will reset the error
+      } else if (errorCallback) {
+        setTimeout(() =>
+          callerCallback('something has gone wrong when sending the email'))
+      }
+    }
+    const catchCallback = (err) => {
+      if (errorCallback) {
+        setTimeout(() =>
+          callerCallback('something has gone wrong when sending the email'))
+      }
+      console.log(JSON.stringify(err))
+    }
+    const data = {
+      user_id: userId,
+      client_id: authOpts.clientID
+    }
+    if (isIE8()) {
+      ie8Fetch('/api/v2/jobs/verification-email', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(callback)
+        .catch(catchCallback)
+    } else {
+      fetch('/api/v2/jobs/verification-email', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(callback)
+        .catch(catchCallback)
+    }
   }
 }

@@ -58,7 +58,7 @@ export class Login extends React.Component {
     const callback = err =>
       this.setState({ activationEmailSent: !err, error: err })
     try {
-      this.auth.resendActivationEmail(callback)
+      this.auth.resendActivationEmail(this.querystring.userid, callback)
     } catch (err) {
       console.log(JSON.stringify(err))
     }
