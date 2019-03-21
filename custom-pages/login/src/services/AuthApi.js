@@ -3,6 +3,7 @@
 import Auth0 from 'auth0-js'
 import pathOr from 'ramda/src/pathOr'
 import ie8Fetch from 'fetch-ie8'
+import qs from 'qs'
 import { auth as authOpts } from './constants'
 import { isIE8, ensureTrailingSlash } from '../util'
 
@@ -131,6 +132,7 @@ export default class AuthApi {
       ['internalSettings', 'callback'],
       window.Auth0
     )
+    let authorizeUrl
     const options = {
       method: method === 'login' ? 'POST' : 'GET',
       headers: {
@@ -147,14 +149,9 @@ export default class AuthApi {
       })
     } else {
       // collate options as querystring params instead?
-      options.body = JSON.stringify({
-        ...data,
-        connection: data.realm || data.connection,
-        client_id: authOpts.clientID,
-        redirect_uri: redirectUri
-      })
+      authorizeUrl = method + qs.stringify(data, { addQueryPrefix: true })
     }
-    ie8Fetch(method === 'login' ? '/usernamepassword/login' : method, options)
+    ie8Fetch(method === 'login' ? '/usernamepassword/login' : authorizeUrl, options)
       .then((res) => {
         if (res.status === 200) {
           this.submitWSForm(res._bodyInit)
