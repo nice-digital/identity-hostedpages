@@ -91,7 +91,7 @@ export default class AuthApi {
           // ...this.params,
           realm: connection,
           username,
-          password,
+          password
         }
         method = 'login'
       } else {
@@ -101,7 +101,7 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post',
+          response_mode: 'form_post'
         }
         method = 'authorize'
       }
@@ -131,19 +131,30 @@ export default class AuthApi {
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    ie8Fetch(method === 'login' ? '/usernamepassword/login' : method, {
+    const options = {
       method: method === 'login' ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+      }
+    }
+    if (method === 'login') {
+      options.body = JSON.stringify({
         ...data,
         connection: data.realm || data.connection,
         client_id: authOpts.clientID,
         redirect_uri: redirectUri
       })
-    })
+    } else {
+      // collate options as querystring params instead?
+      options.body = JSON.stringify({
+        ...data,
+        connection: data.realm || data.connection,
+        client_id: authOpts.clientID,
+        redirect_uri: redirectUri
+      })
+    }
+    ie8Fetch(method === 'login' ? '/usernamepassword/login' : method, options)
       .then((res) => {
         if (res.status === 200) {
           this.submitWSForm(res._bodyInit)
@@ -179,11 +190,7 @@ export default class AuthApi {
       this.instance.changePassword(options, (err) => {
         if (err) {
           if (errorCallback) {
-            setTimeout(
-              () =>
-                errorCallback(err),
-              5
-            )
+            setTimeout(() => errorCallback(err), 5)
           }
           return false
         }
