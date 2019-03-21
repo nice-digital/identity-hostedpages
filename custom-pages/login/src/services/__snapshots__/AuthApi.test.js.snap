@@ -540,6 +540,7 @@ AuthApi {
     "token_issuer": "https://#{AUTH0_DOMAIN}/",
   },
   "registerIE8": [Function],
+  "resendActivationEmail": [Function],
   "resetPassword": [Function],
   "submitWSForm": [Function],
 }

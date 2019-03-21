@@ -152,13 +152,7 @@ export default class AuthApi {
       delete GETOptions.clientID
       delete GETOptions.redirectURI
       delete GETOptions.username
-      // collate options as querystring params instead?
-      authorizeUrl =
-        method +
-        qs.stringify(
-          GETOptions,
-          { addQueryPrefix: true }
-        )
+      authorizeUrl = method + qs.stringify(GETOptions, { addQueryPrefix: true })
     }
     ie8Fetch(
       method === 'login' ? '/usernamepassword/login' : authorizeUrl,
@@ -345,5 +339,10 @@ export default class AuthApi {
         }
         console.log(err)
       })
+  }
+
+  resendActivationEmail = (callback) => {
+    console.log('resending email')
+    callback('something has gone wrong')
   }
 }

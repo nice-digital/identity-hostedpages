@@ -22,7 +22,8 @@ export class Login extends React.Component {
       loading: false,
       isAD: false,
       connection: authOpts.connection,
-      showGoogleLogin: false
+      showGoogleLogin: false,
+      activationEmailSent: false
     }
     this.querystring = qs.parse(document.location.search, {
       ignoreQueryPrefix: true
@@ -50,6 +51,17 @@ export class Login extends React.Component {
 
   showAuth0RulesError = () => {
     this.setState({ error: this.querystring.myerror })
+  }
+
+  resendActivationEmail = (e) => {
+    if (e) e.preventDefault()
+    const callback = err =>
+      this.setState({ activationEmailSent: !err, error: err })
+    try {
+      this.auth.resendActivationEmail(callback)
+    } catch (err) {
+      console.log(JSON.stringify(err))
+    }
   }
 
   login = (e, isGoogle) => {
@@ -95,13 +107,30 @@ export class Login extends React.Component {
   render() {
     showNav()
     const {
-      error, loading, isAD, showGoogleLogin
+      error,
+      loading,
+      isAD,
+      showGoogleLogin,
+      activationEmailSent
     } = this.state
+    const { myerrorcode } = this.querystring
 
     return (
       <form className="">
         <Fieldset legend="Personal information">
-          {error && <Alert type="error">{error}</Alert>}
+          {error && (
+            <Alert type="error">
+              {error}{' '}
+              {myerrorcode === '1' ? (
+                <a href="#" onClick={this.resendActivationEmail}>
+                  Resend activation email
+                </a>
+              ) : null}
+            </Alert>
+          )}
+          {activationEmailSent && (
+            <Alert type="success">An activation email has been sent!</Alert>
+          )}
           <Input
             data-qa-sel="login-email"
             label="Email"
