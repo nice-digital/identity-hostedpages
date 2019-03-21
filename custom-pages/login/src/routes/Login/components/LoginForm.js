@@ -85,7 +85,7 @@ export class Login extends React.Component {
       [name]: value,
       error: null,
       isAD,
-      connection: isAD ? this.ADConnection : this.state.connection
+      connection: isAD ? this.ADConnection : authOpts.connection
     })
   }
 
