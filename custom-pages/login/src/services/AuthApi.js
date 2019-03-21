@@ -88,7 +88,7 @@ export default class AuthApi {
       let method
       if (connection === authOpts.connection) {
         options = {
-          // ...this.params,
+          ...this.params,
           realm: connection,
           username,
           password
