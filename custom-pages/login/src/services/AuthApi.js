@@ -121,15 +121,24 @@ export default class AuthApi {
           }
         })
       } else {
-        fetch('/continue', {
-          method: 'POST',
+        const GETOptions = qs.stringify(
+          { ...options, state: resumeAuthState },
+          { addQueryPrefix: true }
+        )
+        fetch(`/continue${GETOptions}`, {
+          method: 'GET',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ ...options, state: resumeAuthState })
+          }
         })
-          // .then(callback)
+          .then((res) => {
+            if (res.status === 200) {
+              this.submitWSForm(res._bodyInit)
+            } else if (errorCallback) {
+              setTimeout(() => errorCallback(res))
+            }
+          })
           .catch((err) => {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
