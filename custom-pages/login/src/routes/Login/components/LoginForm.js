@@ -78,11 +78,16 @@ export class Login extends React.Component {
       this.setState({ loading: true }, () => {
         const { username, password, connection } = this.state
         const loginConnection = isGoogle ? this.googleConnection : connection
+        const isResumingAuth =
+          this.querystring.myerrorcode && this.querystring.myerrorcode === 'user_not_verified'
+            ? this.querystring.state
+            : null
         this.auth.login(
           loginConnection,
           username,
           password,
-          requestErrorCallback
+          requestErrorCallback,
+          isResumingAuth
         )
       })
     } catch (err) {
@@ -121,7 +126,7 @@ export class Login extends React.Component {
           {error && (
             <Alert type="error">
               {error}{' '}
-              {myerrorcode === '1' ? (
+              {myerrorcode === 'user_not_verified' ? (
                 <a href="#" onClick={this.resendActivationEmail}>
                   Resend activation email
                 </a>

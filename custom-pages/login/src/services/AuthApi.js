@@ -78,7 +78,7 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, username, password, errorCallback) {
+  login(connection, username, password, errorCallback, resumeAuthState) {
     try {
       const redirectUri = pathOr(
         null,
@@ -110,8 +110,8 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (isIE8()) {
-        this.loginIE8(options, method, errorCallback)
-      } else {
+        this.loginIE8(options, method, errorCallback, resumeAuthState)
+      } else if (!resumeAuthState) {
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
@@ -120,13 +120,28 @@ export default class AuthApi {
             console.log(JSON.stringify(err))
           }
         })
+      } else {
+        fetch('/continue', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ...data, state: resumeAuthState })
+        })
+          // .then(callback)
+          .catch((err) => {
+            if (errorCallback) {
+              setTimeout(() => errorCallback(err))
+            }
+          })
       }
     } catch (e) {
       console.log(JSON.stringify(err))
     }
   }
 
-  loginIE8 = (data, method, errorCallback) => {
+  loginIE8 = (data, method, errorCallback, resumeAuthState) => {
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
@@ -145,19 +160,27 @@ export default class AuthApi {
         ...data,
         connection: data.realm || data.connection,
         client_id: authOpts.clientID,
-        redirect_uri: redirectUri
+        redirect_uri: redirectUri,
+        state: resumeAuthState || data.state
       })
     } else {
-      const GETOptions = { ...data, client_id: data.clientID }
+      const GETOptions = {
+        ...data,
+        client_id: data.clientID,
+        state: resumeAuthState || data.state
+      }
       delete GETOptions.clientID
       delete GETOptions.redirectURI
       delete GETOptions.username
       authorizeUrl = method + qs.stringify(GETOptions, { addQueryPrefix: true })
     }
-    ie8Fetch(
-      method === 'login' ? '/usernamepassword/login' : authorizeUrl,
-      options
-    )
+    let url
+    if (!resumeAuthState) {
+      url = method === 'login' ? '/usernamepassword/login' : authorizeUrl
+    } else {
+      url = '/contiue'
+    }
+    ie8Fetch(url, options)
       .then((res) => {
         if (res.status === 200) {
           this.submitWSForm(res._bodyInit)
