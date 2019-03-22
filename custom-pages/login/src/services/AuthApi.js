@@ -164,7 +164,7 @@ export default class AuthApi {
         'Content-Type': 'application/json'
       }
     }
-    if (method === 'login') {
+    if (method === 'login' && !resumeAuthState) {
       options.body = JSON.stringify({
         ...data,
         connection: data.realm || data.connection,
@@ -181,13 +181,14 @@ export default class AuthApi {
       delete GETOptions.clientID
       delete GETOptions.redirectURI
       delete GETOptions.username
-      authorizeUrl = method + qs.stringify(GETOptions, { addQueryPrefix: true })
+      authorizeUrl = resumeAuthState ? '/contiue' : method
+      authorizeUrl += qs.stringify(GETOptions, { addQueryPrefix: true })
     }
     let url
-    if (!resumeAuthState) {
-      url = method === 'login' ? '/usernamepassword/login' : authorizeUrl
+    if (resumeAuthState) {
+      url = authorizeUrl
     } else {
-      url = '/contiue'
+      url = method === 'login' ? '/usernamepassword/login' : authorizeUrl
     }
     ie8Fetch(url, options)
       .then((res) => {
