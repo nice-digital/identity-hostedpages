@@ -25,6 +25,9 @@ export class Login extends React.Component {
       showGoogleLogin: false,
       activationEmailSent: false
     }
+    this.querystring = qs.parse(document.location.search, {
+      ignoreQueryPrefix: true
+    })
   }
 
   componentDidMount() {
