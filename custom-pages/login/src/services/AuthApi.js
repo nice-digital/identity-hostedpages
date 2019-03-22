@@ -156,15 +156,17 @@ export default class AuthApi {
       ['internalSettings', 'callback'],
       window.Auth0
     )
+    const isPost = method === 'login' && !resumeAuthState
     let authorizeUrl
     const options = {
-      method: method === 'login' ? 'POST' : 'GET',
+      method: isPost ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       }
     }
-    if (method === 'login' && !resumeAuthState) {
+
+    if (isPost) {
       options.body = JSON.stringify({
         ...data,
         connection: data.realm || data.connection,
@@ -173,17 +175,18 @@ export default class AuthApi {
         state: resumeAuthState || data.state
       })
     } else {
-      const GETOptions = {
+      const GETBody = {
         ...data,
         client_id: data.clientID,
         state: resumeAuthState || data.state
       }
-      delete GETOptions.clientID
-      delete GETOptions.redirectURI
-      delete GETOptions.username
+      delete GETBody.clientID
+      delete GETBody.redirectURI
+      delete GETBody.username
       authorizeUrl = resumeAuthState ? '/contiue' : method
-      authorizeUrl += qs.stringify(GETOptions, { addQueryPrefix: true })
+      authorizeUrl += qs.stringify(GETBody, { addQueryPrefix: true })
     }
+
     let url
     if (resumeAuthState) {
       url = authorizeUrl
@@ -193,7 +196,11 @@ export default class AuthApi {
     ie8Fetch(url, options)
       .then((res) => {
         if (res.status === 200) {
-          this.submitWSForm(res._bodyInit)
+          if (resumeAuthState) {
+            document.location = redirectUri
+          } else {
+            this.submitWSForm(res._bodyInit)
+          }
         } else if (errorCallback) {
           setTimeout(() => errorCallback(res))
         }
