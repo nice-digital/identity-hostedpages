@@ -25,12 +25,12 @@ export class Login extends React.Component {
       showGoogleLogin: false,
       activationEmailSent: false
     }
-    this.querystring = qs.parse(document.location.search, {
-      ignoreQueryPrefix: true
-    })
   }
 
   componentDidMount() {
+    this.querystring = qs.parse(document.location.search, {
+      ignoreQueryPrefix: true
+    })
     this.auth.fetchClientSettings().then(() => {
       this.googleConnection = pathOr(
         null,
@@ -78,7 +78,7 @@ export class Login extends React.Component {
       this.setState({ loading: true }, () => {
         const { username, password, connection } = this.state
         const loginConnection = isGoogle ? this.googleConnection : connection
-        const isResumingAuth =
+        const isResumingAuthState =
           this.querystring.myerrorcode && this.querystring.myerrorcode === 'user_not_verified'
             ? this.querystring.state
             : null
@@ -87,7 +87,7 @@ export class Login extends React.Component {
           username,
           password,
           requestErrorCallback,
-          isResumingAuth
+          isResumingAuthState
         )
       })
     } catch (err) {

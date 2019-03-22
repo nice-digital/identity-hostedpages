@@ -134,7 +134,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              this.submitWSForm(res._bodyInit)
+              document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
