@@ -127,7 +127,7 @@ export default class AuthApi {
             Accept: 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ ...data, state: resumeAuthState })
+          body: JSON.stringify({ ...options, state: resumeAuthState })
         })
           // .then(callback)
           .catch((err) => {
@@ -136,7 +136,7 @@ export default class AuthApi {
             }
           })
       }
-    } catch (e) {
+    } catch (err) {
       console.log(JSON.stringify(err))
     }
   }
