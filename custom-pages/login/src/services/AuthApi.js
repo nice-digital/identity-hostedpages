@@ -2,7 +2,8 @@
 /* eslint-disable no-undef */
 import Auth0 from 'auth0-js'
 import pathOr from 'ramda/src/pathOr'
-import fetch from 'fetch-ie8'
+import ie8Fetch from 'fetch-ie8'
+import qs from 'qs'
 import { auth as authOpts } from './constants'
 import { isIE8, ensureTrailingSlash } from '../util'
 
@@ -77,7 +78,7 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, username, password, errorCallback) {
+  login(connection, username, password, errorCallback, resumeAuthState) {
     try {
       const redirectUri = pathOr(
         null,
@@ -109,56 +110,106 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (isIE8()) {
-        this.loginIE8(options, method, errorCallback)
-      } else {
+        this.loginIE8(options, method, errorCallback, resumeAuthState)
+      } else if (!resumeAuthState) {
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
-              setTimeout(() =>
-                errorCallback(method === 'login'
-                  ? 'Invalid email or password'
-                  : 'Something has gone wrong'))
+              setTimeout(() => errorCallback(err))
             }
-            throw new Error(err)
+            console.log(JSON.stringify(err))
           }
         })
+      } else {
+        const GETOptions = qs.stringify(
+          { ...options, state: resumeAuthState },
+          { addQueryPrefix: true }
+        )
+        fetch(`/continue${GETOptions}`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          }
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              document.location = redirectUri
+            } else if (errorCallback) {
+              setTimeout(() => errorCallback(res))
+            }
+          })
+          .catch((err) => {
+            if (errorCallback) {
+              setTimeout(() => errorCallback(err))
+            }
+          })
       }
-    } catch (e) {
-      throw new Error(e)
+    } catch (err) {
+      console.log(JSON.stringify(err))
     }
   }
 
-  loginIE8 = (data, method, errorCallback) => {
+  loginIE8 = (data, method, errorCallback, resumeAuthState) => {
     const redirectUri = pathOr(
       null,
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    fetch(method === 'login' ? '/usernamepassword/login' : method, {
-      method: method === 'login' ? 'POST' : 'GET',
+    const isPost = method === 'login' && !resumeAuthState
+    let authorizeUrl
+    const options = {
+      method: isPost ? 'POST' : 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+      }
+    }
+
+    if (isPost) {
+      options.body = JSON.stringify({
         ...data,
         connection: data.realm || data.connection,
         client_id: authOpts.clientID,
-        redirect_uri: redirectUri
+        redirect_uri: redirectUri,
+        state: resumeAuthState || data.state
       })
-    })
+    } else {
+      const GETBody = {
+        ...data,
+        client_id: data.clientID,
+        state: resumeAuthState || data.state
+      }
+      delete GETBody.clientID
+      delete GETBody.redirectURI
+      delete GETBody.username
+      authorizeUrl = resumeAuthState ? '/contiue' : method
+      authorizeUrl += qs.stringify(GETBody, { addQueryPrefix: true })
+    }
+
+    let url
+    if (resumeAuthState) {
+      url = authorizeUrl
+    } else {
+      url = method === 'login' ? '/usernamepassword/login' : authorizeUrl
+    }
+    ie8Fetch(url, options)
       .then((res) => {
         if (res.status === 200) {
-          this.submitWSForm(res._bodyInit)
+          if (resumeAuthState) {
+            document.location = redirectUri
+          } else {
+            this.submitWSForm(res._bodyInit)
+          }
         } else if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback(res))
         }
       })
       .catch((err) => {
         if (errorCallback) {
-          setTimeout(() => errorCallback('Invalid email or password'))
+          setTimeout(() => errorCallback(err))
         }
-        throw err
+        console.log(JSON.stringify(err))
       })
   }
 
@@ -170,30 +221,69 @@ export default class AuthApi {
   }
 
   forgotPassword(email, errorCallback) {
-    this.instance.changePassword(
-      {
-        connection: authOpts.connection,
-        responseType: authOpts.responseType,
-        email
-      },
-      (err) => {
+    const options = {
+      ...this.params,
+      connection: authOpts.connection,
+      responseType: authOpts.responseType,
+      email
+    }
+    if (isIE8()) {
+      this.forgotPasswordIE8(options, errorCallback)
+    } else {
+      this.instance.changePassword(options, (err) => {
         if (err) {
           if (errorCallback) {
-            setTimeout(
-              () =>
-                errorCallback('There has been an issue, try a different email'),
-              5
-            )
+            setTimeout(() => errorCallback(err), 5)
           }
           return false
         }
         document.location.hash = '#/forgotsuccess'
         return true
-      }
-    )
+      })
+    }
+  }
+
+  forgotPasswordIE8 = (data, errorCallback) => {
+    ie8Fetch('/dbconnections/change_password', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...data
+      })
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          document.location.hash = '#/forgotsuccess'
+        } else if (errorCallback) {
+          setTimeout(() => errorCallback(res))
+        }
+      })
+      .catch((err) => {
+        if (errorCallback) {
+          setTimeout(() => errorCallback(err))
+        }
+        console.log(JSON.stringify(err))
+      })
   }
 
   resetPassword = (password, errorCallback) => {
+    const callback = (res) => {
+      if (res.status === 200) {
+        document.location.hash = '#/resetsuccess'
+      } else if (errorCallback) {
+        setTimeout(() => errorCallback('There has been an issue'))
+      }
+    }
+    const catchCallback = (err) => {
+      if (errorCallback) {
+        setTimeout(() => errorCallback('There has been an issue'))
+      }
+      console.log(JSON.stringify(err))
+    }
+    console.log(window.rpConfig.toString())
     if (window.rpConfig) {
       const data = {
         connection: authOpts.connection,
@@ -204,28 +294,29 @@ export default class AuthApi {
         newPassword: password,
         confirmNewPassword: password
       }
-
-      fetch('/lo/reset', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            document.location.hash = '#/resetsuccess'
-          } else if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue'))
-          }
+      if (isIE8()) {
+        ie8Fetch('/lo/reset', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
-        .catch((err) => {
-          if (errorCallback) {
-            setTimeout(() => errorCallback('There has been an issue'))
-          }
-          throw err
+          .then(callback)
+          .catch(catchCallback)
+      } else {
+        fetch('/lo/reset', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
+          .then(callback)
+          .catch(catchCallback)
+      }
     }
   }
 
@@ -248,7 +339,7 @@ export default class AuthApi {
     this.instance.signup(options, (err) => {
       if (err) {
         if (errorCallback) {
-          setTimeout(() => errorCallback())
+          setTimeout(() => errorCallback(err))
         }
         return false
       }
@@ -263,7 +354,7 @@ export default class AuthApi {
       ['internalSettings', 'callback'],
       window.Auth0
     )
-    fetch('/dbconnections/signup', {
+    ie8Fetch('/dbconnections/signup', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -279,14 +370,60 @@ export default class AuthApi {
         if (res.status === 200) {
           // document.location = redirectUri
         } else if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback(res))
         }
       })
       .catch((err) => {
         if (errorCallback) {
-          setTimeout(() => errorCallback('There has been an issue'))
+          setTimeout(() => errorCallback(err))
         }
-        throw err
+        console.log(err)
       })
+  }
+
+  resendActivationEmail = (userId, callerCallback) => {
+    console.log('resending email to: ', userId)
+    const callback = (res) => {
+      if (res.status === 200) {
+        setTimeout(() => callerCallback(null)) // this will reset the error
+      } else {
+        setTimeout(() =>
+          callerCallback('something has gone wrong when sending the email'))
+      }
+    }
+    const catchCallback = (err) => {
+      setTimeout(() =>
+        callerCallback('something has gone wrong when sending the email'))
+      console.log(JSON.stringify(err))
+    }
+
+    const data = {
+      // ...this.params,
+      user_id: userId,
+      client_id: authOpts.clientID
+    }
+    if (isIE8()) {
+      ie8Fetch('/api/v2/jobs/verification-email', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(callback)
+        .catch(catchCallback)
+    } else {
+      fetch('/api/v2/jobs/verification-email', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(callback)
+        .catch(catchCallback)
+    }
   }
 }

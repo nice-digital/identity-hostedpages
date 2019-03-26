@@ -48,7 +48,7 @@ ShallowWrapper {
               aria-describedby="confirmPassword-error"
               data-qa-sel="confirm-password-resetPassword"
               error={false}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               label="Confirm password"
               name="confirmPassword"
               onBlur={[Function]}
@@ -118,7 +118,7 @@ ShallowWrapper {
               aria-describedby="confirmPassword-error"
               data-qa-sel="confirm-password-resetPassword"
               error={false}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               label="Confirm password"
               name="confirmPassword"
               onBlur={[Function]}
@@ -162,7 +162,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -222,7 +222,7 @@ ShallowWrapper {
                 "aria-describedby": "confirmPassword-error",
                 "data-qa-sel": "confirm-password-resetPassword",
                 "error": false,
-                "errorMessage": "Password fields do not match",
+                "errorMessage": "Password doesn't match",
                 "label": "Confirm password",
                 "name": "confirmPassword",
                 "onBlur": [Function],
@@ -294,7 +294,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -364,7 +364,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -408,7 +408,7 @@ ShallowWrapper {
                   aria-describedby="confirmPassword-error"
                   data-qa-sel="confirm-password-resetPassword"
                   error={false}
-                  errorMessage="Password fields do not match"
+                  errorMessage="Password doesn't match"
                   label="Confirm password"
                   name="confirmPassword"
                   onBlur={[Function]}
@@ -468,7 +468,7 @@ ShallowWrapper {
                   "aria-describedby": "confirmPassword-error",
                   "data-qa-sel": "confirm-password-resetPassword",
                   "error": false,
-                  "errorMessage": "Password fields do not match",
+                  "errorMessage": "Password doesn't match",
                   "label": "Confirm password",
                   "name": "confirmPassword",
                   "onBlur": [Function],
@@ -570,7 +570,7 @@ ShallowWrapper {
               aria-describedby="confirmPassword-error"
               data-qa-sel="confirm-password-resetPassword"
               error={false}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               label="Confirm password"
               name="confirmPassword"
               onBlur={[Function]}
@@ -640,7 +640,7 @@ ShallowWrapper {
               aria-describedby="confirmPassword-error"
               data-qa-sel="confirm-password-resetPassword"
               error={false}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               label="Confirm password"
               name="confirmPassword"
               onBlur={[Function]}
@@ -684,7 +684,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -744,7 +744,7 @@ ShallowWrapper {
                 "aria-describedby": "confirmPassword-error",
                 "data-qa-sel": "confirm-password-resetPassword",
                 "error": false,
-                "errorMessage": "Password fields do not match",
+                "errorMessage": "Password doesn't match",
                 "label": "Confirm password",
                 "name": "confirmPassword",
                 "onBlur": [Function],
@@ -816,7 +816,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -886,7 +886,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -930,7 +930,7 @@ ShallowWrapper {
                   aria-describedby="confirmPassword-error"
                   data-qa-sel="confirm-password-resetPassword"
                   error={false}
-                  errorMessage="Password fields do not match"
+                  errorMessage="Password doesn't match"
                   label="Confirm password"
                   name="confirmPassword"
                   onBlur={[Function]}
@@ -990,7 +990,7 @@ ShallowWrapper {
                   "aria-describedby": "confirmPassword-error",
                   "data-qa-sel": "confirm-password-resetPassword",
                   "error": false,
-                  "errorMessage": "Password fields do not match",
+                  "errorMessage": "Password doesn't match",
                   "label": "Confirm password",
                   "name": "confirmPassword",
                   "onBlur": [Function],
@@ -1092,7 +1092,7 @@ ShallowWrapper {
               aria-describedby="confirmPassword-error"
               data-qa-sel="confirm-password-resetPassword"
               error={false}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               label="Confirm password"
               name="confirmPassword"
               onBlur={[Function]}
@@ -1162,7 +1162,7 @@ ShallowWrapper {
               aria-describedby="confirmPassword-error"
               data-qa-sel="confirm-password-resetPassword"
               error={false}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               label="Confirm password"
               name="confirmPassword"
               onBlur={[Function]}
@@ -1206,7 +1206,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -1266,7 +1266,7 @@ ShallowWrapper {
                 "aria-describedby": "confirmPassword-error",
                 "data-qa-sel": "confirm-password-resetPassword",
                 "error": false,
-                "errorMessage": "Password fields do not match",
+                "errorMessage": "Password doesn't match",
                 "label": "Confirm password",
                 "name": "confirmPassword",
                 "onBlur": [Function],
@@ -1338,7 +1338,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -1408,7 +1408,7 @@ ShallowWrapper {
                 aria-describedby="confirmPassword-error"
                 data-qa-sel="confirm-password-resetPassword"
                 error={false}
-                errorMessage="Password fields do not match"
+                errorMessage="Password doesn't match"
                 label="Confirm password"
                 name="confirmPassword"
                 onBlur={[Function]}
@@ -1452,7 +1452,7 @@ ShallowWrapper {
                   aria-describedby="confirmPassword-error"
                   data-qa-sel="confirm-password-resetPassword"
                   error={false}
-                  errorMessage="Password fields do not match"
+                  errorMessage="Password doesn't match"
                   label="Confirm password"
                   name="confirmPassword"
                   onBlur={[Function]}
@@ -1512,7 +1512,7 @@ ShallowWrapper {
                   "aria-describedby": "confirmPassword-error",
                   "data-qa-sel": "confirm-password-resetPassword",
                   "error": false,
-                  "errorMessage": "Password fields do not match",
+                  "errorMessage": "Password doesn't match",
                   "label": "Confirm password",
                   "name": "confirmPassword",
                   "onBlur": [Function],

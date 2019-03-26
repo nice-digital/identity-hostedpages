@@ -1,11 +1,11 @@
 @import "~@nice-digital/nds-forms/scss/forms";
 @import "~@nice-digital/nds-button/scss/button";
-@import "~@nice-digital/nds-panel/scss/panel";
+// @import "~@nice-digital/nds-panel/scss/panel"; // not needed?
 
 :root {
   --font-base: Lato, Helvetica, sans-serif;
   --gutter: 1.2rem;
-  --col-width-mobile: 450px;
+  --col-width-mobile: 20rem;
   --col-width-desktop: 36rem;
   --top: 3.6rem;
 }

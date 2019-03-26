@@ -2,6 +2,7 @@ import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import pathOr from 'ramda/src/pathOr'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
+import qs from 'qs'
 // local imports
 import { showNav, isDomainInUsername } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
@@ -21,10 +22,18 @@ export class Login extends React.Component {
       loading: false,
       isAD: false,
       connection: authOpts.connection,
-      showGoogleLogin: false
+      showGoogleLogin: false,
+      activationEmailSent: false
     }
+    this.querystring = qs.parse(document.location.search, {
+      ignoreQueryPrefix: true
+    })
   }
+
   componentDidMount() {
+    this.querystring = qs.parse(document.location.search, {
+      ignoreQueryPrefix: true
+    })
     this.auth.fetchClientSettings().then(() => {
       this.googleConnection = pathOr(
         null,
@@ -36,28 +45,57 @@ export class Login extends React.Component {
         ['strategies', 'waad', 'connectionName'],
         window.Auth0
       )
-      this.setState({ showGoogleLogin: !!this.googleConnection })
+      this.setState(
+        { showGoogleLogin: !!this.googleConnection },
+        this.showAuth0RulesError
+      )
     })
+  }
+
+  showAuth0RulesError = () => {
+    this.setState({ error: this.querystring.myerror })
+  }
+
+  resendActivationEmail = (e) => {
+    if (e) e.preventDefault()
+    const callback = err =>
+      this.setState({ activationEmailSent: !err, error: err })
+    try {
+      this.auth.resendActivationEmail(this.querystring.userid, callback)
+    } catch (err) {
+      console.log(JSON.stringify(err))
+    }
   }
 
   login = (e, isGoogle) => {
     if (e) e.preventDefault()
     const requestErrorCallback = err =>
-      this.setState({ error: err, loading: false })
+      this.setState(
+        {
+          error: err.description || err.error_description,
+          loading: false
+        },
+        console.log(JSON.stringify(err))
+      )
     try {
       this.setState({ loading: true }, () => {
         const { username, password, connection } = this.state
         const loginConnection = isGoogle ? this.googleConnection : connection
+        const isResumingAuthState =
+          this.querystring.myerrorcode && this.querystring.myerrorcode === 'user_not_verified'
+            ? this.querystring.state
+            : null
         this.auth.login(
           loginConnection,
           username,
           password,
-          requestErrorCallback
+          requestErrorCallback,
+          isResumingAuthState
         )
       })
     } catch (err) {
-      // console.log(err)
-      this.setState({ loading: false })
+      console.log(JSON.stringify(err))
+      this.setState({ loading: false, error: 'Something has gone wrong.' })
     }
   }
 
@@ -68,22 +106,39 @@ export class Login extends React.Component {
     }
     this.setState({
       [name]: value,
-      error: null,
+      // error: null,
       isAD,
-      connection: isAD ? this.ADConnection : this.state.connection
+      connection: isAD ? this.ADConnection : authOpts.connection
     })
   }
 
   render() {
     showNav()
     const {
-      error, loading, isAD, showGoogleLogin
+      error,
+      loading,
+      isAD,
+      showGoogleLogin,
+      activationEmailSent
     } = this.state
+    const { myerrorcode } = this.querystring
 
     return (
       <form className="">
         <Fieldset legend="Personal information">
-          {error && <Alert type="error">{error}</Alert>}
+          {error && (
+            <Alert type="error">
+              {error}{' '}
+              {myerrorcode === 'user_not_verified' ? (
+                <a href="#" onClick={this.resendActivationEmail}>
+                  Resend activation email
+                </a>
+              ) : null}
+            </Alert>
+          )}
+          {activationEmailSent && (
+            <Alert type="success">An activation email has been sent!</Alert>
+          )}
           <Input
             data-qa-sel="login-email"
             label="Email"

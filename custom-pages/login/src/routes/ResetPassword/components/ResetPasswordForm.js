@@ -2,7 +2,7 @@ import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
 // local imports
-import { hideNav, getFirstErrorElement, validateFields } from '../../../util'
+import { hideNav, getFirstErrorElement, validateFields, isIE8 } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './ResetPasswordForm.scss'
 
@@ -26,7 +26,7 @@ export class ResetPassword extends React.Component {
     if (event) event.preventDefault()
     const { password } = this.state
     this.validate()
-    if (this.isFormValidForSubmission()) {
+    if (this.isFormValidForSubmission() || isIE8()) {
       this.auth.resetPassword(password)
     } else {
       this.setState({ showAlert: true }, () => {
@@ -130,7 +130,7 @@ export class ResetPassword extends React.Component {
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}
-              errorMessage="Password fields do not match"
+              errorMessage="Password doesn't match"
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"

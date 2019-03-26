@@ -65,7 +65,8 @@ describe('Login components', () => {
       connection,
       username,
       password,
-      expect.any(Function)
+      expect.any(Function),
+      null,
     )
   })
 })
