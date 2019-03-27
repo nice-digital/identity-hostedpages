@@ -56,12 +56,12 @@ export class Login extends React.Component {
     this.setState({ error: this.querystring.myerror })
   }
 
-  resendActivationEmail = (e) => {
+  resendVerificationEmail = (e) => {
     if (e) e.preventDefault()
     const callback = err =>
       this.setState({ activationEmailSent: !err, error: err })
     try {
-      this.auth.resendActivationEmail(this.querystring.userid, callback)
+      this.auth.resendVerificationEmail(this.querystring.userid, callback)
     } catch (err) {
       console.log(JSON.stringify(err))
     }
@@ -130,7 +130,7 @@ export class Login extends React.Component {
             <Alert type="error">
               {error}{' '}
               {myerrorcode === 'user_not_verified' ? (
-                <a href="#" onClick={this.resendActivationEmail}>
+                <a href="#" onClick={this.resendVerificationEmail}>
                   Resend activation email
                 </a>
               ) : null}
