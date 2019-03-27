@@ -381,7 +381,7 @@ export default class AuthApi {
       })
   }
 
-  resendActivationEmail = (userId, callerCallback) => {
+  resendVerificationEmail = (userId, callerCallback) => {
     console.log('resending email to: ', userId)
     const callback = (res) => {
       if (res.status === 200) {
@@ -403,7 +403,7 @@ export default class AuthApi {
       client_id: authOpts.clientID
     }
     if (isIE8()) {
-      ie8Fetch(urls.resendActivationEmail, {
+      ie8Fetch(urls.resendVerificationEmail, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -414,7 +414,7 @@ export default class AuthApi {
         .then(callback)
         .catch(catchCallback)
     } else {
-      fetch(urls.resendActivationEmail, {
+      fetch(urls.resendVerificationEmail, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
