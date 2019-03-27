@@ -4,7 +4,7 @@ import Auth0 from 'auth0-js'
 import pathOr from 'ramda/src/pathOr'
 import ie8Fetch from 'fetch-ie8'
 import qs from 'qs'
-import { auth as authOpts } from './constants'
+import { auth as authOpts, urls } from './constants'
 import { isIE8, ensureTrailingSlash } from '../util'
 
 const __DEV__ = global.__DEV__ || false
@@ -403,7 +403,7 @@ export default class AuthApi {
       client_id: authOpts.clientID
     }
     if (isIE8()) {
-      ie8Fetch('/api/v2/jobs/verification-email', {
+      ie8Fetch(urls.resendActivationEmail, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -414,7 +414,7 @@ export default class AuthApi {
         .then(callback)
         .catch(catchCallback)
     } else {
-      fetch('/api/v2/jobs/verification-email', {
+      fetch(urls.resendActivationEmail, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
