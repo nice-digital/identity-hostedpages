@@ -28,7 +28,7 @@ export class Login extends React.Component {
     this.querystring = qs.parse(document.location.search, {
       ignoreQueryPrefix: true
     })
-    this.skipContinue = true
+    this.continue = true
   }
 
   componentDidMount() {
@@ -84,9 +84,8 @@ export class Login extends React.Component {
         const loginConnection = isGoogle ? this.googleConnection : connection
         const isResumingAuthState =
           this.querystring.myerrorcode &&
-          this.querystring.myerrorcode === 'user_not_verified' &&
-          !this.skipContinue
-            ? this.querystring.state
+          this.querystring.myerrorcode === 'user_not_verified'
+            ? this.continue && this.querystring.state
             : null
         this.auth.login(
           loginConnection,
@@ -107,7 +106,7 @@ export class Login extends React.Component {
     if (name === 'username') {
       isAD = isDomainInUsername(value)
       if (this.querystring.myerrorcode && this.querystring.email !== value) {
-        this.skipContinue = true
+        this.continue = false
       }
     }
     this.setState({
