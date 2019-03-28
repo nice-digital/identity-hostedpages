@@ -16,3 +16,13 @@ password_reset
 ## Documentation
 * [Configuration Deployment Command Line Client](https://auth0.com/docs/extensions/deploy-cli)
 * [Configuration Directory Structure](https://auth0.com/docs/extensions/deploy-cli/guides/import-export-directory-structure)
+
+
+## Setup
+
+## The fantastic world of IE8
+
+## Gotcha's
+
+## Auth0 config
+
