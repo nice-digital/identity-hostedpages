@@ -14,7 +14,7 @@ export default class AuthApi {
     if (!window.config) {
       window.config = {}
     }
-    window.config.extraParams = window.config.extraParams || {}
+    window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
@@ -80,11 +80,7 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
-      const redirectUri = pathOr(
-        null,
-        ['internalSettings', 'callback'],
-        window.Auth0
-      )
+      const redirectUri = window.config.extraParams.redirectURI
       let options
       let method
       if (connection === authOpts.connection) {
@@ -151,11 +147,7 @@ export default class AuthApi {
   }
 
   loginIE8 = (data, method, errorCallback, resumeAuthState) => {
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
+    const redirectUri = window.config.extraParams.redirectURI
     const isPost = method === 'login' && !resumeAuthState
     let authorizeUrl
     const options = {
@@ -349,11 +341,7 @@ export default class AuthApi {
   }
 
   registerIE8 = (data, errorCallback) => {
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
+    const redirectUri = window.config.extraParams.redirectURI
     ie8Fetch('/dbconnections/signup', {
       method: 'POST',
       headers: {
