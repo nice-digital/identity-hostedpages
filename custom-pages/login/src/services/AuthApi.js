@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
 import Auth0 from 'auth0-js'
-import pathOr from 'ramda/src/pathOr'
 import ie8Fetch from 'fetch-ie8'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
