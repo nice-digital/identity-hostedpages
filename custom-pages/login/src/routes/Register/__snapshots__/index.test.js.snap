@@ -136,9 +136,12 @@ ShallowWrapper {
             />
           </Fieldset>
           <Alert>
-            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+             
             <a
-              href="#"
+              href="https://www.nice.org.uk/privacy-notice"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               privacy notice
             </a>
@@ -286,9 +289,12 @@ ShallowWrapper {
               />
             </Fieldset>,
             <Alert>
-              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+               
               <a
-                href="#"
+                href="https://www.nice.org.uk/privacy-notice"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 privacy notice
               </a>
@@ -303,11 +309,17 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": false,
+              "children": Array [
+                false,
+                null,
+              ],
               "id": "thereIsAnError",
             },
             "ref": null,
-            "rendered": false,
+            "rendered": Array [
+              false,
+              null,
+            ],
             "type": "div",
           },
           Object {
@@ -567,9 +579,12 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": Array [
-                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                " ",
                 <a
-                  href="#"
+                  href="https://www.nice.org.uk/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   privacy notice
                 </a>,
@@ -577,14 +592,17 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
-              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+              " ",
               Object {
                 "instance": null,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
                   "children": "privacy notice",
-                  "href": "#",
+                  "href": "https://www.nice.org.uk/privacy-notice",
+                  "rel": "noopener noreferrer",
+                  "target": "_blank",
                 },
                 "ref": null,
                 "rendered": "privacy notice",
@@ -739,9 +757,12 @@ ShallowWrapper {
               />
             </Fieldset>
             <Alert>
-              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+               
               <a
-                href="#"
+                href="https://www.nice.org.uk/privacy-notice"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 privacy notice
               </a>
@@ -889,9 +910,12 @@ ShallowWrapper {
                 />
               </Fieldset>,
               <Alert>
-                The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+                The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+                 
                 <a
-                  href="#"
+                  href="https://www.nice.org.uk/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   privacy notice
                 </a>
@@ -906,11 +930,17 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": false,
+                "children": Array [
+                  false,
+                  null,
+                ],
                 "id": "thereIsAnError",
               },
               "ref": null,
-              "rendered": false,
+              "rendered": Array [
+                false,
+                null,
+              ],
               "type": "div",
             },
             Object {
@@ -1170,9 +1200,12 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": Array [
-                  "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                  "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                  " ",
                   <a
-                    href="#"
+                    href="https://www.nice.org.uk/privacy-notice"
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     privacy notice
                   </a>,
@@ -1180,14 +1213,17 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": Array [
-                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                " ",
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
                     "children": "privacy notice",
-                    "href": "#",
+                    "href": "https://www.nice.org.uk/privacy-notice",
+                    "rel": "noopener noreferrer",
+                    "target": "_blank",
                   },
                   "ref": null,
                   "rendered": "privacy notice",
@@ -1372,9 +1408,12 @@ ShallowWrapper {
             />
           </Fieldset>
           <Alert>
-            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+             
             <a
-              href="#"
+              href="https://www.nice.org.uk/privacy-notice"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               privacy notice
             </a>
@@ -1522,9 +1561,12 @@ ShallowWrapper {
               />
             </Fieldset>,
             <Alert>
-              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+               
               <a
-                href="#"
+                href="https://www.nice.org.uk/privacy-notice"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 privacy notice
               </a>
@@ -1539,11 +1581,17 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": false,
+              "children": Array [
+                false,
+                null,
+              ],
               "id": "thereIsAnError",
             },
             "ref": null,
-            "rendered": false,
+            "rendered": Array [
+              false,
+              null,
+            ],
             "type": "div",
           },
           Object {
@@ -1803,9 +1851,12 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": Array [
-                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                " ",
                 <a
-                  href="#"
+                  href="https://www.nice.org.uk/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   privacy notice
                 </a>,
@@ -1813,14 +1864,17 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
-              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+              " ",
               Object {
                 "instance": null,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
                   "children": "privacy notice",
-                  "href": "#",
+                  "href": "https://www.nice.org.uk/privacy-notice",
+                  "rel": "noopener noreferrer",
+                  "target": "_blank",
                 },
                 "ref": null,
                 "rendered": "privacy notice",
@@ -1975,9 +2029,12 @@ ShallowWrapper {
               />
             </Fieldset>
             <Alert>
-              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+               
               <a
-                href="#"
+                href="https://www.nice.org.uk/privacy-notice"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 privacy notice
               </a>
@@ -2125,9 +2182,12 @@ ShallowWrapper {
                 />
               </Fieldset>,
               <Alert>
-                The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+                The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+                 
                 <a
-                  href="#"
+                  href="https://www.nice.org.uk/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   privacy notice
                 </a>
@@ -2142,11 +2202,17 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": false,
+                "children": Array [
+                  false,
+                  null,
+                ],
                 "id": "thereIsAnError",
               },
               "ref": null,
-              "rendered": false,
+              "rendered": Array [
+                false,
+                null,
+              ],
               "type": "div",
             },
             Object {
@@ -2406,9 +2472,12 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": Array [
-                  "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                  "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                  " ",
                   <a
-                    href="#"
+                    href="https://www.nice.org.uk/privacy-notice"
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     privacy notice
                   </a>,
@@ -2416,14 +2485,17 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": Array [
-                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                " ",
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
                     "children": "privacy notice",
-                    "href": "#",
+                    "href": "https://www.nice.org.uk/privacy-notice",
+                    "rel": "noopener noreferrer",
+                    "target": "_blank",
                   },
                   "ref": null,
                   "rendered": "privacy notice",
@@ -2608,9 +2680,12 @@ ShallowWrapper {
             />
           </Fieldset>
           <Alert>
-            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+            The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+             
             <a
-              href="#"
+              href="https://www.nice.org.uk/privacy-notice"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               privacy notice
             </a>
@@ -2758,9 +2833,12 @@ ShallowWrapper {
               />
             </Fieldset>,
             <Alert>
-              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+               
               <a
-                href="#"
+                href="https://www.nice.org.uk/privacy-notice"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 privacy notice
               </a>
@@ -2775,11 +2853,17 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": false,
+              "children": Array [
+                false,
+                null,
+              ],
               "id": "thereIsAnError",
             },
             "ref": null,
-            "rendered": false,
+            "rendered": Array [
+              false,
+              null,
+            ],
             "type": "div",
           },
           Object {
@@ -3039,9 +3123,12 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": Array [
-                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                " ",
                 <a
-                  href="#"
+                  href="https://www.nice.org.uk/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   privacy notice
                 </a>,
@@ -3049,14 +3136,17 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
-              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+              "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+              " ",
               Object {
                 "instance": null,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
                   "children": "privacy notice",
-                  "href": "#",
+                  "href": "https://www.nice.org.uk/privacy-notice",
+                  "rel": "noopener noreferrer",
+                  "target": "_blank",
                 },
                 "ref": null,
                 "rendered": "privacy notice",
@@ -3211,9 +3301,12 @@ ShallowWrapper {
               />
             </Fieldset>
             <Alert>
-              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+              The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+               
               <a
-                href="#"
+                href="https://www.nice.org.uk/privacy-notice"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 privacy notice
               </a>
@@ -3361,9 +3454,12 @@ ShallowWrapper {
                 />
               </Fieldset>,
               <Alert>
-                The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our 
+                The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+                 
                 <a
-                  href="#"
+                  href="https://www.nice.org.uk/privacy-notice"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   privacy notice
                 </a>
@@ -3378,11 +3474,17 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": false,
+                "children": Array [
+                  false,
+                  null,
+                ],
                 "id": "thereIsAnError",
               },
               "ref": null,
-              "rendered": false,
+              "rendered": Array [
+                false,
+                null,
+              ],
               "type": "div",
             },
             Object {
@@ -3642,9 +3744,12 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": Array [
-                  "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                  "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                  " ",
                   <a
-                    href="#"
+                    href="https://www.nice.org.uk/privacy-notice"
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     privacy notice
                   </a>,
@@ -3652,14 +3757,17 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": Array [
-                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our ",
+                "The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our",
+                " ",
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
                     "children": "privacy notice",
-                    "href": "#",
+                    "href": "https://www.nice.org.uk/privacy-notice",
+                    "rel": "noopener noreferrer",
+                    "target": "_blank",
                   },
                   "ref": null,
                   "rendered": "privacy notice",

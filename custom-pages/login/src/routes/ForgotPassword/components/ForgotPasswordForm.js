@@ -19,7 +19,11 @@ export class ForgotPassword extends React.Component {
     }
   }
 
-  requestErrorCallback = err => this.setState({ error: err, loading: false })
+  requestErrorCallback = err =>
+    this.setState({
+      error: err.description || err.error_description,
+      loading: false
+    })
 
   forgotPassword = (e) => {
     if (e) e.preventDefault()

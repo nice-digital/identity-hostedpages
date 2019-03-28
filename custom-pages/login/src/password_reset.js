@@ -4,8 +4,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createHashHistory from 'history/lib/createHashHistory'
 import { useRouterHistory } from 'react-router'
+import { Promise } from 'es6-promise'
 import AppContainer from './containers/AppContainer'
 
+// if IE8
+global.Promise = global.Promise || Promise
+global.__DEV__ = global.__DEV__ || document.location.host.indexOf('localhost') > -1
 
 // ========================================================
 // Browser History Setup

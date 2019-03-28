@@ -20,7 +20,6 @@ const config = {
   entry: {
     app: ['./password_reset.js'],
     vendor: [
-      'qs',
       'auth0-js',
       'es5-shim',
       'babel-polyfill',

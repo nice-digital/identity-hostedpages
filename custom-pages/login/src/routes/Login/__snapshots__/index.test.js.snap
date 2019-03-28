@@ -58,6 +58,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             null,
+            false,
             <Input
               data-qa-sel="login-email"
               id="username"
@@ -80,6 +81,7 @@ ShallowWrapper {
         "ref": null,
         "rendered": Array [
           null,
+          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -202,6 +204,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               null,
+              false,
               <Input
                 data-qa-sel="login-email"
                 id="username"
@@ -224,6 +227,7 @@ ShallowWrapper {
           "ref": null,
           "rendered": Array [
             null,
+            false,
             Object {
               "instance": null,
               "key": undefined,
@@ -342,6 +346,7 @@ ShallowWrapper {
             type="error"
           >
             this is an error
+             
           </Alert>
           <Input
             data-qa-sel="login-email"
@@ -384,7 +389,9 @@ ShallowWrapper {
               type="error"
             >
               this is an error
+               
             </Alert>,
+            false,
             <Input
               data-qa-sel="login-email"
               id="username"
@@ -411,13 +418,22 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "this is an error",
+              "children": Array [
+                "this is an error",
+                " ",
+                null,
+              ],
               "type": "error",
             },
             "ref": null,
-            "rendered": "this is an error",
+            "rendered": Array [
+              "this is an error",
+              " ",
+              null,
+            ],
             "type": [Function],
           },
+          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -506,6 +522,7 @@ ShallowWrapper {
               type="error"
             >
               this is an error
+               
             </Alert>
             <Input
               data-qa-sel="login-email"
@@ -548,7 +565,9 @@ ShallowWrapper {
                 type="error"
               >
                 this is an error
+                 
               </Alert>,
+              false,
               <Input
                 data-qa-sel="login-email"
                 id="username"
@@ -575,13 +594,22 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "this is an error",
+                "children": Array [
+                  "this is an error",
+                  " ",
+                  null,
+                ],
                 "type": "error",
               },
               "ref": null,
-              "rendered": "this is an error",
+              "rendered": Array [
+                "this is an error",
+                " ",
+                null,
+              ],
               "type": [Function],
             },
+            false,
             Object {
               "instance": null,
               "key": undefined,
@@ -734,6 +762,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             null,
+            false,
             <Input
               data-qa-sel="login-email"
               id="username"
@@ -756,6 +785,7 @@ ShallowWrapper {
         "ref": null,
         "rendered": Array [
           null,
+          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -878,6 +908,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               null,
+              false,
               <Input
                 data-qa-sel="login-email"
                 id="username"
@@ -900,6 +931,7 @@ ShallowWrapper {
           "ref": null,
           "rendered": Array [
             null,
+            false,
             Object {
               "instance": null,
               "key": undefined,

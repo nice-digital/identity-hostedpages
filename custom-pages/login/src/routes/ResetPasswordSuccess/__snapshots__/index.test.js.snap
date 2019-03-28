@@ -23,15 +23,8 @@ ShallowWrapper {
         <Alert
           type="success"
         >
-          Your password has been changed and you will need to sign in with it, if this page does not automatically refresh 
-          <Link
-            data-qa-sel="resetPasswordSuccess-link-to-login"
-            onlyActiveOnIndex={false}
-            style={Object {}}
-            to="/"
-          >
-             click here 
-          </Link>
+          Your password has been changed and you can now use it to sign in 
+           
         </Alert>,
       ],
     },
@@ -54,36 +47,15 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
-            <Link
-              data-qa-sel="resetPasswordSuccess-link-to-login"
-              onlyActiveOnIndex={false}
-              style={Object {}}
-              to="/"
-            >
-               click here 
-            </Link>,
+            "Your password has been changed and you can now use it to sign in ",
+            " ",
           ],
           "type": "success",
         },
         "ref": null,
         "rendered": Array [
-          "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": " click here ",
-              "data-qa-sel": "resetPasswordSuccess-link-to-login",
-              "onlyActiveOnIndex": false,
-              "style": Object {},
-              "to": "/",
-            },
-            "ref": null,
-            "rendered": " click here ",
-            "type": [Function],
-          },
+          "Your password has been changed and you can now use it to sign in ",
+          " ",
         ],
         "type": [Function],
       },
@@ -103,15 +75,8 @@ ShallowWrapper {
           <Alert
             type="success"
           >
-            Your password has been changed and you will need to sign in with it, if this page does not automatically refresh 
-            <Link
-              data-qa-sel="resetPasswordSuccess-link-to-login"
-              onlyActiveOnIndex={false}
-              style={Object {}}
-              to="/"
-            >
-               click here 
-            </Link>
+            Your password has been changed and you can now use it to sign in 
+             
           </Alert>,
         ],
       },
@@ -134,36 +99,15 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
-              <Link
-                data-qa-sel="resetPasswordSuccess-link-to-login"
-                onlyActiveOnIndex={false}
-                style={Object {}}
-                to="/"
-              >
-                 click here 
-              </Link>,
+              "Your password has been changed and you can now use it to sign in ",
+              " ",
             ],
             "type": "success",
           },
           "ref": null,
           "rendered": Array [
-            "Your password has been changed and you will need to sign in with it, if this page does not automatically refresh ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": " click here ",
-                "data-qa-sel": "resetPasswordSuccess-link-to-login",
-                "onlyActiveOnIndex": false,
-                "style": Object {},
-                "to": "/",
-              },
-              "ref": null,
-              "rendered": " click here ",
-              "type": [Function],
-            },
+            "Your password has been changed and you can now use it to sign in ",
+            " ",
           ],
           "type": [Function],
         },
