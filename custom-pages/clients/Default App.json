@@ -1,0 +1,27 @@
+{
+  "name": "Default App",
+  "callbacks": [],
+  "allowed_clients": [],
+  "allowed_logout_urls": [],
+  "is_first_party": true,
+  "oidc_conformant": true,
+  "description": "",
+  "logo_uri": "",
+  "sso": false,
+  "is_token_endpoint_ip_header_trusted": false,
+  "cross_origin_auth": false,
+  "allowed_origins": [],
+  "client_secret": "",
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 36000,
+    "secret_encoded": false
+  },
+  "token_endpoint_auth_method": "client_secret_post",
+  "app_type": "regular_web",
+  "grant_types": [
+    "authorization_code"
+  ],
+  "web_origins": [],
+  "custom_login_page_on": false
+}

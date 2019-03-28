@@ -1,0 +1,8 @@
+{
+  "name": "mandrill",
+  "credentials": {
+    "api_key": ""
+  },
+  "enabled": true,
+  "default_from_address": "noreply@nice.org.uk"
+}

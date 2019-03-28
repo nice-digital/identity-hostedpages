@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "script": "./If user logged in first time and with AD or Google then create or update account in Identity.js",
+  "name": "If user logged in first time and with AD or Google then create or update account in Identity",
+  "order": 4,
+  "stage": "login_success"
+}
