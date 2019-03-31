@@ -19,7 +19,7 @@
     "ext_profile": false,
     "ext_nested_groups": true,
     "app_domain": "",
-    "thumbprints": [],
+    "thumbprints": ["this will be deleted in the variable substitution"],
     "granted": true
   },
   "strategy": "waad",
