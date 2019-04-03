@@ -283,7 +283,7 @@ export default class AuthApi {
       }
       console.log(JSON.stringify(err))
     }
-    console.log(window.rpConfig.toString())
+
     if (window.rpConfig) {
       const data = {
         connection: authOpts.connection,
