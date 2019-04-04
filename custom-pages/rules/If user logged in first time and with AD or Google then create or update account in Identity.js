@@ -1,9 +1,19 @@
 function (user, context, callback) {
+  
+  const stringify = require("stringify-object");
 
-  //this rule is only concerned with migrating people who sign in for the first time with AD.
-  if (context.connectionStrategy !== "waad" || context.stats.loginsCount > 1){
+  console.log("hitting the rule which is hit when a user logs in with AD for the first time");
+  
+  //console.log(`user: ${stringify(user)}`);
+  //console.log(`context: ${stringify(context)}`);
+  
+  //this rule is only concerned with migrating people who sign in for the first time with AD
+  //or google.
+  if ((context.connectionStrategy !== "waad" && 
+       context.connectionStrategy !== "google-oauth2")|| context.stats.loginsCount > 1){
     callback(null, user, context);  
-  } else{
+    return;
+  } 
     
     console.log(`connectionStrategy: ${context.connectionStrategy}`);
     console.log(`login count: ${context.stats.loginsCount}`);
@@ -64,5 +74,4 @@ function (user, context, callback) {
     console.log('Login firsttime for AD user with Rule finished');
   
     callback(null, user, context);
-  }
 }
