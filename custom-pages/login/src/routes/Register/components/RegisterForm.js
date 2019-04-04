@@ -6,6 +6,7 @@ import { showNav, getFirstErrorElement, validateFields } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './RegisterForm.scss'
 import isIE8 from '../../../util/isIE8'
+import {Link} from "react-router";
 
 export class Register extends React.Component {
   constructor(props) {
@@ -208,7 +209,20 @@ export class Register extends React.Component {
                 type="error"
                 aria-labelledby="error-server-title"
               >
-                <h5>{serverSideError}</h5>
+                <h5>
+                  {serverSideError === 'The user already exists.' ?
+                    <div>
+                      An account already exists for the specified email.<br/>
+                      <Link className="forgotPasswordRegister" data-qa-sel="forgotPassword-register" to="/forgotPassword">
+                        Forgot password?
+                      </Link>
+                    </div>
+                    :
+                    <div>
+                      {serverSideError}
+                    </div>
+                  }
+                </h5>
               </Alert>
             )}
           </div>
