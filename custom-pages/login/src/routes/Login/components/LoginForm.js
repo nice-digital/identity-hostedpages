@@ -28,6 +28,7 @@ export class Login extends React.Component {
     this.querystring = qs.parse(document.location.search, {
       ignoreQueryPrefix: true
     })
+    this.continue = true
   }
 
   componentDidMount() {
@@ -56,12 +57,12 @@ export class Login extends React.Component {
     this.setState({ error: this.querystring.myerror })
   }
 
-  resendActivationEmail = (e) => {
+  resendVerificationEmail = (e) => {
     if (e) e.preventDefault()
     const callback = err =>
       this.setState({ activationEmailSent: !err, error: err })
     try {
-      this.auth.resendActivationEmail(this.querystring.userid, callback)
+      this.auth.resendVerificationEmail(this.querystring.userid, callback)
     } catch (err) {
       console.log(JSON.stringify(err))
     }
@@ -82,8 +83,9 @@ export class Login extends React.Component {
         const { username, password, connection } = this.state
         const loginConnection = isGoogle ? this.googleConnection : connection
         const isResumingAuthState =
-          this.querystring.myerrorcode && this.querystring.myerrorcode === 'user_not_verified'
-            ? this.querystring.state
+          this.querystring.myerrorcode &&
+          this.querystring.myerrorcode === 'user_not_verified'
+            ? this.continue && this.querystring.state
             : null
         this.auth.login(
           loginConnection,
@@ -103,6 +105,9 @@ export class Login extends React.Component {
     let isAD = null
     if (name === 'username') {
       isAD = isDomainInUsername(value)
+      if (this.querystring.myerrorcode && this.querystring.email !== value) {
+        this.continue = false
+      }
     }
     this.setState({
       [name]: value,
@@ -130,7 +135,7 @@ export class Login extends React.Component {
             <Alert type="error">
               {error}{' '}
               {myerrorcode === 'user_not_verified' ? (
-                <a href="#" onClick={this.resendActivationEmail}>
+                <a href="#" onClick={this.resendVerificationEmail}>
                   Resend activation email
                 </a>
               ) : null}

@@ -15,3 +15,7 @@ export const auth = {
     : '#{AUTH0_CONNECTION}',
   auth0CDN: 'https://cdn.eu.auth0.com'
 }
+
+export const urls = {
+  resendVerificationEmail: '#{IDENTITY_API}/api/Jobs/VerificationEmail'
+}

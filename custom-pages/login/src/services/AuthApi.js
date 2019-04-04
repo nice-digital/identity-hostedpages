@@ -1,10 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
 import Auth0 from 'auth0-js'
-import pathOr from 'ramda/src/pathOr'
 import ie8Fetch from 'fetch-ie8'
 import qs from 'qs'
-import { auth as authOpts } from './constants'
+import { auth as authOpts, urls } from './constants'
 import { isIE8, ensureTrailingSlash } from '../util'
 
 const __DEV__ = global.__DEV__ || false
@@ -14,7 +13,7 @@ export default class AuthApi {
     if (!window.config) {
       window.config = {}
     }
-    window.config.extraParams = window.config.extraParams || {}
+    window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
@@ -80,11 +79,7 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
-      const redirectUri = pathOr(
-        null,
-        ['internalSettings', 'callback'],
-        window.Auth0
-      )
+      const redirectUri = window.config.extraParams.redirectURI
       let options
       let method
       if (connection === authOpts.connection) {
@@ -151,11 +146,7 @@ export default class AuthApi {
   }
 
   loginIE8 = (data, method, errorCallback, resumeAuthState) => {
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
+    const redirectUri = window.config.extraParams.redirectURI
     const isPost = method === 'login' && !resumeAuthState
     let authorizeUrl
     const options = {
@@ -349,11 +340,7 @@ export default class AuthApi {
   }
 
   registerIE8 = (data, errorCallback) => {
-    const redirectUri = pathOr(
-      null,
-      ['internalSettings', 'callback'],
-      window.Auth0
-    )
+    const redirectUri = window.config.extraParams.redirectURI
     ie8Fetch('/dbconnections/signup', {
       method: 'POST',
       headers: {
@@ -381,7 +368,7 @@ export default class AuthApi {
       })
   }
 
-  resendActivationEmail = (userId, callerCallback) => {
+  resendVerificationEmail = (userId, callerCallback) => {
     console.log('resending email to: ', userId)
     const callback = (res) => {
       if (res.status === 200) {
@@ -403,7 +390,7 @@ export default class AuthApi {
       client_id: authOpts.clientID
     }
     if (isIE8()) {
-      ie8Fetch('/api/v2/jobs/verification-email', {
+      ie8Fetch(urls.resendVerificationEmail, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -414,7 +401,7 @@ export default class AuthApi {
         .then(callback)
         .catch(catchCallback)
     } else {
-      fetch('/api/v2/jobs/verification-email', {
+      fetch(urls.resendVerificationEmail, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
