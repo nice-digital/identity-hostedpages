@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "script": "./Force email verification.js",
   "name": "Force email verification",
   "order": 5,
