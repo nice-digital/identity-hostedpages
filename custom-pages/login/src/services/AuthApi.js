@@ -375,20 +375,17 @@ export default class AuthApi {
         setTimeout(() => callerCallback(null)) // this will reset the error
       } else {
         setTimeout(() =>
-          callerCallback('something has gone wrong when sending the email'))
+          callerCallback('Something has gone wrong when sending the email. '))
       }
     }
     const catchCallback = (err) => {
       setTimeout(() =>
-        callerCallback('something has gone wrong when sending the email'))
+        callerCallback('Something has gone wrong when sending the email. '))
       console.log(JSON.stringify(err))
     }
 
-    const data = {
-      // ...this.params,
-      user_id: userId,
-      client_id: authOpts.clientID
-    }
+    const data = { userId: userId }
+
     if (isIE8()) {
       ie8Fetch(urls.resendVerificationEmail, {
         method: 'POST',

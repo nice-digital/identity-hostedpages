@@ -17,5 +17,5 @@ export const auth = {
 }
 
 export const urls = {
-  resendVerificationEmail: '#{IDENTITY_API}/api/Jobs/VerificationEmail'
+  resendVerificationEmail: __DEV__ ? 'https://local-identityapi.nice.org.uk:5001/api/Jobs/VerificationEmail' : '#{IDENTITY_API}/Jobs/VerificationEmail'
 }

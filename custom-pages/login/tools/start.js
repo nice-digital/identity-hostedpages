@@ -37,6 +37,10 @@ task(
 
       browserSync({
         port: Number(process.env.PORT || 3000),
+        host: process.env.HOST || "localhost",
+        open: "external",
+        // https: false,
+        // cors: true,
         ui: {
           port: Number(process.env.PORT || 3000) + 1
         },

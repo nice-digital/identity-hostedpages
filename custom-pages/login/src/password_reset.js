@@ -9,7 +9,7 @@ import AppContainer from './containers/AppContainer'
 
 // if IE8
 global.Promise = global.Promise || Promise
-global.__DEV__ = global.__DEV__ || document.location.host.indexOf('localhost') > -1
+global.__DEV__ = global.__DEV__ || document.location.host.indexOf('local') > -1
 
 // ========================================================
 // Browser History Setup
