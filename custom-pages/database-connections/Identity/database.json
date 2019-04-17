@@ -16,13 +16,16 @@
     },
     "import_mode": true,
     "configuration": {
-      "wtrealm": "",
-      "apikey": "",
-      "url": "",
-      "port": "443",
+      "niceaccountswtrealm": "",
+      "niceaccountsapikey": "",
+      "niceaccountsurl": "",
       "createuserspath": "",
-      "identityapikey": "",
-      "hostname": ""
+      "hostname": "",
+      "client_id": "",
+      "client_secret" : "",
+      "audience" : "",
+      "appdomain" : "",
+      "gettokenpath" : ""
     }
   },
   "strategy": "auth0",

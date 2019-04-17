@@ -2,15 +2,15 @@ function loginByEmail(email, callback) {
   const request = require('request');
 
   request.post({
-    url: configuration.url,
+    url: configuration.niceaccountsurl,
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Accept': 'application/json'
     },
     form: {
       'username': email,
-      'apikey': configuration.apikey,
-      'wtrealm': configuration.wtrealm
+      'apikey': configuration.niceaccountsapikey,
+      'wtrealm': configuration.niceaccountswtrealm
     }
   }, function(err, response, body) {
     if (err) return callback(err);

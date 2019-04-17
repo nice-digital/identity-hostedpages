@@ -3,10 +3,7 @@ function (user, context, callback) {
   const stringify = require("stringify-object");
 
   console.log("hitting the rule which is hit when a user logs in with AD for the first time");
-  
-  //console.log(`user: ${stringify(user)}`);
-  //console.log(`context: ${stringify(context)}`);
-  
+    
   //this rule is only concerned with migrating people who sign in for the first time with AD
   //or google.
   if ((context.connectionStrategy !== "waad" && 
@@ -14,64 +11,52 @@ function (user, context, callback) {
     callback(null, user, context);  
     return;
   } 
-    
-    console.log(`connectionStrategy: ${context.connectionStrategy}`);
-    console.log(`login count: ${context.stats.loginsCount}`);
-  
-    console.log('Login firsttime for AD user with Rule hit');
-    console.log(`user: ${JSON.stringify(user)}`);
-    console.log(`context: ${JSON.stringify(context)}`);
-  
-    const https = require('https');
 
-    console.log(JSON.stringify(user));
+  console.log('Login firsttime for AD user with Rule hit');
+  console.log(`Context: ${JSON.stringify(context)}`);
+
+  const request = require("request");
+
+  var tokenOptions = { method: 'POST',
+    url: 'https://dev-nice-identity.eu.auth0.com/oauth/token',
+    headers: { 'content-type': 'application/json' },
+    body: 
+     { grant_type: 'client_credentials',
+       client_id: 'rRaubNTKxaRko7vwlHeO4AVd11NoHykG',
+       client_secret: 'aTV_AGiBp-Z5d1lYH5bxUvKlw89lMCAhF-4wHS7NInYC-d3ESbFrsQwm-RULtT-R',
+       audience: 'https://dev-identityapi.nice.org.uk/api' },
+    json: true };
+
+  request(tokenOptions, function (error, response, body) {
+   if (error) throw new Error(error);
 
     const postData = JSON.stringify({
-      'userId': user.user_id,
-      'firstName': user.given_name,
-      'lastName': user.family_name,
-      'email': user.email,
-      'acceptedTerms': false,
-      'initialAllowContactMe': false
-    });
+        'userId': user.user_id,
+        'firstName': user.given_name,
+        'lastName': user.family_name,
+        'email': user.email,
+        'acceptedTerms': false,
+        'initialAllowContactMe': false
+      });
 
-    console.log(`post data: ${postData}`);
-
-    const options = {
-      hostname: configuration.hostname,
-      port: configuration.port,
-      path: configuration.createuserspath,
-      method: 'POST',   
+    const options = { method: 'POST',
+      url: 'https://' + configuration.hostname + configuration.createuserspath,
       headers: {
-        'x-api-key': configuration.apikey,
-        'Content-Type': 'application/json'
-      }
+        'Authorization': 'Bearer ' + body.access_token,
+        'content-type' : 'application/json'
+      },
+      body: postData
     };
 
-    console.log(`hostname:${options.hostname} port:${options.port} path: ${options.path}`);
+    //console.log(`hostname:${options.url} headers: ${JSON.stringify(options.headers)} body: ${JSON.stringify(options.body)}  `);
 
-    const req = https.request(options, (res) => {
-      console.log(`STATUS: ${res.statusCode}`);
-      console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-  
-      res.setEncoding('utf8');
-      res.on('data', (chunk) => {
-        console.log(`BODY: ${chunk}`);
-      });
-      res.on('end', () => {
-        console.log('No more data in response.');
-      });
+    request(options, function(error, response, body){
+      if (error) throw new Error(error);
+
+      //console.log(`Response: ${JSON.stringify(response)}`);
     });
+  });
 
-    req.on('error', (e) => {
-      console.error(`problem with request: ${e.message}`);
-    });
-
-    // write data to request body
-    req.write(postData);
-    req.end();
-
-    console.log('Login firsttime for AD user with Rule finished');
-  
-    callback(null, user, context);
+  console.log('Login firsttime for AD user with Rule finished');
+  callback(null, user, context); 
 }
