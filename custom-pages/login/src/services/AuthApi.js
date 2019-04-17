@@ -375,12 +375,12 @@ export default class AuthApi {
         setTimeout(() => callerCallback(null)) // this will reset the error
       } else {
         setTimeout(() =>
-          callerCallback('Something has gone wrong when sending the email. '))
+          callerCallback('Something has gone wrong when sending the verification email. ' + res.statusText + ". "))
       }
     }
     const catchCallback = (err) => {
       setTimeout(() =>
-        callerCallback('Something has gone wrong when sending the email. '))
+        callerCallback('Something has gone wrong when sending the verification email. '))
       console.log(JSON.stringify(err))
     }
 
