@@ -13,18 +13,17 @@ function (user, context, callback) {
   } 
 
   console.log('Login firsttime for AD user with Rule hit');
-  console.log(`Context: ${JSON.stringify(context)}`);
 
   const request = require("request");
 
   var tokenOptions = { method: 'POST',
-    url: 'https://dev-nice-identity.eu.auth0.com/oauth/token',
+    url: 'https://' + configuration.hostname + configuration.gettokenpath,
     headers: { 'content-type': 'application/json' },
     body: 
      { grant_type: 'client_credentials',
-       client_id: 'rRaubNTKxaRko7vwlHeO4AVd11NoHykG',
-       client_secret: 'aTV_AGiBp-Z5d1lYH5bxUvKlw89lMCAhF-4wHS7NInYC-d3ESbFrsQwm-RULtT-R',
-       audience: 'https://dev-identityapi.nice.org.uk/api' },
+       client_id: configuration.client_id,
+       client_secret: configuration.client_secret,
+       audience: configuration.audience },
     json: true };
 
   request(tokenOptions, function (error, response, body) {
@@ -48,12 +47,8 @@ function (user, context, callback) {
       body: postData
     };
 
-    //console.log(`hostname:${options.url} headers: ${JSON.stringify(options.headers)} body: ${JSON.stringify(options.body)}  `);
-
     request(options, function(error, response, body){
       if (error) throw new Error(error);
-
-      //console.log(`Response: ${JSON.stringify(response)}`);
     });
   });
 
