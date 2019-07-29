@@ -19,56 +19,46 @@
 @param {function} cb - function (error, response)
 */
 module.exports = function (user, context, cb) {
+  const request = require("request");
 
-const https = require('https');
+  console.log("hitting the hook which is hit when a user is created");
 
-console.log(JSON.stringify(user));
+  var tokenOptions = { method: 'POST',
+      url: 'https://' + context.webtask.secrets.appdomain + context.webtask.secrets.gettokenpath,
+      headers: { 'content-type': 'application/json' },
+      body: 
+       { grant_type: 'client_credentials',
+         client_id: context.webtask.secrets.client_id,
+         client_secret: context.webtask.secrets.client_secret,
+         audience: context.webtask.secrets.audience },
+      json: true };
 
-const postData = JSON.stringify({
-  'userId': 'auth0|' + user.id,
-  'firstName': user.user_metadata.name,
-  'lastName': user.user_metadata.surname,
-  'email': user.email,
-  'acceptedTerms': user.user_metadata.acceptedTerms,
-  'initialAllowContactMe': user.user_metadata.allowContactMe
-});
+  request(tokenOptions, function(error, response, body) {
+    if (error) throw new Error(error);
 
-console.log(`post data: ${postData}`);
+    const postData = JSON.stringify({
+      'userId': 'auth0|' + user.id,
+      'firstName': user.user_metadata.name,
+      'lastName': user.user_metadata.surname,
+      'email': user.email,
+      'acceptedTerms': user.user_metadata.acceptedTerms,
+      'initialAllowContactMe': user.user_metadata.allowContactMe
+    });
 
-const options = {
-  hostname: context.webtask.secrets.hostname,
-  port: context.webtask.secrets.port,
-  path: context.webtask.secrets.path,
-  method: 'POST',   
-  headers: {
-    'x-api-key': context.webtask.secrets.apikey,
-    'Content-Type': 'application/json'
-  }
-};
+    const options = { method: 'POST',
+      url: 'https://' + context.webtask.secrets.hostname + context.webtask.secrets.path,
+      headers: {
+        'Authorization': 'Bearer ' + body.access_token,
+        'Content-Type': 'application/json'
+      },
+      body: postData
+    };
 
-console.log(`hostname:${options.hostname} port:${options.port} path: ${options.path}`);
+    request(options, function(error, response, body) {
+      if (error) throw new Error(error);
+    })
+  });  
 
-const req = https.request(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`);
-  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-  
-  res.setEncoding('utf8');
-  res.on('data', (chunk) => {
-    console.log(`BODY: ${chunk}`);
-  });
-  res.on('end', () => {
-    console.log('No more data in response.');
-  });
-});
-
-req.on('error', (e) => {
-  
-  console.error(`problem with request: ${e.message}`);
-});
-
-// write data to request body
-req.write(postData);
-req.end();
-  
+  console.log('User is created Hook finished');
   cb();
 };
