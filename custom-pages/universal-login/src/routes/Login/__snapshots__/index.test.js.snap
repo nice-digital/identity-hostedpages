@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login components should render <Login /> correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Login components should render correctly when there is an error 1`] = `ShallowWrapper {}`;
+
+exports[`Login components should render correctly when there is username and password 1`] = `ShallowWrapper {}`;

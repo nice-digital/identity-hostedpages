@@ -1,0 +1,27 @@
+@import '../../../components/variables.scss';
+
+.mainpanel {
+  display: flex;
+  flex-direction: column;
+  // width: 30%;
+  margin: auto;
+  min-width: var(--col-width-mobile);
+}
+.iconBtn{
+  border:none;
+  background: none;
+}
+.iconBtn-icon:hover{
+  opacity: 0.8;
+}
+.buttonLabel{
+  font-weight: 700;
+  padding-right: 6px;
+}
+// .btn{
+//   width: auto;
+// }
+
+// input{
+//   width: 100%;
+// }

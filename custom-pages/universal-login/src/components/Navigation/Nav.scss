@@ -1,0 +1,30 @@
+@import '../variables.scss';
+
+h3{
+  font-weight: 700;
+}
+
+.activeRoute {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navigation{
+    // text-align: center;
+    width: var(--col-width-mobile);
+}
+
+.navigationLink{
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.navigation span{
+  padding-right: 5px;
+}
+
+.navigation a:hover{
+    text-decoration: none;
+}

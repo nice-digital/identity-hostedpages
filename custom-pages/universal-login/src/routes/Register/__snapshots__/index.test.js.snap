@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register components should render <Register /> correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Register components should render correctly when form is valid 1`] = `ShallowWrapper {}`;
+
+exports[`Register components should render correctly when there is an error 1`] = `ShallowWrapper {}`;

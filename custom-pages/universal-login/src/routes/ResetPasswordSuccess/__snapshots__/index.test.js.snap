@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResetPasswordSuccess components should render <ResetPasswordSuccess /> correctly 1`] = `ShallowWrapper {}`;
