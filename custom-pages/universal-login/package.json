@@ -1,0 +1,48 @@
+{
+  "name": "universal-login",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@nice-digital/design-system": "1.0.5-alpha.0",
+    "@nice-digital/nds-alert": "1.0.4-alpha.0",
+    "@nice-digital/nds-core": "1.0.3-alpha.0",
+    "@nice-digital/nds-forms": "1.0.6-alpha.0",
+    "auth0-js": "9.10.0",
+    "es6-promise": "4.1.1",
+    "fetch-ie8": "1.5.0",
+    "history": "^4.9.0",
+    "ramda": "0.26.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "node-sass": "^4.12.0",
+    "redbox-react": "1.5.0"
+  }
+}

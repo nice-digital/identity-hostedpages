@@ -1,0 +1,35 @@
+@import "~@nice-digital/nds-forms/scss/forms";
+@import "~@nice-digital/nds-button/scss/button";
+// @import "~@nice-digital/nds-panel/scss/panel"; // not needed?
+
+:root {
+  --font-base: Lato, Helvetica, sans-serif;
+  --gutter: 1.2rem;
+  --col-width-mobile: 20rem;
+  --col-width-desktop: 36rem;
+  --top: 3.6rem;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100px !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+legend{
+  border: none !important;
+  width: auto !important;
+}
+
+label{
+  color: #333 !important;
+}
