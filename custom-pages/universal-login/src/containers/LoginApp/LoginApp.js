@@ -26,9 +26,6 @@ class LoginApp extends React.Component {
               <Route exact path='/regsuccess' component={RegisterSuccess.component} />
               <Route component={NotFound.component} />
             </Switch>
-            <Link className="forgotPasswordLink" data-qa-sel="forgotPassword-link" to="/forgotPassword">
-              Forgot password?
-            </Link>
           </div>
         </div>
       </div>

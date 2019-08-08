@@ -7,12 +7,14 @@ import { hideNav } from '../../util'
 
 // style
 import './ResetPasswordSuccess.scss'
+import Nav from "../../components/Navigation";
 
 export const ResetPasswordSuccess = () => {
   // setTimeout(() => (document.location = '/login'), 5000)
   hideNav()
   return (
     <div>
+      <Nav />
       <h3>Thank you!</h3>
       <Alert type="success">
         Your password has been changed and you can now use it to sign in {' '}

@@ -10,6 +10,7 @@ import { auth as authOpts } from '../../../services/constants'
 
 import './LoginForm.scss'
 import Nav from "../../../components/Navigation";
+import {Link} from "react-router-dom";
 
 export class Login extends React.Component {
   constructor(props) {
@@ -195,6 +196,9 @@ export class Login extends React.Component {
             'Loading...'
           )}
         </form>
+        <Link className="forgotPasswordLink" data-qa-sel="forgotPassword-link" to="/forgotPassword">
+          Forgot password?
+        </Link>
       </div>
     )
   }

@@ -179,7 +179,7 @@ export class Register extends React.Component {
       loading,
       serverSideError
     } = this.state
-    showNav(true)
+    showNav()
     return (
       <div>
         <Nav/>

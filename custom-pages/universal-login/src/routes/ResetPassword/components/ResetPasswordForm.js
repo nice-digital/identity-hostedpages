@@ -5,6 +5,7 @@ import { Input, Fieldset } from '@nice-digital/nds-forms'
 import { hideNav, getFirstErrorElement, validateFields, isIE8 } from '../../../util'
 import AuthApi from '../../../services/AuthApi'
 import './ResetPasswordForm.scss'
+import Nav from "../../../components/Navigation";
 
 export class ResetPassword extends React.Component {
   constructor(props) {
@@ -88,6 +89,7 @@ export class ResetPassword extends React.Component {
     hideNav()
     return (
       <div>
+        <Nav />
         <h3>Reset password</h3>
         <h5>Please enter your new password</h5>
         <form className="">
