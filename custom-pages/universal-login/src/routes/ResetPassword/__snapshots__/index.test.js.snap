@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ResetPassword components should render <ResetPassword /> correctly 1`] = `ShallowWrapper {}`;
-
-exports[`ResetPassword components should render correctly when there is an error 1`] = `ShallowWrapper {}`;
-
-exports[`ResetPassword components should render correctly when there is email 1`] = `ShallowWrapper {}`;

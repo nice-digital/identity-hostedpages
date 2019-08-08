@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from "../../components/Header";
 import {Route, Switch} from "react-router";
-import ResetPassword from "../../routes/ResetPassword";
-import ResetPasswordSuccess from "../../routes/ResetPasswordSuccess";
-import NotFound from "../../routes/NotFound";
+import Header from "../../components/Header/Header";
+import ResetPassword from "../../components/ResetPassword/ResetPassword";
+import ResetPasswordSuccess from "../../components/ResetPasswordSuccess/ResetPasswordSuccess";
+import NotFound from "../../components/NotFound/NotFound";
 import './PasswordResetApp.scss'
 
 class PasswordResetApp extends React.Component {
@@ -14,9 +14,9 @@ class PasswordResetApp extends React.Component {
           <Header className="col leftCol" />
           <div className="mainContainer col rightCol">
             <Switch>
-              <Route exact path="/" component={ResetPassword.component} />
-              <Route exact path='/resetsuccess' component={ResetPasswordSuccess.component} />
-              <Route component={NotFound.component} />
+              <Route exact path="/" component={ResetPassword} />
+              <Route exact path='/resetsuccess' component={ResetPasswordSuccess} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </div>

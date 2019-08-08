@@ -4,7 +4,7 @@ import Auth0 from 'auth0-js'
 import ie8Fetch from 'fetch-ie8'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
-import { isIE8, ensureTrailingSlash } from '../util'
+import { isIE8, ensureTrailingSlash } from '../helpers'
 
 const __DEV__ = global.__DEV__ || false
 export default class AuthApi {

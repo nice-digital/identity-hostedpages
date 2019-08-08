@@ -1,14 +1,12 @@
 import React from 'react'
-import Header from "../../components/Header";
-import Nav from "../../components/Navigation";
+import Header from "../../components/Header/Header";
 import {Route, Switch} from "react-router";
-import Login from "../../routes/Login";
-import ForgotPassword from "../../routes/ForgotPassword";
-import ForgotPasswordSuccess from "../../routes/ForgotPasswordSuccess";
-import Register from "../../routes/Register";
-import RegisterSuccess from "../../routes/RegisterSuccess";
-import NotFound from "../../routes/NotFound";
-import {Link} from "react-router-dom";
+import Login from "../../components/Login/Login";
+import ForgotPassword from "../../components/ForgotPassword/ForgotPassword";
+import ForgotPasswordSuccess from "../../components/ForgotPasswordSuccess/ForgotPasswordSuccess";
+import Register from "../../components/Register/Register";
+import RegisterSuccess from "../../components/RegisterSuccess/RegisterSuccess";
+import NotFound from "../../components/NotFound/NotFound";
 import './LoginApp.scss'
 
 class LoginApp extends React.Component {
@@ -19,12 +17,12 @@ class LoginApp extends React.Component {
           <Header className="col leftCol" />
           <div className="mainContainer col rightCol">
             <Switch>
-              <Route exact path="/" component={Login.component} />
-              <Route exact path='/forgotPassword' component={ForgotPassword.component} />
-              <Route exact path='/forgotsuccess' component={ForgotPasswordSuccess.component} />
-              <Route exact path='/register' component={Register.component} />
-              <Route exact path='/regsuccess' component={RegisterSuccess.component} />
-              <Route component={NotFound.component} />
+              <Route exact path="/" component={Login} />
+              <Route exact path='/forgotPassword' component={ForgotPassword} />
+              <Route exact path='/forgotsuccess' component={ForgotPasswordSuccess} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/regsuccess' component={RegisterSuccess} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </div>
