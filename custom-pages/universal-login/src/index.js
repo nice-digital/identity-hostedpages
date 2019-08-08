@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router} from "react-router-dom";
 import { Promise } from 'es6-promise'
 import LoginApp from './containers/LoginApp/LoginApp'
+import PasswordResetApp from "./containers/PasswordResetApp/PasswordResetApp";
 
 // if IE8
 global.Promise = global.Promise || Promise;
@@ -14,7 +15,10 @@ const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <Router>
-    <LoginApp />
+    {process.env.REACT_APP_RENDER === 'login' ?
+      <LoginApp /> :
+      <PasswordResetApp />
+    }
   </Router>,
   rootElement
 );

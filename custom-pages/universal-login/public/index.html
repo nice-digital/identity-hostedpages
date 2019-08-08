@@ -40,6 +40,12 @@
                       ? {}
                       : JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));
 
+      var rpConfig = {
+        email: "{{email | escape}}", // DO NOT CHANGE THIS
+        csrf_token: "{{csrf_token}}", // DO NOT CHANGE THIS
+        ticket: "{{ticket}}", // DO NOT CHANGE THIS
+        password_policy: "{{password_policy}}"
+      };
       (function(fallback) {
         fallback = fallback || function() {};
 
