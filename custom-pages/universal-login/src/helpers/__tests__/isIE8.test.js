@@ -1,4 +1,4 @@
-import isIE8 from './isIE8'
+import isIE8 from '../isIE8'
 
 
 describe('AppContainer components', () => {

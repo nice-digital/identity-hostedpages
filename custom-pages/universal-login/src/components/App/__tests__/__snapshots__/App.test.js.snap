@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App components should render Login components correctly 1`] = `ShallowWrapper {}`;
+
+exports[`App components should render ResetPassword components correctly 1`] = `ShallowWrapper {}`;

@@ -1,4 +1,4 @@
-import { showNav, hideNav } from './'
+import { showNav, hideNav } from '../index'
 
 global.document.querySelector = jest.fn(() => ({
   setAttribute: jest.fn(),

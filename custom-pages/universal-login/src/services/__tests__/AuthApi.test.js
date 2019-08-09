@@ -1,4 +1,4 @@
-import AuthApi from './AuthApi'
+import AuthApi from '../AuthApi'
 
 describe('AppContainer components', () => {
   it('should create an instance of AuthApi correctly', () => {

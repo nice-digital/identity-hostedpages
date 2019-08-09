@@ -1,4 +1,4 @@
-import { ensureTrailingSlash } from './'
+import { ensureTrailingSlash } from '../index'
 
 describe('ensureTrailingSlash ', () => {
   it('return the input with a trailing slash when the latter is not in input', () => {

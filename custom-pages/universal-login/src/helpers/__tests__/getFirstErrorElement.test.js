@@ -1,4 +1,4 @@
-import { getFirstErrorElement } from './'
+import { getFirstErrorElement } from '../index'
 
 global.document.getElementsByName = jest.fn()
 

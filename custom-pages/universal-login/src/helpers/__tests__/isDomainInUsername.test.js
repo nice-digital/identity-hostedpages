@@ -1,4 +1,4 @@
-import { isDomainInUsername } from './isDomainInUsername'
+import { isDomainInUsername } from '../isDomainInUsername'
 
 describe('isDomainInUsername ', () => {
   window.Auth0 = {
