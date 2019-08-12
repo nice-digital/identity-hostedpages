@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router} from "react-router-dom";
 import { Promise } from 'es6-promise'
 import App from './components/App/App'
 
@@ -12,7 +11,4 @@ global.__DEV__ = global.__DEV__ || document.location.host.indexOf('localhost') >
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(
-  <App />,
-  rootElement
-);
+ReactDOM.render( <App />, rootElement );
