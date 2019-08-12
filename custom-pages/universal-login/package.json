@@ -30,7 +30,7 @@
     "serve:login-local": "serve -s build-login/build -l 5000",
     "serve:passwordreset-local": "serve -s build-passwordreset/build -l 5001",
     "test": "react-scripts test",
-    "test:ci": "react-scripts test --testResultsProcessor ./node_modules/jest-teamcity-reporter",
+    "test:ci": "react-scripts test --ci --coverage --watchAll --testResultsProcessor ./node_modules/jest-teamcity-reporter",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
