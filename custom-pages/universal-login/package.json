@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@nice-digital/design-system": "1.0.5-alpha.0",
-    "@nice-digital/nds-alert": "1.0.4-alpha.0",
-    "@nice-digital/nds-core": "1.0.3-alpha.0",
-    "@nice-digital/nds-forms": "1.0.6-alpha.0",
+    "@nice-digital/design-system": "1.0.6-alpha.0",
+    "@nice-digital/nds-alert": "1.0.5-alpha.0",
+    "@nice-digital/nds-core": "1.0.4-alpha.0",
+    "@nice-digital/nds-forms": "1.0.7-alpha.0",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
     "fetch-ie8": "1.5.0",
@@ -20,6 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:login-local": "env-cmd -f .env.login.local react-scripts start",
+    "start:passwordreset-local": "env-cmd -f .env.login.local react-scripts start",
     "build": "react-scripts build",
     "build:login": "env-cmd -f .env.login react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
     "build:passwordreset": "env-cmd -f .env.passwordreset react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
