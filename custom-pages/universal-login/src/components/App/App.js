@@ -25,10 +25,12 @@ class App extends React.Component {
                     <Route exact path="/" component={Login} /> :
                     <Route exact path="/" component={ResetPassword} />
                   }
-                  <Route exact path='/forgotPassword' component={ForgotPassword} />
-                  <Route exact path='/forgotsuccess' component={ForgotPasswordSuccess} />
+                  <Route exact path='/login' component={Login} />
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/regsuccess' component={RegisterSuccess} />
+                  <Route exact path='/forgotPassword' component={ForgotPassword} />
+                  <Route exact path='/forgotsuccess' component={ForgotPasswordSuccess} />
+                  <Route exact path='/resetpassword' component={ResetPassword} />
                   <Route exact path='/resetsuccess' component={ResetPasswordSuccess} />
                   <Route component={NotFound} />
                 </Switch>
