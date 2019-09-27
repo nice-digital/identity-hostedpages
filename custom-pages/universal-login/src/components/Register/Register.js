@@ -1,4 +1,4 @@
-import React, { Component, Fragment }  from 'react'
+import React, { Component }  from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
 import { showNav, getFirstErrorElement, validateFields } from '../../helpers'
@@ -196,14 +196,14 @@ class Register extends Component {
                   aria-labelledby="error-summary-title"
                 >
                   <h5>There is a problem</h5>
-                  <a
+                  <button
                     role="link"
                     tabIndex="0"
                     onKeyPress={this.goToAlert}
                     onClick={this.goToAlert}
                   >
                     Click here to see the errors
-                  </a>
+                  </button>
                 </Alert>
               )}
               {serverSideError && (
@@ -274,6 +274,7 @@ class Register extends Component {
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="password-error"
+              autoComplete="new-password"
             />
             <Input
               data-qa-sel="confirm-password-register"
@@ -286,6 +287,7 @@ class Register extends Component {
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"
+              autoComplete="new-password"
             />
             <Input
               data-qa-sel="name-register"

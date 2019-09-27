@@ -136,9 +136,9 @@ class Login extends Component {
               <Alert type="error">
                 {error}{' '}
                 {myerrorcode === 'user_not_verified' ? (
-                  <a href="#" onClick={this.resendVerificationEmail}>
+                  <button href="#" onClick={this.resendVerificationEmail}>
                     Resend activation email
-                  </a>
+                  </button>
                 ) : null}
               </Alert>
             )}
@@ -153,6 +153,7 @@ class Login extends Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
+              autoComplete="username"
             />
             {!isAD && (
               <Input
@@ -161,6 +162,7 @@ class Login extends Component {
                 type="password"
                 label="Password"
                 onChange={this.handleChange}
+                autoComplete="current-password"
               />
             )}
           </Fieldset>

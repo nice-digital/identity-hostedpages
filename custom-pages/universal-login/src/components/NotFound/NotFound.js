@@ -10,7 +10,7 @@ const goBack = (e) => {
 const NotFound = () => (
   <div className="notFound">
     <h4>Something must have gone slightly wrong!</h4>
-    <p><a href="#" onClick={goBack}>&larr; Back</a></p>
+    <p><a href="/" onClick={goBack}>&larr; Back</a></p>
   </div>
 )
 

@@ -99,9 +99,9 @@ export class ResetPassword extends React.Component {
                   type="error"
                   aria-labelledby="error-summary-title" >
                   <h5>There is a problem</h5>
-                  <a role="link" tabIndex="0" onKeyPress={this.goToAlert} onClick={this.goToAlert}>
+                  <button role="link" tabIndex="0" onKeyPress={this.goToAlert} onClick={this.goToAlert}>
                     Click here to see the errors
-                  </a>
+                  </button>
                 </Alert>
               )}
             </div>
@@ -116,6 +116,7 @@ export class ResetPassword extends React.Component {
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="password-error"
+              autoComplete="new-password"
             />
             <Input
               data-qa-sel="confirm-password-resetPassword"
@@ -128,6 +129,7 @@ export class ResetPassword extends React.Component {
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"
+              autoComplete="new-password"
             />
 
             <button

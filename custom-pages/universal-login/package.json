@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:login-local": "env-cmd -f .env.login.local react-scripts start",
-    "start:passwordreset-local": "env-cmd -f .env.login.local react-scripts start",
+    "start:passwordreset-local": "env-cmd -f .env.passwordreset.local react-scripts start",
     "build": "react-scripts build",
     "build:login": "env-cmd -f .env.login react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
     "build:passwordreset": "env-cmd -f .env.passwordreset react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
