@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, Fragment }  from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
 import { showNav, getFirstErrorElement, validateFields } from '../../helpers'
@@ -8,7 +8,7 @@ import isIE8 from '../../helpers/isIE8'
 import {Link} from "react-router-dom";
 import Nav from "../Nav/Nav";
 
-class Register extends React.Component {
+class Register extends Component {
   constructor(props) {
     super(props)
     this.auth = new AuthApi()
@@ -69,7 +69,8 @@ class Register extends React.Component {
           name,
           surname,
           allowContactMe.toString(),
-          errorCallback
+          errorCallback,
+          this.props.history
         )
       } catch (err) {
         this.setState({ loading: false })
