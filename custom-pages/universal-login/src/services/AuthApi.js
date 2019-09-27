@@ -311,7 +311,7 @@ export default class AuthApi {
     }
   }
 
-  register(email, password, name, surname, allowContactMe, errorCallback) {
+  register(email, password, name, surname, allowContactMe, errorCallback, history) {
     const options = {
       ...this.params,
       connection: authOpts.connection,
@@ -334,7 +334,8 @@ export default class AuthApi {
         }
         return false
       }
-      document.location.hash = '#/regsuccess'
+      //document.location.hash = '#/regsuccess'
+      history.push('/regsuccess');
       return true
     })
   }
