@@ -43,13 +43,15 @@ describe('ResetPassword components', () => {
 
   it('should call the AuthApi forgotPAssword when login is invoked', () => {
     const password = 'Password01!'
+    const history = undefined;
     el.setState({
       password,
       confirmPassword: password,
-      errors: { password: false, confirmPassword: false }
+      errors: { password: false, confirmPassword: false },
+      history
     }).update()
 
     instance.resetPassword()
-    expect(instance.auth.resetPassword).toBeCalledWith(password)
+    expect(instance.auth.resetPassword).toBeCalledWith(password, history)
   })
 })

@@ -27,7 +27,7 @@ export class ResetPassword extends React.Component {
     const { password } = this.state
     this.validate()
     if (this.isFormValidForSubmission() || isIE8()) {
-      this.auth.resetPassword(password)
+      this.auth.resetPassword(password, this.props.history)
     } else {
       this.setState({ showAlert: true }, () => {
         const el = document.getElementById('thereIsAnError')

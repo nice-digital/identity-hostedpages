@@ -29,7 +29,7 @@ class ForgotPassword extends React.Component {
     try {
       this.setState({ loading: true }, () => {
         const { email } = this.state
-        this.auth.forgotPassword(email, this.requestErrorCallback)
+        this.auth.forgotPassword(email, this.requestErrorCallback, this.props.history)
       })
     } catch (err) {
       this.setState({ loading: false })

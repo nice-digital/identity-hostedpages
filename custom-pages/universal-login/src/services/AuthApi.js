@@ -211,7 +211,7 @@ export default class AuthApi {
     formElement.submit()
   }
 
-  forgotPassword(email, errorCallback) {
+  forgotPassword(email, errorCallback, history) {
     const options = {
       ...this.params,
       connection: authOpts.connection,
@@ -219,7 +219,7 @@ export default class AuthApi {
       email
     }
     if (isIE8()) {
-      this.forgotPasswordIE8(options, errorCallback)
+      this.forgotPasswordIE8(options, errorCallback, history)
     } else {
       this.instance.changePassword(options, (err) => {
         if (err) {
@@ -228,13 +228,13 @@ export default class AuthApi {
           }
           return false
         }
-        document.location.hash = '#/forgotsuccess'
+        history.push('/forgotsuccess');
         return true
       })
     }
   }
 
-  forgotPasswordIE8 = (data, errorCallback) => {
+  forgotPasswordIE8 = (data, errorCallback, history) => {
     ie8Fetch('/dbconnections/change_password', {
       method: 'POST',
       headers: {
@@ -247,7 +247,7 @@ export default class AuthApi {
     })
       .then((res) => {
         if (res.status === 200) {
-          document.location.hash = '#/forgotsuccess'
+          history.push('/forgotsuccess');
         } else if (errorCallback) {
           setTimeout(() => errorCallback(res))
         }
@@ -260,10 +260,10 @@ export default class AuthApi {
       })
   }
 
-  resetPassword = (password, errorCallback) => {
+  resetPassword = (password, errorCallback, history) => {
     const callback = (res) => {
       if (res.status === 200) {
-        document.location.hash = '#/resetsuccess'
+        history.push('/resetsuccess');
       } else if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
       }
@@ -334,7 +334,6 @@ export default class AuthApi {
         }
         return false
       }
-      //document.location.hash = '#/regsuccess'
       history.push('/regsuccess');
       return true
     })
