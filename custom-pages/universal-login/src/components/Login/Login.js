@@ -183,11 +183,11 @@ class Login extends Component {
                   style={{ float: 'right' }}
                   onClick={e => this.login(e, true)}
                 >
-                  <span className="buttonLabel">Or sign in with</span>
+                  <span className="buttonLabel">Or </span>
                   <img
                     className="iconBtn-icon"
                     alt="Sign in with google"
-                    src="https://d2i72ju5buk5xz.cloudfront.net/gsc/OLZUJZ/b2/91/66/b29166a7cbbb4366a0489f51425d4eef/images/sign_in_nice_org_v1/u1197.png?token=e0f2a5088357cc15a5a882ace3c75abd"
+                    src="/images/btn_google_signin_light_normal_web"
                   />
                 </button>
               )}
