@@ -18,7 +18,7 @@ const RegisterSuccess = () => {
         Note: check your spam folder if you do not receive the activation email.
       </Alert>
       <p>
-        <a href="#">&larr; Take me back to Login</a>
+        <a href="/">&larr; Take me back to Login</a>
       </p>
     </div>
   )
