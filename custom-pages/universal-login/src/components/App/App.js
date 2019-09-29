@@ -31,7 +31,6 @@ class App extends React.Component {
                   <Route path='*/forgotPassword' component={ForgotPassword} />
                   <Route path='*/forgotsuccess' component={ForgotPasswordSuccess} />
                   <Route path='*/resetpassword' component={ResetPassword} />
-                  <Route path='*/lo/reset' component={ResetPassword} />
                   <Route path='*/change-password' component={ResetPassword} />
                   <Route path='*/resetsuccess' component={ResetPasswordSuccess} />
                   <Route component={NotFound} />
