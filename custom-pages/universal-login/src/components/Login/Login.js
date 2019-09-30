@@ -187,7 +187,7 @@ class Login extends Component {
                   <img
                     className="iconBtn-icon"
                     alt="Sign in with google"
-                    src="/images/btn_google_signin_light_normal_web.png"
+                    src={ process.env.PUBLIC_URL + "/images/btn_google_signin_light_normal_web.png"}
                   />
                 </button>
               )}
