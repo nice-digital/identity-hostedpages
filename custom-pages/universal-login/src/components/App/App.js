@@ -19,7 +19,7 @@ class App extends React.Component {
         <div className="wrapper">
           <Header className="col leftCol" />
           <div className="mainContainer col rightCol">
-            <Router>
+            <Router basename={ process.env.REACT_APP_RENDER === "login" ? "" : "/lo/reset"}>
                 <Switch>
                   {process.env.REACT_APP_RENDER === 'login' ?
                     <Route exact path="/" component={Login} /> :
