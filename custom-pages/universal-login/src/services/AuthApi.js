@@ -327,8 +327,10 @@ export default class AuthApi {
     if (isIE8()) {
       this.registerIE8(options, errorCallback)
     }
+    console.log(options);
     this.instance.signup(options, (err) => {
       if (err) {
+        console.log(err);
         if (errorCallback) {
           setTimeout(() => errorCallback(err))
         }
@@ -371,6 +373,8 @@ export default class AuthApi {
   resendVerificationEmail = (userId, callerCallback) => {
     console.log('resending email to: ', userId)
     const callback = (res) => {
+      console.log(JSON.stringify(res));
+      console.log(res.status);
       if (res.status === 200) {
         setTimeout(() => callerCallback(null)) // this will reset the error
       } else {
@@ -380,7 +384,7 @@ export default class AuthApi {
     }
     const catchCallback = (err) => {
       setTimeout(() =>
-        callerCallback('something has gone wrong when sending the email'))
+        callerCallback('something has gone quite wrong when sending the email'))
       console.log(JSON.stringify(err))
     }
 
