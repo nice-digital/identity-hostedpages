@@ -14,28 +14,33 @@ import './App.scss'
 
 class App extends React.Component {
   render() {
+
+    const isLoginPage = process.env.REACT_APP_RENDER === "login"; //there's 2 buckets. login page and reset password.
+
     return (
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
           <div className="mainContainer col rightCol">
-            <Router basename={ process.env.REACT_APP_RENDER === "login" ? "" : "/lo/reset"}>
-                <Switch>
-                  {process.env.REACT_APP_RENDER === 'login' ?
-                    <Route exact path="/" component={Login} /> :
-                    <Route exact path="/" component={ResetPassword} />
-                  }
-                  <Route path='*/login' component={Login} />
-                  <Route path='*/register' component={Register} />
-                  <Route path='*/regsuccess' component={RegisterSuccess} />
-                  <Route path='*/forgotPassword' component={ForgotPassword} />
-                  <Route path='*/forgotsuccess' component={ForgotPasswordSuccess} />
-                  <Route path='*/resetpassword' component={ResetPassword} />
-                  <Route path='*/change-password' component={ResetPassword} />
-                  <Route path='*/resetsuccess' component={ResetPasswordSuccess} />
-                  <Route component={NotFound} />
-                </Switch>
+
+            <Router basename={ isLoginPage === "login" ? "" : "/lo/reset"}>
+              <Switch>
+                {isLoginPage === 'login' ?
+                  <Route exact path="/" component={Login} /> :
+                  <Route exact path="/" component={ResetPassword} />
+                }
+                <Route path='*/login' component={Login} />
+                <Route path='*/register' component={Register} />
+                <Route path='*/regsuccess' component={RegisterSuccess} />
+                <Route path='*/forgotPassword' component={ForgotPassword} />
+                <Route path='*/forgotsuccess' component={ForgotPasswordSuccess} />
+                <Route path='*/resetpassword' component={ResetPassword} />
+                <Route path='*/change-password' component={ResetPassword} />
+                <Route path='*/resetsuccess' component={ResetPasswordSuccess} />
+                <Route component={NotFound} />
+              </Switch>
             </Router>
+
           </div>
         </div>
       </div>
