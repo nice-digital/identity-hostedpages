@@ -405,6 +405,8 @@ export default class AuthApi {
         .then(callback)
         .catch(catchCallback)
     } else {
+      console.log('about to resend verification email');
+      console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);      
       fetch(urls.resendVerificationEmail, {
         method: 'POST',
         headers: {
