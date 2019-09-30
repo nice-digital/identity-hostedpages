@@ -23,9 +23,9 @@ class App extends React.Component {
           <Header className="col leftCol" />
           <div className="mainContainer col rightCol">
 
-            <Router basename={ isLoginPage === "login" ? "" : "/lo/reset"}>
+            <Router basename={ isLoginPage ? "" : "/lo/reset"}>
               <Switch>
-                {isLoginPage === 'login' ?
+                {isLoginPage ?
                   <Route exact path="/" component={Login} /> :
                   <Route exact path="/" component={ResetPassword} />
                 }
