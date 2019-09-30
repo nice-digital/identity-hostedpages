@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,7 +24,7 @@
     <title>NICE Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" />
 
     <!--[if IE 8]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
@@ -31,70 +32,73 @@
     <![endif]-->
 
     <script src="https://cdn.auth0.com/js/base64.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>
-      var config =
-              document.location.host.indexOf("localhost") !== -1
-                      ? {}
-                      : JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));
-
-      var rpConfig = {
-        email: "{{email | escape}}", // DO NOT CHANGE THIS
-        csrf_token: "{{csrf_token}}", // DO NOT CHANGE THIS
-        ticket: "{{ticket}}", // DO NOT CHANGE THIS
-        password_policy: "{{password_policy}}"
-      };
-      (function(fallback) {
-        fallback = fallback || function() {};
-
-        // function to trap most of the console functions from the FireBug Console API.
-        var trap = function() {
-          // create an Array from the arguments Object
-          var args = Array.prototype.slice.call(arguments);
-          // console.raw captures the raw args, without converting toString
-          console.raw.push(args);
-          var message = args.join(" ");
-          console.messages.push(message);
-          fallback(message);
-        };
-
-        // redefine console
-        if (typeof console === "undefined") {
-          console = {
-            messages: [],
-            raw: [],
-            dump: function() {
-              return console.messages.join("\n");
-            },
-            log: trap,
-            debug: trap,
-            info: trap,
-            warn: trap,
-            error: trap,
-            assert: trap,
-            clear: function() {
-              console.messages.length = 0;
-              console.raw.length = 0;
-            },
-            dir: trap,
-            dirxml: trap,
-            trace: trap,
-            group: trap,
-            groupCollapsed: trap,
-            groupEnd: trap,
-            time: trap,
-            timeEnd: trap,
-            timeStamp: trap,
-            profile: trap,
-            profileEnd: trap,
-            count: trap,
-            exception: trap,
-            table: trap
-          };
+        if ("%PUBLIC_URL%".endsWith("login")) {
+            var config =
+                document.location.host.indexOf("localhost") !== -1 ? {} :
+                JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));
+        } else {
+            var rpConfig = {
+                email: "{{email | escape}}", // DO NOT CHANGE THIS
+                csrf_token: "{{csrf_token}}", // DO NOT CHANGE THIS
+                ticket: "{{ticket}}", // DO NOT CHANGE THIS
+                password_policy: "{{password_policy}}"
+            };
         }
-      })(console? console.log : null);
+
+        (function(fallback) {
+            fallback = fallback || function() {};
+
+            // function to trap most of the console functions from the FireBug Console API.
+            var trap = function() {
+                // create an Array from the arguments Object
+                var args = Array.prototype.slice.call(arguments);
+                // console.raw captures the raw args, without converting toString
+                console.raw.push(args);
+                var message = args.join(" ");
+                console.messages.push(message);
+                fallback(message);
+            };
+
+            // redefine console
+            if (typeof console === "undefined") {
+                console = {
+                    messages: [],
+                    raw: [],
+                    dump: function() {
+                        return console.messages.join("\n");
+                    },
+                    log: trap,
+                    debug: trap,
+                    info: trap,
+                    warn: trap,
+                    error: trap,
+                    assert: trap,
+                    clear: function() {
+                        console.messages.length = 0;
+                        console.raw.length = 0;
+                    },
+                    dir: trap,
+                    dirxml: trap,
+                    trace: trap,
+                    group: trap,
+                    groupCollapsed: trap,
+                    groupEnd: trap,
+                    time: trap,
+                    timeEnd: trap,
+                    timeStamp: trap,
+                    profile: trap,
+                    profileEnd: trap,
+                    count: trap,
+                    exception: trap,
+                    table: trap
+                };
+            }
+        })(console ? console.log : null);
     </script>
     <div id="root"></div>
     <!--
@@ -107,5 +111,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
