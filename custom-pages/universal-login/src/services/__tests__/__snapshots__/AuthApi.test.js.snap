@@ -4,7 +4,6 @@ exports[`AppContainer components should create an instance of AuthApi correctly 
 AuthApi {
   "createAuth0Namespace": [Function],
   "fetchClientSettings": [Function],
-  "forgotPasswordIE8": [Function],
   "getStategies": [Function],
   "instance": WebAuth {
     "_universalLogin": HostedPages {
@@ -515,7 +514,6 @@ AuthApi {
       "webAuth": [Circular],
     },
   },
-  "loginIE8": [Function],
   "opts": Object {
     "_sendTelemetry": true,
     "_timesToRetryFailedRequests": 0,
@@ -556,7 +554,6 @@ AuthApi {
     "tenant": "#{AUTH0_DOMAIN}",
     "token_issuer": "https://#{AUTH0_DOMAIN}/",
   },
-  "registerIE8": [Function],
   "resendVerificationEmail": [Function],
   "resetPassword": [Function],
   "submitWSForm": [Function],

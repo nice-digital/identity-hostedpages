@@ -4,7 +4,6 @@ import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
 import { showNav, getFirstErrorElement, validateFields } from '../../helpers'
 import AuthApi from '../../services/AuthApi'
 import './Register.scss'
-import isIE8 from '../../helpers/isIE8'
 import {Link} from "react-router-dom";
 import Nav from "../Nav/Nav";
 
@@ -37,11 +36,9 @@ class Register extends Component {
   }
 
   scrollIntoErrorPanel = () => {
-    if (!isIE8()) {
-      document
-        .getElementById('thereIsAnError')
-        .scrollIntoView({ block: 'center' })
-    }
+    document
+      .getElementById('thereIsAnError')
+      .scrollIntoView({ block: 'center' })    
     return true
   }
 
@@ -56,11 +53,10 @@ class Register extends Component {
       email, password, name, surname, allowContactMe
     } = this.state
 
-    if (!isIE8()) {
-      this.validate()
-      this.catchBlanks()
-    }
-    if (this.isFormValidForSubmission() || isIE8()) {
+    this.validate()
+    this.catchBlanks()
+    
+    if (this.isFormValidForSubmission()) {
       try {
         this.setState({ loading: true })
         this.auth.register(
@@ -159,11 +155,10 @@ class Register extends Component {
 
   goToAlert = (e) => {
     if (e) e.preventDefault()
-    if (!isIE8()) {
-      getFirstErrorElement(this.state.errors).scrollIntoView({
-        block: 'center'
-      })
-    }
+    
+    getFirstErrorElement(this.state.errors).scrollIntoView({
+      block: 'center'
+    })    
   }
 
   render() {

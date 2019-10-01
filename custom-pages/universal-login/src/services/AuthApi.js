@@ -1,10 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
 import Auth0 from 'auth0-js'
-import ie8Fetch from 'fetch-ie8'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
-import { isIE8, ensureTrailingSlash } from '../helpers'
+import { ensureTrailingSlash } from '../helpers'
 
 const __DEV__ = global.__DEV__ || false
 export default class AuthApi {
@@ -104,9 +103,7 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      if (isIE8()) {
-        this.loginIE8(options, method, errorCallback, resumeAuthState)
-      } else if (!resumeAuthState) {
+      if (!resumeAuthState) {
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
@@ -145,65 +142,6 @@ export default class AuthApi {
     }
   }
 
-  loginIE8 = (data, method, errorCallback, resumeAuthState) => {
-    const redirectUri = window.config.extraParams.redirectURI
-    const isPost = method === 'login' && !resumeAuthState
-    let authorizeUrl
-    const options = {
-      method: isPost ? 'POST' : 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }
-
-    if (isPost) {
-      options.body = JSON.stringify({
-        ...data,
-        connection: data.realm || data.connection,
-        client_id: authOpts.clientID,
-        redirect_uri: redirectUri,
-        state: resumeAuthState || data.state
-      })
-    } else {
-      const GETBody = {
-        ...data,
-        client_id: data.clientID,
-        state: resumeAuthState || data.state
-      }
-      delete GETBody.clientID
-      delete GETBody.redirectURI
-      delete GETBody.username
-      authorizeUrl = resumeAuthState ? '/contiue' : method
-      authorizeUrl += qs.stringify(GETBody, { addQueryPrefix: true })
-    }
-
-    let url
-    if (resumeAuthState) {
-      url = authorizeUrl
-    } else {
-      url = method === 'login' ? '/usernamepassword/login' : authorizeUrl
-    }
-    ie8Fetch(url, options)
-      .then((res) => {
-        if (res.status === 200) {
-          if (resumeAuthState) {
-            document.location = redirectUri
-          } else {
-            this.submitWSForm(res._bodyInit)
-          }
-        } else if (errorCallback) {
-          setTimeout(() => errorCallback(res))
-        }
-      })
-      .catch((err) => {
-        if (errorCallback) {
-          setTimeout(() => errorCallback(err))
-        }
-        console.log(JSON.stringify(err))
-      })
-  }
-
   submitWSForm = (responseForm) => {
     const div = document.createElement('div')
     div.innerHTML = responseForm
@@ -218,46 +156,16 @@ export default class AuthApi {
       responseType: authOpts.responseType,
       email
     }
-    if (isIE8()) {
-      this.forgotPasswordIE8(options, errorCallback, history)
-    } else {
-      this.instance.changePassword(options, (err) => {
-        if (err) {
-          if (errorCallback) {
-            setTimeout(() => errorCallback(err), 5)
-          }
-          return false
-        }
-        history.push('/forgotsuccess');
-        return true
-      })
-    }
-  }
-
-  forgotPasswordIE8 = (data, errorCallback, history) => {
-    ie8Fetch('/dbconnections/change_password', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        ...data
-      })
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          history.push('/forgotsuccess');
-        } else if (errorCallback) {
-          setTimeout(() => errorCallback(res))
-        }
-      })
-      .catch((err) => {
+    this.instance.changePassword(options, (err) => {
+      if (err) {
         if (errorCallback) {
-          setTimeout(() => errorCallback(err))
+          setTimeout(() => errorCallback(err), 5)
         }
-        console.log(JSON.stringify(err))
-      })
+        return false
+      }
+      history.push('/forgotsuccess');
+      return true
+    })    
   }
 
   resetPassword = (password, errorCallback, history) => {
@@ -285,29 +193,17 @@ export default class AuthApi {
         newPassword: password,
         confirmNewPassword: password
       }
-      if (isIE8()) {
-        ie8Fetch('/lo/reset', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-          .then(callback)
-          .catch(catchCallback)
-      } else {
-        fetch('/lo/reset', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-          .then(callback)
-          .catch(catchCallback)
-      }
+      
+      fetch('/lo/reset', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(callback)
+        .catch(catchCallback)      
     }
   }
 
@@ -324,9 +220,6 @@ export default class AuthApi {
         allowContactMe
       }
     }
-    if (isIE8()) {
-      this.registerIE8(options, errorCallback)
-    }
     console.log(options);
     this.instance.signup(options, (err) => {
       if (err) {
@@ -339,35 +232,6 @@ export default class AuthApi {
       history.push('/regsuccess');
       return true
     })
-  }
-
-  registerIE8 = (data, errorCallback) => {
-    const redirectUri = window.config.extraParams.redirectURI
-    ie8Fetch('/dbconnections/signup', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        ...data,
-        client_id: authOpts.clientID,
-        redirect_uri: redirectUri
-      })
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          // document.location = redirectUri
-        } else if (errorCallback) {
-          setTimeout(() => errorCallback(res))
-        }
-      })
-      .catch((err) => {
-        if (errorCallback) {
-          setTimeout(() => errorCallback(err))
-        }
-        console.log(err)
-      })
   }
 
   resendVerificationEmail = (userId, callerCallback) => {
@@ -393,30 +257,17 @@ export default class AuthApi {
       user_id: userId,
       client_id: authOpts.clientID
     }
-    if (isIE8()) {
-      ie8Fetch(urls.resendVerificationEmail, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(callback)
-        .catch(catchCallback)
-    } else {
-      console.log('about to resend verification email');
-      console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);      
-      fetch(urls.resendVerificationEmail, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(callback)
-        .catch(catchCallback)
-    }
+    console.log('about to resend verification email');
+    console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);      
+    fetch(urls.resendVerificationEmail, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(callback)
+      .catch(catchCallback)
   }
 }

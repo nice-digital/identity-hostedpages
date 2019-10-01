@@ -1,7 +1,7 @@
 import React from 'react'
 import Alert from '@nice-digital/nds-alert'
 import { Input, Fieldset } from '@nice-digital/nds-forms'
-import { hideNav, getFirstErrorElement, validateFields, isIE8 } from '../../helpers'
+import { hideNav, getFirstErrorElement, validateFields } from '../../helpers'
 import AuthApi from '../../services/AuthApi'
 import './ResetPassword.scss'
 import Nav from "../Nav/Nav";
@@ -26,7 +26,7 @@ export class ResetPassword extends React.Component {
     if (event) event.preventDefault()
     const { password } = this.state
     this.validate()
-    if (this.isFormValidForSubmission() || isIE8()) {
+    if (this.isFormValidForSubmission()) {
       this.auth.resetPassword(password, null, this.props.history)
     } else {
       this.setState({ showAlert: true }, () => {

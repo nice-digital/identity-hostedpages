@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom'
 import { Promise } from 'es6-promise'
 import App from './components/App/App'
 
-// if IE8
 global.Promise = global.Promise || Promise;
 global.__DEV__ = global.__DEV__ || document.location.host.indexOf('localhost') > -1;
 
