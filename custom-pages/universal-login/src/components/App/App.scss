@@ -1,0 +1,73 @@
+@import "~@nice-digital/nds-forms/scss/forms";
+@import "~@nice-digital/nds-button/scss/button";
+
+:root {
+  --font-base: Lato, Helvetica, sans-serif;
+  --gutter: 1.2rem;
+  --col-width-mobile: 20rem;
+  --col-width-desktop: 36rem;
+  --top: 3.6rem;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.col {
+  height: 100%;
+  padding: 3rem;
+  width: var(--col-width-desktop);
+}
+
+.rightCol {
+  padding-top: 1.4rem !important;
+}
+
+.mainContainer {
+  padding-top: var(--top);
+  min-width: var(--col-width-desktop);
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .rightCol,
+  .leftCol {
+    width: 100%;
+    min-width: var(--col-width-mobile);
+    padding-bottom: 0;
+  }
+  .mainContainer {
+    min-width: var(--col-width-mobile);
+  }
+
+  .navigation {
+    width: calc(var(--col-width-mobile) - 5rem);
+  }
+}
+
+.btn {
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+legend{
+  border: none !important;
+  width: auto !important;
+}
+
+label{
+  color: #333 !important;
+}
