@@ -10,7 +10,7 @@ export default class AuthApi {
   static instance = null
   constructor() {
     if (!window.config) {
-      window.config = {}
+      window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
     console.log(`config: ${JSON.stringify(config)}`);
@@ -31,6 +31,7 @@ export default class AuthApi {
       }
     }
     this.params = Object.assign(this.opts, window.config.internalOptions)
+    console.log(`this.params: ${JSON.stringify(this.params)}`);
     this.instance = new Auth0.WebAuth(this.params)
   }
 

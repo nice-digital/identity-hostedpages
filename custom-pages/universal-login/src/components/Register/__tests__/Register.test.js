@@ -16,7 +16,6 @@ describe('Register components', () => {
   jest.mock('../../../services/AuthApi');
 
   beforeEach(() => {
-    global.config = { authorizationServer: {}};
     el = shallow(<Register />);
     instance = el.instance();
     instance.auth = auth;
