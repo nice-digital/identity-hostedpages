@@ -2,6 +2,7 @@ import AuthApi from '../AuthApi'
 
 describe('AppContainer components', () => {
   it('should create an instance of AuthApi correctly', () => {
+    global.config = { authorizationServer: {}};
     expect(new AuthApi()).toMatchSnapshot()
   })
 

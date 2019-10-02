@@ -13,6 +13,7 @@ export default class AuthApi {
       window.config = {}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
+    console.log(`config: ${JSON.stringify(config)}`);
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
@@ -23,9 +24,9 @@ export default class AuthApi {
       scope: authOpts.scope,
       redirect: true,
       overrides: {
-      //   // eslint-disable-next-line
+        // eslint-disable-next-line
         __tenant: config.auth0Tenant,
-      //   // eslint-disable-next-line
+        // eslint-disable-next-line
         __token_issuer: config.authorizationServer.issuer
       }
     }

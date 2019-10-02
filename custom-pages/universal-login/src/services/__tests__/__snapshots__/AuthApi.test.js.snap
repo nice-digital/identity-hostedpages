@@ -14,6 +14,10 @@ AuthApi {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -45,6 +49,10 @@ AuthApi {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -66,6 +74,10 @@ AuthApi {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -87,6 +99,10 @@ AuthApi {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -115,6 +131,10 @@ AuthApi {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -163,6 +183,10 @@ AuthApi {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -206,6 +230,10 @@ AuthApi {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -227,6 +255,10 @@ AuthApi {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -248,6 +280,10 @@ AuthApi {
             "domain": "#{AUTH0_DOMAIN}",
             "jwksURI": undefined,
             "leeway": 1,
+            "overrides": Object {
+              "__tenant": undefined,
+              "__token_issuer": undefined,
+            },
             "plugins": PluginHandler {
               "plugins": Array [],
             },
@@ -276,6 +312,10 @@ AuthApi {
             "domain": "#{AUTH0_DOMAIN}",
             "jwksURI": undefined,
             "leeway": 1,
+            "overrides": Object {
+              "__tenant": undefined,
+              "__token_issuer": undefined,
+            },
             "plugins": PluginHandler {
               "plugins": Array [],
             },
@@ -324,6 +364,10 @@ AuthApi {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -369,6 +413,10 @@ AuthApi {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -404,6 +452,10 @@ AuthApi {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -425,6 +477,10 @@ AuthApi {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -485,6 +541,10 @@ AuthApi {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -521,6 +581,10 @@ AuthApi {
     "domain": "#{AUTH0_DOMAIN}",
     "jwksURI": undefined,
     "leeway": 1,
+    "overrides": Object {
+      "__tenant": undefined,
+      "__token_issuer": undefined,
+    },
     "plugins": PluginHandler {
       "plugins": Array [],
     },
@@ -541,6 +605,10 @@ AuthApi {
     "domain": "#{AUTH0_DOMAIN}",
     "jwksURI": undefined,
     "leeway": 1,
+    "overrides": Object {
+      "__tenant": undefined,
+      "__token_issuer": undefined,
+    },
     "plugins": PluginHandler {
       "plugins": Array [],
     },
@@ -575,6 +643,10 @@ WebAuth {
       "myerror": "UnauthorizedError: Please verify your email before logging in.",
       "myerrorcode": "user_not_verified",
       "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+      "overrides": Object {
+        "__tenant": "dev-nice-identity",
+        "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -588,8 +660,8 @@ WebAuth {
       "rootUrl": "https://#{AUTH0_DOMAIN}",
       "scope": "openid read:profile",
       "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-      "tenant": "#{AUTH0_DOMAIN}",
-      "token_issuer": "https://#{AUTH0_DOMAIN}/",
+      "tenant": "dev-nice-identity",
+      "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
       "type": "code",
       "userid": "auth0|5c9b9bd6e893312e96990ebe",
       "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -618,6 +690,10 @@ WebAuth {
     "myerror": "UnauthorizedError: Please verify your email before logging in.",
     "myerrorcode": "user_not_verified",
     "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+    "overrides": Object {
+      "__tenant": "dev-nice-identity",
+      "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+    },
     "plugins": PluginHandler {
       "plugins": Array [],
     },
@@ -631,8 +707,8 @@ WebAuth {
     "rootUrl": "https://#{AUTH0_DOMAIN}",
     "scope": "openid read:profile",
     "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-    "tenant": "#{AUTH0_DOMAIN}",
-    "token_issuer": "https://#{AUTH0_DOMAIN}/",
+    "tenant": "dev-nice-identity",
+    "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
     "type": "code",
     "userid": "auth0|5c9b9bd6e893312e96990ebe",
     "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -651,6 +727,10 @@ WebAuth {
       "myerror": "UnauthorizedError: Please verify your email before logging in.",
       "myerrorcode": "user_not_verified",
       "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+      "overrides": Object {
+        "__tenant": "dev-nice-identity",
+        "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -664,8 +744,8 @@ WebAuth {
       "rootUrl": "https://#{AUTH0_DOMAIN}",
       "scope": "openid read:profile",
       "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-      "tenant": "#{AUTH0_DOMAIN}",
-      "token_issuer": "https://#{AUTH0_DOMAIN}/",
+      "tenant": "dev-nice-identity",
+      "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
       "type": "code",
       "userid": "auth0|5c9b9bd6e893312e96990ebe",
       "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -684,6 +764,10 @@ WebAuth {
         "myerror": "UnauthorizedError: Please verify your email before logging in.",
         "myerrorcode": "user_not_verified",
         "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+        "overrides": Object {
+          "__tenant": "dev-nice-identity",
+          "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -697,8 +781,8 @@ WebAuth {
         "rootUrl": "https://#{AUTH0_DOMAIN}",
         "scope": "openid read:profile",
         "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-        "tenant": "#{AUTH0_DOMAIN}",
-        "token_issuer": "https://#{AUTH0_DOMAIN}/",
+        "tenant": "dev-nice-identity",
+        "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
         "type": "code",
         "userid": "auth0|5c9b9bd6e893312e96990ebe",
         "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -724,6 +808,10 @@ WebAuth {
         "myerror": "UnauthorizedError: Please verify your email before logging in.",
         "myerrorcode": "user_not_verified",
         "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+        "overrides": Object {
+          "__tenant": "dev-nice-identity",
+          "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -737,8 +825,8 @@ WebAuth {
         "rootUrl": "https://#{AUTH0_DOMAIN}",
         "scope": "openid read:profile",
         "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-        "tenant": "#{AUTH0_DOMAIN}",
-        "token_issuer": "https://#{AUTH0_DOMAIN}/",
+        "tenant": "dev-nice-identity",
+        "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
         "type": "code",
         "userid": "auth0|5c9b9bd6e893312e96990ebe",
         "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -784,6 +872,10 @@ WebAuth {
       "myerror": "UnauthorizedError: Please verify your email before logging in.",
       "myerrorcode": "user_not_verified",
       "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+      "overrides": Object {
+        "__tenant": "dev-nice-identity",
+        "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -797,8 +889,8 @@ WebAuth {
       "rootUrl": "https://#{AUTH0_DOMAIN}",
       "scope": "openid read:profile",
       "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-      "tenant": "#{AUTH0_DOMAIN}",
-      "token_issuer": "https://#{AUTH0_DOMAIN}/",
+      "tenant": "dev-nice-identity",
+      "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
       "type": "code",
       "userid": "auth0|5c9b9bd6e893312e96990ebe",
       "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -839,6 +931,10 @@ WebAuth {
       "myerror": "UnauthorizedError: Please verify your email before logging in.",
       "myerrorcode": "user_not_verified",
       "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+      "overrides": Object {
+        "__tenant": "dev-nice-identity",
+        "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -852,8 +948,8 @@ WebAuth {
       "rootUrl": "https://#{AUTH0_DOMAIN}",
       "scope": "openid read:profile",
       "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-      "tenant": "#{AUTH0_DOMAIN}",
-      "token_issuer": "https://#{AUTH0_DOMAIN}/",
+      "tenant": "dev-nice-identity",
+      "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
       "type": "code",
       "userid": "auth0|5c9b9bd6e893312e96990ebe",
       "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -872,6 +968,10 @@ WebAuth {
         "myerror": "UnauthorizedError: Please verify your email before logging in.",
         "myerrorcode": "user_not_verified",
         "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+        "overrides": Object {
+          "__tenant": "dev-nice-identity",
+          "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -885,8 +985,8 @@ WebAuth {
         "rootUrl": "https://#{AUTH0_DOMAIN}",
         "scope": "openid read:profile",
         "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-        "tenant": "#{AUTH0_DOMAIN}",
-        "token_issuer": "https://#{AUTH0_DOMAIN}/",
+        "tenant": "dev-nice-identity",
+        "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
         "type": "code",
         "userid": "auth0|5c9b9bd6e893312e96990ebe",
         "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -905,6 +1005,10 @@ WebAuth {
           "myerror": "UnauthorizedError: Please verify your email before logging in.",
           "myerrorcode": "user_not_verified",
           "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+          "overrides": Object {
+            "__tenant": "dev-nice-identity",
+            "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -918,8 +1022,8 @@ WebAuth {
           "rootUrl": "https://#{AUTH0_DOMAIN}",
           "scope": "openid read:profile",
           "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-          "tenant": "#{AUTH0_DOMAIN}",
-          "token_issuer": "https://#{AUTH0_DOMAIN}/",
+          "tenant": "dev-nice-identity",
+          "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
           "type": "code",
           "userid": "auth0|5c9b9bd6e893312e96990ebe",
           "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -945,6 +1049,10 @@ WebAuth {
           "myerror": "UnauthorizedError: Please verify your email before logging in.",
           "myerrorcode": "user_not_verified",
           "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+          "overrides": Object {
+            "__tenant": "dev-nice-identity",
+            "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -958,8 +1066,8 @@ WebAuth {
           "rootUrl": "https://#{AUTH0_DOMAIN}",
           "scope": "openid read:profile",
           "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-          "tenant": "#{AUTH0_DOMAIN}",
-          "token_issuer": "https://#{AUTH0_DOMAIN}/",
+          "tenant": "dev-nice-identity",
+          "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
           "type": "code",
           "userid": "auth0|5c9b9bd6e893312e96990ebe",
           "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -1005,6 +1113,10 @@ WebAuth {
         "myerror": "UnauthorizedError: Please verify your email before logging in.",
         "myerrorcode": "user_not_verified",
         "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+        "overrides": Object {
+          "__tenant": "dev-nice-identity",
+          "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1018,8 +1130,8 @@ WebAuth {
         "rootUrl": "https://#{AUTH0_DOMAIN}",
         "scope": "openid read:profile",
         "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-        "tenant": "#{AUTH0_DOMAIN}",
-        "token_issuer": "https://#{AUTH0_DOMAIN}/",
+        "tenant": "dev-nice-identity",
+        "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
         "type": "code",
         "userid": "auth0|5c9b9bd6e893312e96990ebe",
         "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -1062,6 +1174,10 @@ WebAuth {
         "myerror": "UnauthorizedError: Please verify your email before logging in.",
         "myerrorcode": "user_not_verified",
         "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+        "overrides": Object {
+          "__tenant": "dev-nice-identity",
+          "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1075,8 +1191,8 @@ WebAuth {
         "rootUrl": "https://#{AUTH0_DOMAIN}",
         "scope": "openid read:profile",
         "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-        "tenant": "#{AUTH0_DOMAIN}",
-        "token_issuer": "https://#{AUTH0_DOMAIN}/",
+        "tenant": "dev-nice-identity",
+        "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
         "type": "code",
         "userid": "auth0|5c9b9bd6e893312e96990ebe",
         "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -1109,6 +1225,10 @@ WebAuth {
       "myerror": "UnauthorizedError: Please verify your email before logging in.",
       "myerrorcode": "user_not_verified",
       "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+      "overrides": Object {
+        "__tenant": "dev-nice-identity",
+        "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1122,8 +1242,8 @@ WebAuth {
       "rootUrl": "https://#{AUTH0_DOMAIN}",
       "scope": "openid read:profile",
       "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-      "tenant": "#{AUTH0_DOMAIN}",
-      "token_issuer": "https://#{AUTH0_DOMAIN}/",
+      "tenant": "dev-nice-identity",
+      "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
       "type": "code",
       "userid": "auth0|5c9b9bd6e893312e96990ebe",
       "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -1142,6 +1262,10 @@ WebAuth {
         "myerror": "UnauthorizedError: Please verify your email before logging in.",
         "myerrorcode": "user_not_verified",
         "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+        "overrides": Object {
+          "__tenant": "dev-nice-identity",
+          "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1155,8 +1279,8 @@ WebAuth {
         "rootUrl": "https://#{AUTH0_DOMAIN}",
         "scope": "openid read:profile",
         "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-        "tenant": "#{AUTH0_DOMAIN}",
-        "token_issuer": "https://#{AUTH0_DOMAIN}/",
+        "tenant": "dev-nice-identity",
+        "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
         "type": "code",
         "userid": "auth0|5c9b9bd6e893312e96990ebe",
         "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -1214,6 +1338,10 @@ WebAuth {
       "myerror": "UnauthorizedError: Please verify your email before logging in.",
       "myerrorcode": "user_not_verified",
       "nonce": "636892985897575998.YzdhZDAzZWEtMzMxMi00M2UyLWE3YTUtZWM4Y2Y1ZTg0MTA4OTMyMTFjN2UtZDQ3My00OTkyLWI5YTktMWQ3NDcwMzRkMWY4",
+      "overrides": Object {
+        "__tenant": "dev-nice-identity",
+        "__token_issuer": "https://dev-nice-identity.eu.auth0.com/",
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1227,8 +1355,8 @@ WebAuth {
       "rootUrl": "https://#{AUTH0_DOMAIN}",
       "scope": "openid read:profile",
       "state": "g6Fo2SBVdzZld3h1Z25QeURkREh1LTBVcU9rY2taRGR4dlBEU6N0aWTZIGxzcUl0aUxRTHFNam5yVFRJdzhlNllzLUFWNXU4bTJso2NpZNkgUk1wWVZqS0VfQjg1SU82RXVjMmkzSXN0VkFzdHJFSEs",
-      "tenant": "#{AUTH0_DOMAIN}",
-      "token_issuer": "https://#{AUTH0_DOMAIN}/",
+      "tenant": "dev-nice-identity",
+      "token_issuer": "https://dev-nice-identity.eu.auth0.com/",
       "type": "code",
       "userid": "auth0|5c9b9bd6e893312e96990ebe",
       "x-client-SKU": "ID_NETSTANDARD1_4",
@@ -1262,6 +1390,10 @@ WebAuth {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1293,6 +1425,10 @@ WebAuth {
     "domain": "#{AUTH0_DOMAIN}",
     "jwksURI": undefined,
     "leeway": 1,
+    "overrides": Object {
+      "__tenant": undefined,
+      "__token_issuer": undefined,
+    },
     "plugins": PluginHandler {
       "plugins": Array [],
     },
@@ -1314,6 +1450,10 @@ WebAuth {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1335,6 +1475,10 @@ WebAuth {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1363,6 +1507,10 @@ WebAuth {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1411,6 +1559,10 @@ WebAuth {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1454,6 +1606,10 @@ WebAuth {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1475,6 +1631,10 @@ WebAuth {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1496,6 +1656,10 @@ WebAuth {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -1524,6 +1688,10 @@ WebAuth {
           "domain": "#{AUTH0_DOMAIN}",
           "jwksURI": undefined,
           "leeway": 1,
+          "overrides": Object {
+            "__tenant": undefined,
+            "__token_issuer": undefined,
+          },
           "plugins": PluginHandler {
             "plugins": Array [],
           },
@@ -1572,6 +1740,10 @@ WebAuth {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1617,6 +1789,10 @@ WebAuth {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1652,6 +1828,10 @@ WebAuth {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },
@@ -1673,6 +1853,10 @@ WebAuth {
         "domain": "#{AUTH0_DOMAIN}",
         "jwksURI": undefined,
         "leeway": 1,
+        "overrides": Object {
+          "__tenant": undefined,
+          "__token_issuer": undefined,
+        },
         "plugins": PluginHandler {
           "plugins": Array [],
         },
@@ -1733,6 +1917,10 @@ WebAuth {
       "domain": "#{AUTH0_DOMAIN}",
       "jwksURI": undefined,
       "leeway": 1,
+      "overrides": Object {
+        "__tenant": undefined,
+        "__token_issuer": undefined,
+      },
       "plugins": PluginHandler {
         "plugins": Array [],
       },

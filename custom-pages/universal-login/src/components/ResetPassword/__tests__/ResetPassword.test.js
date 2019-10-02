@@ -15,6 +15,7 @@ describe('ResetPassword components', () => {
     jest.mock('../../../services/AuthApi')
 
     beforeEach(() => {
+        global.config = { authorizationServer: {}};
         el = shallow( < ResetPassword / > )
         instance = el.instance()
         instance.auth = auth
