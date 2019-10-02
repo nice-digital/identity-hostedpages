@@ -21,13 +21,13 @@ export default class AuthApi {
       popup: false,
       responseType: 'code',
       scope: authOpts.scope,
-      redirect: true
-      // overrides: {
+      redirect: true,
+      overrides: {
       //   // eslint-disable-next-line
-      //   __tenant: config.auth0Tenant,
+        __tenant: config.auth0Tenant,
       //   // eslint-disable-next-line
-      //   __token_issuer: config.authorizationServer.issuer
-      // }
+        __token_issuer: config.authorizationServer.issuer
+      }
     }
     this.params = Object.assign(this.opts, window.config.internalOptions)
     this.instance = new Auth0.WebAuth(this.params)
