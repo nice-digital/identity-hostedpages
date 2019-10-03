@@ -151,6 +151,7 @@ class Login extends Component {
               label="Email"
               id="username"
               name="username"
+              unique="username"
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
@@ -161,6 +162,7 @@ class Login extends Component {
                 data-qa-sel="login-password"
                 name="password"
                 type="password"
+                unique="password"
                 label="Password"
                 onChange={this.handleChange}
                 autoComplete="current-password"
