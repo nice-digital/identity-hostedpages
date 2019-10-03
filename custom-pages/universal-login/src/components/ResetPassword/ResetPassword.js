@@ -110,6 +110,7 @@ export class ResetPassword extends React.Component {
               data-qa-sel="password-resetPassword"
               name="password"
               type="password"
+              unique="password"
               label="Password"
               onChange={this.handleChange}
               error={errors.password}
@@ -123,6 +124,7 @@ export class ResetPassword extends React.Component {
               data-qa-sel="confirm-password-resetPassword"
               name="confirmPassword"
               type="password"
+              unique="confirmPassword"
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}

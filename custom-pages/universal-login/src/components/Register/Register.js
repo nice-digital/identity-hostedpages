@@ -230,6 +230,7 @@ class Register extends Component {
               data-qa-sel="email-register"
               label="Email"
               name="email"
+              unique="email"
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
@@ -247,6 +248,7 @@ class Register extends Component {
               data-qa-sel="confirm-email-register"
               label="Confirm email"
               name="confirmEmail"
+              unique="confirmEmail"
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
@@ -259,6 +261,7 @@ class Register extends Component {
             <Input
               data-qa-sel="password-register"
               name="password"
+              unique="password"
               type="password"
               label="Password"
               onChange={this.handleChange}
@@ -276,6 +279,7 @@ class Register extends Component {
             <Input
               data-qa-sel="confirm-password-register"
               name="confirmPassword"
+              unique="confirmPassword"
               type="password"
               label="Confirm password"
               onChange={this.handleChange}
@@ -289,6 +293,7 @@ class Register extends Component {
             <Input
               data-qa-sel="name-register"
               name="name"
+              unique="firstName"
               label="First name"
               onChange={this.handleChange}
               error={errors.name}
@@ -304,6 +309,7 @@ class Register extends Component {
             <Input
               data-qa-sel="surname-register"
               name="surname"
+              unique="lastName"
               label="Last name"
               onChange={this.handleChange}
               error={errors.surname}
