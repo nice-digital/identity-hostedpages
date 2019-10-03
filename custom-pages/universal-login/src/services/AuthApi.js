@@ -23,6 +23,7 @@ export default class AuthApi {
       responseType: 'code',
       scope: authOpts.scope,
       redirect: true,
+      configurationBaseUrl: config.clientConfigurationBaseUrl,
       overrides: {
         // eslint-disable-next-line
         __tenant: config.auth0Tenant,
