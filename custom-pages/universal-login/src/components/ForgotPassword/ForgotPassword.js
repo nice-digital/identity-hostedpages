@@ -1,11 +1,12 @@
-import React from 'react'
-import Alert from '@nice-digital/nds-alert'
-import {Fieldset, Input} from '@nice-digital/nds-forms'
-import {Link} from 'react-router-dom'
-import {hideNav} from '../../helpers'
-import AuthApi from '../../services/AuthApi'
+import React from 'react';
+import { Alert } from "@nice-digital/nds-alert";
+import { Input } from '@nice-digital/nds-forms';
+import { FormGroup } from '@nice-digital/nds-form-group';
+import { Link } from 'react-router-dom';
+import { hideNav } from '../../helpers';
+import AuthApi from '../../services/AuthApi';
 import Nav from "../Nav/Nav";
-import './ForgotPassword.scss'
+import './ForgotPassword.scss';
 
 class ForgotPassword extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class ForgotPassword extends React.Component {
           send you a email with a link you can use to reset your password.
         </h5>
         <form className="">
-          <Fieldset legend="Personal information">
+          <FormGroup  legend="Personal information">
             {error && <Alert type="error">{error}</Alert>}
             <Input
               data-qa-sel="forgotPassword-email"
@@ -71,7 +72,7 @@ class ForgotPassword extends React.Component {
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
             />
-          </Fieldset>
+          </FormGroup>
           {!loading ? (
             <button
               data-qa-sel="forgotPassword-button"

@@ -11,7 +11,8 @@ import ResetPassword from "../../components/ResetPassword/ResetPassword";
 import ResetPasswordSuccess from "../../components/ResetPasswordSuccess/ResetPasswordSuccess";
 import ConfirmSuccess from "../../components/ConfirmSuccess/ConfirmSuccess";
 import NotFound from "../NotFound/NotFound";
-import './App.scss'
+import './App.scss';
+import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,8 @@ class App extends React.Component {
     const isLoginPage = process.env.REACT_APP_RENDER === "login"; //there's 2 buckets. login page and reset password.
 
     return (
+      <>
+      <GlobalHeader search={false} />
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
@@ -46,6 +49,8 @@ class App extends React.Component {
           </div>
         </div>
       </div>
+      <GlobalFooter />
+      </>
     )
   }
 }

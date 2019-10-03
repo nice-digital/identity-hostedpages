@@ -1,14 +1,15 @@
-import React, {Component} from "react";
-import Alert from '@nice-digital/nds-alert'
-import pathOr from 'ramda/src/pathOr'
-import {Fieldset, Input} from '@nice-digital/nds-forms'
-import qs from 'qs'
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Alert } from '@nice-digital/nds-alert';
+import pathOr from 'ramda/src/pathOr';
+import { Input } from '@nice-digital/nds-forms';
+import { FormGroup } from '@nice-digital/nds-form-group';
+import qs from 'qs';
+import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
-import {isDomainInUsername, showNav} from '../../helpers'
-import AuthApi from '../../services/AuthApi'
-import {auth as authOpts} from '../../services/constants'
-import './Login.scss'
+import { isDomainInUsername, showNav} from '../../helpers';
+import AuthApi from '../../services/AuthApi';
+import { auth as authOpts } from '../../services/constants';
+import './Login.scss';
 
 class Login extends Component {
   constructor(props) {
@@ -131,7 +132,7 @@ class Login extends Component {
       <div>
         <Nav/>
         <form className="">
-          <Fieldset legend="Personal information">
+          <FormGroup legend="Personal information">
             {error && (
               <Alert type="error">
                 {error}{' '}
@@ -165,7 +166,7 @@ class Login extends Component {
                 autoComplete="current-password"
               />
             )}
-          </Fieldset>
+          </FormGroup>
           {!loading ? (
             <div>
               <button

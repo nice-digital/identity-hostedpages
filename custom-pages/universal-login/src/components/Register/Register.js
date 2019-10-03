@@ -1,10 +1,12 @@
-import React, { Component }  from 'react'
-import Alert from '@nice-digital/nds-alert'
-import { Input, Fieldset, Checkbox } from '@nice-digital/nds-forms'
-import { showNav, getFirstErrorElement, validateFields } from '../../helpers'
-import AuthApi from '../../services/AuthApi'
-import './Register.scss'
-import {Link} from "react-router-dom";
+import React, { Component }  from 'react';
+import { Alert } from '@nice-digital/nds-alert';
+import { Input } from '@nice-digital/nds-forms';
+import { FormGroup } from '@nice-digital/nds-form-group';
+import { Checkbox } from '@nice-digital/nds-checkbox';
+import { showNav, getFirstErrorElement, validateFields } from '../../helpers';
+import AuthApi from '../../services/AuthApi';
+import './Register.scss';
+import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
 
 class Register extends Component {
@@ -182,7 +184,7 @@ class Register extends Component {
           <h6>
             Your email address should be your work email address if you have one.
           </h6>
-          <Fieldset legend="Personal information">
+          <FormGroup legend="Personal information">
             <div id="thereIsAnError">
               {showAlert && (
                 <Alert
@@ -325,7 +327,7 @@ class Register extends Component {
                 our services to you.
               </li>
             </ul>
-            <Fieldset classNane="checkboxFieldset" legend="Terms and conditions">
+            <FormGroup classNane="checkboxFieldset" legend="Terms and conditions">
               {errors.tAndC ? (
                 <Alert data-qa-sel="tc-unchecked-error" type="error">
                   You must accept Terms and Conditions to be able to create an
@@ -341,8 +343,8 @@ class Register extends Component {
                 error={errors.tAndC}
                 aria-describedby="tandc-error"
               />
-            </Fieldset>
-            <Fieldset
+            </FormGroup>
+            <FormGroup
               classNane="checkboxFieldset"
               legend="Join our Audience Insight Community"
             >
@@ -353,7 +355,7 @@ class Register extends Component {
                 label="Our insight community helps us improve our products and services. "
                 onChange={this.handleCheckboxChange}
               />
-            </Fieldset>
+            </FormGroup>
 
             <Alert>
               The information you provide on this form will be used by us to
@@ -367,7 +369,7 @@ class Register extends Component {
                 privacy notice
               </a>
             </Alert>
-          </Fieldset>
+          </FormGroup>
           {!loading ? (
             <button
               data-qa-sel="Register-button"
