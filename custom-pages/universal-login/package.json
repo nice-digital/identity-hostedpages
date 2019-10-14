@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@nice-digital/design-system": "1.0.6-alpha.0",
-    "@nice-digital/nds-alert": "1.0.5-alpha.0",
-    "@nice-digital/nds-core": "1.0.4-alpha.0",
-    "@nice-digital/nds-forms": "1.0.7-alpha.0",
+    "@nice-digital/design-system": "^1.0.15-alpha.0",
+    "@nice-digital/global-nav": "github:nhsevidence/global-nav",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",

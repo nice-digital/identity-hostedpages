@@ -1,7 +1,7 @@
-import React from 'react'
-import Alert from '@nice-digital/nds-alert'
-import { hideNav } from '../../helpers'
-import './RegisterSuccess.scss'
+import React from 'react';
+import { Alert } from '@nice-digital/nds-alert';
+import { hideNav } from '../../helpers';
+import './RegisterSuccess.scss';
 import Nav from "../Nav/Nav";
 
 const RegisterSuccess = () => {

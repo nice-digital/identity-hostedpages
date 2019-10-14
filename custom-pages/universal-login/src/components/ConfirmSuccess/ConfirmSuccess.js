@@ -1,9 +1,9 @@
-import React from 'react'
-import Alert from '@nice-digital/nds-alert'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Alert } from '@nice-digital/nds-alert';
+import { Link } from 'react-router-dom';
 
 // local imports
-import { hideNav } from '../../helpers'
+import { hideNav } from '../../helpers';
 
 // style
 import Nav from "../Nav/Nav";

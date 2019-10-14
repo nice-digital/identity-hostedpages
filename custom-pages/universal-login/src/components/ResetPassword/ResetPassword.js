@@ -1,9 +1,10 @@
-import React from 'react'
-import Alert from '@nice-digital/nds-alert'
-import { Input, Fieldset } from '@nice-digital/nds-forms'
-import { hideNav, getFirstErrorElement, validateFields } from '../../helpers'
-import AuthApi from '../../services/AuthApi'
-import './ResetPassword.scss'
+import React from 'react';
+import { Alert } from '@nice-digital/nds-alert';
+import { Input } from '@nice-digital/nds-forms';
+import { FormGroup } from '@nice-digital/nds-form-group';
+import { hideNav, getFirstErrorElement, validateFields } from '../../helpers';
+import AuthApi from '../../services/AuthApi';
+import './ResetPassword.scss';
 import Nav from "../Nav/Nav";
 
 export class ResetPassword extends React.Component {
@@ -92,7 +93,7 @@ export class ResetPassword extends React.Component {
         <h3>Reset password</h3>
         <h5>Please enter your new password</h5>
         <form className="">
-          <Fieldset legend="Personal information">
+          <FormGroup legend="Personal information">
             <div id="thereIsAnError">
               {showAlert && (
                 <Alert data-qa-sel="problem-alert-resetPassword"
@@ -109,6 +110,7 @@ export class ResetPassword extends React.Component {
               data-qa-sel="password-resetPassword"
               name="password"
               type="password"
+              unique="password"
               label="Password"
               onChange={this.handleChange}
               error={errors.password}
@@ -122,6 +124,7 @@ export class ResetPassword extends React.Component {
               data-qa-sel="confirm-password-resetPassword"
               name="confirmPassword"
               type="password"
+              unique="confirmPassword"
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}
@@ -139,7 +142,7 @@ export class ResetPassword extends React.Component {
             >
               Reset password
             </button>
-          </Fieldset>
+          </FormGroup>
         </form>
       </div>
     )
