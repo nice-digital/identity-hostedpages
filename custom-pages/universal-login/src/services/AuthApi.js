@@ -13,7 +13,6 @@ export default class AuthApi {
       window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
-    console.log(`config: ${JSON.stringify(config)}`);
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
@@ -23,6 +22,7 @@ export default class AuthApi {
       responseType: 'code',
       scope: authOpts.scope,
       redirect: true,
+      configurationBaseUrl: config.clientConfigurationBaseUrl,
       overrides: {
         // eslint-disable-next-line
         __tenant: config.auth0Tenant,
@@ -31,7 +31,6 @@ export default class AuthApi {
       }
     }
     this.params = Object.assign(this.opts, window.config.internalOptions)
-    console.log(`this.params: ${JSON.stringify(this.params)}`);
     this.instance = new Auth0.WebAuth(this.params)
   }
 

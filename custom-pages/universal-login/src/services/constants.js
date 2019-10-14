@@ -4,7 +4,7 @@
 const __DEV__ = global.__DEV__ || false
 // eslint-disable-next-line
 export const auth = {
-  domain: __DEV__ ? 'dev-nice-identity.eu.auth0.com' : '#{AUTH0_DOMAIN}',
+  domain: __DEV__ ? 'dev-nice-identity.eu.auth0.com' : '#{AUTH0_CUSTOMDOMAIN}',
   clientID: __DEV__
     ? 'RMpYVjKE_B85IO6Euc2i3IstVAstrEHK'
     : '#{AUTH0_APP_CLIENT_ID}',
