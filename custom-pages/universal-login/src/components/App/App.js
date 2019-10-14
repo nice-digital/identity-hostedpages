@@ -12,7 +12,7 @@ import ResetPasswordSuccess from "../../components/ResetPasswordSuccess/ResetPas
 import ConfirmSuccess from "../../components/ConfirmSuccess/ConfirmSuccess";
 import NotFound from "../NotFound/NotFound";
 import './App.scss';
-import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
+import { Header as GlobalHeader, Footer as GlobalFooter } from "github:nhsevidence/global-nav";
 
 class App extends React.Component {
   render() {
