@@ -10,7 +10,7 @@ export default class AuthApi {
   static instance = null
   constructor() {
     if (!window.config) {
-      window.config = {}
+      window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
     this.opts = {
@@ -21,13 +21,14 @@ export default class AuthApi {
       popup: false,
       responseType: 'code',
       scope: authOpts.scope,
-      redirect: true
-      // overrides: {
-      //   // eslint-disable-next-line
-      //   __tenant: config.auth0Tenant,
-      //   // eslint-disable-next-line
-      //   __token_issuer: config.authorizationServer.issuer
-      // }
+      redirect: true,
+      configurationBaseUrl: config.clientConfigurationBaseUrl,
+      overrides: {
+        // eslint-disable-next-line
+        __tenant: config.auth0Tenant,
+        // eslint-disable-next-line
+        __token_issuer: config.authorizationServer.issuer
+      }
     }
     this.params = Object.assign(this.opts, window.config.internalOptions)
     this.instance = new Auth0.WebAuth(this.params)
