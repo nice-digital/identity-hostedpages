@@ -133,7 +133,7 @@ class Login extends Component {
         <Nav/>
         <form className="">
           <FormGroup legend="Personal information">
-            {error && (
+            {error ? (
               <Alert type="error">
                 {error}{' '}
                 {myerrorcode === 'user_not_verified' ? (
@@ -142,15 +142,19 @@ class Login extends Component {
                   </button>
                 ) : null}
               </Alert>
+            ) : (
+              <></>
             )}
-            {activationEmailSent && (
+            {activationEmailSent ? (
               <Alert type="success">An activation email has been sent!</Alert>
+            ) : (
+              <></>
             )}
             <Input
+              name="username"
               data-qa-sel="login-email"
               label="Email"
-              id="username"
-              name="username"
+              id="username"              
               unique="username"
               type="email"
               placeholder="eg: your.name@example.com..."
