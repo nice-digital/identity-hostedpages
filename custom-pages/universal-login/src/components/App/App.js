@@ -1,5 +1,5 @@
 import React from 'react'
-import Header as  from "../Header/Header";
+import Header from "../Header/Header";
 import {Route, Switch} from "react-router";
 import {BrowserRouter as Router} from "react-router-dom";
 import Login from "../Login/Login";
