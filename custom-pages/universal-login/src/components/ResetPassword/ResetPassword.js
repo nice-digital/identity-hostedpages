@@ -1,7 +1,6 @@
 import React from 'react';
 import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
-import { FormGroup } from '@nice-digital/nds-form-group';
 import { hideNav, getFirstErrorElement, validateFields } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './ResetPassword.scss';
@@ -93,7 +92,7 @@ export class ResetPassword extends React.Component {
         <h3>Reset password</h3>
         <h5>Please enter your new password</h5>
         <form className="">
-          <FormGroup legend="Personal information">
+          
             <div id="thereIsAnError">
               {showAlert && (
                 <Alert data-qa-sel="problem-alert-resetPassword"
@@ -142,7 +141,7 @@ export class ResetPassword extends React.Component {
             >
               Reset password
             </button>
-          </FormGroup>
+          
         </form>
       </div>
     )

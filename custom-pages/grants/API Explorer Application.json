@@ -1,0 +1,5 @@
+{
+  "client_id": "API Explorer Application",
+  "audience": "",
+  "scope": ["this will be deleted in the variable substitution"]
+}

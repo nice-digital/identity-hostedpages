@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Alert } from '@nice-digital/nds-alert';
 import pathOr from 'ramda/src/pathOr';
 import { Input } from '@nice-digital/nds-forms';
-import { FormGroup } from '@nice-digital/nds-form-group';
 import qs from 'qs';
 import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
@@ -132,7 +131,7 @@ class Login extends Component {
       <div>
         <Nav/>
         <form className="">
-          <FormGroup legend="Personal information">
+          
             {error && (
               <Alert type="error">
                 {error}{' '}
@@ -147,10 +146,10 @@ class Login extends Component {
               <Alert type="success">An activation email has been sent!</Alert>
             )}
             <Input
+              name="username"
               data-qa-sel="login-email"
               label="Email"
-              id="username"
-              name="username"
+              id="username"              
               unique="username"
               type="email"
               placeholder="eg: your.name@example.com..."
@@ -168,7 +167,7 @@ class Login extends Component {
                 autoComplete="current-password"
               />
             )}
-          </FormGroup>
+          
           {!loading ? (
             <div>
               <button
