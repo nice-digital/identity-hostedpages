@@ -12,7 +12,7 @@ import ResetPasswordSuccess from "../../components/ResetPasswordSuccess/ResetPas
 import ConfirmSuccess from "../../components/ConfirmSuccess/ConfirmSuccess";
 import NotFound from "../NotFound/NotFound";
 import './App.scss';
-//import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
+import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
 
 class App extends React.Component {
   render() {
@@ -21,7 +21,7 @@ class App extends React.Component {
 
     return (
       <>
-      {/* <GlobalHeader search={false} /> */}
+      <GlobalHeader search={false} />
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
@@ -49,7 +49,7 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-      {/* <GlobalFooter /> */}
+      <GlobalFooter />
       </>
     )
   }
