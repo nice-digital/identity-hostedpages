@@ -1,5 +1,5 @@
 import React from 'react'
-//import Header as  from "../Header/Header";
+import Header as  from "../Header/Header";
 import {Route, Switch} from "react-router";
 import {BrowserRouter as Router} from "react-router-dom";
 import Login from "../Login/Login";
@@ -13,7 +13,6 @@ import ConfirmSuccess from "../../components/ConfirmSuccess/ConfirmSuccess";
 import NotFound from "../NotFound/NotFound";
 import './App.scss';
 //import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
-import { Header, Footer } from "@nice-digital/global-nav";
 
 class App extends React.Component {
   render() {
@@ -22,10 +21,10 @@ class App extends React.Component {
 
     return (
       <>
-      <Header search={false} />
+      {/* <GlobalHeader search={false} /> */}
       <div>
         <div className="wrapper">
-          {/* <Header className="col leftCol" /> */}
+          <Header className="col leftCol" />
           <div className="mainContainer col rightCol">
 
             <Router basename={ isLoginPage ? "" : "/lo/reset"}>
@@ -50,7 +49,7 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <GlobalFooter /> */}
       </>
     )
   }
