@@ -184,7 +184,10 @@ class Register extends Component {
           <h6>
             Your email address should be your work email address if you have one.
           </h6>
-          <FormGroup legend="Personal information">
+          <fieldset className="form-group">
+            <legend className="form-group__legend">
+              Personal information
+	          </legend>
             <div id="thereIsAnError">
               {showAlert && (
                 <Alert
@@ -333,13 +336,11 @@ class Register extends Component {
                 our services to you.
               </li>
             </ul>
-            <FormGroup classNane="checkboxFieldset" legend="Terms and conditions">
-              {errors.tAndC ? (
-                <Alert data-qa-sel="tc-unchecked-error" type="error">
-                  You must accept Terms and Conditions to be able to create an
-                  account.
-                </Alert>
-              ) : null}
+            <FormGroup 
+              legend="Terms and conditions" 
+              name="tAndC" 
+              groupError={errors.tAndC ? ("You must accept Terms and Conditions to be able to create an account.") : null}
+            >
               <Checkbox
                 data-qa-sel="tc-checkbox-register"
                 name="tAndC"
@@ -348,18 +349,20 @@ class Register extends Component {
                 onChange={this.handleCheckboxChange}
                 error={errors.tAndC}
                 aria-describedby="tandc-error"
+                value="agree"
               />
             </FormGroup>
-            <FormGroup
-              classNane="checkboxFieldset"
-              legend="Join our Audience Insight Community"
+            <FormGroup 
+              legend="Join our Audience Insight Community" 
+              name="allowContactMe"
             >
-              <Checkbox
+              <Checkbox                
                 data-qa-sel="ai-checkbox-register"
                 name="allowContactMe"
                 checked={allowContactMe}
                 label="Our insight community helps us improve our products and services. "
                 onChange={this.handleCheckboxChange}
+                value="agree"
               />
             </FormGroup>
 
@@ -375,7 +378,7 @@ class Register extends Component {
                 privacy notice
               </a>
             </Alert>
-          </FormGroup>
+          </fieldset>
           {!loading ? (
             <button
               data-qa-sel="Register-button"

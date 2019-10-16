@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Alert } from '@nice-digital/nds-alert';
 import pathOr from 'ramda/src/pathOr';
 import { Input } from '@nice-digital/nds-forms';
-import { FormGroup } from '@nice-digital/nds-form-group';
 import qs from 'qs';
 import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
@@ -132,8 +131,8 @@ class Login extends Component {
       <div>
         <Nav/>
         <form className="">
-          <FormGroup legend="Personal information">
-            {error ? (
+          
+            {error && (
               <Alert type="error">
                 {error}{' '}
                 {myerrorcode === 'user_not_verified' ? (
@@ -142,13 +141,9 @@ class Login extends Component {
                   </button>
                 ) : null}
               </Alert>
-            ) : (
-              <></>
             )}
-            {activationEmailSent ? (
+            {activationEmailSent && (
               <Alert type="success">An activation email has been sent!</Alert>
-            ) : (
-              <></>
             )}
             <Input
               name="username"
@@ -172,7 +167,7 @@ class Login extends Component {
                 autoComplete="current-password"
               />
             )}
-          </FormGroup>
+          
           {!loading ? (
             <div>
               <button
