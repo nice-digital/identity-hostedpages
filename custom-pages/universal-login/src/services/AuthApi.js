@@ -79,6 +79,7 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
+      console.log(`services login. resumeAuthState: ${resumeAuthState}`);
       const redirectUri = window.config.extraParams.redirectURI
       let options
       let method
@@ -105,6 +106,7 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
+        console.log('services login. not resumeAuthState');
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
@@ -118,6 +120,7 @@ export default class AuthApi {
           { ...options, state: resumeAuthState },
           { addQueryPrefix: true }
         )
+        console.log(`services login. about to fetch using get options: ${GETOptions}`);
         fetch(`/continue${GETOptions}`, {
           method: 'GET',
           headers: {
@@ -126,6 +129,7 @@ export default class AuthApi {
           }
         })
           .then((res) => {
+            console.log(`services login. after fetch res: ${JSON.stringify(res)}`);
             if (res.status === 200) {
               document.location = redirectUri
             } else if (errorCallback) {
