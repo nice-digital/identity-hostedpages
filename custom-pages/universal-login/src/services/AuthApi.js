@@ -106,7 +106,8 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
-        console.log('services login. not resumeAuthState');
+        console.log(`services login. not resumeAuthState. method: ${method} options: ${options}`);
+
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
