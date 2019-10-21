@@ -125,7 +125,8 @@ class Login extends Component {
       showGoogleLogin,
       activationEmailSent
     } = this.state
-    const { showUserNotVerfiedMessage } = (this.querystring && this.querystring.myerrorcode === 'user_not_verified');
+
+    const showUserNotVerfiedMessage = (this.querystring && this.querystring.myerrorcode === 'user_not_verified');
 
     return (
       <div>
