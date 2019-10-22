@@ -3,6 +3,7 @@
 <link href="confirmsuccess.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+
 <div>
   <div class="wrapper">
     <div class="col leftCol">
@@ -23,17 +24,40 @@
             >
           </div>
         </div>
-        <h3>Thank you!</h3>
-        <div class="alert alert--success">
-          Your account was activated successfully. If this page does not automatically refresh
-          <a data-qa-sel="resetPasswordSuccess-link-to-login" href="#{initiate_login_uri}">
-            click here
-          </a>
-        </div>
+        <div id="conditional-output"></div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+  var success = getParameterByName('success') === "true";
+  var message = getParameterByName('message');
+  var outputElement = document.getElementById('conditional-output');
+  if (success){
+    outputElement.innerHTML= "<h3>Thank you!</h3>" +
+        "<div class='alert alert--success'>" +
+          "Your account was activated successfully. If this page does not automatically refresh " +
+          "<a data-qa-sel='resetPasswordSuccess-link-to-login' href='#{initiate_login_uri}'>" +
+            "click here" +
+          "</a>" +
+        "</div>";
+  } else{
+    outputElement.innerHTML= "<h3>There has been an error</h3>" +
+        "<div class='alert alert--error'>" +
+          message +
+        "</div>";
+  }
+
+</script>
 <!-- Global nav -->
 <script>	
 	var global_nav_config = {
