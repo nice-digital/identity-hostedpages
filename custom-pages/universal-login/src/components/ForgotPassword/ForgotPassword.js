@@ -61,7 +61,10 @@ class ForgotPassword extends React.Component {
           send you a email with a link you can use to reset your password.
         </h5>
         <form className="">
-          <FormGroup  legend="Personal information">
+        <fieldset className="form-group">
+            <legend className="form-group__legend">
+              Personal information
+	          </legend>
             {error && <Alert type="error">{error}</Alert>}
             <Input
               data-qa-sel="forgotPassword-email"
@@ -73,7 +76,7 @@ class ForgotPassword extends React.Component {
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
             />
-          </FormGroup>
+          </fieldset>
           {!loading ? (
             <button
               data-qa-sel="forgotPassword-button"
