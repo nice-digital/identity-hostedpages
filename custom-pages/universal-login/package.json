@@ -24,6 +24,7 @@
     "build:passwordreset": "env-cmd -f .env.passwordreset react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
     "build:login-local": "env-cmd -f .env.login.local react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
     "build:passwordreset-local": "env-cmd -f .env.passwordreset.local react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
+    "build:confirmsuccess-css": "node-sass --importer=node_modules/node-sass-tilde-importer --include-path ./src --include-path ./node_modules src/confirmsuccess.scss -o public/",
     "copy:errorpage": "cpy ./build/error_page.html ../pages",
     "serve": "serve -s build",
     "serve:login-local": "serve -s build-login/build -l 5000",
@@ -56,6 +57,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "jest-teamcity-reporter": "^0.9.0",
     "node-sass": "^4.12.0",
+    "node-sass-tilde-importer": "^1.0.2",
     "serve": "^11.1.0"
   }
 }

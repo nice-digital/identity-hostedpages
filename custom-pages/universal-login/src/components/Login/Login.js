@@ -125,7 +125,8 @@ class Login extends Component {
       showGoogleLogin,
       activationEmailSent
     } = this.state
-    const { myerrorcode } = this.querystring;
+
+    const showUserNotVerfiedMessage = (this.querystring && this.querystring.myerrorcode === 'user_not_verified');
 
     return (
       <div>
@@ -135,7 +136,7 @@ class Login extends Component {
             {error && (
               <Alert type="error">
                 {error}{' '}
-                {myerrorcode === 'user_not_verified' ? (
+                {showUserNotVerfiedMessage ? (
                   <button href="#" onClick={this.resendVerificationEmail}>
                     Resend activation email
                   </button>
@@ -167,33 +168,38 @@ class Login extends Component {
                 autoComplete="current-password"
               />
             )}
-          
+
           {!loading ? (
-            <div>
-              <button
-                data-qa-sel="login-button"
-                className="btn btn--cta"
-                onClick={e => this.login(e, false)}
-                // disabled={!username}
-              >
-                Sign in
-              </button>
-              {showGoogleLogin && (
+            !showUserNotVerfiedMessage ? (
+              <div>
                 <button
-                  data-qa-sel="login-button-social"
-                  className="iconBtn social"
-                  style={{ float: 'right' }}
-                  onClick={e => this.login(e, true)}
+                  data-qa-sel="login-button"
+                  className="btn btn--cta"
+                  onClick={e => this.login(e, false)}
+                  // disabled={!username}
                 >
-                  <span className="buttonLabel">Or </span>
-                  <img
-                    className="iconBtn-icon"
-                    alt="Sign in with google"
-                    src={ process.env.PUBLIC_URL + "/images/btn_google_signin_light_normal_web.png"}
-                  />
+                  Sign in
                 </button>
-              )}
-            </div>
+                {showGoogleLogin && (
+                  <button
+                    data-qa-sel="login-button-social"
+                    className="iconBtn social"
+                    style={{ float: 'right' }}
+                    onClick={e => this.login(e, true)}
+                  >
+                    <span className="buttonLabel">Or </span>
+                    <img
+                      className="iconBtn-icon"
+                      alt="Sign in with google"
+                      src={ process.env.PUBLIC_URL + "/images/btn_google_signin_light_normal_web.png"}
+                    />
+                  </button>
+                )}
+              </div>
+            ) : (
+              // user is not verified. the login button is not going to work.
+              <div/> 
+            )
           ) : (
             'Loading...'
           )}

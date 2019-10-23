@@ -9,7 +9,6 @@ import Register from "../Register/Register";
 import RegisterSuccess from "../RegisterSuccess/RegisterSuccess";
 import ResetPassword from "../../components/ResetPassword/ResetPassword";
 import ResetPasswordSuccess from "../../components/ResetPasswordSuccess/ResetPasswordSuccess";
-import ConfirmSuccess from "../../components/ConfirmSuccess/ConfirmSuccess";
 import NotFound from "../NotFound/NotFound";
 import './App.scss';
 import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
@@ -43,7 +42,6 @@ class App extends React.Component {
                 <Route path='*/resetpassword' component={ResetPassword} />
                 <Route path='*/change-password' component={ResetPassword} />
                 <Route path='*/resetsuccess' component={ResetPasswordSuccess} />
-                <Route path='*/confirmsuccess' component={ConfirmSuccess} />
                 <Route component={NotFound} />
               </Switch>
             </Router>
