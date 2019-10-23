@@ -1,0 +1,12 @@
+{
+  "flags": {
+    "enable_custom_domain_in_emails": true,
+    "disable_clickjack_protection_headers": true,
+    "enable_public_signup_user_exists_error": true
+  },
+  "session_lifetime": 0.08333333333333333,
+  "idle_session_lifetime": 0.016666666666666666,
+  "enabled_locales": [
+    "en"
+  ]
+}
