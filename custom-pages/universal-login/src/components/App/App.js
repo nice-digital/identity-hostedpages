@@ -19,9 +19,11 @@ class App extends React.Component {
 
     const isLoginPage = process.env.REACT_APP_RENDER === "login"; //there's 2 buckets. login page and reset password.
 
+    const links = [{ key: "Sign in", value: "/login" }];
+
     return (
       <>
-      <GlobalHeader search={false} />
+      <GlobalHeader search={false} auth={{provider:"idam", links:links}} />
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
