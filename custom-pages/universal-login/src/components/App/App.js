@@ -18,7 +18,7 @@ class App extends React.Component {
 
     const isLoginPage = process.env.REACT_APP_RENDER === "login"; //there's 2 buckets. login page and reset password.
 
-    const links = [{ key: "Sign in", value: "/login" }];
+    const links = [{ key: "Sign in", value: "#" }];
 
     return (
       <>
