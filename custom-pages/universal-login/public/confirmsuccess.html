@@ -67,7 +67,9 @@
 				autocomplete: "/autocomplete?ajax=ajax",
 			},
 			auth: {
-				environment: "beta"
+        environment: "live",
+        provider: "idam",
+        links: [{ key: "Sign in", value: "#{initiate_login_uri}" }]
 			}
 		},
 		footer: true
