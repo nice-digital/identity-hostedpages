@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@nice-digital/design-system": "^1.0.15-alpha.0",
-    "@nice-digital/global-nav": "github:nhsevidence/global-nav",
+    "@nice-digital/global-nav": "github:nhsevidence/global-nav#IDAM-248-Identity-management-update",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
@@ -56,7 +56,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest-teamcity-reporter": "^0.9.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
     "node-sass-tilde-importer": "^1.0.2",
     "serve": "^11.1.0"
   }
