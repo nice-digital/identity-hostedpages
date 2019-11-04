@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Alert } from '@nice-digital/nds-alert';
+
 import { hideNav } from '../../helpers';
 import './RegisterSuccess.scss';
 import Nav from "../Nav/Nav";
+
 
 const RegisterSuccess = () => {
   hideNav();
@@ -18,7 +22,9 @@ const RegisterSuccess = () => {
         Note: check your spam folder if you do not receive the activation email.
       </Alert>
       <p>
-        <a href="/">&larr; Take me back to Login</a>
+        <Link data-qa-sel="forgotPassword-link-to-login" to="/">
+            Return to sign in
+        </Link>
       </p>
     </div>
   )
