@@ -22,7 +22,7 @@ const RegisterSuccess = () => {
         Note: check your spam folder if you do not receive the activation email.
       </Alert>
       <p>
-        <Link data-qa-sel="forgotPassword-link-to-login" to="/">
+        <Link data-qa-sel="registerSuccess-link-to-login" to="/">
             Return to sign in
         </Link>
       </p>
