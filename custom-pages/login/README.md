@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [NICE Hosted pages](#nice-hosted-pages)
+    - [Features](#features)
+    - [Directory Layout](#directory-layout)
+    - [Getting Started](#getting-started)
+    - [IE8 Support Version](#ie8-support-version)
+    - [How to Test](#how-to-test)
+    - [Histories](#histories)
+    - [How to Build](#how-to-build)
+    - [Related Projects](#related-projects)
+    - [Learn More](#learn-more)
+    - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # NICE Hosted pages
 
 > Static website starter kit powered by [React.js](http://facebook.github.io/react/) and [Webpack](http://webpack.github.io/)
