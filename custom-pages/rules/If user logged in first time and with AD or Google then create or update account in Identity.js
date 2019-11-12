@@ -30,12 +30,16 @@ function (user, context, callback) {
    if (error) throw new Error(error);
 
     const postData = JSON.stringify({
-        'userId': user.user_id,
+        'auth0UserId': user.user_id,
         'firstName': user.given_name,
         'lastName': user.family_name,
-        'email': user.email,
+        'emailAddress': user.email,
         'acceptedTerms': false,
-        'initialAllowContactMe': false
+        'allowContactMe': false,
+        'hasVerifiedEmailAddress': true,
+        'isLockedOut': false,
+        'isMigrated': true,
+        'isStaffMember':false
       });
 
     const options = { method: 'POST',
