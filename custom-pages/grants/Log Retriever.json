@@ -1,0 +1,8 @@
+{
+  "client_id": "Log Retriever",
+  "audience": "",
+  "scope": [
+    "read:logs",
+    "read:log_streams"
+  ]
+}
