@@ -1,6 +1,6 @@
 {
   "client_id": "Log Retriever",
-  "audience": "https://dev-nice-identity.eu.auth0.com/api/v2/",
+  "audience": "",
   "scope": [
     "read:logs",
     "read:log_streams"
