@@ -29,7 +29,7 @@ function login(email, password, callback) {
 		//create the user in NICE's identity DB here
 		(function (user) {
 			var tokenOptions = { method: 'POST',
-		      url: 'https://' + configuration.appdomain + configuration.gettokenpath,
+		      url: configuration.gettokenpath,
 		      headers: { 'content-type': 'application/json' },
 		      body: 
 		       { grant_type: 'client_credentials',

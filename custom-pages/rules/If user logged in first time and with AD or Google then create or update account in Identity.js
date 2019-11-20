@@ -17,7 +17,7 @@ function (user, context, callback) {
   const request = require("request");
 
   var tokenOptions = { method: 'POST',
-    url: 'https://' + configuration.hostname + configuration.gettokenpath,
+    url: configuration.gettokenpath,
     headers: { 'content-type': 'application/json' },
     body: 
      { grant_type: 'client_credentials',
