@@ -25,8 +25,7 @@
       "client_secret" : "",
       "audience" : "",
       "appdomain" : "",
-      "gettokenpath" : "",
-      "tokenEndpoint" : ""
+      "gettokenpath" : ""
     }
   },
   "strategy": "auth0",
