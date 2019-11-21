@@ -24,7 +24,9 @@ function login(email, password, callback) {
 			response.statusCode === 204)
 				return callback(new WrongUsernameOrPasswordError(email));
 			
-		const user = JSON.parse(body);
+		let user = JSON.parse(body);
+    	const userIdNoPrefix = user.user_id.toString();
+    	user.user_id = "auth0|" + userIdNoPrefix;
 		
 		//create the user in NICE's identity DB here
 		(function (user) {
@@ -80,12 +82,15 @@ function login(email, password, callback) {
 
 		})(user);
 
+
+    console.log('attempting to set the user to:');
+console.log(userIdNoPrefix);
 		//return the user for Auth0 to store   
 		callback(null, {
-			user_id: user.user_id.toString(),
+			user_id: userIdNoPrefix,
 			nickname: user.nickname,
 			email: user.email,
-      		email_verified: true,
+      email_verified: true,
 			user_metadata: { firstname: user.given_name, lastname: user.family_name }
 		});
 	});
