@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import './Nav.scss'
 
 const Nav = () => {
-  const register = window.location.href.indexOf('register') !== -1;
+  const register = window.location.pathname.indexOf('register') !== -1;
   return (
     <div className="navigation">
       {register ? (
