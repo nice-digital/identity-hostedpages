@@ -51,7 +51,10 @@ class Login extends Component {
         { showGoogleLogin: !!this.googleConnection },
         this.showAuth0RulesError
       )
-    })
+    });
+    if (this.querystring.register === "true"){
+      this.props.history.push("/register");
+    }
   }
 
   showAuth0RulesError = () => {
