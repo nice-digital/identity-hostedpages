@@ -28,12 +28,14 @@ class Login extends Component {
       ignoreQueryPrefix: true
     });
     this.continue = true
+    console.log("Login constructor");
   }
 
   componentDidMount() {
     this.querystring = qs.parse(document.location.search, {
       ignoreQueryPrefix: true
     });
+    console.log(`Login CDM. querystring: ${JSON.stringify(this.querystring)}`);    
     this.auth.fetchClientSettings().then(() => {
       this.googleConnection = pathOr(
         null,
