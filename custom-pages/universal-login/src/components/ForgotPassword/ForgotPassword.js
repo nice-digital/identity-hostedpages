@@ -1,9 +1,8 @@
 import React from 'react';
 import { Alert } from "@nice-digital/nds-alert";
 import { Input } from '@nice-digital/nds-forms';
-import { FormGroup } from '@nice-digital/nds-form-group';
-import { Link } from 'react-router-dom';
-import { hideNav } from '../../helpers';
+import { NavLink, Link } from 'react-router-dom';
+import { isDomainInUsername, hideNav } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import Nav from "../Nav/Nav";
 import './ForgotPassword.scss';
@@ -15,7 +14,8 @@ class ForgotPassword extends React.Component {
     this.state = {
       email: null,
       error: null,
-      loading: false
+      loading: false,
+      isAD: false
     }
   }
 
@@ -38,10 +38,15 @@ class ForgotPassword extends React.Component {
   }
 
   handleChange = ({ target: { name, value } }) => {
+    let isAD = null;
+    if (name === 'email') {
+      isAD = isDomainInUsername(value);
+    }
     this.setState(
       {
         [name]: value,
-        error: null
+        error: null,
+        isAD,
       },
       this.isValid
     )
@@ -49,22 +54,15 @@ class ForgotPassword extends React.Component {
 
   render() {
     hideNav()
-    const { error, loading, email } = this.state
+    const { error, loading, email, isAD } = this.state
     return (
       <div>
         <Nav/>
-        <h3>Forgot password</h3>
-        <h5>
-          If you have forgotten your password, please use the password reset
-          feature below. Enter the email address you registered with below and
-          click the reset password button. If your account can be found we will
-          send you a email with a link you can use to reset your password.
-        </h5>
+        <h3>Reset your password</h3>
+        <p class="lead">
+          Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
+        </p>
         <form className="">
-        <fieldset className="form-group">
-            <legend className="form-group__legend">
-              Personal information
-	          </legend>
             {error && <Alert type="error">{error}</Alert>}
             <Input
               data-qa-sel="forgotPassword-email"
@@ -76,13 +74,17 @@ class ForgotPassword extends React.Component {
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
             />
-          </fieldset>
+          {isAD && (
+            <Alert type="info">
+              <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">Sign in</NavLink> using your NICE email address and password. 
+            </Alert>
+          )}
           {!loading ? (
             <button
               data-qa-sel="forgotPassword-button"
               className="btn btn--cta"
               onClick={this.forgotPassword}
-              disabled={!email}
+              disabled={!email || isAD }
             >
               Reset password
             </button>

@@ -35,20 +35,21 @@ class Login extends Component {
       ignoreQueryPrefix: true
     });
     this.auth.fetchClientSettings().then(() => {
-      this.googleConnection = pathOr(
-        null,
-        ['strategies', 'google-oauth2', 'connectionName'],
-        window.Auth0
-      );
+      // We are not using google to connect for now
+      // this.googleConnection = pathOr(
+      //   null,
+      //   ['strategies', 'google-oauth2', 'connectionName'],
+      //   window.Auth0
+      // );
       this.ADConnection = pathOr(
         null,
         ['strategies', 'waad', 'connectionName'],
         window.Auth0
       );
-      this.setState(
-        { showGoogleLogin: !!this.googleConnection },
-        this.showAuth0RulesError
-      )
+      // this.setState(
+      //   { showGoogleLogin: !!this.googleConnection },
+      //   this.showAuth0RulesError
+      // )
     })
   }
 
@@ -169,6 +170,12 @@ class Login extends Component {
               />
             )}
 
+          {isAD && (
+            <Alert type="info">
+            You already have an account. Sign in using your NICE email address and password.
+            </Alert>
+          )}
+
           {!loading ? (
             !showUserNotVerfiedMessage ? (
               <div>
@@ -204,9 +211,12 @@ class Login extends Component {
             'Loading...'
           )}
         </form>
+
+        {!isAD && (
         <Link className="forgotPasswordLink" data-qa-sel="forgotPassword-link" to="/forgotPassword">
           Forgot password?
         </Link>
+        )}
       </div>
     )
   }
