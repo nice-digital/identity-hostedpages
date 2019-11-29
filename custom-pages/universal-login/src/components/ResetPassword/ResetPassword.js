@@ -90,7 +90,7 @@ export class ResetPassword extends React.Component {
       <div>
         <Nav />
         <h3>Reset password</h3>
-        <h5>Please enter your new password</h5>
+        <p className="lead">Please enter your new password</p>
         <form className="">
           
             <div id="thereIsAnError">
@@ -98,7 +98,7 @@ export class ResetPassword extends React.Component {
                 <Alert data-qa-sel="problem-alert-resetPassword"
                   type="error"
                   aria-labelledby="error-summary-title" >
-                  <h5>There is a problem</h5>
+                  <p className="lead">There is a problem</p>
                   <button role="link" tabIndex="0" onKeyPress={this.goToAlert} onClick={this.goToAlert}>
                     Click here to see the errors
                   </button>

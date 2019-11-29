@@ -9,25 +9,23 @@ const Nav = () => {
       {register ? (
         <div className="navigationLink">
           <h3> Create account </h3>
-          <span>Sign in if you already have a NICE account.</span>
-          <NavLink
+          <p className="lead"><NavLink
             data-qa-sel="Signin-link-login"
             to="/"
             activeclassname="activeRoute"
           >
             Sign in
-          </NavLink>
+          </NavLink> if you already have a NICE account.</p>
         </div>
       ) : (
         <div className="navigationLink">
           <h3> Log in </h3>
-          <span>Need a NICE Account?</span>
           <Link
             data-qa-sel="Signup-link-login"
             to="/register"
             activeclassname="activeRoute"
           >
-            Create an account
+            Create a NICE account
           </Link>
         </div>
       )}

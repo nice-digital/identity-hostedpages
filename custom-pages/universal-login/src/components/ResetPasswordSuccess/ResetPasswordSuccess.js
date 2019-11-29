@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert } from '@nice-digital/nds-alert';
+import { NavLink } from 'react-router-dom'
 // import { Link } from 'react-router'
 
 // local imports
@@ -15,13 +16,9 @@ export const ResetPasswordSuccess = () => {
   return (
     <div>
       <Nav />
-      <h3>Thank you!</h3>
+      <h3>Thank you</h3>
       <Alert type="success">
-        Your password has been changed and you can now use it to sign in {' '}
-        {/* <Link data-qa-sel="resetPasswordSuccess-link-to-login" to="/login">
-          {' '}
-          click here{' '}
-        </Link> */}
+        Your password has been changed and you can now use it to <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">sign in.</NavLink>
       </Alert>
     </div>
   )
