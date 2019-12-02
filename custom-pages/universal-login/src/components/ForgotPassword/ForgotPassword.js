@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert } from "@nice-digital/nds-alert";
 import { Input } from '@nice-digital/nds-forms';
 import { NavLink, Link } from 'react-router-dom';
-import { isDomainInUsername, hideNav } from '../../helpers';
+import { isDomainInUsername, hideNav, validateFields, getFirstErrorElement } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import Nav from "../Nav/Nav";
 import './ForgotPassword.scss';
@@ -14,6 +14,9 @@ class ForgotPassword extends React.Component {
     this.state = {
       email: null,
       error: null,
+      errors: {
+        email: false
+      },
       loading: false,
       isAD: false
     }
@@ -52,9 +55,56 @@ class ForgotPassword extends React.Component {
     )
   }
 
+  clearError = (event) => {
+    this.setState({
+      errors: { ...this.state.errors, [event.target.name]: false },
+      serverSideError: null
+    })
+  }
+
+  isFormValidForSubmission() {
+    const {
+      email, errors
+    } = this.state
+    const isErrors = Object.keys(errors).reduce(
+      (previousValue, nextElementName) =>
+        previousValue || errors[nextElementName],
+      false // use a positive (error=false) for a start value on the previousValue
+    )
+    return email && !isErrors
+  }
+
+  catchBlanks() {
+    const {
+      email
+    } = this.state
+    this.setState({
+      errors: {
+        email: !email
+      }
+    })
+  }
+
+  validate = () => {
+    const tests = validateFields(this.state)
+    this.setState({
+      errors: {
+        email: tests.email()
+      }
+    })
+  }
+
+  goToAlert = (e) => {
+    if (e) e.preventDefault()
+    
+    getFirstErrorElement(this.state.errors).scrollIntoView({
+      block: 'center'
+    })    
+  }
+
   render() {
     hideNav()
-    const { error, loading, email, isAD } = this.state
+    const { error, errors, loading, email, isAD, showAlert } = this.state
     return (
       <div>
         <Nav/>
@@ -73,6 +123,15 @@ class ForgotPassword extends React.Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
+              error={errors.email}
+              errorMessage={`${
+                !email
+                  ? 'This field is required'
+                  : 'Email address is in an invalid format'
+              }`}
+              onBlur={this.validate}
+              onFocus={this.clearError}
+              aria-describedby="email-error"
             />
           {isAD && (
             <Alert type="info">
@@ -84,7 +143,6 @@ class ForgotPassword extends React.Component {
               data-qa-sel="forgotPassword-button"
               className="btn btn--cta"
               onClick={this.forgotPassword}
-              disabled={!email || isAD }
             >
               Reset password
             </button>
