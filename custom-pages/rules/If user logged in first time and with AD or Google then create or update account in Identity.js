@@ -7,7 +7,7 @@ function (user, context, callback) {
   //this rule is only concerned with migrating people who sign in for the first time with AD
   //or google.
   if ((context.connectionStrategy !== "waad" && 
-       context.connectionStrategy !== "google-oauth2")|| context.stats.loginsCount > 1){
+       context.connectionStrategy !== "google-oauth2") || context.stats.loginsCount > 1){
     callback(null, user, context);  
     return;
   } 
@@ -17,7 +17,7 @@ function (user, context, callback) {
   const request = require("request");
 
   var tokenOptions = { method: 'POST',
-    url: 'https://' + configuration.hostname + configuration.gettokenpath,
+    url: configuration.gettokenpath,
     headers: { 'content-type': 'application/json' },
     body: 
      { grant_type: 'client_credentials',
@@ -30,12 +30,16 @@ function (user, context, callback) {
    if (error) throw new Error(error);
 
     const postData = JSON.stringify({
-        'userId': user.user_id,
+        'auth0UserId': user.user_id,
         'firstName': user.given_name,
         'lastName': user.family_name,
-        'email': user.email,
+        'emailAddress': user.email,
         'acceptedTerms': false,
-        'initialAllowContactMe': false
+        'allowContactMe': false,
+        'hasVerifiedEmailAddress': true,
+        'isLockedOut': false,
+        'isMigrated': false,
+        'isStaffMember': context.connectionStrategy === "waad"
       });
 
     const options = { method: 'POST',

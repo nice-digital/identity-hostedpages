@@ -24,12 +24,14 @@ function login(email, password, callback) {
 			response.statusCode === 204)
 				return callback(new WrongUsernameOrPasswordError(email));
 			
-		const user = JSON.parse(body);
+		let user = JSON.parse(body);
+    	const userIdNoPrefix = user.user_id.toString();
+    	user.user_id = "auth0|" + userIdNoPrefix;
 		
 		//create the user in NICE's identity DB here
 		(function (user) {
 			var tokenOptions = { method: 'POST',
-		      url: 'https://' + configuration.appdomain + configuration.gettokenpath,
+		      url: configuration.gettokenpath,
 		      headers: { 'content-type': 'application/json' },
 		      body: 
 		       { grant_type: 'client_credentials',
@@ -42,12 +44,16 @@ function login(email, password, callback) {
 		    	if (error) throw new Error(error);
 		    
 				const postData = JSON.stringify({
-					'userId': user.user_id,
+					'auth0UserId': user.user_id,
 					'firstName': user.given_name,
 					'lastName': user.family_name,
-					'email': user.email,
+					'emailAddress': user.email,
 					'acceptedTerms': false,
-					'initialAllowContactMe': false
+					'allowContactMe': false,
+					'hasVerifiedEmailAddress': true,
+					'isLockedOut': false,
+					'isMigrated': true,
+					'isStaffMember':false
 				});
 
 				const options = { method: 'POST',
@@ -58,9 +64,17 @@ function login(email, password, callback) {
 					},
 					body: postData
 				};
+        
+        console.log("postData");         
+        console.log(postData);      
+        console.log(JSON.stringify(options));
 
 				request(options, function(error, response, body) {
-					if (error) throw new Error(error);
+					if (error) {
+            console.log('error');
+            console.log(error);         
+            console.log(response);
+            throw new Error(error);}
 				});
 			});
 
@@ -68,11 +82,15 @@ function login(email, password, callback) {
 
 		})(user);
 
+
+    console.log('attempting to set the user to:');
+console.log(userIdNoPrefix);
 		//return the user for Auth0 to store   
 		callback(null, {
-			user_id: user.user_id.toString(),
+			user_id: userIdNoPrefix,
 			nickname: user.nickname,
 			email: user.email,
+      email_verified: true,
 			user_metadata: { firstname: user.given_name, lastname: user.family_name }
 		});
 	});
