@@ -53,7 +53,8 @@ function login(email, password, callback) {
 					'hasVerifiedEmailAddress': true,
 					'isLockedOut': false,
 					'isMigrated': true,
-					'isStaffMember':false
+					'isStaffMember':false,
+					'isInAuthenticationProvider': true
 				});
 
 				const options = { method: 'POST',

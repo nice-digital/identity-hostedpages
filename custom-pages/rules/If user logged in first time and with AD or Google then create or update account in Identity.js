@@ -39,7 +39,8 @@ function (user, context, callback) {
         'hasVerifiedEmailAddress': true,
         'isLockedOut': false,
         'isMigrated': false,
-        'isStaffMember': context.connectionStrategy === "waad"
+        'isStaffMember': context.connectionStrategy === "waad",
+        'isInAuthenticationProvider': true
       });
 
     const options = { method: 'POST',

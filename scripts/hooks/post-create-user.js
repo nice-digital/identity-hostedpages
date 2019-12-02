@@ -74,7 +74,8 @@ module.exports = function (user, context, cb) {
       'hasVerifiedEmailAddress': hasVerifiedEmailAddress,
       'isLockedOut': isLockedOut,
       'isMigrated': isMigrated,
-      "isStaffMember": isStaffMember
+      "isStaffMember": isStaffMember,
+      'isInAuthenticationProvider': true
     });
 
     const options = { method: 'POST',
