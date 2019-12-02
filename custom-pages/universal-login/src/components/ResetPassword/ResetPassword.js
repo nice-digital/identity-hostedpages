@@ -1,10 +1,9 @@
 import React from 'react';
 import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
-import { hideNav, getFirstErrorElement, validateFields } from '../../helpers';
+import { getFirstErrorElement, validateFields } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './ResetPassword.scss';
-import Nav from "../Nav/Nav";
 
 export class ResetPassword extends React.Component {
   constructor(props) {
@@ -85,10 +84,8 @@ export class ResetPassword extends React.Component {
 
   render() {
     const { errors, showAlert } = this.state
-    hideNav()
     return (
       <div>
-        <Nav />
         <h3>Reset password</h3>
         <p className="lead">Please enter your new password</p>
         <form className="">

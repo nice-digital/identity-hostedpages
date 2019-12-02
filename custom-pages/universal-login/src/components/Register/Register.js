@@ -3,11 +3,10 @@ import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
 import { FormGroup } from '@nice-digital/nds-form-group';
 import { Checkbox } from '@nice-digital/nds-checkbox';
-import { showNav, getFirstErrorElement, validateFields, isDomainInUsername } from '../../helpers';
+import { getFirstErrorElement, validateFields, isDomainInUsername } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './Register.scss';
 import { NavLink } from "react-router-dom";
-import Nav from "../Nav/Nav";
 import { auth as authOpts } from '../../services/constants';
 
 class Register extends Component {
@@ -185,10 +184,16 @@ class Register extends Component {
       isAD,
       serverSideError
     } = this.state
-    showNav()
     return (
       <div>
-        <Nav/>
+        <h3> Create account </h3>
+        <p className="lead"><NavLink
+          data-qa-sel="Signin-link-login"
+          to="/"
+          activeclassname="activeRoute"
+        >
+          Sign in
+        </NavLink> if you already have a NICE account.</p>
         <form className="">
           <p className="lead">
             Use your work email address if you have one.

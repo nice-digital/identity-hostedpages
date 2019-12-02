@@ -1,18 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { Alert } from '@nice-digital/nds-alert';
-
-import { hideNav } from '../../helpers';
 import './RegisterSuccess.scss';
-import Nav from "../Nav/Nav";
-
 
 const RegisterSuccess = () => {
-  hideNav();
   return (
     <div>
-      <Nav/>
       <h3>Thank you</h3>
       <p class="lead">
         We've sent you an email with an activation link. Click on the link to verify your details and start using your account.

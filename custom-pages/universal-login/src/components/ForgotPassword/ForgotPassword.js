@@ -2,9 +2,8 @@ import React from 'react';
 import { Alert } from "@nice-digital/nds-alert";
 import { Input } from '@nice-digital/nds-forms';
 import { NavLink, Link } from 'react-router-dom';
-import { isDomainInUsername, hideNav, validateFields, getFirstErrorElement } from '../../helpers';
+import { isDomainInUsername, validateFields, getFirstErrorElement } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
-import Nav from "../Nav/Nav";
 import './ForgotPassword.scss';
 
 class ForgotPassword extends React.Component {
@@ -103,11 +102,9 @@ class ForgotPassword extends React.Component {
   }
 
   render() {
-    hideNav()
     const { error, errors, loading, email, isAD, showAlert } = this.state
     return (
       <div>
-        <Nav/>
         <h3>Reset your password</h3>
         <p class="lead">
           Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
