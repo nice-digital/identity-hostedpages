@@ -44,7 +44,7 @@ function login(email, password, callback) {
 		    	if (error) throw new Error(error);
 		    
 				const postData = JSON.stringify({
-					'auth0UserId': user.user_id,
+					'nameIdentifier': user.user_id,
 					'firstName': user.given_name,
 					'lastName': user.family_name,
 					'emailAddress': user.email,
@@ -53,7 +53,8 @@ function login(email, password, callback) {
 					'hasVerifiedEmailAddress': true,
 					'isLockedOut': false,
 					'isMigrated': true,
-					'isStaffMember':false
+					'isStaffMember':false,
+					'isInAuthenticationProvider': true
 				});
 
 				const options = { method: 'POST',

@@ -65,7 +65,7 @@ module.exports = function (user, context, cb) {
     let isStaffMember = user.email.endsWith('@nice.org.uk');
 
     const postData = JSON.stringify({
-      'auth0UserId': 'auth0|' + user.id,
+      'nameIdentifier': 'auth0|' + user.id,
       'firstName': firstName,
       'lastName': lastName,
       'emailAddress': user.email,
@@ -74,7 +74,8 @@ module.exports = function (user, context, cb) {
       'hasVerifiedEmailAddress': hasVerifiedEmailAddress,
       'isLockedOut': isLockedOut,
       'isMigrated': isMigrated,
-      "isStaffMember": isStaffMember
+      "isStaffMember": isStaffMember,
+      'isInAuthenticationProvider': true
     });
 
     const options = { method: 'POST',
