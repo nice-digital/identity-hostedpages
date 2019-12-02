@@ -46,11 +46,14 @@ class Login extends Component {
         ['strategies', 'waad', 'connectionName'],
         window.Auth0
       );
-      // this.setState(
-      //   { showGoogleLogin: !!this.googleConnection },
-      //   this.showAuth0RulesError
-      // )
-    })
+      this.setState(
+        { showGoogleLogin: !!this.googleConnection },
+        this.showAuth0RulesError
+      )
+    });
+    if (this.querystring.register === "true"){
+      this.props.history.push("/register");
+    }
   }
 
   showAuth0RulesError = () => {
