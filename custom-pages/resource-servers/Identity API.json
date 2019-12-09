@@ -1,9 +1,9 @@
 {
   "name": "Identity API",
   "identifier": "",
-  "allow_offline_access": false,
+  "allow_offline_access": true,
   "skip_consent_for_verifiable_first_party_clients": true,
-  "token_lifetime": 86400,
-  "token_lifetime_for_web": 7200,
+  "token_lifetime": 1200,
+  "token_lifetime_for_web": 1200,
   "signing_alg": "RS256"
 }
