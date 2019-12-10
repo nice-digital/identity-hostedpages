@@ -95,9 +95,9 @@ module.exports = function (user, context, cb) {
         console.log(`user-created identity api error: ${error}`);
         throw new Error(error);
       }
+
+      console.log('user-created hook finished');
+      cb();
     })
   });
-
-  console.log('user-created hook finished');
-  cb();
 };
