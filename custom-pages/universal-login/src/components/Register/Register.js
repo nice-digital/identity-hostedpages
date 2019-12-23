@@ -52,7 +52,7 @@ class Register extends Component {
         this.scrollIntoErrorPanel
       )
     const {
-      email, password, name, surname, allowContactMe
+      email, password, name, surname, tAndC, allowContactMe
     } = this.state
 
     this.validate()
@@ -61,12 +61,16 @@ class Register extends Component {
     if (this.isFormValidForSubmission()) {
       try {
         this.setState({ loading: true })
+        // acceptedTerms and allowContactMe need to be strings due to
+        // auth0 only accepting strings in the user_metadata sent to
+        // the user signup endpoint
         this.auth.register(
           email,
           password,
           name,
           surname,
-          allowContactMe,
+          tAndC.toString(),
+          allowContactMe.toString(),
           errorCallback,
           this.props.history
         )
