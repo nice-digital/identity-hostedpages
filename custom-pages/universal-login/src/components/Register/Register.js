@@ -66,7 +66,7 @@ class Register extends Component {
           password,
           name,
           surname,
-          allowContactMe.toString(),
+          allowContactMe,
           errorCallback,
           this.props.history
         )
