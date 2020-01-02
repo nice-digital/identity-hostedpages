@@ -1,3 +1,4 @@
+const nameRegex = /[<>]/g; // Name contains beginning or end tag characters
 export const validateFields = ({
   email,
   confirmEmail,
@@ -19,9 +20,13 @@ export const validateFields = ({
   },
   confirmPassword: () =>
     (password && confirmPassword && confirmPassword !== password),
-  name: () => name && name.length > 100,
-  surname: () => surname && surname.length > 100,
+  name: () => {
+    return name && (name.length > 100 || nameRegex.test(name));
+  },
+  surname: () => {
+    return surname && (surname.length > 100 || nameRegex.test(surname));
+  },
   tAndC: () => password && email && name && surname && !tAndC
-})
+});
 
 export default validateFields

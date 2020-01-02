@@ -303,7 +303,7 @@ class Register extends Component {
               errorMessage={`${
                 !name
                   ? 'This field is required'
-                  : 'First name should not exceed 100 characters'
+                  : 'First name should contain letters and should not exceed 100 characters'
               }`}
               onBlur={this.validate}
               onFocus={this.clearError}
@@ -319,7 +319,7 @@ class Register extends Component {
               errorMessage={`${
                 !surname
                   ? 'This field is required'
-                  : 'Last name should not exceed 100 characters'
+                  : 'Last name should contain letters and should not exceed 100 characters'
               }`}
               onBlur={this.validate}
               onFocus={this.clearError}
