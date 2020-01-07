@@ -208,7 +208,7 @@ export default class AuthApi {
     }
   }
 
-  register(email, password, name, surname, allowContactMe, errorCallback, history) {
+  register(email, password, name, surname, acceptedTerms, allowContactMe, errorCallback, history) {
     const options = {
       ...this.params,
       connection: authOpts.connection,
@@ -218,6 +218,7 @@ export default class AuthApi {
       user_metadata: {
         name,
         surname,
+        acceptedTerms,
         allowContactMe
       }
     }
