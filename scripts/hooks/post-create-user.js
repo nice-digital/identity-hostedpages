@@ -59,6 +59,15 @@ module.exports = function (user, context, cb) {
     let lastName = user && user.user_metadata && user.user_metadata.surname ? user.user_metadata.surname : null;
     let acceptedTerms = user && user.user_metadata && user.user_metadata.acceptedTerms ? user.user_metadata.acceptedTerms : false;
     let allowContactMe = user && user.user_metadata && user.user_metadata.allowContactMe ? user.user_metadata.allowContactMe : false;
+
+    // The acceptedTerms and allowContactMe fields need to be strings in the hosted pages due to
+    // auth0 only accepting strings in the user_metadata sent to the user signup endpoint.
+    // They need to be converted to booleans before calling the Identity API
+    // https://auth0.com/docs/best-practices/metadata-best-practices#metadata-storage-and-size-limits
+
+    acceptedTerms = (acceptedTerms.toLowerCase() === 'true') ? true : false;
+    allowContactMe = (allowContactMe.toLowerCase() === 'true') ? true : false;
+
     let hasVerifiedEmailAddress = false;
     let isLockedOut = false;
     let isMigrated = false;
