@@ -351,7 +351,7 @@ class Register extends Component {
                 error={errors.tAndC}
                 aria-describedby="tandc-error"
                 value="agree"
-                hint=<a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and conditions <span class="screen-reader-only">(opens in a new tab)</span></a>
+                hint=<a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and conditions <span class="visually-hidden">(opens in a new tab)</span></a>
               />
             </FormGroup>
             <FormGroup 
@@ -365,7 +365,7 @@ class Register extends Component {
                 label="Our insight community helps us improve our products and services. "
                 onChange={this.handleCheckboxChange}
                 value="agree"
-                hint=<a href="https://www.nice.org.uk/get-involved/help-us-improve" target="_blank" rel="noopener noreferrer">Find out more about the Audience Insight Community <span class="screen-reader-only">(opens in a new tab)</span></a>
+                hint=<a href="https://www.nice.org.uk/get-involved/help-us-improve" target="_blank" rel="noopener noreferrer">Find out more about the Audience Insight Community <span class="visually-hidden">(opens in a new tab)</span></a>
               />
             </FormGroup>
 

@@ -4,11 +4,3 @@
   margin: auto;
   min-width: var(--col-width-mobile);
 }
-
-.screen-reader-only {
-  position: absolute;
-  width: 1px;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  white-space: nowrap;
-}
