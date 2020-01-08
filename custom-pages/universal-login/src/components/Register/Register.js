@@ -53,7 +53,7 @@ class Register extends Component {
         this.scrollIntoErrorPanel
       )
     const {
-      email, password, name, surname, allowContactMe
+      email, password, name, surname, tAndC, allowContactMe
     } = this.state
 
     this.validate()
@@ -62,11 +62,15 @@ class Register extends Component {
     if (this.isFormValidForSubmission()) {
       try {
         this.setState({ loading: true })
+        // acceptedTerms and allowContactMe need to be strings due to
+        // auth0 only accepting strings in the user_metadata sent to
+        // the user signup endpoint
         this.auth.register(
           email,
           password,
           name,
           surname,
+          tAndC.toString(),
           allowContactMe.toString(),
           errorCallback,
           this.props.history
@@ -348,8 +352,11 @@ class Register extends Component {
               onFocus={this.clearError}
               aria-describedby="surname-error"
             />
+            </fieldset>
             <ul>
+
               <p className="lead">We use cookies:</p>
+
               <li>
                 To monitor usage of the NICE websites in order to improve our
                 services
@@ -373,6 +380,7 @@ class Register extends Component {
                 error={errors.tAndC}
                 aria-describedby="tandc-error"
                 value="agree"
+                hint=<a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and conditions <span class="visually-hidden">(opens in a new tab)</span></a>
               />
             </FormGroup>
             <FormGroup 
@@ -386,6 +394,7 @@ class Register extends Component {
                 label="Our insight community helps us improve our products and services. "
                 onChange={this.handleCheckboxChange}
                 value="agree"
+                hint=<a href="https://www.nice.org.uk/get-involved/help-us-improve" target="_blank" rel="noopener noreferrer">Find out more about the Audience Insight Community <span class="visually-hidden">(opens in a new tab)</span></a>
               />
             </FormGroup>
 
@@ -401,7 +410,7 @@ class Register extends Component {
                 privacy notice
               </a>
             </Alert>
-          </fieldset>
+
           {!loading ? (
             <button
               data-qa-sel="Register-button"
