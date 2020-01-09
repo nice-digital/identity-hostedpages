@@ -1,3 +1,7 @@
+# built html email files
+verify_email.html
+reset_email.html
+
 # dependencies
 /node_modules
 
