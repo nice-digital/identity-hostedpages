@@ -20,6 +20,7 @@ function inlineCSS() {
 
 exports.compileSCSS = compileSCSS;
 exports.inlineCSS = inlineCSS;
-exports.default = function() {
+exports.watch = function() {
     watch(['./src/scss/**/*.scss', './src/*.html'], { ignoreInitial: false }, series(compileSCSS, inlineCSS));
 };
+exports.default = series(compileSCSS, inlineCSS);
