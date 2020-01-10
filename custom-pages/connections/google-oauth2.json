@@ -42,6 +42,9 @@
   "name": "google-oauth2",
   "is_domain_connection": false,
   "enabled_clients": [
-    "Default App"    
+    "Identity Admin (was Default App)",
+    "Comments",
+    "Eppi",
+    "Test apps"
   ]
 }
