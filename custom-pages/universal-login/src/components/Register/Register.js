@@ -329,8 +329,9 @@ class Register extends Component {
               onFocus={this.clearError}
               aria-describedby="surname-error"
             />
+            </fieldset>
             <ul>
-              <h5>We use cookies:</h5>
+              <p>We use cookies:</p>
               <li>
                 To monitor usage of the NICE websites in order to improve our
                 services
@@ -354,6 +355,7 @@ class Register extends Component {
                 error={errors.tAndC}
                 aria-describedby="tandc-error"
                 value="agree"
+                hint=<a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and conditions <span class="visually-hidden">(opens in a new tab)</span></a>
               />
             </FormGroup>
             <FormGroup 
@@ -367,6 +369,7 @@ class Register extends Component {
                 label="Our insight community helps us improve our products and services. "
                 onChange={this.handleCheckboxChange}
                 value="agree"
+                hint=<a href="https://www.nice.org.uk/get-involved/help-us-improve" target="_blank" rel="noopener noreferrer">Find out more about the Audience Insight Community <span class="visually-hidden">(opens in a new tab)</span></a>
               />
             </FormGroup>
 
@@ -382,7 +385,7 @@ class Register extends Component {
                 privacy notice
               </a>
             </Alert>
-          </fieldset>
+
           {!loading ? (
             <button
               data-qa-sel="Register-button"
