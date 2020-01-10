@@ -35,7 +35,7 @@
     "Identity"
   ],
   "enabled_clients": [
-    "Identity Admin (was Default App)",
+    "Identity Admin",
     "Comments",
     "Eppi",
     "Test apps"

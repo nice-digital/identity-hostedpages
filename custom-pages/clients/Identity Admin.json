@@ -1,5 +1,5 @@
 {
-  "name": "Identity Admin (was Default App)",
+  "name": "Identity Admin",
   "callbacks": ["this will be deleted in the variable substitution"],
   "allowed_clients": [],
   "allowed_logout_urls": ["this will be deleted in the variable substitution"],
