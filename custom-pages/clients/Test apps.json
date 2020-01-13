@@ -12,6 +12,7 @@
   "cross_origin_auth": false,
   "initiate_login_uri": "",
   "allowed_origins": [],
+  "client_id": "",
   "client_secret": "",
   "jwt_configuration": {
     "alg": "RS256",
