@@ -1,0 +1,31 @@
+{
+  "name": "Identity Admin",
+  "callbacks": ["this will be deleted in the variable substitution"],
+  "allowed_clients": [],
+  "allowed_logout_urls": ["this will be deleted in the variable substitution"],
+  "is_first_party": true,
+  "oidc_conformant": true,
+  "description": "",
+  "logo_uri": "",
+  "sso": false,
+  "is_token_endpoint_ip_header_trusted": false,
+  "cross_origin_auth": false,
+  "initiate_login_uri": "",
+  "allowed_origins": [],
+  "client_id": "",
+  "client_secret": "",
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 36000,
+    "secret_encoded": false
+  },
+  "token_endpoint_auth_method": "client_secret_post",
+  "app_type": "regular_web",
+  "grant_types": [
+    "authorization_code",
+    "refresh_token",
+    "client_credentials"
+  ],
+  "web_origins": ["this will be deleted in the variable substitution"],
+  "custom_login_page_on": false
+}
