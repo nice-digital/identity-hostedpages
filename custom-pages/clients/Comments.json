@@ -1,5 +1,5 @@
 {
-  "name": "Default App",
+  "name": "Comments",
   "callbacks": ["this will be deleted in the variable substitution"],
   "allowed_clients": [],
   "allowed_logout_urls": ["this will be deleted in the variable substitution"],
@@ -12,6 +12,7 @@
   "cross_origin_auth": false,
   "initiate_login_uri": "",
   "allowed_origins": [],
+  "client_id": "",
   "client_secret": "",
   "jwt_configuration": {
     "alg": "RS256",

@@ -3,11 +3,11 @@ import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
 import { FormGroup } from '@nice-digital/nds-form-group';
 import { Checkbox } from '@nice-digital/nds-checkbox';
-import { showNav, getFirstErrorElement, validateFields } from '../../helpers';
+import { getFirstErrorElement, validateFields, isDomainInUsername } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './Register.scss';
-import { Link } from "react-router-dom";
-import Nav from "../Nav/Nav";
+import { NavLink } from "react-router-dom";
+import { auth as authOpts } from '../../services/constants';
 
 class Register extends Component {
   constructor(props) {
@@ -33,7 +33,8 @@ class Register extends Component {
       },
       showAlert: false,
       serverSideError: null,
-      loading: false
+      loading: false,
+      isAD: false
     }
   }
 
@@ -94,10 +95,16 @@ class Register extends Component {
     })
   }
 
-  handleChange = (event) => {
+  handleChange = ({ target: { name, value } }) => {
+    let isAD = null;
+    if (name === 'email') {
+      isAD = isDomainInUsername(value);
+    }
     this.setState({
-      [event.target.name]: event.target.value,
-      serverSideError: null
+      [name]: value,
+      serverSideError: null,
+      isAD,
+      connection: isAD ? this.ADConnection : authOpts.connection
     })
   }
 
@@ -178,16 +185,23 @@ class Register extends Component {
       name,
       surname,
       loading,
+      isAD,
       serverSideError
     } = this.state
-    showNav()
     return (
       <div>
-        <Nav/>
+        <h3> Create account </h3>
+        <p className="lead"><NavLink
+          data-qa-sel="Signin-link-login"
+          to="/"
+          activeclassname="activeRoute"
+        >
+          Sign in
+        </NavLink> if you already have a NICE account.</p>
         <form className="">
-          <h6>
-            Your email address should be your work email address if you have one.
-          </h6>
+          <p className="lead">
+            Use your work email address if you have one.
+          </p>
           <fieldset className="form-group">
             <legend className="form-group__legend">
               Personal information
@@ -199,7 +213,7 @@ class Register extends Component {
                   type="error"
                   aria-labelledby="error-summary-title"
                 >
-                  <h5>There is a problem</h5>
+                  <p className="lead">There is a problem</p>
                   <button
                     role="link"
                     tabIndex="0"
@@ -216,26 +230,30 @@ class Register extends Component {
                   type="error"
                   aria-labelledby="error-server-title"
                 >
-                  <h5>
+                  <p className="lead">
                     {serverSideError === 'The user already exists.' ?
                       <div>
-                        An account already exists for the specified email.<br/>
-                        <Link className="forgotPasswordRegister" data-qa-sel="forgotPassword-register" to="/forgotPassword">
+                        An account already exists for this email address.<br/>
+                        <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">
+                          Sign in
+                        </NavLink>
+                        {/* <Link className="forgotPasswordRegister" data-qa-sel="forgotPassword-register" to="/forgotPassword">
                           Forgot password?
-                        </Link>
+                        </Link> */}
                       </div>
                       :
                       <div>
                         {serverSideError}
                       </div>
                     }
-                  </h5>
+                  </p>
                 </Alert>
               )}
             </div>
             <Input
               data-qa-sel="email-register"
               label="Email"
+              id="email" 
               name="email"
               unique="email"
               type="email"
@@ -251,6 +269,11 @@ class Register extends Component {
               onFocus={this.clearError}
               aria-describedby="email-error"
             />
+            {isAD && (
+            <Alert type="caution">
+              You already have an account. <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">Sign in</NavLink> using your NICE email address and password.
+            </Alert>
+            )}
             <Input
               data-qa-sel="confirm-email-register"
               label="Confirm email"
@@ -331,7 +354,9 @@ class Register extends Component {
             />
             </fieldset>
             <ul>
-              <p>We use cookies:</p>
+
+              <p className="lead">We use cookies:</p>
+
               <li>
                 To monitor usage of the NICE websites in order to improve our
                 services

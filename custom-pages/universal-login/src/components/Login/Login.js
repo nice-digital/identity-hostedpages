@@ -4,8 +4,7 @@ import pathOr from 'ramda/src/pathOr';
 import { Input } from '@nice-digital/nds-forms';
 import qs from 'qs';
 import { Link } from "react-router-dom";
-import Nav from "../Nav/Nav";
-import { isDomainInUsername, showNav} from '../../helpers';
+import { isDomainInUsername} from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import { auth as authOpts } from '../../services/constants';
 import './Login.scss';
@@ -35,11 +34,12 @@ class Login extends Component {
       ignoreQueryPrefix: true
     });
     this.auth.fetchClientSettings().then(() => {
-      this.googleConnection = pathOr(
-        null,
-        ['strategies', 'google-oauth2', 'connectionName'],
-        window.Auth0
-      );
+      // We are not using google to connect for now
+      // this.googleConnection = pathOr(
+      //   null,
+      //   ['strategies', 'google-oauth2', 'connectionName'],
+      //   window.Auth0
+      // );
       this.ADConnection = pathOr(
         null,
         ['strategies', 'waad', 'connectionName'],
@@ -120,7 +120,6 @@ class Login extends Component {
   };
 
   render() {
-    showNav();
     const {
       error,
       loading,
@@ -133,7 +132,14 @@ class Login extends Component {
 
     return (
       <div>
-        <Nav/>
+        <h3> Log in </h3>
+        <p className="lead"><Link
+          data-qa-sel="Signup-link-login"
+          to="/register"
+          activeclassname="activeRoute"
+        >
+          Create a NICE account
+        </Link></p>
         <form className="">
           
             {error && (
@@ -172,6 +178,12 @@ class Login extends Component {
               />
             )}
 
+          {isAD && (
+            <Alert type="info">
+            When you select sign in you will be directed to another screen where you can sign in through Microsoft using your NICE email address and password.
+            </Alert>
+          )}
+
           {!loading ? (
             !showUserNotVerfiedMessage ? (
               <div>
@@ -207,9 +219,12 @@ class Login extends Component {
             'Loading...'
           )}
         </form>
+
+        {!isAD && (
         <Link className="forgotPasswordLink" data-qa-sel="forgotPassword-link" to="/forgotPassword">
           Forgot password?
         </Link>
+        )}
       </div>
     )
   }
