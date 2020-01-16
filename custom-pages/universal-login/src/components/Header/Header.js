@@ -5,7 +5,6 @@ import './Header.scss'
 const Header = props => (
   <div className={props.className}>
     <h1>NICE accounts</h1>
-    <h6>A single sign-in for the different services offered by NICE.</h6>
   </div>
 )
 
