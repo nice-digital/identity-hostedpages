@@ -11,6 +11,9 @@
   "is_token_endpoint_ip_header_trusted": false,
   "cross_origin_auth": false,
   "initiate_login_uri": "",
+  "client_metadata": {
+    "redirect_uri": ""
+  },
   "allowed_origins": [],
   "client_id": "",
   "client_secret": "",
