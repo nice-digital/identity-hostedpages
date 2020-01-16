@@ -180,7 +180,7 @@ class Login extends Component {
 
           {isAD && (
             <Alert type="info">
-            You already have an account. When you select sign in you will be directed to another screen where you can sign in through Microsoft using your NICE email address and password.
+            When you select sign in you will be directed to another screen where you can sign in through Microsoft using your NICE email address and password.
             </Alert>
           )}
 
