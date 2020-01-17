@@ -8,7 +8,6 @@
   <div class="wrapper">
     <div class="col leftCol">
       <h1>NICE accounts</h1>
-      <h6>A single sign-in for the different services offered by NICE.</h6>
     </div>
     <div class="mainContainer col rightCol">
       <div>
@@ -45,7 +44,7 @@
   if (success){
     outputElement.innerHTML= "<h3>Thank you!</h3>" +
         "<div class='alert alert--success'>" +
-          "Your account was activated successfully." +
+          "Your account is now active."
         "</div>";
   } else{
     outputElement.innerHTML= "<h3>There has been an error</h3>" +
@@ -60,13 +59,11 @@
 	var global_nav_config = {
 		service: "guidance",
 		header: {
-			search: {
-				autocomplete: "/autocomplete?ajax=ajax",
-			},
+			search: false,
 			auth: {
         environment: "live",
         provider: "idam",
-        links: [{ key: "Sign in", value: "#{initiate_login_uri}" }]
+        links: [{ text: "Sign in", url: "#{initiate_login_uri}" }]
 			}
 		},
 		footer: true
@@ -75,6 +72,6 @@
 <!--[if lt IE 9]>
 	<script src="//cdn.nice.org.uk/global-nav/global-nav.ie8.min.js"></script>
 <![endif]-->
-<script src="//cdn.nice.org.uk/global-nav/global-nav.min.js"></script>
+<script src="https://cdn.nice.org.uk/global-nav/global-nav.min.js"></script>
 </body>
 </html>
