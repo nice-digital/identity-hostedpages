@@ -53,9 +53,9 @@
         "</div>";
   }
 
-</script>
-<!-- Global nav -->
-<script>	
+
+// Global nav:
+  var urlForLoginButton = getParameterByName("redirect"); //this redirect parameter comes from the querystring parameter on the "resultUrl" octo variable, which adds is used on the verify email json to redirect to after the user verifies their email.
 	var global_nav_config = {
 		service: "guidance",
 		header: {
@@ -63,7 +63,7 @@
 			auth: {
         environment: "live",
         provider: "idam",
-        links: [{ text: "Sign in", url: "#{redirect_uri}" }]
+        links: [{ text: "Sign in", url: urlForLoginButton }]
 			}
 		},
 		footer: true

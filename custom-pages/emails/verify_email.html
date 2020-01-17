@@ -19,12 +19,8 @@
 
             <p>Thank you for signing up. Please verify your email address by clicking the following link:</p>
 
-            {% if client_metadata.redirectUri == '' %}
-              <p><a href="{{ url }}">Confirm my account</a></p>
-            {% else %}
-              <p><a id="lnkConfirm" href="{{ url }}&redirectUri={{ client_metadata.redirectUri }}">Confirm my account</a></p>
-            {% endif %}            
-
+            <p><a href="{{ url }}">Confirm my account</a></p>
+            
             <p>If you are having any issues with your account, please don’t hesitate to contact us by replying to this mail.</p>
 
             <br>
