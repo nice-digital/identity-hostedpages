@@ -102,7 +102,9 @@ class Login extends Component {
     } catch (err) {
       console.log(JSON.stringify(err))
       this.setState({ loading: false, error: 'Something has gone wrong.' })
-    }
+    } finally {
+      return false;
+    }   
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -189,6 +191,7 @@ class Login extends Component {
           {!loading ? (
             <div>
               <button
+                type="button"
                 data-qa-sel="login-button"
                 className="btn btn--cta"
                 onClick={e => this.login(e, false)}
@@ -198,6 +201,7 @@ class Login extends Component {
               </button>
               {showGoogleLogin && (
                 <button
+                  type="button"
                   data-qa-sel="login-button-social"
                   className="iconBtn social"
                   style={{ float: 'right' }}
