@@ -108,7 +108,7 @@ export default class AuthApi {
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
-              setTimeout(() => errorCallback(err))
+              errorCallback(res)
             }
             console.log(JSON.stringify(err))
           }
@@ -129,12 +129,12 @@ export default class AuthApi {
             if (res.status === 200) {
               document.location = redirectUri
             } else if (errorCallback) {
-              setTimeout(() => errorCallback(res))
+              errorCallback(res)
             }
           })
           .catch((err) => {
             if (errorCallback) {
-              setTimeout(() => errorCallback(err))
+              errorCallback(res)
             }
           })
       }
