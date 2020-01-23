@@ -1,4 +1,6 @@
-const nameRegex = /[<>]/g; // Name contains beginning or end tag characters
+// Validation returns true on failed validation
+// and is passed through to state.errors.
+// See commit history
 export const validateFields = ({
   email,
   confirmEmail,
@@ -21,10 +23,10 @@ export const validateFields = ({
   confirmPassword: () =>
     (password && confirmPassword && confirmPassword !== password),
   name: () => {
-    return name && (name.length > 100 || nameRegex.test(name));
+    return name && (name.length > 100 || /[<>]/g.test(name));
   },
   surname: () => {
-    return surname && (surname.length > 100 || nameRegex.test(surname));
+    return surname && (surname.length > 100 || /[<>]/g.test(surname));
   },
   tAndC: () => password && email && name && surname && !tAndC
 });
