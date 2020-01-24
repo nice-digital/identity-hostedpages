@@ -256,9 +256,7 @@ export default class AuthApi {
     }
 
     const data = {
-      // ...this.params,
-      user_id: userId,
-      client_id: this.clientID
+      user_id: userId
     }
     console.log('about to resend verification email');
     console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);      
