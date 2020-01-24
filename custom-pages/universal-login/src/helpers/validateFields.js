@@ -1,3 +1,6 @@
+// Validation returns true on failed validation
+// and is passed through to state.errors.
+// See commit history
 export const validateFields = ({
   email,
   confirmEmail,
@@ -19,9 +22,13 @@ export const validateFields = ({
   },
   confirmPassword: () =>
     (password && confirmPassword && confirmPassword !== password),
-  name: () => name && name.length > 100,
-  surname: () => surname && surname.length > 100,
+  name: () => {
+    return name && (name.length > 100 || /[<>]/g.test(name));
+  },
+  surname: () => {
+    return surname && (surname.length > 100 || /[<>]/g.test(surname));
+  },
   tAndC: () => password && email && name && surname && !tAndC
-})
+});
 
 export default validateFields
