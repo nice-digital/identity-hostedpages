@@ -14,12 +14,10 @@ export default class AuthApi {
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
 
-    console.log(`authapi constructor. window.config: ${JSON.stringify(window.config)}`);
-
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
-      clientID: authOpts.clientID,
+      clientID: window.config.clientID || authOpts.clientID,
       leeway: 1,
       popup: false,
       responseType: 'code',
