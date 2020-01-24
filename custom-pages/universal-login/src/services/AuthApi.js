@@ -13,6 +13,9 @@ export default class AuthApi {
       window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
+
+    console.log(`authapi constructor. window.config: ${JSON.stringify(window.config)}`);
+
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
