@@ -82,7 +82,7 @@ class Register extends Component {
     const serverErrorCallback = err => this.setState(function() {
         console.error(err);
         return {
-          serverSideError: 'Server Error', loading: false
+          serverSideError: err.description || err.name, loading: false
         }},
       this.scrollIntoErrorPanel
     );
@@ -106,7 +106,7 @@ class Register extends Component {
       this.setState(function() {
           console.error(err);
           return {
-            serverSideError: 'Server Error', loading: false
+            serverSideError: err.message || err.name, loading: false
           }},
         this.scrollIntoErrorPanel
       );
