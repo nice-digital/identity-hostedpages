@@ -130,17 +130,16 @@ class Register extends Component {
     //event persistence for setState
     let name = event.target.name;
     let value = event.target.value;
-    let isAD = null;
-    if (name === 'email') {
-      isAD = isDomainInUsername(value);
-    }
 
-    this.setState((state, props) => ({
-      [name]: value,
-      serverSideError: null,
-      isAD,
-      connection: isAD ? this.ADConnection : authOpts.connection
-    }));
+    this.setState(function(state) {
+      let isAD = (name === 'email') ? isDomainInUsername(value) : state.isAD;
+      return {
+        [name]: value,
+        serverSideError: null,
+        isAD,
+        connection: isAD ? this.ADConnection : authOpts.connection
+      }
+    });
   };
 
   clearError = (event) => {
