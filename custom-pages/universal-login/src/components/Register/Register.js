@@ -82,7 +82,7 @@ class Register extends Component {
     const serverErrorCallback = err => this.setState(function() {
         console.error(err);
         return {
-          serverSideError: 'Server Error', loading: false
+          serverSideError: err.description || err.name, loading: false
         }},
       this.scrollIntoErrorPanel
     );
@@ -106,7 +106,7 @@ class Register extends Component {
       this.setState(function() {
           console.error(err);
           return {
-            serverSideError: 'Server Error', loading: false
+            serverSideError: err.message || err.name, loading: false
           }},
         this.scrollIntoErrorPanel
       );
@@ -130,17 +130,16 @@ class Register extends Component {
     //event persistence for setState
     let name = event.target.name;
     let value = event.target.value;
-    let isAD = null;
-    if (name === 'email') {
-      isAD = isDomainInUsername(value);
-    }
 
-    this.setState((state, props) => ({
-      [name]: value,
-      serverSideError: null,
-      isAD,
-      connection: isAD ? this.ADConnection : authOpts.connection
-    }));
+    this.setState(function(state) {
+      let isAD = (name === 'email') ? isDomainInUsername(value) : state.isAD;
+      return {
+        [name]: value,
+        serverSideError: null,
+        isAD,
+        connection: isAD ? this.ADConnection : authOpts.connection
+      }
+    });
   };
 
   clearError = (event) => {
