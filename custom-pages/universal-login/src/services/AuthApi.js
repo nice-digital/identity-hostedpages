@@ -13,10 +13,11 @@ export default class AuthApi {
       window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
+    this.clientID = window.config.clientID || authOpts.clientID
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
-      clientID: authOpts.clientID,
+      clientID: this.clientID ,
       leeway: 1,
       popup: false,
       responseType: 'code',
@@ -54,7 +55,7 @@ export default class AuthApi {
           ? authOpts.auth0CDN
           : window.config.clientConfigurationBaseUrl
         const source = `${ensureTrailingSlash(cdnBaseUrl)}client/${
-          authOpts.clientID
+          this.clientID
         }.js?t${+new Date()}`
         this.createAuth0Namespace(resolver)
         const scriptTag = document.createElement('script')
@@ -255,9 +256,7 @@ export default class AuthApi {
     }
 
     const data = {
-      // ...this.params,
-      user_id: userId,
-      client_id: authOpts.clientID
+      user_id: userId
     }
     console.log('about to resend verification email');
     console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);      

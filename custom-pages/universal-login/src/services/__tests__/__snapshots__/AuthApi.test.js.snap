@@ -2,6 +2,7 @@
 
 exports[`AppContainer components should create an instance of AuthApi correctly 1`] = `
 AuthApi {
+  "clientID": "#{AUTH0_APP_CLIENT_ID}",
   "createAuth0Namespace": [Function],
   "fetchClientSettings": [Function],
   "getStategies": [Function],
