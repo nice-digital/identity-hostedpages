@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Alert } from '@nice-digital/nds-alert';
-import pathOr from 'ramda/src/pathOr';
 import { Input } from '@nice-digital/nds-forms';
 import qs from 'qs';
 import { Link } from "react-router-dom";
@@ -35,16 +34,9 @@ class Login extends Component {
     });
     this.auth.fetchClientSettings().then(() => {
       // We are not using google to connect for now
-      // this.googleConnection = pathOr(
-      //   null,
-      //   ['strategies', 'google-oauth2', 'connectionName'],
-      //   window.Auth0
-      // );
-      this.ADConnection = pathOr(
-        null,
-        ['strategies', 'waad', 'connectionName'],
-        window.Auth0
-      );
+      // this.googleConnection = window.Auth0.strategies && window.Auth0.strategies.google-oauth2 && window.Auth0.strategies.google-oauth2.connectionName || null;
+
+      this.ADConnection = window.Auth0.strategies && window.Auth0.strategies.waad && window.Auth0.strategies.waad.connectionName || null;
       this.setState(
         { showGoogleLogin: !!this.googleConnection },
         this.showAuth0RulesError
