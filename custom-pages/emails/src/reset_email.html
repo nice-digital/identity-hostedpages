@@ -94,6 +94,13 @@
 											work, simply copy and paste it into your web
 											browser.
 											<br /><br />
+
+											{% if client_metadata.authorise_uri == '' %}	            
+												<a href="{{ url }}" target="_blank">{{ url }}</a>
+										  	{% else %}	
+												<a id="lnkConfirm" href="{{ url }}&redirectUri={{ client_metadata.authorise_uri }}">{{ url }}&redirectUri={{ client_metadata.redirectUri }}</a>
+										  	{% endif %}  
+
 											<a href="{{ url }}" target="_blank">{{ url }}</a>
 											<br /><br />
 											NICE accounts is a single sign in for NICE products.
