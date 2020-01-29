@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@nice-digital/design-system": "^1.0.15-alpha.0",
-    "@nice-digital/global-nav": "github:nhsevidence/global-nav#7ac55684c614395dda225c5e21c4424b7bd8be85",
+    "@nice-digital/global-nav": "github:nice-digital/global-nav#IDAM-349-OptionalSignInLink",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
