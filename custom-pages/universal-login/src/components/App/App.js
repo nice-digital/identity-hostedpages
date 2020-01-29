@@ -22,7 +22,7 @@ class App extends React.Component {
 
     return (
       <>
-      <GlobalHeader search={false} auth={{provider:"idam", links:links}} />
+      <GlobalHeader search={false} auth={false} />
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
