@@ -42,7 +42,7 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>
-        if ("%PUBLIC_URL%".endsWith("login")) {
+        if ("%PUBLIC_URL%".substring("%PUBLIC_URL%".length - 5) === "login") {
             var config =
                 document.location.host.indexOf("localhost") !== -1 ? {} :
                 JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));
