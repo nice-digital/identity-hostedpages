@@ -71,7 +71,7 @@ module.exports = function (user, context, cb) {
     let hasVerifiedEmailAddress = false;
     let isLockedOut = false;
     let isMigrated = false;
-    let isStaffMember = user.email.substring(user.email.length - 12) === '@nice.org.uk';
+    let isStaffMember = user.email.indexOf("@nice.org.uk") !== -1;
 
     const postData = JSON.stringify({
       'nameIdentifier': 'auth0|' + user.id,
