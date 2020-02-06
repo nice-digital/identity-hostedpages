@@ -1,6 +1,13 @@
+@import '~@nice-digital/nds-core/scss/core';
+
 .mainpanel {
   display: flex;
   flex-direction: column;
   margin: auto;
   min-width: var(--col-width-mobile);
+}
+.form__error {
+  color: $nds-colour-error;
+  font-weight: bold;
+  margin-top: rem($nds-spacing-x-small);
 }
