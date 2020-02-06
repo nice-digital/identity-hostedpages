@@ -72,7 +72,7 @@ class Register extends Component {
   };
 
   isValidRegistration = () => {
-    let hasErrors = Object.values(this.state.errors).reduce((defaultErrorValue, hasError) => {
+    let hasErrors = Object.keys(this.state.errors).map(itm => this.state.errors[itm]).reduce((defaultErrorValue, hasError) => {
       return defaultErrorValue || hasError
     }, false);
     return !hasErrors;
