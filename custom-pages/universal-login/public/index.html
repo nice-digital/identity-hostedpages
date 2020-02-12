@@ -51,7 +51,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script>
-        if ("%PUBLIC_URL%".endsWith("login")) {
+        if ("%PUBLIC_URL%".indexOf("login") !== -1) {
             var config =
                 document.location.host.indexOf("localhost") !== -1 ? {} :
                 JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));

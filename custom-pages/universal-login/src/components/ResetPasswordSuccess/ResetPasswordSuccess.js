@@ -13,7 +13,7 @@ export const ResetPasswordSuccess = () => {
     <div>
       <h3>Thank you</h3>
       <Alert type="success">
-        Your password has been changed and you can now use it to <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">sign in.</NavLink>
+        Your password has been changed.
       </Alert>
     </div>
   )
