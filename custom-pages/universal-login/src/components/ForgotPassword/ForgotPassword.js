@@ -130,12 +130,12 @@ class ForgotPassword extends React.Component {
               onFocus={this.clearError}
               aria-describedby="email-error"
             />
-          {isAD && (
+          {isAD ? (
             <Alert type="info">
-              <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">Sign in</NavLink> using your NICE email address and password. 
+              NICE staff should <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">sign in</NavLink> using the password you use to sign in to your work computer. 
             </Alert>
-          )}
-          {!loading ? (
+          ) : (
+          !loading ? (
             <button
               data-qa-sel="forgotPassword-button"
               className="btn btn--cta"
@@ -145,12 +145,16 @@ class ForgotPassword extends React.Component {
             </button>
           ) : (
             'Loading...'
+          )
           )}
         </form>
+        {!isAD &&
         <Link data-qa-sel="forgotPassword-link-to-login" to="/">
           Return to sign in
         </Link>
+        }
       </div>
+
     )
   }
 }
