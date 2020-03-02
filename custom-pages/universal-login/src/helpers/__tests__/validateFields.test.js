@@ -16,30 +16,6 @@ describe('validateFields ', () => {
     expect(emailValidation).toBe(undefined)
   })
 
-  // it('should return tests.confirmEmail => falsey with no email', () => {
-  //   const confirmEmailValidation = validateFields({
-  //     confirmEmail: 'invalidEmail'
-  //   }).confirmEmail()
-  //   expect(confirmEmailValidation).toBe(undefined)
-  // })
-  it('should return tests.confirmEmail => true for invalid confirmEmail', () => {
-    const confirmEmailValidation = validateFields({
-      email: 'validEmail@provider.com',
-      confirmEmail: 'validEmail@differentprovider.com'
-    }).confirmEmail()
-    expect(confirmEmailValidation).toBe(true)
-  })
-  it('should return tests.confirmEmail => falsey with no email and no confirmEmail', () => {
-    const confirmEmailValidation = validateFields({}).confirmEmail()
-    expect(confirmEmailValidation).toBe(undefined)
-  })
-  // it('should return tests.confirmEmail => true with no confirmEmail', () => {
-  //   const confirmEmailValidation = validateFields({
-  //     email: 'someEmail@provider.com'
-  //   }).confirmEmail()
-  //   expect(confirmEmailValidation).toBe(true)
-  // })
-
   // password
   it('should return tests.password => true with invalid password (only numbers)', () => {
     const passwordValidation = validateFields({ password: '65340598673045986711' }).password()
