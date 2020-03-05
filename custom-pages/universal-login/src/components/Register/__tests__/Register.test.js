@@ -22,7 +22,6 @@ describe('Register components', () => {
     instance.requestErrorCallback = functionSignature;
     props = {
       email: 'email@email.com',
-      confirmEmail: 'email@email.com',
       password: 'Password01!',
       confirmPassword: 'Password01!',
       name: 'Bruce',

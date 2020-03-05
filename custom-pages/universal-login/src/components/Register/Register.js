@@ -17,14 +17,12 @@ class Register extends Component {
       tAndC: false,
       allowContactMe: false,
       email: null,
-      confirmEmail: null,
       password: null,
       confirmPassword: null,
       name: null,
       surname: null,
       errors: {
         email: false,
-        confirmEmail: false,
         password: false,
         confirmPassword: false,
         name: false,
@@ -54,7 +52,6 @@ class Register extends Component {
       return {
         errors: {
           email: !state.email || tests.email(),
-          confirmEmail: !state.confirmEmail || tests.confirmEmail(),
           password: !state.password || tests.password(),
           confirmPassword: !state.confirmPassword || tests.confirmPassword(),
           name: !state.name || tests.name(),
@@ -161,7 +158,6 @@ class Register extends Component {
       return {
         errors: {
           email: state.email ? tests.email(state.email) : state.errors.email,
-          confirmEmail: state.confirmEmail ? tests.confirmEmail() : state.errors.confirmEmail,
           password: state.password ? tests.password() : state.errors.password,
           confirmPassword: state.confirmPassword ? tests.confirmPassword() : state.errors.confirmPassword,
           name: state.name ? tests.name() : state.errors.name,
@@ -185,7 +181,6 @@ class Register extends Component {
       errors,
       showAlert,
       email,
-      confirmEmail,
       password,
       confirmPassword,
       name,
@@ -281,25 +276,6 @@ class Register extends Component {
               You already have an account. <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">Sign in</NavLink> using your NICE email address and password.
             </Alert>
             )}
-            <Input
-              data-qa-sel="confirm-email-register"
-              label="Confirm email"
-              name="confirmEmail"
-              unique="confirmEmail"
-              type="email"
-              placeholder="eg: your.name@example.com..."
-              value={this.state.value}
-              onChange={this.handleChange}
-              error={errors.confirmEmail}
-              errorMessage={`${
-                !confirmEmail
-                  ? 'This field is required'
-                  : 'Email address doesn\'t match'
-              }`}
-              onBlur={this.validate}
-              onFocus={this.clearError}
-              aria-describedby="confirmEmail-error"
-            />
             <Input
               data-qa-sel="password-register"
               name="password"
