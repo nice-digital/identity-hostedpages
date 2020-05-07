@@ -7,7 +7,7 @@ function (user, context, callback) {
   //this rule is only concerned with migrating people who sign in for the first time with AD
   //or google.
   if ((context.connectionStrategy !== "waad" && 
-       context.connectionStrategy !== "google-oauth2") || context.stats.loginsCount > 1){
+       context.connectionStrategy !== "google-oauth2")){ //|| context.stats.loginsCount > 1
     callback(null, user, context);  
     return;
   } 
