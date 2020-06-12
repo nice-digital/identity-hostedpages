@@ -79,6 +79,7 @@ export default class AuthApi {
     }, {})
 
   login(connection, username, password, errorCallback, resumeAuthState) {
+    console.log('Start login method');
     try {
       const redirectUri = window.config.extraParams.redirectURI
       let options
@@ -128,6 +129,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
+              console.log('Got 200 no try to find cookie');
               this.getCookie('_tempCid');
               document.location = redirectUri
             } else if (errorCallback) {
@@ -274,12 +276,15 @@ export default class AuthApi {
   }
 
   getCookie = (name) => {
+    console.log(`Start get cookie - ${name}`);
     const regx = new RegExp('(^| )' + name + '=([^;]+)')
     const match = document.cookie.match(regx);
     if (match) {
+      console.log('Found Cookie');
       console.log(match[2]);
     } else {
-          console.log(`something has gone wrong when getting the cookie - ${regx}`);
+      console.log(`something has gone wrong when getting the cookie - ${regx}`);
     }
+    console.log(`End get cookie - ${name}`);
   }
 }
