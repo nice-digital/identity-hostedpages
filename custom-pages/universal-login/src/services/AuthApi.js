@@ -128,6 +128,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
+              this.getCookie('_tempCid');
               document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
@@ -270,5 +271,15 @@ export default class AuthApi {
     })
       .then(callback)
       .catch(catchCallback)
+  }
+
+  getCookie = (name) => {
+    const regx = new RegExp('(^| )' + name + '=([^;]+)')
+    const match = document.cookie.match(regx);
+    if (match) {
+      console.log(match[2]);
+    } else {
+          console.log(`something has gone wrong when getting the cookie - ${regx}`);
+    }
   }
 }
