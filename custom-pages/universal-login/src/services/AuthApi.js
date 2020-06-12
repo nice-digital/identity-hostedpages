@@ -80,6 +80,7 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     console.log('Start login method');
+    this.getCookie('_tempCid');
     try {
       const redirectUri = window.config.extraParams.redirectURI
       let options
@@ -129,8 +130,6 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              console.log('Got 200 no try to find cookie');
-              this.getCookie('_tempCid');
               document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
