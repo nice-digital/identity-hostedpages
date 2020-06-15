@@ -130,6 +130,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
+              console.log(`redirectUri = ${redirectUri}`);
               document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
@@ -281,7 +282,7 @@ export default class AuthApi {
     console.log(`cookie match = ${match}`);
     if (match) {
       console.log('Found Cookie');
-      console.log(match[2]);
+      console.log(match[1]);
     } else {
       console.log(`something has gone wrong when getting the cookie - ${regx}`);
     }
