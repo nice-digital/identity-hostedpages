@@ -276,8 +276,9 @@ export default class AuthApi {
 
   getCookie = (name) => {
     console.log(`Start get cookie - ${name}`);
-    const regx = new RegExp('(^| )' + name + '=([^;]+)')
+    const regx = new RegExp(name + '=([^;]+)')
     const match = document.cookie.match(regx);
+    console.log(`cookie match = ${match}`);
     if (match) {
       console.log('Found Cookie');
       console.log(match[2]);
