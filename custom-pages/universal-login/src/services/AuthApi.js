@@ -283,6 +283,10 @@ export default class AuthApi {
     if (match) {
       console.log('Found Cookie');
       console.log(match[1]);
+
+      const cookie = `_tempCid2='${match[1]}`;
+      document.cookie = cookie + '; samesite=lax; max-age='+60*30+';';
+
     } else {
       console.log(`something has gone wrong when getting the cookie - ${regx}`);
     }
