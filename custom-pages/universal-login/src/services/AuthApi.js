@@ -80,9 +80,9 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     console.log('Start login method');
-    this.getCookie('_tempCid');
     try {
       const redirectUri = window.config.extraParams.redirectURI
+      const redirectUriWithGAId = `${redirectUri}?GA=${this.getCookie('_tempCid')}` 
       let options
       let method
       if (connection === authOpts.connection) {
@@ -130,8 +130,8 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              console.log(`redirectUri = ${redirectUri}`);
-              document.location = redirectUri
+              console.log(`redirectUri = ${redirectUriWithGAId}`);
+              document.location = redirectUriWithGAId
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
@@ -283,10 +283,6 @@ export default class AuthApi {
     if (match) {
       console.log('Found Cookie');
       console.log(match[1]);
-
-      const cookie = `_tempCid2='${match[1]}`;
-      document.cookie = cookie + '; samesite=lax; max-age='+60*30+';';
-
     } else {
       console.log(`something has gone wrong when getting the cookie - ${regx}`);
     }
