@@ -80,6 +80,7 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     console.log('Start login method');
+    console.log(this.getCookie('_tempCid'));
     try {
       const redirectUri = window.config.extraParams.redirectURI
       const redirectUriWithGAId = `${redirectUri}?GA=${this.getCookie('_tempCid')}` 
@@ -105,9 +106,11 @@ export default class AuthApi {
         method = 'authorize'
       }
       if (redirectUri) {
+        console.log('redirectUri set');
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
+        console.log('not resumeAuthState');
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
@@ -117,6 +120,7 @@ export default class AuthApi {
           }
         })
       } else {
+        console.log('resumeAuthState');
         const GETOptions = qs.stringify(
           { ...options, state: resumeAuthState },
           { addQueryPrefix: true }
@@ -137,6 +141,7 @@ export default class AuthApi {
             }
           })
           .catch((err) => {
+            console.log('Error occured');
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
             }
