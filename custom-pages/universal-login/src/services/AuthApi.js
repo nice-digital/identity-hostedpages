@@ -113,7 +113,11 @@ export default class AuthApi {
         console.log('not resumeAuthState');
         console.log(`method ${method}`);
         console.log(`options ${JSON.stringify(options)}`);
-        this.instance[method](options, (err) => {
+        this.instance[method](options, (err, result) => {
+          if (result)
+          {
+            console.log(`result = ${JSON.stringify(result)}`);
+          }
           if (err) {
             console.log(`error occured ${err}`);
             if (errorCallback) {
