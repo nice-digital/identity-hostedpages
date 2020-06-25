@@ -101,7 +101,8 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post'
+          response_mode: 'form_post',
+          tempCid: this.getCookie('_tempCid')
         }
         method = 'authorize'
       }
@@ -114,27 +115,19 @@ export default class AuthApi {
         console.log(`method ${method}`);
         console.log(`options ${JSON.stringify(options)}`);
 
-        fetch(`/authorize${options}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        })
-          .then((res) => {
+        this.instance[method](options, (err, result) => {
+          if (result)
+          {
             console.log(`result = ${JSON.stringify(result)}`);
-            if (res.status === 200) {
-              console.log(`redirectUri = ${redirectUriWithGAId}`);
-            } else if (errorCallback) {
-              setTimeout(() => errorCallback(res))
-            }
-          })
-          .catch((err) => {
-            console.log('Error occured');
+          }
+          if (err) {
+            console.log(`error occured ${err}`);
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
             }
-          })
+            console.log(JSON.stringify(err))
+          }
+        })
       } else {
         console.log('resumeAuthState');
         const GETOptions = qs.stringify(
