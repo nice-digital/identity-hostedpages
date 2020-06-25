@@ -135,50 +135,34 @@ export default class AuthApi {
               setTimeout(() => errorCallback(err))
             }
           })
-        }
-
-
-        // this.instance[method](options, (err, result) => {
-        //   if (result)
-        //   {
-        //     console.log(`result = ${JSON.stringify(result)}`);
-        //   }
-        //   if (err) {
-        //     console.log(`error occured ${err}`);
-        //     if (errorCallback) {
-        //       setTimeout(() => errorCallback(err))
-        //     }
-        //     console.log(JSON.stringify(err))
-        //   }
-        // })
-      // } else {
-      //   console.log('resumeAuthState');
-      //   const GETOptions = qs.stringify(
-      //     { ...options, state: resumeAuthState },
-      //     { addQueryPrefix: true }
-      //   )
-      //   fetch(`/continue${GETOptions}`, {
-      //     method: 'GET',
-      //     headers: {
-      //       Accept: 'application/json',
-      //       'Content-Type': 'application/json'
-      //     }
-      //   })
-      //     .then((res) => {
-      //       if (res.status === 200) {
-      //         console.log(`redirectUri = ${redirectUriWithGAId}`);
-      //         document.location = redirectUriWithGAId
-      //       } else if (errorCallback) {
-      //         setTimeout(() => errorCallback(res))
-      //       }
-      //     })
-      //     .catch((err) => {
-      //       console.log('Error occured');
-      //       if (errorCallback) {
-      //         setTimeout(() => errorCallback(err))
-      //       }
-      //     })
-      // }
+      } else {
+        console.log('resumeAuthState');
+        const GETOptions = qs.stringify(
+          { ...options, state: resumeAuthState },
+          { addQueryPrefix: true }
+        )
+        fetch(`/continue${GETOptions}`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          }
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              console.log(`redirectUri = ${redirectUriWithGAId}`);
+              document.location = redirectUriWithGAId
+            } else if (errorCallback) {
+              setTimeout(() => errorCallback(res))
+            }
+          })
+          .catch((err) => {
+            console.log('Error occured');
+            if (errorCallback) {
+              setTimeout(() => errorCallback(err))
+            }
+          })
+      }
     } catch (err) {
       console.log(JSON.stringify(err))
     }
