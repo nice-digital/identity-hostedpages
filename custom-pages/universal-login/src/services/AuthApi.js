@@ -116,7 +116,8 @@ export default class AuthApi {
         console.log(`options ${JSON.stringify(options)}`);
 
         const GETOptions = qs.stringify(
-          { ...options, tempCid: 12345 },
+          { ...options, tempCid: 12345 }
+        )
 
         this.instance[method](GETOptions, (err, result) => {
           if (result)
