@@ -83,7 +83,7 @@ export default class AuthApi {
     console.log(this.getCookie('_tempCid'));
     try {
       const redirectUri = window.config.extraParams.redirectURI
-      const redirectUriWithGAId = `${redirectUri}?GA=${this.getCookie('_tempCid')}` 
+      const redirectUriWithGAId = `${redirectUri}?tempCid=${this.getCookie('_tempCid')}` 
       let options
       let method
       if (connection === authOpts.connection) {
@@ -109,7 +109,7 @@ export default class AuthApi {
       }
       if (redirectUri) {
         console.log('redirectUri set');
-        options.redirect_uri = redirectUri
+        options.redirect_uri = `${redirectUri}?tempCid=${this.getCookie('_tempCid')}` 
       }
       if (!resumeAuthState) {
         console.log('not resumeAuthState');
