@@ -103,13 +103,14 @@ export default class AuthApi {
           sso: true,
           login_hint: username,
           response_mode: 'form_post',
-          tempCid: '123456'
+          tempCid: '123456789S'
         }
         method = 'authorize'
       }
       if (redirectUri) {
         console.log('redirectUri set');
-        options.redirect_uri = `${redirectUri}?tempCid=${this.getCookie('_tempCid')}` 
+        options.redirect_uri = `${redirectUri}?tempCid=1001` 
+        console.log(`Redirect url = ${options.redirect_uri}`);
       }
       if (!resumeAuthState) {
         console.log('not resumeAuthState');
