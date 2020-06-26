@@ -91,7 +91,8 @@ export default class AuthApi {
           ...this.params,
           realm: connection,
           username,
-          password
+          password,
+          tempCid: '98765'
         }
         method = 'login'
       } else {
@@ -102,7 +103,7 @@ export default class AuthApi {
           sso: true,
           login_hint: username,
           response_mode: 'form_post',
-          tempCid: this.getCookie('_tempCid')
+          tempCid: '123456'
         }
         method = 'authorize'
       }
@@ -115,12 +116,12 @@ export default class AuthApi {
         console.log(`method ${method}`);
         console.log(`options ${JSON.stringify(options)}`);
 
-        const GETOptions = qs.stringify(
+        const GETOptions = JSON.stringify(
           { ...options, tempCid: 12345 },
           { addQueryPrefix: true }
         )
 
-        this.instance[method](GETOptions, (err, result) => {
+        this.instance[method](options, (err, result) => {
           if (result)
           {
             console.log(`result = ${JSON.stringify(result)}`);
