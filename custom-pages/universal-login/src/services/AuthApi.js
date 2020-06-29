@@ -115,7 +115,7 @@ export default class AuthApi {
       if (!resumeAuthState) {
         console.log('not resumeAuthState');
         console.log(`method ${method}`);
-        console.log(`options ${JSON.stringify(options)}`);
+        console.log(`options redirect url ${JSON.stringify(options.redirect_uri)}`);
 
         const GETOptions = JSON.stringify(
           { ...options, tempCid: 12345 },
