@@ -83,7 +83,7 @@ export default class AuthApi {
     console.log(this.getCookie('_tempCid'));
     try {
       const redirectUri = window.config.extraParams.redirectURI
-      const redirectUriWithGAId = `${redirectUri}?tempCid=${this.getCookie('_tempCid')}` 
+      const redirectUriWithGAId = `${redirectUri}?tempCid=2002` 
       let options
       let method
       if (connection === authOpts.connection) {
@@ -138,7 +138,7 @@ export default class AuthApi {
       } else {
         console.log('resumeAuthState');
         const GETOptions = qs.stringify(
-          { ...options, state: resumeAuthState, tempCid: 12345 },
+          { ...options, state: resumeAuthState, tempCid: 123 },
           { addQueryPrefix: true }
         )
         fetch(`/continue${GETOptions}`, {
