@@ -98,7 +98,8 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post'
+          response_mode: 'form_post',
+          upstream_params:{'tempCid':{'value':'123abc'}}
         }
         method = 'authorize'
       }
