@@ -13,7 +13,6 @@ export default class AuthApi {
       window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
-    window.config.extraParams.tempCid = '123abc'
     this.clientID = window.config.clientID || authOpts.clientID
     this.opts = {
       ...window.config.extraParams,
