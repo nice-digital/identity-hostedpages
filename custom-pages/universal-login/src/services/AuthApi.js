@@ -13,6 +13,7 @@ export default class AuthApi {
       window.config = {authorizationServer: {}}
     }
     window.config.extraParams = window.config.extraParams || { redirectURI: undefined }
+    window.config.extraParams.tempCid = '123abc'
     this.clientID = window.config.clientID || authOpts.clientID
     this.opts = {
       ...window.config.extraParams,
@@ -111,8 +112,6 @@ export default class AuthApi {
         console.log('redirectUri set');
         options.redirect_uri = `${redirectUri}?tempCid=1001` 
         console.log(`Redirect url = ${options.redirect_uri}`);
-      } else {
-        options.redirect_uri = `https://local-identity.nice.org.uk/?tempCid=333` 
       }
 
       if (!resumeAuthState) {
