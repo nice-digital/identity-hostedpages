@@ -84,7 +84,6 @@ export default class AuthApi {
     console.log(this.getCookie('_tempCid'));
     try {
       const redirectUri = window.config.extraParams.redirectURI
-      const redirectUriWithGAId = `${redirectUri}?tempCid=2002` 
       let options
       let method
       if (connection === authOpts.connection) {
@@ -110,7 +109,7 @@ export default class AuthApi {
       }
       if (redirectUri) {
         console.log('redirectUri set');
-        options.redirect_uri = `${redirectUri}?tempCid=1001` 
+        options.redirect_uri = `${redirectUri}` 
         console.log(`Redirect url = ${options.redirect_uri}`);
       }
 
@@ -147,8 +146,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              console.log(`redirectUri = ${redirectUriWithGAId}`);
-              document.location = redirectUriWithGAId
+              document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
