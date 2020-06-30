@@ -149,13 +149,11 @@ export default class AuthApi {
   }
 
   handleAuthentication() {
-    this.auth0.parseHash((err, authResult) => {
+    this.instance.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         console.log(authResult);
       } else if (err) {
-        history.replace('/home');
         console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }
