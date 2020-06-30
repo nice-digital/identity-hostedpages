@@ -80,8 +80,6 @@ export default class AuthApi {
     }, {})
 
   login(connection, username, password, errorCallback, resumeAuthState) {
-    console.log('Start login method');
-    console.log(this.getCookie('_tempCid'));
     try {
       const redirectUri = window.config.extraParams.redirectURI
       let options
@@ -91,8 +89,7 @@ export default class AuthApi {
           ...this.params,
           realm: connection,
           username,
-          password,
-          tempCid: '98765'
+          password
         }
         method = 'login'
       } else {
@@ -102,29 +99,16 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post',
-          tempCid: '123456789S'
+          response_mode: 'form_post'
         }
         method = 'authorize'
       }
       if (redirectUri) {
-        console.log('redirectUri set');
-        options.redirect_uri = `${redirectUri}` 
-        console.log(`Redirect url = ${options.redirect_uri}`);
+        options.redirect_uri = redirectUri
       }
-
       if (!resumeAuthState) {
-        console.log('not resumeAuthState');
-        console.log(`method ${method}`);
-        console.log(`options redirect url ${JSON.stringify(options.redirect_uri)}`);
-
-        this.instance[method](options, (err, result) => {
-          if (result)
-          {
-            console.log(`result = ${JSON.stringify(result)}`);
-          }
+        this.instance[method](options, (err) => {
           if (err) {
-            console.log(`error occured ${err}`);
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
             }
@@ -132,9 +116,8 @@ export default class AuthApi {
           }
         })
       } else {
-        console.log('resumeAuthState');
         const GETOptions = qs.stringify(
-          { ...options, state: resumeAuthState, tempCid: 123 },
+          { ...options, state: resumeAuthState },
           { addQueryPrefix: true }
         )
         fetch(`/continue${GETOptions}`, {
@@ -152,7 +135,6 @@ export default class AuthApi {
             }
           })
           .catch((err) => {
-            console.log('Error occured');
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
             }
