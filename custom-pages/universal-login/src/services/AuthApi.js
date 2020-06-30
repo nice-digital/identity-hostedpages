@@ -111,16 +111,14 @@ export default class AuthApi {
         console.log('redirectUri set');
         options.redirect_uri = `${redirectUri}?tempCid=1001` 
         console.log(`Redirect url = ${options.redirect_uri}`);
+      } else {
+        options.redirect_uri = `https://local-identity.nice.org.uk/?tempCid=333` 
       }
+
       if (!resumeAuthState) {
         console.log('not resumeAuthState');
         console.log(`method ${method}`);
         console.log(`options redirect url ${JSON.stringify(options.redirect_uri)}`);
-
-        const GETOptions = JSON.stringify(
-          { ...options, tempCid: 12345 },
-          { addQueryPrefix: true }
-        )
 
         this.instance[method](options, (err, result) => {
           if (result)
