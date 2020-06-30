@@ -98,8 +98,7 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post',
-          upstream_params:{'tempCid':{'value':'123abc'}}
+          response_mode: 'form_post'
         }
         method = 'authorize'
       }
@@ -107,6 +106,8 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
+        console.log(`ResumeAuthState ${resumeAuthState}`);
+        console.log(`redirectUri ${redirectUri}`);
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
