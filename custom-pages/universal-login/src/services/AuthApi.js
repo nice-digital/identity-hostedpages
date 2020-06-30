@@ -80,7 +80,6 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
-      getCookie('tempCid');
       const redirectUri = window.config.extraParams.redirectURI
       let options
       let method
@@ -99,7 +98,9 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post'
+          response_mode: 'form_post',
+          tempCid: '1234xyz',
+          appState: {tempCid: 'mytempCid'}
         }
         method = 'authorize'
       }
@@ -283,7 +284,6 @@ export default class AuthApi {
     if (match) {
       console.log('Found Cookie');
       console.log(match[1]);
-      localStorage.setItem('tempCId', match[1]);
     } else {
       console.log(`something has gone wrong when getting the cookie - ${regx}`);
     }
