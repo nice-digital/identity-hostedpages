@@ -29,7 +29,8 @@ export default class AuthApi {
         __tenant: config.auth0Tenant,
         // eslint-disable-next-line
         __token_issuer: config.authorizationServer.issuer
-      }
+      },
+      temp_cid: getCookie('_tempCid')
     }
     this.params = Object.assign(this.opts, window.config.internalOptions)
     this.instance = new Auth0.WebAuth(this.params)
@@ -98,9 +99,7 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post',
-          tempCid: '1234xyz',
-          appState: {tempCid: 'mytempCid'}
+          response_mode: 'form_post'
         }
         method = 'authorize'
       }
@@ -108,8 +107,6 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
-        console.log(`ResumeAuthState ${resumeAuthState}`);
-        console.log(`redirectUri ${redirectUri}`);
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
@@ -287,16 +284,12 @@ export default class AuthApi {
   }
 
   getCookie = (name) => {
-    console.log(`Start get cookie - ${name}`);
     const regx = new RegExp(name + '=([^;]+)')
     const match = document.cookie.match(regx);
-    console.log(`cookie match = ${match}`);
     if (match) {
-      console.log('Found Cookie');
-      console.log(match[1]);
+      return match[1];
     } else {
       console.log(`something has gone wrong when getting the cookie - ${regx}`);
     }
-    console.log(`End get cookie - ${name}`);
   }
 }
