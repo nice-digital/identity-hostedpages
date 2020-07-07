@@ -30,7 +30,7 @@ export default class AuthApi {
         // eslint-disable-next-line
         __token_issuer: config.authorizationServer.issuer
       },
-      temp_cid: getCookie('_tempCid')
+      temp_cid: this.getCookie('_tempCid')
     }
     this.params = Object.assign(this.opts, window.config.internalOptions)
     this.instance = new Auth0.WebAuth(this.params)
