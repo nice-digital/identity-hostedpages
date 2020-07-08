@@ -103,6 +103,7 @@ export default class AuthApi {
         }
         method = 'authorize'
       }
+      console.log(`Options ${JSON.stringify(options)}`);
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
