@@ -80,8 +80,8 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
-      const redirectUri = window.config.extraParams.redirectURI
-      const tempCid = this.getCookie('_tempCid')
+      const redirectUri = window.config.extraParams.redirectURI;
+      const tempCid = 'hello'; //this.getCookie('_tempCid')
       let options
       let method
       if (connection === authOpts.connection) {
