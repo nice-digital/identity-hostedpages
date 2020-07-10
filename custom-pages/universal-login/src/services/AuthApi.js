@@ -98,10 +98,10 @@ export default class AuthApi {
           connection,
           username,
           sso: true,
-          login_hint: '1234',
-          response_mode: 'form_post',
           tempCid: '1234xyz',
-          appState: {tempCid: 'mytempCid'}
+          appState: {tempCid: 'mytempCid'},
+          login_hint: '1234',
+          response_mode: 'form_post'
         }
         method = 'authorize'
       }
