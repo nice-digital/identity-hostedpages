@@ -110,7 +110,7 @@ export default class AuthApi {
       }
       if (!resumeAuthState) {
         this.instance[method](options, (err) => {
-          options.temp_cid = "Foo";
+          options.temp_cid = "FooBar";
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
