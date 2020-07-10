@@ -99,7 +99,6 @@ export default class AuthApi {
           username,
           sso: true,
           temp_cid: '1234xyz',
-          appState: {temp_cid: 'mytempCid'},
           login_hint: '1234',
           response_mode: 'form_post'
         }
@@ -108,6 +107,7 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
+      options.temp_cid = '2345'
       if (!resumeAuthState) {
         console.log(`Options ${JSON.stringify(options)}`);
         this.instance[method](options, (err) => {
