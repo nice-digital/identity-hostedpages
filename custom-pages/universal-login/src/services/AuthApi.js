@@ -108,6 +108,7 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       options.temp_cid = '2345'
+      options.upstream_params={"tempcid":{"value":"mytempcidvalue"}}
       if (!resumeAuthState) {
         console.log(`Options ${JSON.stringify(options)}`);
         this.instance[method](options, (err) => {
