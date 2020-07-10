@@ -101,6 +101,7 @@ export default class AuthApi {
           params: {
             tempcid: '1234xyz'
           },
+          extraParams: { myproperty: "Not working" },
           login_hint: username,
           response_mode: 'form_post'
         }
@@ -110,7 +111,7 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
-        this.instance[method](options, (err) => {
+        this.instance[method]({options, myparam: 'extra param'}, (err) => {
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
