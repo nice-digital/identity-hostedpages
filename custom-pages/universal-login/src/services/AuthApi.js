@@ -109,7 +109,7 @@ export default class AuthApi {
         console.log(`redirecturi full  ${options.redirect_uri}`);
       }
       if (!resumeAuthState) {
-        this.instance[method]({options}, (err) => {
+        this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
