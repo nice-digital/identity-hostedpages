@@ -104,9 +104,7 @@ export default class AuthApi {
         method = 'authorize'
       }
       if (redirectUri) {
-        options.redirect_uri = redirectUri + '/testing'
-        console.log(`redirecturi ${redirectUri}`);
-        console.log(`redirecturi full  ${options.redirect_uri}`);
+        options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
         this.instance[method](options, (err) => {
