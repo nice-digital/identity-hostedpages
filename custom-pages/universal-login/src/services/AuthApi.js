@@ -101,7 +101,7 @@ export default class AuthApi {
           sso: true,
           login_hint: username,
           response_mode: 'form_post',
-          temp_cid: tempCid
+          temp_cid: "foo"
         }
         method = 'authorize'
       }
@@ -110,7 +110,6 @@ export default class AuthApi {
       }
       if (!resumeAuthState) {
         this.instance[method](options, (err) => {
-          options.temp_cid = "FooBar";
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
