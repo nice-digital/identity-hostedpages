@@ -110,8 +110,12 @@ export default class AuthApi {
       options.temp_cid = '2345'
       options.upstream_params={"acr_values":{"value":"mytempcidvalue"}}
       if (!resumeAuthState) {
-        console.log(`Options ${JSON.stringify(options)}`);
-        this.instance[method](options, (err) => {
+        const GETOptions = qs.stringify(
+          { ...options, acr_values: 'thisisatest' },
+          { addQueryPrefix: true }
+        )
+        console.log(`Options ${JSON.stringify(GETOptions)}`);
+        this.instance[method](GETOptions, (err) => {
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
