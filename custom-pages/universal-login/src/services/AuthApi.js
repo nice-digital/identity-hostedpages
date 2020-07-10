@@ -98,11 +98,6 @@ export default class AuthApi {
           connection,
           username,
           sso: true,
-          my_param: 'foo',
-          extraParams: { myproperty: "Not working" },
-          params: {
-            myproperty: "hello rule!!"
-          },
           login_hint: username,
           response_mode: 'form_post'
         }
