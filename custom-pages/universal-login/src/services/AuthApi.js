@@ -89,8 +89,7 @@ export default class AuthApi {
           ...this.params,
           realm: connection,
           username,
-          password,
-          tempCid: tempCid
+          password
         }
         method = 'login'
       } else {
@@ -101,7 +100,8 @@ export default class AuthApi {
           sso: true,
           login_hint: username,
           response_mode: 'form_post',
-          tempCid: "foo"
+          tempCid: '1234xyz',
+          appState: {tempCid: 'mytempCid'}
         }
         method = 'authorize'
       }
