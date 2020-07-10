@@ -99,6 +99,7 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
+          temp_cid: tempCid,
           response_mode: 'form_post'
         }
         method = 'authorize'
