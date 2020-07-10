@@ -98,6 +98,11 @@ export default class AuthApi {
           connection,
           username,
           sso: true,
+          my_param: 'foo',
+          extraParams: { myproperty: "Not working" },
+          params: {
+            myproperty: "hello rule!!"
+          },
           login_hint: username,
           response_mode: 'form_post'
         }
@@ -143,16 +148,6 @@ export default class AuthApi {
     } catch (err) {
       console.log(JSON.stringify(err))
     }
-  }
-
-  handleAuthentication() {
-    this.instance.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        console.log(authResult);
-      } else if (err) {
-        console.log(err);
-      }
-    });
   }
 
   submitWSForm = (responseForm) => {
