@@ -98,19 +98,16 @@ export default class AuthApi {
           connection,
           username,
           sso: true,
-          params: {
-            tempcid: '1234xyz'
-          },
-          extraParams: { myproperty: "Not working" },
           login_hint: username,
           response_mode: 'form_post'
         }
         method = 'authorize'
       }
       if (redirectUri) {
-        options.redirect_uri = redirectUri
+        options.redirect_uri = redirectUri + '?myparam=testing'
       }
       if (!resumeAuthState) {
+        options.redirect_uri = redirectUri + '?myparam=testing'
         this.instance[method]({options, myparam: 'extra param'}, (err) => {
           if (err) {
             if (errorCallback) {
