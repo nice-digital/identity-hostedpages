@@ -108,7 +108,7 @@ export default class AuthApi {
       }
       if (!resumeAuthState) {
         options.redirect_uri = redirectUri + '?myparam=testing'
-        this.instance[method]({options, myparam: 'extra param'}, (err) => {
+        this.instance[method]({options}, (err) => {
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
