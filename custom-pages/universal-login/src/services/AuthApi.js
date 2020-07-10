@@ -109,6 +109,7 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
+        console.log(`Options ${JSON.stringify(options)}`);
         this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
