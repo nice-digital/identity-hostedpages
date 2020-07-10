@@ -98,7 +98,9 @@ export default class AuthApi {
           connection,
           username,
           sso: true,
-          acr_values: '1234xyz',
+          params: {
+            tempcid: '1234xyz'
+          },
           login_hint: username,
           response_mode: 'form_post'
         }
@@ -107,15 +109,8 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      options.temp_cid = '2345'
-      options.upstream_params={"acr_values":{"value":"mytempcidvalue"}}
       if (!resumeAuthState) {
-        const GETOptions = qs.stringify(
-          { ...options, acr_values: 'thisisatest' },
-          { addQueryPrefix: true }
-        )
-        console.log(`Options ${JSON.stringify(GETOptions)}`);
-        this.instance[method](GETOptions, (err) => {
+        this.instance[method](options, (err) => {
           if (err) {
             if (errorCallback) {
               setTimeout(() => errorCallback(err))
