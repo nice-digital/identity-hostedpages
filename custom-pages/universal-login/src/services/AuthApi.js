@@ -98,8 +98,8 @@ export default class AuthApi {
           connection,
           username,
           sso: true,
-          temp_cid: '1234xyz',
-          login_hint: '1234',
+          acr_values: '1234xyz',
+          login_hint: username,
           response_mode: 'form_post'
         }
         method = 'authorize'
@@ -107,8 +107,7 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      options.temp_cid = '2345'
-      options.upstream_params={"tempcid":{"value":"mytempcidvalue"}}
+      options.acr_values='2345'
       if (!resumeAuthState) {
         console.log(`Options ${JSON.stringify(options)}`);
         this.instance[method](options, (err) => {
