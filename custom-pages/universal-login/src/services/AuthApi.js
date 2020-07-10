@@ -107,7 +107,8 @@ export default class AuthApi {
       if (redirectUri) {
         options.redirect_uri = redirectUri
       }
-      options.acr_values='2345'
+      options.temp_cid = '2345'
+      options.upstream_params={"acr_values":{"value":"mytempcidvalue"}}
       if (!resumeAuthState) {
         console.log(`Options ${JSON.stringify(options)}`);
         this.instance[method](options, (err) => {
