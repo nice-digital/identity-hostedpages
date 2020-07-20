@@ -101,7 +101,8 @@ export default class AuthApi {
           login_hint: username,
           response_mode: 'form_post',
           tempCid: '1234xyz',
-          appState: {tempCid: 'mytempCid'}
+          appState: {tempCid: 'mytempCid'},
+          prompt: 'qwerty'
         }
         method = 'authorize'
       }
