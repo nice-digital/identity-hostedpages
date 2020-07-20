@@ -89,7 +89,10 @@ export default class AuthApi {
           ...this.params,
           realm: connection,
           username,
-          password
+          password,
+          tempCid1: '1234xyz',
+          appState: {tempCid1: 'mytempCid'},
+          upstream_params: {client_id: {value: "abc123"}}
         }
         method = 'login'
       } else {
@@ -102,6 +105,7 @@ export default class AuthApi {
           response_mode: 'form_post',
           tempCid: '1234xyz',
           appState: {tempCid: 'mytempCid'},
+          upstream_params: {client_id: {value: "abc123"}}
           prompt: 'qwerty'
         }
         method = 'authorize'
