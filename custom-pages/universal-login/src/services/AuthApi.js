@@ -101,7 +101,8 @@ export default class AuthApi {
           login_hint: username,
           response_mode: 'form_post',
           tempCid: '1234xyz',
-          appState: {tempCid: 'mytempCid'}
+          appState: {tempCid: 'mytempCid'},
+          upstream_params: {client_id: {value: "abc123"}}
         }
         method = 'authorize'
       }
