@@ -81,7 +81,7 @@ export default class AuthApi {
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
       const redirectUri = window.config.extraParams.redirectURI;
-      const tempCid = 'hello'; //this.getCookie('_tempCid')
+      const tempCid = this.getCookie('_tempCid');
       let options
       let method
       if (connection === authOpts.connection) {
@@ -90,9 +90,7 @@ export default class AuthApi {
           realm: connection,
           username,
           password,
-          tempCid1: '1234xyz',
-          appState: {tempCid1: 'mytempCid'},
-          upstream_params: {client_id: {value: "abc123"}}
+          tempCid1: tempCid
         }
         method = 'login'
       } else {
@@ -102,11 +100,7 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
-          response_mode: 'form_post',
-          tempCid: '1234xyz',
-          appState: {tempCid: 'mytempCid'},
-          upstream_params: {client_id: {value: "abc123"}},
-          prompt: 'qwerty'
+          response_mode: 'form_post'
         }
         method = 'authorize'
       }
