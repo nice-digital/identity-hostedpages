@@ -90,7 +90,7 @@ export default class AuthApi {
           realm: connection,
           username,
           password,
-          tempCid1: tempCid
+          temp_cid: tempCid
         }
         method = 'login'
       } else {
