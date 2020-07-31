@@ -17,5 +17,5 @@ export const auth = {
 }
 
 export const urls = {
-  resendVerificationEmail: '#{IDENTITY_API}/api/Jobs/VerificationEmail'
+  resendVerificationEmail: '#{IDENTITY_API}/api/VerificationEmail/VerificationEmail'
 }
