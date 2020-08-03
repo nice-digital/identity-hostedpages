@@ -86,7 +86,7 @@ export class ResetPassword extends React.Component {
     const { errors, showAlert } = this.state
     return (
       <div>
-        <h3>Reset password</h3>
+        <h2>Reset password</h2>
         <p className="lead">Please enter your new password</p>
         <form className="">
           
