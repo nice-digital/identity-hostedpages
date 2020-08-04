@@ -100,6 +100,8 @@ export default class AuthApi {
           username,
           sso: true,
           login_hint: username,
+          temp_cid: 'MyNewParam',
+          acr_value: 'ASecondParam',
           response_mode: 'form_post'
         }
         method = 'authorize'
