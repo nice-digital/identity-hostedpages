@@ -156,7 +156,7 @@ class Login extends Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
-              autoComplete="username"
+              autoComplete="email"
             />
             {!isAD && (
               <Input
