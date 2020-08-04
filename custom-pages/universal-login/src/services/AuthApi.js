@@ -81,7 +81,6 @@ export default class AuthApi {
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
       const redirectUri = window.config.extraParams.redirectURI;
-      const tempCid = this.getCookie('_tempCid');
       let options
       let method
       if (connection === authOpts.connection) {
@@ -90,7 +89,7 @@ export default class AuthApi {
           realm: connection,
           username,
           password,
-          temp_cid: tempCid
+          temp_cid: this.getCookie('_tempCid')
         }
         method = 'login'
       } else {
