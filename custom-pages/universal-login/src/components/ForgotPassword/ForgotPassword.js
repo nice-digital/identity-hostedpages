@@ -105,7 +105,7 @@ class ForgotPassword extends React.Component {
     const { error, errors, loading, email, isAD, showAlert } = this.state
     return (
       <div>
-        <h3>Reset your password</h3>
+        <h2>Reset your password</h2>
         <p class="lead">
           Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
         </p>

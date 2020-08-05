@@ -191,7 +191,7 @@ class Register extends Component {
     } = this.state;
     return (
       <div>
-        <h3> Create account </h3>
+        <h2> Create account </h2>
         <p className="lead"><NavLink
           data-qa-sel="Signin-link-login"
           to="/"

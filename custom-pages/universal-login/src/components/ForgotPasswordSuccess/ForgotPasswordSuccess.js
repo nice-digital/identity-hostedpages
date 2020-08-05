@@ -6,7 +6,7 @@ import styles from './ForgotPasswordSuccess.module.scss'
 const ForgotPasswordSuccess = () => {
   return (
     <div>
-      <h3>Thank you</h3>
+      <h2>Thank you</h2>
       <p className="lead" data-qa-sel="forgotPasswordSuccess-message1">
         We have sent you an email with a link to help you reset your password. It might take a few minutes to come through, but if you don't receive it please check your spam folder.
       </p>
