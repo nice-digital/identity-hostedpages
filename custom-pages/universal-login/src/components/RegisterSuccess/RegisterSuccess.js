@@ -6,7 +6,7 @@ import './RegisterSuccess.scss';
 const RegisterSuccess = () => {
   return (
     <div>
-      <h3>Thank you</h3>
+      <h2>Thank you</h2>
       <p class="lead">
         We've sent you an email with an activation link. Click on the link to verify your details and start using your account.
       </p>
