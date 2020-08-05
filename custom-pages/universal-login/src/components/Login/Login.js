@@ -124,7 +124,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h3> Log in </h3>
+        <h2> Log in </h2>
         <p className="lead"><Link
           data-qa-sel="Signup-link-login"
           to="/register"
