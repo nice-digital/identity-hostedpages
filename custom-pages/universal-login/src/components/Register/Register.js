@@ -168,10 +168,17 @@ class Register extends Component {
     });
   };
 
-  goToAlert = (event) => {
-    if (event) event.preventDefault();
+  goToAlert = (errorName, event) => {
+    event.preventDefault();
 
-    getFirstErrorElement(this.state.errors).scrollIntoView({ block: 'center' })
+    document.getElementsByName(errorName)[0].scrollIntoView({ block: 'center' });
+  };
+
+  removeRequiredErrorPrefix = (errorMessage, requiredMessage) => {
+    if (errorMessage.search(requiredMessage) > 0) {
+      return requiredMessage;
+    }
+    return errorMessage;
   };
 
   render() {
@@ -189,6 +196,18 @@ class Register extends Component {
       isAD,
       serverSideError
     } = this.state;
+
+    const requiredMessage = 'This field is required';
+
+    const errorMessages = {
+      email: !email ? `Email - ${requiredMessage}` : 'Email address is in an invalid format',
+      password: !password ? `Password - ${requiredMessage}` : 'Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)',
+      confirmPassword: !confirmPassword ? `Confirm password - ${requiredMessage}` : 'Password doesn\'t match',
+      name: !name ? `First name - ${requiredMessage}` : 'First name should contain letters and should not exceed 100 characters',
+      surname: !surname ? `Last name - ${requiredMessage}` : 'Last name should contain letters and should not exceed 100 characters',
+      tAndC: 'You must accept Terms and Conditions to be able to create an account.'      
+    }
+
     return (
       <div>
         <h3> Create account </h3>
@@ -215,14 +234,21 @@ class Register extends Component {
                   aria-labelledby="error-summary-title"
                 >
                   <p className="lead">There is a problem</p>
-                  <button
-                    role="link"
-                    tabIndex="0"
-                    onKeyPress={this.goToAlert}
-                    onClick={this.goToAlert}
-                  >
-                    Click here to see the errors
-                  </button>
+
+                  <ul>                    
+                    {Object.keys(errors).map((errorName, idx) => {
+                      if (errors[errorName]) {
+                        return (
+                          <li key={idx}>
+                            <a href={`#${errorName}`} onClick={(e) => this.goToAlert(errorName, e)}>
+                                {errorMessages[errorName]}
+                            </a>
+                          </li>
+                        );
+                      }
+                      return null;
+                    })}
+                  </ul>
                 </Alert>
               )}
               {serverSideError && (
@@ -262,11 +288,7 @@ class Register extends Component {
               value={this.state.value}
               onChange={this.handleChange}
               error={errors.email}
-              errorMessage={`${
-                !email
-                  ? 'This field is required'
-                  : 'Email address is in an invalid format'
-              }`}
+              errorMessage={this.removeRequiredErrorPrefix(errorMessages.email, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="email-error"
@@ -284,11 +306,7 @@ class Register extends Component {
               label="Password"
               onChange={this.handleChange}
               error={errors.password}
-              errorMessage={`${
-                !password
-                  ? 'This field is required'
-                  : 'Please provide a password with least 8 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)'
-              }`}
+              errorMessage={this.removeRequiredErrorPrefix(errorMessages.password, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="password-error"
@@ -302,11 +320,7 @@ class Register extends Component {
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}
-              errorMessage={`${
-                !confirmPassword
-                  ? 'This field is required'
-                  : 'Password doesn\'t match'
-              }`}
+              errorMessage={this.removeRequiredErrorPrefix(errorMessages.confirmPassword, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"
@@ -319,11 +333,7 @@ class Register extends Component {
               label="First name"
               onChange={this.handleChange}
               error={errors.name}
-              errorMessage={`${
-                !name
-                  ? 'This field is required'
-                  : 'First name should contain letters and should not exceed 100 characters'
-              }`}
+              errorMessage={this.removeRequiredErrorPrefix(errorMessages.name, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="name-error"
@@ -335,11 +345,7 @@ class Register extends Component {
               label="Last name"
               onChange={this.handleChange}
               error={errors.surname}
-              errorMessage={`${
-                !surname
-                  ? 'This field is required'
-                  : 'Last name should contain letters and should not exceed 100 characters'
-              }`}
+              errorMessage={this.removeRequiredErrorPrefix(errorMessages.surname, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="surname-error"
@@ -361,7 +367,7 @@ class Register extends Component {
             <FormGroup 
               legend="Terms and conditions" 
               name="tAndC" 
-              groupError={errors.tAndC ? ("You must accept Terms and Conditions to be able to create an account.") : null}
+              groupError={errors.tAndC ? errorMessages.tAndC : null}
             >
               <Checkbox
                 data-qa-sel="tc-checkbox-register"
