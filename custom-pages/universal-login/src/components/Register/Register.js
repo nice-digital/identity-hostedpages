@@ -3,7 +3,7 @@ import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
 import { FormGroup } from '@nice-digital/nds-form-group';
 import { Checkbox } from '@nice-digital/nds-checkbox';
-import { getFirstErrorElement, validateFields, isDomainInUsername } from '../../helpers';
+import { validateFields, isDomainInUsername } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './Register.scss';
 import { NavLink } from "react-router-dom";
