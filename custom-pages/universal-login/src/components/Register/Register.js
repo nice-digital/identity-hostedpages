@@ -210,7 +210,7 @@ class Register extends Component {
 
     return (
       <div>
-        <h3> Create account </h3>
+        <h2> Create account </h2>
         <p className="lead"><NavLink
           data-qa-sel="Signin-link-login"
           to="/"
@@ -351,10 +351,8 @@ class Register extends Component {
               aria-describedby="surname-error"
             />
             </fieldset>
+            <p className="lead">We use cookies:</p>
             <ul>
-
-              <p className="lead">We use cookies:</p>
-
               <li>
                 To monitor usage of the NICE websites in order to improve our
                 services
