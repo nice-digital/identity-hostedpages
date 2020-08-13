@@ -174,7 +174,8 @@ class Register extends Component {
     document.getElementsByName(errorName)[0].scrollIntoView({ block: 'center' });
   };
 
-  removeRequiredErrorPrefix = (errorMessage, requiredMessage) => {
+  // removes the 'Email -' portion of the below error messages
+  stripFieldNameFromErrorMessage = (errorMessage, requiredMessage) => {
     if (errorMessage.search(requiredMessage) > 0) {
       return requiredMessage;
     }
@@ -288,7 +289,7 @@ class Register extends Component {
               value={this.state.value}
               onChange={this.handleChange}
               error={errors.email}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.email, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.email, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="email-error"
@@ -306,7 +307,7 @@ class Register extends Component {
               label="Password"
               onChange={this.handleChange}
               error={errors.password}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.password, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.password, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="password-error"
@@ -320,7 +321,7 @@ class Register extends Component {
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.confirmPassword, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.confirmPassword, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"
@@ -333,7 +334,7 @@ class Register extends Component {
               label="First name"
               onChange={this.handleChange}
               error={errors.name}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.name, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.name, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="name-error"
@@ -345,7 +346,7 @@ class Register extends Component {
               label="Last name"
               onChange={this.handleChange}
               error={errors.surname}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.surname, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.surname, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="surname-error"
