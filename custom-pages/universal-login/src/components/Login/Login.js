@@ -124,7 +124,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h3> Log in </h3>
+        <h2> Log in </h2>
         <p className="lead"><Link
           data-qa-sel="Signup-link-login"
           to="/register"
@@ -156,7 +156,7 @@ class Login extends Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
-              autoComplete="username"
+              autoComplete="email"
             />
             {!isAD && (
               <Input
