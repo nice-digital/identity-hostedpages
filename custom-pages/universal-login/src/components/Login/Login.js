@@ -15,7 +15,7 @@ class Login extends Component {
     this.state = {
       username: null,
       password: null,
-      error: null,
+      errors: [],
       loading: false,
       isAD: false,
       connection: authOpts.connection,
@@ -48,13 +48,13 @@ class Login extends Component {
   }
 
   showAuth0RulesError = () => {
-    this.setState({ error: this.querystring.myerror })
+    this.setState({ errors: [this.querystring.myerror] })
   };
 
   resendVerificationEmail = (e) => {
     if (e) e.preventDefault()
     const callback = err =>
-      this.setState({ activationEmailSent: !err, error: err })
+      this.setState({ activationEmailSent: !err, errors: [err] })
     try {
       this.auth.resendVerificationEmail(this.querystring.userid, callback)
     } catch (err) {
@@ -62,36 +62,57 @@ class Login extends Component {
     }
   };
 
+  validateLoginFields = (requestErrorCallback) => {
+    //some code to validate the user has typed an email + password. 
+    if (!this.state.username){
+
+
+      requestErrorCallback({description: "Email field is empty."});
+      return false;
+    }
+
+    var requirePasswordToLogin = !isDomainInUsername(this.state.username); 
+    if (requirePasswordToLogin && !this.state.password){
+      requestErrorCallback({description: "Password field is empty"});
+      return false;
+    }   
+
+    return true;
+  }
+
   login = (e, isGoogle) => {
     if (e) e.preventDefault()
     const requestErrorCallback = err =>
       this.setState(
         {
-          error: err.description || err.error_description,
+          errors: [err.description || err.error_description],
           loading: false
         },
         console.log(JSON.stringify(err))
       );
-    try {
-      this.setState({ loading: true }, () => {
-        const { username, password, connection } = this.state
-        const loginConnection = isGoogle ? this.googleConnection : connection
-        const isResumingAuthState =
-          this.querystring.myerrorcode &&
-          this.querystring.myerrorcode === 'user_not_verified'
-            ? this.continue && this.querystring.state
-            : null
-        this.auth.login(
-          loginConnection,
-          username,
-          password,
-          requestErrorCallback,
-          isResumingAuthState
-        )
-      })
-    } catch (err) {
-      console.log(JSON.stringify(err))
-      this.setState({ loading: false, error: 'Something has gone wrong.' })
+
+    if (this.validateLoginFields(requestErrorCallback)){          
+      try {
+        this.setState({ loading: true }, () => {
+          const { username, password, connection } = this.state
+          const loginConnection = isGoogle ? this.googleConnection : connection
+          const isResumingAuthState =
+            this.querystring.myerrorcode &&
+            this.querystring.myerrorcode === 'user_not_verified'
+              ? this.continue && this.querystring.state
+              : null
+          this.auth.login(
+            loginConnection,
+            username,
+            password,
+            requestErrorCallback,
+            isResumingAuthState
+          )
+        })
+      } catch (err) {
+        console.log(JSON.stringify(err))
+        this.setState({ loading: false, errors: ['Something has gone wrong.'] })
+      }
     }
   };
 
@@ -113,7 +134,7 @@ class Login extends Component {
 
   render() {
     const {
-      error,
+      errors,
       loading,
       isAD,
       showGoogleLogin,
@@ -134,9 +155,11 @@ class Login extends Component {
         </Link></p>
         <form className="">
           
-            {error && (
-              <Alert type="error">
-                {error}{' '}
+            {(errors.length > 0) && (
+              <Alert type="error" role="alert">
+                {errors.map(error => (
+                  <div>{error}</div>                  
+                ))}{' '}
                 {showUserNotVerfiedMessage ? (
                   <button href="#" onClick={this.resendVerificationEmail}>
                     Resend activation email
