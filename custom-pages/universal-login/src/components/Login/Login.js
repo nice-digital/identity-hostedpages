@@ -3,7 +3,7 @@ import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
 import qs from 'qs';
 import { Link } from "react-router-dom";
-import { isDomainInUsername} from '../../helpers';
+import { isDomainInUsername, validateLoginFields } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import { auth as authOpts } from '../../services/constants';
 import './Login.scss';
@@ -15,7 +15,11 @@ class Login extends Component {
     this.state = {
       username: null,
       password: null,
-      errors: [],
+      clientSideErrors: {
+        username: false,
+        password: false
+      },
+      serverSideError: null,
       loading: false,
       isAD: false,
       connection: authOpts.connection,
@@ -48,13 +52,13 @@ class Login extends Component {
   }
 
   showAuth0RulesError = () => {
-    this.setState({ errors: [this.querystring.myerror] })
+    this.setState({ serverSideError: this.querystring.myerror })
   };
 
   resendVerificationEmail = (e) => {
     if (e) e.preventDefault()
     const callback = err =>
-      this.setState({ activationEmailSent: !err, errors: [err] })
+      this.setState({ activationEmailSent: !err, serverSideError: err })
     try {
       this.auth.resendVerificationEmail(this.querystring.userid, callback)
     } catch (err) {
@@ -62,22 +66,27 @@ class Login extends Component {
     }
   };
 
-  validateLoginFields = (requestErrorCallback) => {
-    //some code to validate the user has typed an email + password. 
-    if (!this.state.username){
+  clientSideHasErrors = (clientSideErrors) =>{
+    return clientSideErrors.username || clientSideErrors.password;
+  }
 
+  validate = () => {
+    const tests = validateLoginFields(this.state);
+    console.log(`tests: ${JSON.stringify(tests)}`);
+    console.log(`password in state: ${this.state.password}`);
+    this.setState(function(state) {
+      return {
+        clientSideErrors: {
+          username: !state.username || tests.username(),
+          password: tests.password()        
+        },
+        loading: false
+      };
+    }, () => {
+      console.log(`after validate updated state to: ${JSON.stringify(this.state)}`)
 
-      requestErrorCallback({description: "Email field is empty."});
-      return false;
-    }
-
-    var requirePasswordToLogin = !isDomainInUsername(this.state.username); 
-    if (requirePasswordToLogin && !this.state.password){
-      requestErrorCallback({description: "Password field is empty"});
-      return false;
-    }   
-
-    return true;
+    });  
+    return this.clientSideHasErrors(tests);
   }
 
   login = (e, isGoogle) => {
@@ -85,13 +94,13 @@ class Login extends Component {
     const requestErrorCallback = err =>
       this.setState(
         {
-          errors: [err.description || err.error_description],
+          serverSideError: err.description || err.error_description,
           loading: false
         },
         console.log(JSON.stringify(err))
       );
 
-    if (this.validateLoginFields(requestErrorCallback)){          
+    if (this.validate()){          
       try {
         this.setState({ loading: true }, () => {
           const { username, password, connection } = this.state
@@ -111,8 +120,10 @@ class Login extends Component {
         })
       } catch (err) {
         console.log(JSON.stringify(err))
-        this.setState({ loading: false, errors: ['Something has gone wrong.'] })
+        this.setState({ loading: false, serverSideError: 'Something has gone wrong.' })
       }
+    } else{
+      console.log(JSON.stringify(this.state));
     }
   };
 
@@ -129,19 +140,31 @@ class Login extends Component {
       // error: null,
       isAD,
       connection: isAD ? this.ADConnection : authOpts.connection
-    })
+    }, () =>{
+      this.validate();
+    });    
   };
 
   render() {
     const {
-      errors,
+      serverSideError,
+      clientSideErrors,
       loading,
       isAD,
       showGoogleLogin,
-      activationEmailSent
+      activationEmailSent,
+      username,
+      password
     } = this.state
 
     const showUserNotVerfiedMessage = (this.querystring && this.querystring.myerrorcode === 'user_not_verified');
+
+    const requiredMessage = 'This field is required';
+
+    const errorMessages = {
+      username: `Email - ${requiredMessage}`,
+      password: `Password - ${requiredMessage}`,
+    }
 
     return (
       <div>
@@ -155,11 +178,27 @@ class Login extends Component {
         </Link></p>
         <form className="">
           
-            {(errors.length > 0) && (
+            {(serverSideError || this.clientSideHasErrors(this.state.clientSideErrors)) && (
               <Alert type="error" role="alert">
-                {errors.map(error => (
-                  <div>{error}</div>                  
-                ))}{' '}
+               
+                <p className="lead">There is a problem</p>
+                <ul>                    
+                  {Object.keys(clientSideErrors).map((errorName, idx) => {
+                    if (clientSideErrors[errorName]) {
+                      return (
+                        <li key={idx}>
+                          <a href={`#${errorName}`} onClick={(e) => this.goToAlert(errorName, e)}>
+                              {errorMessages[errorName]}
+                          </a>
+                        </li>
+                      );
+                    }
+                    return null;
+                  })}
+
+                </ul>
+                
+                {' '}
                 {showUserNotVerfiedMessage ? (
                   <button href="#" onClick={this.resendVerificationEmail}>
                     Resend activation email

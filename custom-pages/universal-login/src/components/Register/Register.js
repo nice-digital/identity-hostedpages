@@ -54,7 +54,8 @@ class Register extends Component {
     // Trigger field validation before submission/registration.
     // Set errors if fields are empty on invalid.
     this.setState(function(state){
-      const tests = validateFields(state);
+      const tests = JSON.stringify(validateFields(state));
+      console.log(`tests object in register: ${tests}`);
       return {
         errors: {
           email: !state.email || tests.email(),
