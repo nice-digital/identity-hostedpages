@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-forms';
+import { Input } from '@nice-digital/nds-input';
 import { FormGroup } from '@nice-digital/nds-form-group';
 import { Checkbox } from '@nice-digital/nds-checkbox';
 import { validateFields, isDomainInUsername } from '../../helpers';
@@ -34,6 +34,12 @@ class Register extends Component {
       loading: false,
       isAD: false
     }
+    
+    this.formRefs = Object.keys(this.state.errors).reduce((accumulator, error) => {
+      return Object.assign(accumulator, {
+        [error]: React.createRef()
+      });
+    }, {});
   }
 
   scrollIntoErrorPanel = () => {
@@ -168,17 +174,18 @@ class Register extends Component {
     });
   };
 
-  goToAlert = (errorName, event) => {
-    event.preventDefault();
-
-    document.getElementsByName(errorName)[0].scrollIntoView({ block: 'center' });
-  };
-
-  removeRequiredErrorPrefix = (errorMessage, requiredMessage) => {
+  // removes the 'Email -' portion of the below error messages
+  stripFieldNameFromErrorMessage = (errorMessage, requiredMessage) => {
     if (errorMessage.search(requiredMessage) > 0) {
       return requiredMessage;
     }
     return errorMessage;
+  };
+
+  scrollToMyRef = (fieldName, event) => {
+    event.preventDefault();
+
+    this.formRefs[fieldName].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   render() {
@@ -205,7 +212,7 @@ class Register extends Component {
       confirmPassword: !confirmPassword ? `Confirm password - ${requiredMessage}` : 'Password doesn\'t match',
       name: !name ? `First name - ${requiredMessage}` : 'First name should contain letters and should not exceed 100 characters',
       surname: !surname ? `Last name - ${requiredMessage}` : 'Last name should contain letters and should not exceed 100 characters',
-      tAndC: 'You must accept Terms and Conditions to be able to create an account.'      
+      tAndC: 'You must accept Terms and Conditions to be able to create an account'      
     }
 
     return (
@@ -232,6 +239,7 @@ class Register extends Component {
                   data-qa-sel="problem-alert-register"
                   type="error"
                   aria-labelledby="error-summary-title"
+                  role="alert"
                 >
                   <p className="lead">There is a problem</p>
 
@@ -240,7 +248,7 @@ class Register extends Component {
                       if (errors[errorName]) {
                         return (
                           <li key={idx}>
-                            <a href={`#${errorName}`} onClick={(e) => this.goToAlert(errorName, e)}>
+                            <a href={`#${errorName}`} onClick={(e) => this.scrollToMyRef(errorName, e)} aria-label="Go to error">
                                 {errorMessages[errorName]}
                             </a>
                           </li>
@@ -256,6 +264,7 @@ class Register extends Component {
                   data-qa-sel="problem-alert-register-serverError"
                   type="error"
                   aria-labelledby="error-server-title"
+                  role="alert"
                 >
                   <div className="lead">
                     {serverSideError === 'The user already exists.' ?
@@ -288,13 +297,14 @@ class Register extends Component {
               value={this.state.value}
               onChange={this.handleChange}
               error={errors.email}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.email, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.email, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="email-error"
+              inputRef={this.formRefs['email']}
             />
             {isAD && (
-            <Alert type="caution">
+            <Alert type="caution" role="alert">
               You already have an account. <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">Sign in</NavLink> using your NICE email address and password.
             </Alert>
             )}
@@ -306,11 +316,12 @@ class Register extends Component {
               label="Password"
               onChange={this.handleChange}
               error={errors.password}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.password, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.password, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="password-error"
               autoComplete="new-password"
+              inputRef={this.formRefs['password']}
             />
             <Input
               data-qa-sel="confirm-password-register"
@@ -320,11 +331,12 @@ class Register extends Component {
               label="Confirm password"
               onChange={this.handleChange}
               error={errors.confirmPassword}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.confirmPassword, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.confirmPassword, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="confirmPassword-error"
               autoComplete="new-password"
+              inputRef={this.formRefs['confirmPassword']}
             />
             <Input
               data-qa-sel="name-register"
@@ -333,10 +345,11 @@ class Register extends Component {
               label="First name"
               onChange={this.handleChange}
               error={errors.name}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.name, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.name, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="name-error"
+              inputRef={this.formRefs['name']}
             />
             <Input
               data-qa-sel="surname-register"
@@ -345,10 +358,11 @@ class Register extends Component {
               label="Last name"
               onChange={this.handleChange}
               error={errors.surname}
-              errorMessage={this.removeRequiredErrorPrefix(errorMessages.surname, requiredMessage)}
+              errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.surname, requiredMessage)}
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="surname-error"
+              inputRef={this.formRefs['surname']}
             />
             </fieldset>
             <p className="lead">We use cookies:</p>
@@ -367,17 +381,19 @@ class Register extends Component {
               name="tAndC" 
               groupError={errors.tAndC ? errorMessages.tAndC : null}
             >
-              <Checkbox
-                data-qa-sel="tc-checkbox-register"
-                name="tAndC"
-                label="I agree to NICE's terms and conditions, and the use of cookies."
-                checked={tAndC}
-                onChange={this.handleCheckboxChange}
-                error={errors.tAndC}
-                aria-describedby="tandc-error"
-                value="agree"
-                hint=<a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and conditions <span className="visually-hidden">(opens in a new tab)</span></a>
-              />
+            <div ref={this.formRefs['tAndC']}>
+                <Checkbox
+                  data-qa-sel="tc-checkbox-register"
+                  name="tAndC"
+                  label="I agree to NICE's terms and conditions, and the use of cookies."
+                  checked={tAndC}
+                  onChange={this.handleCheckboxChange}
+                  error={errors.tAndC}
+                  aria-describedby="tandc-error"
+                  value="agree"
+                  hint=<a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and conditions <span className="visually-hidden">(opens in a new tab)</span></a>
+                />
+              </div>
             </FormGroup>
             <FormGroup 
               legend="Join our Audience Insight Community" 
