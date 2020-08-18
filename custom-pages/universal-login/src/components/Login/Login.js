@@ -36,8 +36,6 @@ class Login extends Component {
         [error]: React.createRef()
       });
     }, {});
-    console.log("constructor this.formRefs:" + JSON.stringify(this.formRefs));
-
   }
 
   componentDidMount() {
@@ -85,10 +83,7 @@ class Login extends Component {
         password: tests.password()        
       };
     this.setState({ loading: false, clientSideErrors});
-    console.log(`after validate updated state to: ${JSON.stringify(clientSideErrors)}`)
-    var isValid = !this.clientSideHasErrors(clientSideErrors);
-    console.log("returning isValid:" + isValid);
-    return isValid;           
+    return !this.clientSideHasErrors(clientSideErrors);
   }
 
   login = (e, isGoogle) => {
@@ -102,9 +97,7 @@ class Login extends Component {
         console.log(JSON.stringify(err))
       );
 
-      console.log("login action");
     if (this.validate()){          
-      console.log("login has validated");
       try {
         this.setState({ loading: true, serverSideError: null }, () => {
           const { username, password, connection } = this.state
@@ -126,8 +119,6 @@ class Login extends Component {
         console.log(JSON.stringify(err))
         this.setState({ loading: false, serverSideError: 'Something has gone wrong.' })
       }
-    } else{
-      console.log(JSON.stringify(this.state));
     }
   };
 
@@ -222,7 +213,6 @@ class Login extends Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
-              //onBlur={this.validate}
               autoComplete="email"
               error={clientSideErrors.username}
               errorMessage={requiredMessage}
@@ -236,7 +226,6 @@ class Login extends Component {
                 unique="password"
                 label="Password"
                 onChange={this.handleChange}
-                //onBlur={this.validate}
                 autoComplete="current-password"
                 error={clientSideErrors.password}
                 errorMessage={requiredMessage}
