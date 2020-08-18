@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-forms';
+import { Input } from '@nice-digital/nds-input';
 import qs from 'qs';
 import { Link } from "react-router-dom";
-import { isDomainInUsername, validateLoginFields } from '../../helpers';
+import { isDomainInUsername, validateLoginFields, scrollToMyRef } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import { auth as authOpts } from '../../services/constants';
 import './Login.scss';
@@ -30,6 +30,14 @@ class Login extends Component {
       ignoreQueryPrefix: true
     });
     this.continue = true
+
+    this.formRefs = Object.keys(this.state.clientSideErrors).reduce((accumulator, error) => {
+      return Object.assign(accumulator, {
+        [error]: React.createRef()
+      });
+    }, {});
+    console.log("constructor this.formRefs:" + JSON.stringify(this.formRefs));
+
   }
 
   componentDidMount() {
@@ -72,21 +80,15 @@ class Login extends Component {
 
   validate = () => {
     const tests = validateLoginFields(this.state);
-    console.log(`tests: ${JSON.stringify(tests)}`);
-    console.log(`password in state: ${this.state.password}`);
-    this.setState(function(state) {
-      return {
-        clientSideErrors: {
-          username: !state.username || tests.username(),
-          password: tests.password()        
-        },
-        loading: false
+    const clientSideErrors= {
+        username: !this.state.username || tests.username(),
+        password: tests.password()        
       };
-    }, () => {
-      console.log(`after validate updated state to: ${JSON.stringify(this.state)}`)
-
-    });  
-    return this.clientSideHasErrors(tests);
+    this.setState({ loading: false, clientSideErrors});
+    console.log(`after validate updated state to: ${JSON.stringify(clientSideErrors)}`)
+    var isValid = !this.clientSideHasErrors(clientSideErrors);
+    console.log("returning isValid:" + isValid);
+    return isValid;           
   }
 
   login = (e, isGoogle) => {
@@ -100,9 +102,11 @@ class Login extends Component {
         console.log(JSON.stringify(err))
       );
 
+      console.log("login action");
     if (this.validate()){          
+      console.log("login has validated");
       try {
-        this.setState({ loading: true }, () => {
+        this.setState({ loading: true, serverSideError: null }, () => {
           const { username, password, connection } = this.state
           const loginConnection = isGoogle ? this.googleConnection : connection
           const isResumingAuthState =
@@ -141,7 +145,9 @@ class Login extends Component {
       isAD,
       connection: isAD ? this.ADConnection : authOpts.connection
     }, () =>{
-      this.validate();
+      if (this.clientSideHasErrors(this.state.clientSideErrors)){
+        this.validate();
+      }
     });    
   };
 
@@ -152,9 +158,7 @@ class Login extends Component {
       loading,
       isAD,
       showGoogleLogin,
-      activationEmailSent,
-      username,
-      password
+      activationEmailSent
     } = this.state
 
     const showUserNotVerfiedMessage = (this.querystring && this.querystring.myerrorcode === 'user_not_verified');
@@ -179,15 +183,14 @@ class Login extends Component {
         <form className="">
           
             {(serverSideError || this.clientSideHasErrors(this.state.clientSideErrors)) && (
-              <Alert type="error" role="alert">
-               
+              <Alert type="error" role="alert" data-qa-sel="problem-alert-login">               
                 <p className="lead">There is a problem</p>
                 <ul>                    
                   {Object.keys(clientSideErrors).map((errorName, idx) => {
                     if (clientSideErrors[errorName]) {
                       return (
                         <li key={idx}>
-                          <a href={`#${errorName}`} onClick={(e) => this.goToAlert(errorName, e)}>
+                          <a href={`#${errorName}`} onClick={(e) => scrollToMyRef(this.formRefs[errorName], e)} aria-label="Go to error">
                               {errorMessages[errorName]}
                           </a>
                         </li>
@@ -195,9 +198,10 @@ class Login extends Component {
                     }
                     return null;
                   })}
-
-                </ul>
-                
+                  {serverSideError && (
+                    <li>{serverSideError}</li>
+                  )}
+                </ul>                
                 {' '}
                 {showUserNotVerfiedMessage ? (
                   <button href="#" onClick={this.resendVerificationEmail}>
@@ -218,7 +222,11 @@ class Login extends Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
+              //onBlur={this.validate}
               autoComplete="email"
+              error={clientSideErrors.username}
+              errorMessage={requiredMessage}
+              inputRef={this.formRefs['username']}
             />
             {!isAD && (
               <Input
@@ -228,7 +236,11 @@ class Login extends Component {
                 unique="password"
                 label="Password"
                 onChange={this.handleChange}
+                //onBlur={this.validate}
                 autoComplete="current-password"
+                error={clientSideErrors.password}
+                errorMessage={requiredMessage}
+                inputRef={this.formRefs['password']}
               />
             )}
 
