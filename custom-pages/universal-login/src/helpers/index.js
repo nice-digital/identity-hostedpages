@@ -1,5 +1,5 @@
 import { getFirstErrorElement } from './getFirstErrorElement'
-import { validateFields } from './validateFields'
+import { validateRegisterFields } from './validateRegisterFields'
 import { validateLoginFields } from './validateLoginFields'
 import { isDomainInUsername } from './isDomainInUsername'
 import { ensureTrailingSlash } from './ensureTrailingSlash'
@@ -7,7 +7,7 @@ import { scrollToMyRef } from './scrollToMyRef'
 
 export {
   getFirstErrorElement,
-  validateFields,
+  validateRegisterFields,
   validateLoginFields,
   isDomainInUsername,
   ensureTrailingSlash,

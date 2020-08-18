@@ -1,7 +1,7 @@
 // Validation returns true on failed validation
 // and is passed through to state.errors.
 // See commit history
-export const validateFields = ({
+export const validateRegisterFields = ({
   email,
   password,
   confirmPassword,
@@ -29,4 +29,4 @@ export const validateFields = ({
   tAndC: () => password && email && name && surname && !tAndC
 });
 
-export default validateFields
+export default validateRegisterFields

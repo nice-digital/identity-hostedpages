@@ -3,7 +3,7 @@ import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-input';
 import { FormGroup } from '@nice-digital/nds-form-group';
 import { Checkbox } from '@nice-digital/nds-checkbox';
-import { validateFields, isDomainInUsername } from '../../helpers';
+import { validateRegisterFields, isDomainInUsername, scrollToMyRef } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './Register.scss';
 import { NavLink } from "react-router-dom";
@@ -44,7 +44,7 @@ class Register extends Component {
 
   scrollIntoErrorPanel = () => {
     document
-      .getElementById('thereIsAnError')
+      .getElementById('thereIsAnError') //TODO: use a ref.
       .scrollIntoView({ block: 'center' })    
     return true
   }
@@ -54,8 +54,7 @@ class Register extends Component {
     // Trigger field validation before submission/registration.
     // Set errors if fields are empty on invalid.
     this.setState(function(state){
-      const tests = JSON.stringify(validateFields(state));
-      console.log(`tests object in register: ${tests}`);
+      const tests = validateRegisterFields(state);
       return {
         errors: {
           email: !state.email || tests.email(),
@@ -127,6 +126,10 @@ class Register extends Component {
         [name]: checked,
         errors
       };
+    }, () =>{
+      if (this.state.showAlert){
+        this.validate();
+      }
     });
   };
 
@@ -142,6 +145,10 @@ class Register extends Component {
         serverSideError: null,
         isAD,
         connection: isAD ? this.ADConnection : authOpts.connection
+      }
+    }, () =>{
+      if (this.state.showAlert){
+        this.validate();
       }
     });
   };
@@ -160,9 +167,9 @@ class Register extends Component {
   validate = () => {
     // Validate fields as you go. It doesn't check if fields are empty.
     // That's only done on submission
-    const tests = validateFields(this.state);
+    const tests = validateRegisterFields(this.state);
     this.setState(function(state) {
-      return {
+      const stateToSet = {
         errors: {
           email: state.email ? tests.email(state.email) : state.errors.email,
           password: state.password ? tests.password() : state.errors.password,
@@ -172,6 +179,8 @@ class Register extends Component {
           tAndC: state.errors.tAndC
         }
       };
+      const showAlert = Object.entries(stateToSet.errors).some((error) => error[1]);
+      return Object.assign(stateToSet, { showAlert: showAlert});
     });
   };
 
@@ -181,12 +190,6 @@ class Register extends Component {
       return requiredMessage;
     }
     return errorMessage;
-  };
-
-  scrollToMyRef = (fieldName, event) => {
-    event.preventDefault();
-
-    this.formRefs[fieldName].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   render() {
@@ -249,7 +252,7 @@ class Register extends Component {
                       if (errors[errorName]) {
                         return (
                           <li key={idx}>
-                            <a href={`#${errorName}`} onClick={(e) => this.scrollToMyRef(errorName, e)} aria-label="Go to error">
+                            <a href={`#${errorName}`} onClick={(e) => scrollToMyRef(this.formRefs[errorName], e)} aria-label="Go to error">
                                 {errorMessages[errorName]}
                             </a>
                           </li>
@@ -300,7 +303,7 @@ class Register extends Component {
               error={errors.email}
               errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.email, requiredMessage)}
               onBlur={this.validate}
-              onFocus={this.clearError}
+              //onFocus={this.clearError}
               aria-describedby="email-error"
               inputRef={this.formRefs['email']}
             />
@@ -319,7 +322,7 @@ class Register extends Component {
               error={errors.password}
               errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.password, requiredMessage)}
               onBlur={this.validate}
-              onFocus={this.clearError}
+              //onFocus={this.clearError}
               aria-describedby="password-error"
               autoComplete="new-password"
               inputRef={this.formRefs['password']}
@@ -334,7 +337,7 @@ class Register extends Component {
               error={errors.confirmPassword}
               errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.confirmPassword, requiredMessage)}
               onBlur={this.validate}
-              onFocus={this.clearError}
+              //onFocus={this.clearError}
               aria-describedby="confirmPassword-error"
               autoComplete="new-password"
               inputRef={this.formRefs['confirmPassword']}
@@ -348,7 +351,7 @@ class Register extends Component {
               error={errors.name}
               errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.name, requiredMessage)}
               onBlur={this.validate}
-              onFocus={this.clearError}
+              //onFocus={this.clearError}
               aria-describedby="name-error"
               inputRef={this.formRefs['name']}
             />
@@ -361,7 +364,7 @@ class Register extends Component {
               error={errors.surname}
               errorMessage={this.stripFieldNameFromErrorMessage(errorMessages.surname, requiredMessage)}
               onBlur={this.validate}
-              onFocus={this.clearError}
+              //onFocus={this.clearError}
               aria-describedby="surname-error"
               inputRef={this.formRefs['surname']}
             />
@@ -389,6 +392,7 @@ class Register extends Component {
                   label="I agree to NICE's terms and conditions, and the use of cookies."
                   checked={tAndC}
                   onChange={this.handleCheckboxChange}
+                  onBlur={this.validate}
                   error={errors.tAndC}
                   aria-describedby="tandc-error"
                   value="agree"
