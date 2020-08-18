@@ -40,13 +40,12 @@ class Register extends Component {
         [error]: React.createRef()
       });
     }, {});
+    this.errorAlertContainer = React.createRef();
   }
 
   scrollIntoErrorPanel = () => {
-    document
-      .getElementById('thereIsAnError') //TODO: use a ref.
-      .scrollIntoView({ block: 'center' })    
-    return true
+    this.errorAlertContainer.current.scrollIntoView({ behavior: 'smooth', block: 'start' })    
+    return true;
   }
 
   register = (event) => {
@@ -237,7 +236,7 @@ class Register extends Component {
             <legend className="form-group__legend">
               Personal information
 	          </legend>
-            <div id="thereIsAnError">
+            <div ref={this.errorAlertContainer}>
               {showAlert && (
                 <Alert
                   data-qa-sel="problem-alert-register"
