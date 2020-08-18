@@ -132,7 +132,6 @@ class Login extends Component {
     }
     this.setState({
       [name]: value,
-      // error: null,
       isAD,
       connection: isAD ? this.ADConnection : authOpts.connection
     }, () =>{
@@ -163,7 +162,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h2> Log in </h2>
+        <h2>Log in</h2>
         <p className="lead"><Link
           data-qa-sel="Signup-link-login"
           to="/register"
@@ -171,8 +170,7 @@ class Login extends Component {
         >
           Create a NICE account
         </Link></p>
-        <form className="">
-          
+        <form>          
             {(serverSideError || this.clientSideHasErrors(this.state.clientSideErrors)) && (
               <Alert type="error" role="alert" data-qa-sel="problem-alert-login">               
                 <p className="lead">There is a problem</p>
