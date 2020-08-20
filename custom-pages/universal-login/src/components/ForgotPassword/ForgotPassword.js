@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert } from "@nice-digital/nds-alert";
 import { Input } from '@nice-digital/nds-forms';
 import { NavLink, Link } from 'react-router-dom';
-import { isDomainInUsername, validateFields, getFirstErrorElement } from '../../helpers';
+import { isDomainInUsername, validateRegisterFields, getFirstErrorElement } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './ForgotPassword.scss';
 
@@ -85,7 +85,7 @@ class ForgotPassword extends React.Component {
   }
 
   validate = () => {
-    const tests = validateFields(this.state)
+    const tests = validateRegisterFields(this.state)
     this.setState({
       errors: {
         email: tests.email()
