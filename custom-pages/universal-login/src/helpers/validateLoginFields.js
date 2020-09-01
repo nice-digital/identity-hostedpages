@@ -7,15 +7,10 @@ export const validateLoginFields = ({
   password
 }) => ({
   username: () => {
-    //console.log("username accessor");
-    //console.log(`returning: ${!username} for username`);
     return !username;
   },
   password: () => {
-    //console.log("username is:" + username);
-    //console.log(`password accessor ${isDomainInUsername(username)}`);
     var requirePasswordToLogin = !isDomainInUsername(username); 
-    //console.log(`password required to login: ${requirePasswordToLogin}`);
     return  (requirePasswordToLogin && !password);
   }
 });
