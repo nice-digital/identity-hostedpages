@@ -12,124 +12,144 @@ class ForgotPassword extends React.Component {
     this.auth = new AuthApi()
     this.state = {
       email: null,
-      error: null,
       errors: {
         email: false
       },
+      serverSideError: null,
       loading: false,
       isAD: false
     }
   }
 
-  requestErrorCallback = err =>
-    this.setState({
-      error: err.description || err.error_description,
-      loading: false
-    })
+  forgotPassword = (event) => {
+    if (event) event.preventDefault();
 
-  forgotPassword = (e) => {
-    if (e) e.preventDefault()
+    this.setState(function(state) {
+      const tests = validateRegisterFields(this.state);
+      const email = !state.email || tests.email();
+
+      return {
+        errors: {
+          email: email
+        }
+      };
+    }, () => {
+      if (!this.state.errors.email) {
+        this.doForgotPassword();
+      } else {
+        this.setState({ serverSideError: null });
+      }
+    });    
+  };
+
+  doForgotPassword = () => {
+    const serverErrorCallback = err => {
+      console.error(err);
+
+      this.setState({
+        serverSideError: err.description || err.name,
+        loading: false
+      });
+    };
+    
     try {
-      this.setState({ loading: true }, () => {
-        const { email } = this.state
-        this.auth.forgotPassword(email, this.requestErrorCallback, this.props.history)
-      })
-    } catch (err) {
-      this.setState({ loading: false })
-    }
-  }
+      this.setState({ loading: true });
 
-  handleChange = ({ target: { name, value } }) => {
-    let isAD = null;
-    if (name === 'email') {
-      isAD = isDomainInUsername(value);
+      this.auth.forgotPassword(
+        this.state.email,
+        serverErrorCallback,
+        this.props.history
+      );
+    } catch (err) {
+      console.error(err);
+
+      this.setState({ 
+        serverSideError: err.message || err.name, 
+        loading: false 
+      });
     }
-    this.setState(
-      {
+  };
+
+  handleChange = (event) => {
+    let name = event.target.name,
+      value = event.target.value;
+
+    this.setState(function(state) {
+      let isAD = (name === 'email') ? isDomainInUsername(value) : state.isAD;
+
+      return {
         [name]: value,
-        error: null,
-        isAD,
-      },
-      this.isValid
-    )
-  }
+        serverSideError: null,
+        isAD
+      };
+    }, () => {
+      if (this.state.errors.email) {
+        this.validate();
+      }
+    });
+  };
 
   clearError = (event) => {
-    this.setState({
-      errors: { ...this.state.errors, [event.target.name]: false },
-      serverSideError: null
-    })
-  }
+    let eventTargetName = event.target.name;
 
-  isFormValidForSubmission() {
-    const {
-      email, errors
-    } = this.state
-    const isErrors = Object.keys(errors).reduce(
-      (previousValue, nextElementName) =>
-        previousValue || errors[nextElementName],
-      false // use a positive (error=false) for a start value on the previousValue
-    )
-    return email && !isErrors
-  }
-
-  catchBlanks() {
-    const {
-      email
-    } = this.state
-    this.setState({
-      errors: {
-        email: !email
-      }
-    })
-  }
+    this.setState(function(state) {
+      return {
+        errors: { ...state.errors, [eventTargetName]: false },
+        serverSideError: null
+      };
+    });
+  };
 
   validate = () => {
-    const tests = validateRegisterFields(this.state)
+    const tests = validateRegisterFields(this.state);
+    const email =  this.state.email ? tests.email(this.state.email) : this.state.errors.email;
+    
     this.setState({
       errors: {
-        email: tests.email()
+        email: email,
       }
-    })
-  }
-
-  goToAlert = (e) => {
-    if (e) e.preventDefault()
-    
-    getFirstErrorElement(this.state.errors).scrollIntoView({
-      block: 'center'
-    })    
-  }
+    });
+  };
 
   render() {
-    const { error, errors, loading, email, isAD, showAlert } = this.state
+    const { serverSideError, errors, loading, email, isAD } = this.state;
+
     return (
       <div>
         <h2>Reset your password</h2>
-        <p class="lead">
+        <p className="lead">
           Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
         </p>
         <form className="">
-            {error && <Alert type="error">{error}</Alert>}
-            <Input
-              data-qa-sel="forgotPassword-email"
-              label="Email"
-              id="email"
-              name="email"
-              unique="email"
-              type="email"
-              placeholder="eg: your.name@example.com..."
-              onChange={this.handleChange}
-              error={errors.email}
-              errorMessage={`${
-                !email
-                  ? 'This field is required'
-                  : 'Email address is in an invalid format'
-              }`}
-              onBlur={this.validate}
-              onFocus={this.clearError}
-              aria-describedby="email-error"
-            />
+          {serverSideError && (
+            <Alert type="error">
+              {serverSideError === `Email doesn't exist or something like that` ? (
+                <>Account doesn't exist.</>
+              ) : (
+                <>{serverSideError}</>
+              )}
+            </Alert>
+          )}
+          <Input
+            data-qa-sel="forgotPassword-email"
+            label="Email"
+            id="email"
+            name="email"
+            unique="email"
+            type="email"
+            placeholder="eg: your.name@example.com..."
+            onChange={this.handleChange}
+            error={errors.email}
+            errorMessage={`${
+              !email
+                ? 'This field is required'
+                : 'Email address is in an invalid format'
+            }`}
+            onBlur={this.validate}
+            // onFocus={this.clearError}
+            aria-describedby="email-error"
+            value={this.state.value}
+          />
           {isAD ? (
             <Alert type="info">
               NICE staff should <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">sign in</NavLink> using the password you use to sign in to your work computer. 
