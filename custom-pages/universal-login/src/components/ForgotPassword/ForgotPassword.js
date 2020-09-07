@@ -122,13 +122,7 @@ class ForgotPassword extends React.Component {
         </p>
         <form className="">
           {serverSideError && (
-            <Alert type="error">
-              {serverSideError === `Email doesn't exist or something like that` ? (
-                <>Account doesn't exist.</>
-              ) : (
-                <>{serverSideError}</>
-              )}
-            </Alert>
+            <Alert type="error">{serverSideError}</Alert>
           )}
           <Input
             data-qa-sel="forgotPassword-email"
