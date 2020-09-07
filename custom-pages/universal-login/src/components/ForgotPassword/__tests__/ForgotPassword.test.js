@@ -42,14 +42,14 @@ describe('ForgotPassword components', () => {
   })
 
   it('should call the AuthApi forgotPAssword when login is invoked', () => {
-    const email = 'username@email.com'
+    const email = 'username@email.com';
     const history = undefined;
     el.setState({
       email,
       history
-    }).update()
+    }).update();
 
-    instance.forgotPassword()
-    expect(instance.auth.forgotPassword).toBeCalledWith(email, functionSignature, history)
+    instance.forgotPassword();
+    expect(instance.auth.forgotPassword).toBeCalledWith(email, expect.any(Function), history);
   })
 })
