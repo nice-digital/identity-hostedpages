@@ -35,6 +35,7 @@
     "Identity"
   ],
   "enabled_clients": [
+    "InDev",
     "Identity Admin",
     "Comments",
     "Eppi",
