@@ -41,6 +41,13 @@
     "update:guardian_factors",
     "read:email_templates",
     "create:email_templates",
-    "update:email_templates"
+    "update:email_templates",
+    "create:hooks",
+    "read:hooks",
+    "update:hooks",
+    "delete:hooks",
+    "read:roles",
+    "read:mfa_policies",
+    "read:branding"
   ]
 }

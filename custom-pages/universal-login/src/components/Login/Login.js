@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-forms';
+import { Input } from '@nice-digital/nds-input';
 import qs from 'qs';
 import { Link } from "react-router-dom";
-import { isDomainInUsername} from '../../helpers';
+import { isDomainInUsername, validateLoginFields, scrollToMyRef } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import { auth as authOpts } from '../../services/constants';
 import './Login.scss';
@@ -15,7 +15,11 @@ class Login extends Component {
     this.state = {
       username: null,
       password: null,
-      error: null,
+      clientSideErrors: {
+        username: false,
+        password: false
+      },
+      serverSideError: null,
       loading: false,
       isAD: false,
       connection: authOpts.connection,
@@ -26,6 +30,12 @@ class Login extends Component {
       ignoreQueryPrefix: true
     });
     this.continue = true
+
+    this.formRefs = Object.keys(this.state.clientSideErrors).reduce((accumulator, error) => {
+      return Object.assign(accumulator, {
+        [error]: React.createRef()
+      });
+    }, {});
   }
 
   componentDidMount() {
@@ -48,13 +58,13 @@ class Login extends Component {
   }
 
   showAuth0RulesError = () => {
-    this.setState({ error: this.querystring.myerror })
+    this.setState({ serverSideError: this.querystring.myerror })
   };
 
   resendVerificationEmail = (e) => {
     if (e) e.preventDefault()
     const callback = err =>
-      this.setState({ activationEmailSent: !err, error: err })
+      this.setState({ activationEmailSent: !err, serverSideError: err })
     try {
       this.auth.resendVerificationEmail(this.querystring.userid, callback)
     } catch (err) {
@@ -62,36 +72,53 @@ class Login extends Component {
     }
   };
 
+  clientSideHasErrors = (clientSideErrors) =>{
+    return clientSideErrors.username || clientSideErrors.password;
+  }
+
+  validate = () => {
+    const tests = validateLoginFields(this.state);
+    const clientSideErrors= {
+        username: !this.state.username || tests.username(),
+        password: tests.password()        
+      };
+    this.setState({ loading: false, clientSideErrors});
+    return !this.clientSideHasErrors(clientSideErrors);
+  }
+
   login = (e, isGoogle) => {
     if (e) e.preventDefault()
     const requestErrorCallback = err =>
       this.setState(
         {
-          error: err.description || err.error_description,
+          serverSideError: err.description || err.error_description,
           loading: false
         },
         console.log(JSON.stringify(err))
       );
-    try {
-      this.setState({ loading: true }, () => {
-        const { username, password, connection } = this.state
-        const loginConnection = isGoogle ? this.googleConnection : connection
-        const isResumingAuthState =
-          this.querystring.myerrorcode &&
-          this.querystring.myerrorcode === 'user_not_verified'
-            ? this.continue && this.querystring.state
-            : null
-        this.auth.login(
-          loginConnection,
-          username,
-          password,
-          requestErrorCallback,
-          isResumingAuthState
-        )
-      })
-    } catch (err) {
-      console.log(JSON.stringify(err))
-      this.setState({ loading: false, error: 'Something has gone wrong.' })
+
+    if (this.validate()){          
+      try {
+        this.setState({ loading: true, serverSideError: null }, () => {
+          const { username, password, connection } = this.state
+          const loginConnection = isGoogle ? this.googleConnection : connection
+          const isResumingAuthState =
+            this.querystring.myerrorcode &&
+            this.querystring.myerrorcode === 'user_not_verified'
+              ? this.continue && this.querystring.state
+              : null
+          this.auth.login(
+            loginConnection,
+            username,
+            password,
+            requestErrorCallback,
+            isResumingAuthState
+          )
+        })
+      } catch (err) {
+        console.log(JSON.stringify(err))
+        this.setState({ loading: false, serverSideError: 'Something has gone wrong.' })
+      }
     }
   };
 
@@ -105,15 +132,19 @@ class Login extends Component {
     }
     this.setState({
       [name]: value,
-      // error: null,
       isAD,
       connection: isAD ? this.ADConnection : authOpts.connection
-    })
+    }, () =>{
+      if (this.clientSideHasErrors(this.state.clientSideErrors)){
+        this.validate();
+      }
+    });    
   };
 
   render() {
     const {
-      error,
+      serverSideError,
+      clientSideErrors,
       loading,
       isAD,
       showGoogleLogin,
@@ -122,9 +153,16 @@ class Login extends Component {
 
     const showUserNotVerfiedMessage = (this.querystring && this.querystring.myerrorcode === 'user_not_verified');
 
+    const requiredMessage = 'This field is required';
+
+    const errorMessages = {
+      username: `Email - ${requiredMessage}`,
+      password: `Password - ${requiredMessage}`,
+    }
+
     return (
       <div>
-        <h3> Log in </h3>
+        <h2>Log in</h2>
         <p className="lead"><Link
           data-qa-sel="Signup-link-login"
           to="/register"
@@ -132,11 +170,28 @@ class Login extends Component {
         >
           Create a NICE account
         </Link></p>
-        <form className="">
-          
-            {error && (
-              <Alert type="error">
-                {error}{' '}
+        <form>          
+            {(serverSideError || this.clientSideHasErrors(this.state.clientSideErrors)) && (
+              <Alert type="error" role="alert" data-qa-sel="problem-alert-login">               
+                <p className="lead">There is a problem</p>
+                <ul>                    
+                  {Object.keys(clientSideErrors).map((errorName, idx) => {
+                    if (clientSideErrors[errorName]) {
+                      return (
+                        <li key={idx}>
+                          <a href={`#${errorName}`} onClick={(e) => scrollToMyRef(this.formRefs[errorName], e)} aria-label="Go to error">
+                              {errorMessages[errorName]}
+                          </a>
+                        </li>
+                      );
+                    }
+                    return null;
+                  })}
+                  {serverSideError && (
+                    <li>{serverSideError}</li>
+                  )}
+                </ul>                
+                {' '}
                 {showUserNotVerfiedMessage ? (
                   <button href="#" onClick={this.resendVerificationEmail}>
                     Resend activation email
@@ -156,7 +211,10 @@ class Login extends Component {
               type="email"
               placeholder="eg: your.name@example.com..."
               onChange={this.handleChange}
-              autoComplete="username"
+              autoComplete="email"
+              error={clientSideErrors.username}
+              errorMessage={requiredMessage}
+              inputRef={this.formRefs['username']}
             />
             {!isAD && (
               <Input
@@ -167,6 +225,9 @@ class Login extends Component {
                 label="Password"
                 onChange={this.handleChange}
                 autoComplete="current-password"
+                error={clientSideErrors.password}
+                errorMessage={requiredMessage}
+                inputRef={this.formRefs['password']}
               />
             )}
 

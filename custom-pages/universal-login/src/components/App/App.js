@@ -26,7 +26,7 @@ class App extends React.Component {
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
-          <div className="mainContainer col rightCol">
+          <main className="mainContainer col rightCol" aria-live="polite">
 
             <Router basename={ isLoginPage ? "" : "/lo/reset"}>
               <Switch>
@@ -46,7 +46,7 @@ class App extends React.Component {
               </Switch>
             </Router>
 
-          </div>
+          </main>
         </div>
       </div>
       <GlobalFooter />

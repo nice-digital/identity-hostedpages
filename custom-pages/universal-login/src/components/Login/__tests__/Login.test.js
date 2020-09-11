@@ -1,8 +1,10 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { MemoryRouter } from "react-router-dom";
 import { auth as authOpts } from '../../../services/constants'
 import Login from '../Login'
+
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -69,4 +71,32 @@ describe('Login components', () => {
       null,
     )
   })
+
+  it('clientSideHasErrors validates the username properly', () => {
+    expect(!!instance.clientSideHasErrors({ username: null, password: null })).toBe(false);
+    expect(!!instance.clientSideHasErrors({ username: false, password: false })).toBe(false);
+    expect(!!instance.clientSideHasErrors({ username: true, password: true })).toBe(true);
+    expect(!!instance.clientSideHasErrors({ username: true, password: false })).toBe(true);
+    expect(!!instance.clientSideHasErrors({ username: false, password: true })).toBe(true);
+  })
+
+  it('should show client side errors when the username or password have not been supplied', () => {
+    const stateBefore = el.state();
+    expect(instance.clientSideHasErrors(stateBefore.clientSideErrors)).toBe(false);
+    expect(stateBefore.username).toBeNull();
+    expect(stateBefore.password).toBeNull();
+    expect(stateBefore.clientSideErrors.username).toBe(false);
+    expect(stateBefore.clientSideErrors.password).toBe(false);    
+
+    const loginButton = el.find("button[data-qa-sel='login-button']");
+    loginButton.simulate("click");
+    
+    const stateAfter = el.state();
+    expect(instance.clientSideHasErrors(stateAfter.clientSideErrors)).toBe(true);
+    expect(stateBefore.username).toBeNull();
+    expect(stateBefore.password).toBeNull();
+    expect(stateAfter.clientSideErrors.username).toBe(true);
+    expect(stateAfter.clientSideErrors.password).toBe(true);    
+  })
+
 })

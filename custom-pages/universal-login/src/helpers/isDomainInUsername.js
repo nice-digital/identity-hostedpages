@@ -1,9 +1,9 @@
 export const isDomainInUsername = (username) => {
-  const domain = window.Auth0.strategies && window.Auth0.strategies.waad && window.Auth0.strategies.waad.domainString || null;
+  const domain = window.Auth0 ? (window.Auth0.strategies && window.Auth0.strategies.waad && window.Auth0.strategies.waad.domainString) : null;
   if (username && domain && typeof domain === 'string') {
-    return username.toLowerCase().indexOf(domain.toLowerCase()) !== -1
+    return username.toLowerCase().indexOf(domain.toLowerCase()) !== -1;
   }
-  return false
+  return false;
 }
 
-export default isDomainInUsername
+export default isDomainInUsername;

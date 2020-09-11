@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert } from '@nice-digital/nds-alert';
 import { Input } from '@nice-digital/nds-forms';
-import { getFirstErrorElement, validateFields } from '../../helpers';
+import { getFirstErrorElement, validateRegisterFields } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './ResetPassword.scss';
 
@@ -66,7 +66,7 @@ export class ResetPassword extends React.Component {
   }
 
   validate = () => {
-    const tests = validateFields(this.state)
+    const tests = validateRegisterFields(this.state)
     this.setState({
       errors: {
         password: tests.password(),
@@ -86,7 +86,7 @@ export class ResetPassword extends React.Component {
     const { errors, showAlert } = this.state
     return (
       <div>
-        <h3>Reset password</h3>
+        <h2>Reset password</h2>
         <p className="lead">Please enter your new password</p>
         <form className="">
           

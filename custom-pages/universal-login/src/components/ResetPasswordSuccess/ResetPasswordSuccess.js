@@ -11,7 +11,7 @@ export const ResetPasswordSuccess = () => {
   // setTimeout(() => (document.location = '/login'), 5000)
   return (
     <div>
-      <h3>Thank you</h3>
+      <h2>Thank you</h2>
       <Alert type="success">
         Your password has been changed.
       </Alert>
