@@ -46,7 +46,7 @@ class Register extends Component {
   scrollIntoErrorPanel = () => {
     this.errorAlertContainer.current.scrollIntoView({ behavior: 'smooth', block: 'start' })    
     return true;
-  }
+  };
 
   register = (event) => {
     if (event) event.preventDefault();
@@ -54,6 +54,7 @@ class Register extends Component {
     // Set errors if fields are empty on invalid.
     this.setState(function(state){
       const tests = validateRegisterFields(state);
+
       return {
         errors: {
           email: !state.email || tests.email(),
@@ -68,7 +69,7 @@ class Register extends Component {
       if (this.isValidRegistration()) {
         this.doRegistration();
       } else {
-        this.setState({ showAlert: true, serverSideError: null }, this.scrollIntoErrorPanel)
+        this.setState({ showAlert: true, serverSideError: null }, this.scrollIntoErrorPanel);
       }
     });
   };
@@ -82,12 +83,14 @@ class Register extends Component {
 
   doRegistration = () => {
     const serverErrorCallback = err => this.setState(function() {
-        console.error(err);
-        return {
-          serverSideError: err.description || err.name, loading: false
-        }},
-      this.scrollIntoErrorPanel
-    );
+      console.error(err);
+
+      return {
+        serverSideError: err.description || err.name, 
+        loading: false
+      }
+    }, this.scrollIntoErrorPanel);
+
     try {
       this.setState({ showAlert: false, loading: true });
       let { email, password, name, surname, tAndC, allowContactMe } = this.state;
@@ -106,12 +109,13 @@ class Register extends Component {
       )
     } catch (err) {
       this.setState(function() {
-          console.error(err);
-          return {
-            serverSideError: err.message || err.name, loading: false
-          }},
-        this.scrollIntoErrorPanel
-      );
+        console.error(err);
+
+        return {
+          serverSideError: err.message || err.name, 
+          loading: false
+        }
+      }, this.scrollIntoErrorPanel);
     }
   };
 
@@ -134,8 +138,8 @@ class Register extends Component {
 
   handleChange = (event) => {
     //event persistence for setState
-    let name = event.target.name;
-    let value = event.target.value;
+    let name = event.target.name,
+      value = event.target.value;
 
     this.setState(function(state) {
       let isAD = (name === 'email') ? isDomainInUsername(value) : state.isAD;
@@ -144,8 +148,8 @@ class Register extends Component {
         serverSideError: null,
         isAD,
         connection: isAD ? this.ADConnection : authOpts.connection
-      }
-    }, () =>{
+      };
+    }, () => {
       if (this.state.showAlert){
         this.validate();
       }
@@ -154,6 +158,7 @@ class Register extends Component {
 
   clearError = (event) => {
     let eventTargetName = event.target.name;
+
     this.setState(function(state) {
       return {
         errors: {...state.errors, [eventTargetName]: false},
@@ -166,7 +171,9 @@ class Register extends Component {
   validate = () => {
     // Validate fields as you go. It doesn't check if fields are empty.
     // That's only done on submission
+
     const tests = validateRegisterFields(this.state);
+
     this.setState(function(state) {
       const stateToSet = {
         errors: {
@@ -183,8 +190,9 @@ class Register extends Component {
     });
   };
 
-  // removes the 'Email -' portion of the below error messages
   stripFieldNameFromErrorMessage = (errorMessage, requiredMessage) => {
+    // removes the 'Email -' portion of the below error messages
+    
     if (errorMessage.search(requiredMessage) > 0) {
       return requiredMessage;
     }
