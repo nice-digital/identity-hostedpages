@@ -12,62 +12,81 @@ function (user, context, callback) {
     return;
   } 
 
-  console.log('Login firsttime for AD user with Rule hit');
+  const isInIdentityDB =  !!(user.user_metadata && user.user_metadata.isInIdentityDB);
 
-  const request = require("request");
+  if (isInIdentityDB){
+    console.log('Login firsttime for AD user with Rule hit - user already in identity db');
+    callback(null, user, context); 
+  }
+  else{
 
-  var tokenOptions = { method: 'POST',
-    url: configuration.gettokenpath,
-    headers: { 'content-type': 'application/json' },
-    body: 
-     { grant_type: 'client_credentials',
-       client_id: configuration.client_id,
-       client_secret: configuration.client_secret,
-       audience: configuration.audience },
-    json: true };
+    console.log('Login firsttime for AD user with Rule hit - and user not in identity db');
 
-  request(tokenOptions, function (error, response, body) {
-   if (error){
-     console.log('Login firsttime AD/google rule  - error in token call');
-      throw new Error(error);
-    }
+    const request = require("request");
 
-    console.log('Login firsttime AD/google rule  - after token request');
-    const postData = JSON.stringify({
-        'nameIdentifier': user.user_id,
-        'firstName': user.given_name,
-        'lastName': user.family_name,
-        'emailAddress': user.email,
-        'acceptedTerms': false,
-        'allowContactMe': false,
-        'hasVerifiedEmailAddress': true,
-        'isLockedOut': false,
-        'isMigrated': false,
-        'isStaffMember': context.connectionStrategy === "waad",
-        'isInAuthenticationProvider': true
-      });
+    var tokenOptions = { method: 'POST',
+      url: configuration.gettokenpath,
+      headers: { 'content-type': 'application/json' },
+      body: 
+      { grant_type: 'client_credentials',
+        client_id: configuration.client_id,
+        client_secret: configuration.client_secret,
+        audience: configuration.audience },
+      json: true };
 
-    var url = 'https://' + configuration.hostname + configuration.createuserspath;
-    console.log('AD user posting to: ' + url + ' data:' + stringify(postData));
-    
-    const options = { method: 'POST',
-      url: url,
-      headers: {
-        'Authorization': 'Bearer ' + body.access_token,
-        'content-type' : 'application/json'
-      },
-      body: postData
-    };
-
-    request(options, function(error, response, body){
-      if (error) {
-        console.log('Login firsttime AD/google rule  - error in create user call');
+    request(tokenOptions, function (error, response, body) {
+    if (error){
+      console.log('Login firsttime AD/google rule  - error in token call');
         throw new Error(error);
       }
-      console.log('Login firsttime AD/google rule  - after create user');
-      callback(null, user, context); 
-    });
-  });
 
+      console.log('Login firsttime AD/google rule  - after token request');
+      const postData = JSON.stringify({
+          'nameIdentifier': user.user_id,
+          'firstName': user.given_name,
+          'lastName': user.family_name,
+          'emailAddress': user.email,
+          'acceptedTerms': false,
+          'allowContactMe': false,
+          'hasVerifiedEmailAddress': true,
+          'isLockedOut': false,
+          'isMigrated': false,
+          'isStaffMember': context.connectionStrategy === "waad",
+          'isInAuthenticationProvider': true
+        });
+
+      var url = 'https://' + configuration.hostname + configuration.createuserspath;
+      console.log('AD user posting to: ' + url + ' data:' + stringify(postData));
+      
+      const options = { method: 'POST',
+        url: url,
+        headers: {
+          'Authorization': 'Bearer ' + body.access_token,
+          'content-type' : 'application/json'
+        },
+        body: postData
+      };
+
+      request(options, function(error, response, body){
+        if (error) {
+          console.log('Login firsttime AD/google rule  - error in create user call');
+          throw new Error(error);
+        }
+        //user created in identity db, so set a flag in user metadata here
+        user.user_metadata = user.user_metadata || {};
+        user.user_metadata.isInIdentityDB = user.user_metadata.isInIdentityDB || true;
+
+        auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+        .then(function(){
+          console.log('Login firsttime AD/google rule  - after create user');
+          callback(null, user, context); 
+        })
+        .catch(function(err){
+          console.log('Login firsttime AD/google rule  - error in create user call');
+          throw new Error(err);
+        });      
+      });
+    });
+  }
   console.log('Login end of scripts - outside of requests');
 }
