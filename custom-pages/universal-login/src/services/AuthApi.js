@@ -80,7 +80,8 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState) {
     try {
-      const redirectUri = window.config.extraParams.redirectURI
+      const redirectUri = window.config.extraParams.redirectURI;
+      const tempCid = this.getCookie('_tempCid');
       let options
       let method
       if (connection === authOpts.connection) {
@@ -88,7 +89,8 @@ export default class AuthApi {
           ...this.params,
           realm: connection,
           username,
-          password
+          password,
+          temp_cid: tempCid
         }
         method = 'login'
       } else {
@@ -270,5 +272,15 @@ export default class AuthApi {
     })
       .then(callback)
       .catch(catchCallback)
+  }
+
+  getCookie = (name) => {
+    const regx = new RegExp(name + '=([^;]+)')
+    const match = document.cookie.match(regx);
+    if (match) {
+      return match[1];
+    } else {
+      console.log(`something has gone wrong when getting the cookie - ${regx}`);
+    }
   }
 }

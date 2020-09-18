@@ -5,6 +5,7 @@ AuthApi {
   "clientID": "#{AUTH0_APP_CLIENT_ID}",
   "createAuth0Namespace": [Function],
   "fetchClientSettings": [Function],
+  "getCookie": [Function],
   "getStategies": [Function],
   "instance": WebAuth {
     "_universalLogin": HostedPages {
