@@ -44,7 +44,8 @@ class Register extends Component {
   }
 
   scrollIntoErrorPanel = () => {
-    this.errorAlertContainer.current.scrollIntoView({ behavior: 'smooth', block: 'start' })    
+    this.errorAlertContainer.current.scrollIntoView({ behavior: 'smooth', block: 'start' });    
+    this.errorAlertContainer.current.querySelector('a').focus();
     return true;
   };
 
