@@ -22,7 +22,7 @@ class App extends React.Component {
 
     return (
       <>
-      <GlobalHeader search={false} auth={false} />
+      <GlobalHeader search={false} auth={false} cookie={false} />
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
