@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@nice-digital/design-system": "^1.0.15-alpha.0",
-    "@nice-digital/global-nav": "github:nhsevidence/global-nav",
+    "@nice-digital/global-nav": "github:nice-digital/global-nav",
     "@nice-digital/nds-input": "^1.0.3-alpha.0",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
