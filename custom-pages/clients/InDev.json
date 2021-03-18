@@ -9,6 +9,8 @@
   "allowed_logout_urls": ["this will be deleted in the variable substitution"],
   "callbacks": ["this will be deleted in the variable substitution"],
   "web_origins": ["this will be deleted in the variable substitution"],
+  "client_id": "",
+  "client_secret": "",
   "client_metadata": {
     "authorise_uri": ""
   },

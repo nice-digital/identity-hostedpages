@@ -12,6 +12,7 @@
   "allowed_logout_urls": [],
   "allowed_clients": [],
   "allowed_origins": [],
+  "client_id": "",
   "client_secret": "",
   "jwt_configuration": {
     "alg": "RS256",
