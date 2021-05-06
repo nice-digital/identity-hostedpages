@@ -2,7 +2,8 @@
   "flags": {
     "enable_custom_domain_in_emails": true,
     "disable_clickjack_protection_headers": false,
-    "enable_public_signup_user_exists_error": true
+    "enable_public_signup_user_exists_error": true,
+    "trust_azure_adfs_email_verified_connection_property": true
   },
   "session_lifetime": 0.08333333333333333,
   "idle_session_lifetime": 0.016666666666666666,
