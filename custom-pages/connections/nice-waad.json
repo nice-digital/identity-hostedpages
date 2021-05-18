@@ -20,7 +20,8 @@
     "ext_nested_groups": true,
     "app_domain": "",
     "thumbprints": ["this will be deleted in the variable substitution"],
-    "granted": true
+    "granted": true,
+    "should_trust_email_verified_connection": "always_set_emails_as_verified"
   },
   "strategy": "waad",
   "name": "nice-waad",
