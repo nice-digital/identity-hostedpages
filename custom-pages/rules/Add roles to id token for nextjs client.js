@@ -12,6 +12,7 @@ function (user, context, callback) {
   } 
 
   let idTokenClaims = context.idToken || {};
+  let accessTokenClaims = context.accessToken || {};
 
   console.log("hitting the rule which to add roles to the id token - next js app found.");
 
@@ -52,35 +53,24 @@ function (user, context, callback) {
         throw new Error(error);
       }
       
-      console.log("response body received:");      
-      console.log(body);
       const claims = JSON.parse(body);
       
-      console.log("context:");
-      console.log(context);
-
       var applicationMetadata = context.clientMetadata;
 
       if (applicationMetadata && applicationMetadata.role_issuers){
 
         const role_issuers = applicationMetadata.role_issuers.split(',');
 
-        console.log(Array.isArray(claims));
-
-        console.log("issuers:");
-        console.log(role_issuers);
+        const roleType = "http://identity.nice.org.uk/claims/role";
         
-        const rolesToAdd = claims.filter(role => role.type === "http://identity.nice.org.uk/claims/role" && 
+        const rolesToAdd = claims.filter(role => role.type === roleType && 
                                                role_issuers.includes(role.issuer));
 
-        console.log("roles:");
-        console.log(rolesToAdd);
-
-        for (const roleToAdd of rolesToAdd) { 
-          idTokenClaims[roleToAdd.type] = roleToAdd.value; //todo: figure this out.
-        }
+        idTokenClaims[roleType] = rolesToAdd.map(r => r.value);
+        accessTokenClaims[roleType] = rolesToAdd.map(r => r.value);
 
         context.idToken = idTokenClaims;      
+        context.accessToken = accessTokenClaims;
       }      
 
       callback(null, user, context);  
