@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@nice-digital/design-system": "^1.0.15-alpha.0",
-    "@nice-digital/global-nav": "github:nice-digital/global-nav",
-    "@nice-digital/nds-input": "^1.0.3-alpha.0",
+    "@nice-digital/design-system": "^1.2.30",
+    "@nice-digital/global-nav": "^4.1.666-GN-115-Mega-nav-prod",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
@@ -47,7 +46,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "jest-teamcity-reporter": "^0.9.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "npm:sass@1.35.1",
     "node-sass-tilde-importer": "^1.0.2",
     "serve": "^11.3.2"
   }
