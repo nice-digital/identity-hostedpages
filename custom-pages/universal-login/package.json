@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@nice-digital/design-system": "^1.2.30",
-    "@nice-digital/global-nav": "^4.1.666-GN-115-Mega-nav-prod",
+    "@nice-digital/global-nav": "^4.1.668",
     "auth0-js": "9.10.0",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
