@@ -5,7 +5,7 @@
   "dependencies": {
     "@nice-digital/design-system": "^1.2.30",
     "@nice-digital/global-nav": "^4.1.668",
-    "auth0-js": "^9.19.0",
+    "auth0-js": "^9.13.2",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
     "react": "^16.13.1",
