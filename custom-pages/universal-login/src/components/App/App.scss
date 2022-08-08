@@ -1,5 +1,5 @@
-@import "~@nice-digital/nds-forms/scss/forms";
-@import "~@nice-digital/nds-button/scss/button";
+@use "@nice-digital/nds-forms/scss/forms";
+@use "@nice-digital/nds-button/scss/button";
 
 :root {
   --font-base: Lato, Helvetica, sans-serif;
