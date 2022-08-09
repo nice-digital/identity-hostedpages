@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@nice-digital/design-system": "^3.0.11-alpha.0",
-    "@nice-digital/global-nav": "^5.0.877-GN-187-Rebrand",
+    "@nice-digital/design-system": "^3.0.13-alpha.0",
+    "@nice-digital/global-nav": "^5.0.887-GN-187-Rebrand",
     "auth0-js": "^9.13.2",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
