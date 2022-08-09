@@ -18,5 +18,8 @@
     "gulp-inline-css": "^3.4.0",
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.13.0"
+  },
+  "volta": {
+    "node": "12.19.0"
   }
 }
