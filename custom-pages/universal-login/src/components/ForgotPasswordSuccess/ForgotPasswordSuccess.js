@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, GridItem } from "@nice-digital/nds-grid";
-import styles from './ForgotPasswordSuccess.module.scss'
+import styles from './ForgotPasswordSuccess.module.scss';
 
 const ForgotPasswordSuccess = () => {
   return (

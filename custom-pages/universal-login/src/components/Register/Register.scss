@@ -1,5 +1,6 @@
 @use "@nice-digital/nds-core/scss/colours";
 @use "@nice-digital/nds-core/scss/spacing";
+@use "@nice-digital/nds-core/scss/utils";
 
 .mainpanel {
   display: flex;
@@ -10,5 +11,5 @@
 .form__error {
   color: colours.$error;
   font-weight: bold;
-  margin-top: rem(spacing.$x-small);
+  margin-top: utils.rem(spacing.$x-small);
 }
