@@ -3074,7 +3074,7 @@ ol li li,
 /* stylelint-disable */
 @font-face {
   font-family: "nice-icons";
-  src: url("/fonts/nice-icons.woff?337566582") format("woff"), url("/fonts/nice-icons.woff2?337566582") format("woff2");
+  src: url("/fonts/nice-icons.woff?122065107") format("woff"), url("/fonts/nice-icons.woff2?122065107") format("woff2");
 }
 svg.icon {
   display: inline-block;
@@ -6706,7 +6706,7 @@ table tbody th,
 }
 
 :root {
-  --font-base: Lato, Helvetica, sans-serif;
+  --font-family: "Lora", serif;
   --gutter: 1.2rem;
   --col-width-mobile: 20rem;
   --col-width-desktop: 36rem;
