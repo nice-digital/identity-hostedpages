@@ -46,7 +46,7 @@ class Login extends Component {
       // We are not using google to connect for now
       // this.googleConnection = window.Auth0.strategies && window.Auth0.strategies.google-oauth2 && window.Auth0.strategies.google-oauth2.connectionName || null;
 
-      this.ADConnection = (window.Auth0.strategies && window.Auth0.strategies.waad && window.Auth0.strategies.waad.connectionName) || null;
+      this.ADConnection = window.Auth0.strategies && window.Auth0.strategies.waad && window.Auth0.strategies.waad.connectionName || null;
       this.setState(
         { showGoogleLogin: !!this.googleConnection },
         this.showAuth0RulesError
