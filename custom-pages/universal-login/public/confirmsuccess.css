@@ -3074,7 +3074,7 @@ ol li li,
 /* stylelint-disable */
 @font-face {
   font-family: "nice-icons";
-  src: url("/fonts/nice-icons.woff?122065107") format("woff"), url("/fonts/nice-icons.woff2?122065107") format("woff2");
+  src: url("/fonts/nice-icons.woff?122182604") format("woff"), url("/fonts/nice-icons.woff2?122182604") format("woff2");
 }
 svg.icon {
   display: inline-block;
@@ -6705,19 +6705,10 @@ table tbody th,
   }
 }
 
-:root {
-  --font-family: "Lora", serif;
-  --gutter: 1.2rem;
-  --col-width-mobile: 20rem;
-  --col-width-desktop: 36rem;
-  --top: 3.6rem;
-}
-
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-base);
   background-color: #fff !important;
   font-size: 16px;
 }
@@ -6731,7 +6722,7 @@ body {
 .col {
   height: 100%;
   padding: 3rem;
-  width: var(--col-width-desktop);
+  width: 36rem;
 }
 
 .rightCol {
@@ -6739,8 +6730,8 @@ body {
 }
 
 .mainContainer {
-  padding-top: var(--top);
-  min-width: var(--col-width-desktop);
+  padding-top: 3.6rem;
+  min-width: 36rem;
 }
 
 @media (max-width: 700px) {
@@ -6750,14 +6741,14 @@ body {
   .rightCol,
 .leftCol {
     width: 100%;
-    min-width: var(--col-width-mobile);
+    min-width: 20rem;
     padding-bottom: 0;
   }
   .mainContainer {
-    min-width: var(--col-width-mobile);
+    min-width: 20rem;
   }
   .navigation {
-    width: calc(var(--col-width-mobile) - 5rem);
+    width: 15rem;
   }
 }
 .btn {

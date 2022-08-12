@@ -1,12 +1,13 @@
 @use "@nice-digital/nds-core/scss/colours";
 @use "@nice-digital/nds-core/scss/spacing";
 @use "@nice-digital/nds-core/scss/utils";
+@use "../../styles/variables" as *;
 
 .mainpanel {
   display: flex;
   flex-direction: column;
   margin: auto;
-  min-width: var(--col-width-mobile);
+  min-width: $col-width-mobile;
 }
 .form__error {
   color: colours.$error;
