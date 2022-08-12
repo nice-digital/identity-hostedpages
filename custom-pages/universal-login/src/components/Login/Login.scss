@@ -1,9 +1,11 @@
+@use "../../styles/variables" as *;
+
 .mainpanel {
   display: flex;
   flex-direction: column;
   // width: 30%;
   margin: auto;
-  min-width: var(--col-width-mobile);
+  min-width: $col-width-mobile;
 }
 .iconBtn{
   border:none;
