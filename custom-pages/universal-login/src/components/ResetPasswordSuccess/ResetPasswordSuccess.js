@@ -1,11 +1,6 @@
 import React from 'react';
 import { Alert } from '@nice-digital/nds-alert';
-import { NavLink } from 'react-router-dom'
-// import { Link } from 'react-router'
-
-// style
 import './ResetPasswordSuccess.scss';
-
 
 export const ResetPasswordSuccess = () => {
   // setTimeout(() => (document.location = '/login'), 5000)
