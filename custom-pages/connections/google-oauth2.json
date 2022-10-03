@@ -2,10 +2,7 @@
   "options": {
     "email": true,
     "profile": true,
-    "scope": [
-      "email",
-      "profile"
-    ],
+    "scope": ["email", "profile"],
     "client_id": "",
     "client_secret": "",
     "allowed_audiences": "",
