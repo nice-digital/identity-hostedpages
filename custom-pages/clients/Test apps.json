@@ -7,7 +7,7 @@
   "oidc_conformant": true,
   "description": "",
   "logo_uri": "",
-  "sso": false,
+  "sso": true,
   "is_token_endpoint_ip_header_trusted": false,
   "cross_origin_auth": false,
   "initiate_login_uri": "",
