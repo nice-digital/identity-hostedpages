@@ -1,5 +1,5 @@
 {
-  "name": "Publications API",
+  "name": "Publications API Access",
   "identifier": "",
   "allow_offline_access": true,
   "skip_consent_for_verifiable_first_party_clients": true,
