@@ -1,89 +1,98 @@
-<html><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NICE Accounts</title>
+  <link rel="shortcut icon" href="//cdn.nice.org.uk/V3/Content/nice/favicon.ico"/>
+  <link rel="apple-touch-icon-precomposed" href="//cdn.nice.org.uk/V3/Content/nice/favicon-152.png">
+  <link rel="apple-touch-icon" href="//cdn.nice.org.uk/V3/Content/nice/favicon-152.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="//cdn.nice.org.uk/V3/Content/nice/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="//cdn.nice.org.uk/V3/Content/nice/favicon-120.png">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//cdn.nice.org.uk/V3/Content/nice/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="//cdn.nice.org.uk/V3/Content/nice/favicon-152.png">
   <!-- Google Tag Manager -->
-   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TJ83N43');</script>
-<!-- End Google Tag Manager -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,600;1,600&display=swap"	rel="stylesheet" />
-<link href="confirmsuccess.css" rel="stylesheet" type="text/css" />
+  <!-- End Google Tag Manager -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,600;1,600&display=swap"	rel="stylesheet" />
+  <link href="confirmsuccess.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
- <!-- Google Tag Manager (noscript) -->
- <noscript>You need to enable JavaScript to run this app.<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ83N43"
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>You need to enable JavaScript to run this app.<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ83N43"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-<div>
-  <div class="wrapper">
-    <div class="col leftCol">
-      <h1>NICE accounts</h1>
-    </div>
-    <div class="mainContainer col rightCol">
-      <div>
-        <div class="navigation" style="display:none;">
-          <div class="navigationLink">
-            <h2>Log in</h2>
-            <span>Need a NICE Account?</span
-            ><a
-              data-qa-sel="Signup-link-login"
-              activeclassname="activeRoute"
-              href="/register"
-              >Create an account</a
-            >
+  <div>
+    <div class="wrapper">
+      <div class="col leftCol">
+        <h1>NICE accounts</h1>
+      </div>
+      <div class="mainContainer col rightCol">
+        <div>
+          <div class="navigation" style="display:none;">
+            <div class="navigationLink">
+              <h2>Log in</h2>
+              <span>Need a NICE Account?</span
+              ><a
+                data-qa-sel="Signup-link-login"
+                activeclassname="activeRoute"
+                href="/register"
+                >Create an account</a
+              >
+            </div>
           </div>
+          <div id="conditional-output"></div>
         </div>
-        <div id="conditional-output"></div>
       </div>
     </div>
   </div>
-</div>
-<script>
-  function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, '\\$&');
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-  }
-  var success = getParameterByName('success') === "true";
-  var message = getParameterByName('message');
-  var outputElement = document.getElementById('conditional-output');
-  if (success){
-    outputElement.innerHTML= "<h3>Thank you!</h3>" +
-        "<div class='alert alert--success'>" +
-          "Your account is now active."
-        "</div>";
-  } else{
-    outputElement.innerHTML= "<h3>There has been an error</h3>" +
-        "<div class='alert alert--error'>" +
-          message +
-        "</div>";
-  }
+  <script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    var success = getParameterByName('success') === "true";
+    var message = getParameterByName('message');
+    var outputElement = document.getElementById('conditional-output');
+    if (success){
+      outputElement.innerHTML= "<h3>Thank you!</h3>" +
+          "<div class='alert alert--success'>" +
+            "Your account is now active."
+          "</div>";
+    } else{
+      outputElement.innerHTML= "<h3>There has been an error</h3>" +
+          "<div class='alert alert--error'>" +
+            message +
+          "</div>";
+    }
 
 
-// Global nav:
-  var urlForLoginButton = getParameterByName("redirect"); //this redirect parameter comes from the querystring parameter on the "resultUrl" octo variable, which adds is used on the verify email json to redirect to after the user verifies their email.
-	var global_nav_config = {
-		service: "guidance",
-		header: {
-			search: false,
-			auth: {
-        environment: "live",
-        provider: "idam",
-        links: [{ text: "Sign in", url: urlForLoginButton }]
-			}
-		},
-		footer: true
-	};
-</script>
-<!--[if lt IE 9]>
-	<script src="//cdn.nice.org.uk/global-nav/global-nav.ie8.min.js"></script>
-<![endif]-->
-<script src="https://cdn.nice.org.uk/global-nav/global-nav.min.js"></script>
+  // Global nav:
+    var urlForLoginButton = getParameterByName("redirect"); //this redirect parameter comes from the querystring parameter on the "resultUrl" octo variable, which adds is used on the verify email json to redirect to after the user verifies their email.
+    var global_nav_config = {
+      header: {
+        search: false,
+        auth: {
+          environment: "live",
+          provider: "idam",
+          links: [{ text: "Sign in", url: urlForLoginButton }]
+        }
+      }
+    };
+  </script>
+  <!--[if lt IE 9]>
+    <script src="//cdn.nice.org.uk/global-nav/global-nav.ie8.min.js"></script>
+  <![endif]-->
+  <script src="//cdn.nice.org.uk/global-nav/global-nav.min.js"></script>
 </body>
 </html>
-
