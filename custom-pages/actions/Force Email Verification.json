@@ -1,6 +1,6 @@
 {
   "name": "Force Email Verification",
-  "code": "custom-pages\\actions\\Force Email Verification\\code.js",
+  "code": "actions\\Force Email Verification\\code.js",
   "runtime": "node18-actions",
   "status": "built",
   "dependencies": [],
