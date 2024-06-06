@@ -7,27 +7,27 @@
   "secrets": [
     {
       "name": "gettokenpath",
-      "value": "gettokenpathvalue"
+      "value": ""
     },
     {
       "name": "client_id",
-      "value": "client_idvalue"
+      "value": ""
     },
     {
       "name": "client_secret",
-      "value": "client_secretvalue"
+      "value": ""
     },
     {
       "name": "audience",
-      "value": "audiencevalue"
+      "value": ""
     },
     {
       "name": "createuserspath",
-      "value": "createuserspathvalue"
+      "value": ""
     },
     {
       "name": "hostname",
-      "value": "hostnamevalue"
+      "value": ""
     }
   ],
   "supported_triggers": [
