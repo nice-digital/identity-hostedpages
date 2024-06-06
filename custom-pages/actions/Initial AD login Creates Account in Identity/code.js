@@ -6,7 +6,6 @@
 * @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
 */
 
-/* global fetch */
 exports.onExecutePostLogin = async (event, api) => {
 
     //this rule is only concerned with migrating people who sign in for the first time with AD
