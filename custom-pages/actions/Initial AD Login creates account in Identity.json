@@ -1,0 +1,40 @@
+{
+  "name": "Initial AD Login creates account in Identity",
+  "code": "Dev-2024-05-28_WithActions\\actions\\Initial AD Login creates account in Identity\\code.js",
+  "runtime": "node18-actions",
+  "status": "built",
+  "dependencies": [],
+  "secrets": [
+    {
+      "name": "gettokenpath",
+      "value": "gettokenpathvalue"
+    },
+    {
+      "name": "client_id",
+      "value": "client_idvalue"
+    },
+    {
+      "name": "client_secret",
+      "value": "client_secretvalue"
+    },
+    {
+      "name": "audience",
+      "value": "audiencevalue"
+    },
+    {
+      "name": "createuserspath",
+      "value": "createuserspathvalue"
+    },
+    {
+      "name": "hostname",
+      "value": "hostnamevalue"
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v3"
+    }
+  ],
+  "deployed": true
+}

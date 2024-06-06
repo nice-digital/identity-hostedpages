@@ -47,7 +47,13 @@
     "update:hooks",
     "delete:hooks",
     "read:roles",
+    "update:roles",
     "read:mfa_policies",
-    "read:branding"
+    "update:mfa_policies",
+    "read:branding",
+    "read:actions",
+    "update:actions",
+    "delete:actions",
+    "create:actions"
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "post-login": [
+    {
+      "action_name": "Initial AD Login creates account in Identity",
+      "display_name": "Initial AD Login creates account in Identity"
+    }
+  ]
+}
