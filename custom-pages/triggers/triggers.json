@@ -1,0 +1,8 @@
+{
+    "post-user-registration": [
+      {
+        "action_name": "Create IDAM User",
+        "display_name": "Create IDAM User"
+      }
+    ]
+  }

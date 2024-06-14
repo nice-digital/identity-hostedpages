@@ -2,7 +2,7 @@
   "name": "post-create-user-hook",
   "script": "./post-create-user-hook.js",
   "dependencies": {},
-  "enabled": true,
+  "enabled": false,
   "triggerId": "post-user-registration",
   "secrets": {
     "identityApiClientId": "",
