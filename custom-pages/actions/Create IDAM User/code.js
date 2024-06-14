@@ -35,15 +35,15 @@ exports.onExecutePostUserRegistration = async (event, api) => {
     }
     
     if (tokenResponse.status != "200") {
-      let errorMessage = `Error in token call: HTTPCode - ${tokenResponse.status} | Error - ${tokenResponseBody.error} | Description - ${tokenResponseBody.error_description}`;
+      const errorMessage = `Error in token call: HTTPCode - ${tokenResponse.status} | Error - ${tokenResponseBody.error} | Description - ${tokenResponseBody.error_description}`;
       console.log(errorMessage);
       throw new Error(errorMessage);
     }
   
     console.log("Create IDAM User - Token aquired, sending data to NICE identity api");
   
-    let firstName = event.user && event.user.user_metadata && event.user.user_metadata.name ? event.user.user_metadata.name : null;
-    let lastName = event.user && event.user.user_metadata && event.user.user_metadata.surname ? event.user.user_metadata.surname : null;
+    const firstName = event.user && event.user.user_metadata && event.user.user_metadata.name ? event.user.user_metadata.name : null;
+    const lastName = event.user && event.user.user_metadata && event.user.user_metadata.surname ? event.user.user_metadata.surname : null;
     let acceptedTerms = event.user && event.user.user_metadata && event.user.user_metadata.acceptedTerms ? event.user.user_metadata.acceptedTerms : "false";
     let allowContactMe = event.user && event.user.user_metadata && event.user.user_metadata.allowContactMe ? event.user.user_metadata.allowContactMe : "false";
   
@@ -55,10 +55,10 @@ exports.onExecutePostUserRegistration = async (event, api) => {
     acceptedTerms = (acceptedTerms.toLowerCase() === 'true') ? true : false;
     allowContactMe = (allowContactMe.toLowerCase() === 'true') ? true : false;
   
-    let hasVerifiedEmailAddress = false;
-    let isLockedOut = false;
-    let isMigrated = false;
-    let isStaffMember = event.user.email.indexOf("@nice.org.uk") !== -1;
+    const hasVerifiedEmailAddress = false;
+    const isLockedOut = false;
+    const isMigrated = false;
+    const isStaffMember = event.user && event.user.email && event.user.email.indexOf("@nice.org.uk") !== -1;
   
     const postData = JSON.stringify({
       'nameIdentifier': 'auth0|' + event.user.id,
@@ -92,7 +92,7 @@ exports.onExecutePostUserRegistration = async (event, api) => {
     }
   
     if (addUserResponse.status != "201") {
-      let errorMessage = `Create IDAM User - Error in add user call: HTTPCode - ${addUserResponse.status} | Status - ${addUserResponse.statusText}`;
+      const errorMessage = `Create IDAM User - Error in add user call: HTTPCode - ${addUserResponse.status} | Status - ${addUserResponse.statusText}`;
       console.log(errorMessage);
       throw new Error(errorMessage);
     }
