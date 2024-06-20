@@ -1,0 +1,8 @@
+{
+  "post-change-password": [
+    {
+      "action_name": "Post Change Password - Create IDAM User",
+      "display_name": "Post Change Password - Create IDAM User"
+    }
+  ]
+}
