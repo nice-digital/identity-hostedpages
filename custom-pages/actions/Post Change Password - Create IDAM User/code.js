@@ -8,7 +8,7 @@ exports.onExecutePostChangePassword = async (event, api) => {
 
   console.log("Post Change Password - action started");
 
-  var tokenResponse, tokenResponseBody;
+  let tokenResponse;
 
   const tokenRequestParams = new URLSearchParams({
     grant_type: 'client_credentials',
@@ -27,8 +27,6 @@ exports.onExecutePostChangePassword = async (event, api) => {
         body: tokenRequestParams
       });
 
-    tokenResponseBody = await tokenResponse.json();
-
   } catch(error) {
     console.log(`Create IDAM User - Error Fetching Token: ${error}`);
     throw error;
@@ -40,9 +38,11 @@ exports.onExecutePostChangePassword = async (event, api) => {
     throw new Error(errorMessage);
   }
   
+  const tokenResponseBody = await tokenResponse.json();
+
   console.log("Post Change Password - Checking to see if user exists in IDAM");
 
-  var userExistsResponse;
+  let userExistsResponse;
 
   try {
     const usersEndpointURL = 'https://' + event.secrets.hostname + event.secrets.userspath;
@@ -77,7 +77,7 @@ exports.onExecutePostChangePassword = async (event, api) => {
   //user doesn't exist. this could happen if the user has reset a password for a user that is in nice accounts
   console.log("Post Change Password - Checking NICE Accounts to see if user exists there");
   
-  var checkNICEAccountsResponse;
+  let checkNICEAccountsResponse;
 
   const niceAccountsParams = new URLSearchParams({
     username: event.user.email,
@@ -108,7 +108,7 @@ exports.onExecutePostChangePassword = async (event, api) => {
   }
   
   //at this point nice accounts has returned a valid user, which doesn't exist in the idam db, so we just need to hit our db with the user.
-  let user = JSON.parse(await checkNICEAccountsResponse.text())
+  const user = JSON.parse(await checkNICEAccountsResponse.text())
 
   const postData = JSON.stringify({
     'nameIdentifier': `auth0|${user.user_id}`,
@@ -124,7 +124,7 @@ exports.onExecutePostChangePassword = async (event, api) => {
     'isInAuthenticationProvider': false //the user won't get created in auth0 db until they log in.
   });
   
-  var addUserResponse;
+  let addUserResponse;
 
   try {
     const usersEndpointURL = 'https://' + event.secrets.hostname + event.secrets.userspath;
