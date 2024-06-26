@@ -1,0 +1,8 @@
+{
+  "post-login": [
+    {
+      "action_name": "Force Email Verification",
+      "display_name": "Force Email Verification"
+    }
+  ]
+}
