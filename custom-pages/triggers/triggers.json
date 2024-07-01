@@ -4,5 +4,11 @@
       "action_name": "Post Change Password - Create IDAM User",
       "display_name": "Post Change Password - Create IDAM User"
     }
+  ],
+  "post-login": [
+    {
+      "action_name": "Force Email Verification",
+      "display_name": "Force Email Verification"
+    }
   ]
 }
