@@ -9,7 +9,7 @@
       "client_id":  "",
       "client_secret":  "",
       "audience":  "",
-      "createuserspath":  "",
+      "userspath":  "",
       "hostname":  ""
     },
     "secrets": [
@@ -30,7 +30,7 @@
         "value": ""
       },
       {
-        "name": "createuserspath",
+        "name": "userspath",
         "value": ""
       },
       {

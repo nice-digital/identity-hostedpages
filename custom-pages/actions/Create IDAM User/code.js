@@ -77,7 +77,7 @@ exports.onExecutePostUserRegistration = async (event, api) => {
     var addUserResponse;
   
     try {
-      addUserResponse = await fetch('https://' + event.secrets.hostname + event.secrets.createuserspath, {
+      addUserResponse = await fetch('https://' + event.secrets.hostname + event.secrets.userspath, {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + tokenResponseBody.access_token,
