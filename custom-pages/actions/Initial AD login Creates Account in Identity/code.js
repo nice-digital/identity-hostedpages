@@ -73,7 +73,7 @@ exports.onExecutePostLogin = async (event, api) => {
         'isInAuthenticationProvider': true
       });
 
-    var url = 'https://' + event.secrets.hostname + event.secrets.createuserspath;
+    var url = 'https://' + event.secrets.hostname + event.secrets.userspath;
     console.log(`AD user posting to: ${url} with data: ${postData}`);
 
     var addUserResponse;
