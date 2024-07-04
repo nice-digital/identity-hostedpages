@@ -2,7 +2,7 @@
   "name": "Force Email Verification",
   "code": "actions\\Force Email Verification\\code.js",
   "runtime": "node18-actions",
-  "status": "built",
+  "status": "deployed",
   "dependencies": [],
   "secrets": [],
   "supported_triggers": [
