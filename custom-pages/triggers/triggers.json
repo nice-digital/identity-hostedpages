@@ -5,6 +5,12 @@
       "display_name": "Create IDAM User"
     }
   ],
+  "post-change-password": [
+    {
+      "action_name": "Post Change Password - Create IDAM User",
+      "display_name": "Post Change Password - Create IDAM User"
+    }
+  ],
   "post-login": [
     {
       "action_name": "Initial AD Login creates account in Identity",
