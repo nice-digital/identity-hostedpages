@@ -47,7 +47,7 @@ exports.onExecutePostChangePassword = async (event, api) => {
   try {
     const usersEndpointURL = 'https://' + event.secrets.hostname + event.secrets.userspath;
 
-    userExistsResponse = await fetch(usersEndpointURL + `?q=${encodeURI(event.user.email)}`, {
+    userExistsResponse = await fetch(usersEndpointURL + `?q=${encodeURIComponent(event.user.email)}`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + tokenResponseBody.access_token,
@@ -66,7 +66,7 @@ exports.onExecutePostChangePassword = async (event, api) => {
     throw new Error(errorMessage);
   }
 
-  const userExistsBody = await userExistsResponse.text();
+  const userExistsBody = JSON.parse(await userExistsResponse.text());
   const userExists = (Array.isArray(userExistsBody) && userExistsBody.length !== 0);
 
   if (userExists){
