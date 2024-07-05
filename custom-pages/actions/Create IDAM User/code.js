@@ -61,7 +61,7 @@ exports.onExecutePostUserRegistration = async (event, api) => {
     const isStaffMember = event.user && event.user.email && event.user.email.indexOf("@nice.org.uk") !== -1;
   
     const postData = JSON.stringify({
-      'nameIdentifier': 'auth0|' + event.user.id,
+      'nameIdentifier': 'auth0|' + event.user.user_id,
       'firstName': firstName,
       'lastName': lastName,
       'emailAddress': event.user.email,
