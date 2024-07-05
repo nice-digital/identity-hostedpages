@@ -1,8 +1,24 @@
 {
-    "post-user-registration": [
-      {
-        "action_name": "Create IDAM User",
-        "display_name": "Create IDAM User"
-      }
-    ]
-  }
+  "post-user-registration": [
+    {
+      "action_name": "Create IDAM User",
+      "display_name": "Create IDAM User"
+    }
+  ],
+  "post-change-password": [
+    {
+      "action_name": "Post Change Password - Create IDAM User",
+      "display_name": "Post Change Password - Create IDAM User"
+    }
+  ],
+  "post-login": [
+    {
+      "action_name": "Initial AD Login creates account in Identity",
+      "display_name": "Initial AD Login creates account in Identity"
+    },
+    {
+      "action_name": "Force Email Verification",
+      "display_name": "Force Email Verification"
+    }
+  ]
+}

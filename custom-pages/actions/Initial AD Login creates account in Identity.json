@@ -1,16 +1,16 @@
 {
-  "name": "Create IDAM User",
-  "code": "actions\\Create IDAM User\\code.js",
+  "name": "Initial AD Login creates account in Identity",
+  "code": "actions\\Initial AD Login creates account in Identity\\code.js",
   "runtime": "node18-actions",
   "status": "built",
   "dependencies": [],
   "staged_action_secrets": {
-    "gettokenpath": "",
-    "client_id": "",
-    "client_secret": "",
-    "audience": "",
-    "userspath": "",
-    "hostname": ""
+    "gettokenpath":  "",
+    "client_id":  "",
+    "client_secret":  "",
+    "audience":  "",
+    "userspath":  "",
+    "hostname":  ""
   },
   "secrets": [
     {
@@ -40,8 +40,8 @@
   ],
   "supported_triggers": [
     {
-      "id": "post-user-registration",
-      "version": "v2"
+      "id": "post-login",
+      "version": "v3"
     }
   ],
   "deployed": true
