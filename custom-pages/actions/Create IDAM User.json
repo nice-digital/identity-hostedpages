@@ -1,48 +1,48 @@
 {
-    "name": "Create IDAM User",
-    "code": "actions\\Create IDAM User\\code.js",
-    "runtime": "node18-actions",
-    "status": "built",
-    "dependencies": [],
-    "staged_action_secrets": {
-      "gettokenpath":  "",
-      "client_id":  "",
-      "client_secret":  "",
-      "audience":  "",
-      "userspath":  "",
-      "hostname":  ""
+  "name": "Create IDAM User",
+  "code": "actions\\Create IDAM User\\code.js",
+  "runtime": "node18-actions",
+  "status": "built",
+  "dependencies": [],
+  "staged_action_secrets": {
+    "gettokenpath": "",
+    "client_id": "",
+    "client_secret": "",
+    "audience": "",
+    "userspath": "",
+    "hostname": ""
+  },
+  "secrets": [
+    {
+      "name": "gettokenpath",
+      "value": ""
     },
-    "secrets": [
-      {
-        "name": "gettokenpath",
-        "value": ""
-      },
-      {
-        "name": "client_id",
-        "value": ""
-      },
-      {
-        "name": "client_secret",
-        "value": ""
-      },
-      {
-        "name": "audience",
-        "value": ""
-      },
-      {
-        "name": "userspath",
-        "value": ""
-      },
-      {
-        "name": "hostname",
-        "value": ""
-      }
-    ],
-    "supported_triggers": [
-      {
-        "id": "post-user-registration",
-        "version": "v3"
-      }
-    ],
-    "deployed": true
-  }
+    {
+      "name": "client_id",
+      "value": ""
+    },
+    {
+      "name": "client_secret",
+      "value": ""
+    },
+    {
+      "name": "audience",
+      "value": ""
+    },
+    {
+      "name": "userspath",
+      "value": ""
+    },
+    {
+      "name": "hostname",
+      "value": ""
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-user-registration",
+      "version": "v2"
+    }
+  ],
+  "deployed": true
+}
