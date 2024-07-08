@@ -1,4 +1,10 @@
 {
+  "post-user-registration": [
+    {
+      "action_name": "Create IDAM User",
+      "display_name": "Create IDAM User"
+    }
+  ],
   "post-change-password": [
     {
       "action_name": "Post Change Password - Create IDAM User",
