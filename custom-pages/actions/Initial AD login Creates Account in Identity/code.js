@@ -99,13 +99,9 @@ exports.onExecutePostLogin = async (event, api) => {
       console.log(errorMessage);
       throw new Error(errorMessage);
     }
-
-    //user created in identity db, so set a flag in user metadata here
-    event.user.user_metadata = event.user.user_metadata || {};
-    event.user.user_metadata.isInIdentityDB = event.user.user_metadata.isInIdentityDB || true;
-
+    
     try {
-        api.user.setUserMetadata(event.user.user_id, event.user.user_metadata);
+      api.user.setUserMetadata("isInIdentityDB", true);
     } catch(err) {
       console.log('Initial AD Login creates account in Identity - Error setting user metadata');
       throw err;
