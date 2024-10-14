@@ -36,7 +36,16 @@ The version of node for the emails is purposefully lower than that for the pages
 ### Other stuff
 
 All the other files in this repo are mostly blank configuration templates deployed to Auth0 to configure the tenants. The secure configuration values are stored in Octopus Deploy and are inserted at deployment time.
-  
+
+### Action Secret Substitution and Transformation
+
+If the octo deployment is being created from scratch, you will need to create a step template set up called TransformActionSecrets. The scripts in their basic state will error if Auth0 tries to import them.
+
+Each action will have two steps associated with it. One for substituting the secrets and one for transforming them. 
+
+- The substitution is done using a standard script which comes with octo called "Variables - Substitute in Json file".
+- The transformation is done using a custom step template, the code for which is stored in the octo-step-scripts folder.
+
 ## Stack
 
 - [React](https://reactjs.org/) front-end
