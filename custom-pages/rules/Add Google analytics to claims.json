@@ -1,7 +1,0 @@
-{
-  "enabled": false,
-  "script": "./Add Google analytics to claims.js",
-  "name": "Add Google analytics to claims",
-  "order": 6,
-  "stage": "login_success"
-}
