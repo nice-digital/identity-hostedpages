@@ -35,7 +35,7 @@ describe('validateFields ', () => {
   })
   it('should return tests.password => falsey with valid password', () => {
     const passwordValidation = validateRegisterFields({
-      password: 'Password01!'
+      password: 'P@ssw0rd1234!&A'
     }).password()
     expect(passwordValidation).toBe(false)
   })
@@ -52,8 +52,8 @@ describe('validateFields ', () => {
   })
   it('should return tests.confirmPassword => true for invalid confirmPassword', () => {
     const confirmPasswordValidation = validateRegisterFields({
-      password: 'PAssword01!',
-      confirmPassword: 'Password01!'
+      password: 'P@ssw0rd1234!&A',
+      confirmPassword: 'P@ssw0rd1234!&A'
     }).confirmPassword()
     expect(confirmPasswordValidation).toBe(true)
   })
