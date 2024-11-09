@@ -53,7 +53,7 @@ describe('validateFields ', () => {
   it('should return tests.confirmPassword => true for invalid confirmPassword', () => {
     const confirmPasswordValidation = validateRegisterFields({
       password: 'P@ssw0rd1234!&A',
-      confirmPassword: 'P@ssw0rd1234!&A'
+      confirmPassword: 'P@ssw0rd1234!&'
     }).confirmPassword()
     expect(confirmPasswordValidation).toBe(true)
   })
