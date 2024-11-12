@@ -15,7 +15,7 @@ export const validateRegisterFields = ({
   },
   password: () => {
     // At least 14 characters in length and must include at least 1 x special character, 1 x number, 1 x capital
-    const passwordRegex =  /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])(?=.{14,}).*$/
+    const passwordRegex =  /^(?=.{14,})(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).*$/
     return password && !passwordRegex.test(password)
   },
   confirmPassword: () =>
