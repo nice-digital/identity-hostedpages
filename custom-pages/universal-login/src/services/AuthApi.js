@@ -3,7 +3,7 @@
 import Auth0 from 'auth0-js'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
-import { validateRegisterFields } from '../../helpers';
+import { validateRegisterFields } from '../helpers';
 
 import { ensureTrailingSlash } from '../helpers'
 
@@ -135,7 +135,7 @@ export default class AuthApi {
               const tests = validateRegisterFields({password: password});
               const password = tests.password();
               if(!password)
-                "/resetpassword?" + "passwordRedirect=" + redirectUri
+                document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
               document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
