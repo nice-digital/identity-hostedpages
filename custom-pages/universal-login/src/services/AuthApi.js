@@ -4,6 +4,7 @@ import Auth0 from 'auth0-js'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
 import { ensureTrailingSlash } from '../helpers'
+import { validateRegisterFields } from '../helpers';
 
 const __DEV__ = global.__DEV__ || false
 export default class AuthApi {
