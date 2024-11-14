@@ -138,6 +138,8 @@ export default class AuthApi {
               if(!password)
               {
                 document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
+              } else
+              {
                 document.location = redirectUri
               }
             } else if (errorCallback) {
