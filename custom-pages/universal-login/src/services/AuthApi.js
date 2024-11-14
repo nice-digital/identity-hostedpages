@@ -3,8 +3,6 @@
 import Auth0 from 'auth0-js'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
-import { validateRegisterFields } from '../helpers';
-
 import { ensureTrailingSlash } from '../helpers'
 
 const __DEV__ = global.__DEV__ || false
@@ -80,9 +78,18 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login1(connection, username, password, errorCallback, resumeAuthState) {
+  login(connection, username, password, errorCallback, resumeAuthState) {
     try {
+
       const redirectUri = window.config.extraParams.redirectURI;
+
+      const tests = validateRegisterFields({password: password})
+      const usingOldpasswordPolicy = !tests.password()
+      if(usingOldpasswordPolicy)
+      {
+        redirectUri = "/resetpassword?" + "passwordRedirect=" + redirectUri
+      }
+
       const tempCid = this.getCookie('_tempCid');
       let options
       let method
@@ -132,17 +139,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              console.log("test");
-              const tests = validateRegisterFields({password: password})
-              const password = tests.password()
-              if(!password)
-              {
-                document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
-              } 
-              else
-              {
-                document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
-              }
+              document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
