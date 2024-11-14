@@ -132,11 +132,14 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              const tests = validateRegisterFields({password: password});
-              const password = tests.password();
+              const tests = validateRegisterFields({password: password})
+              const password = tests.password()
               if(!password)
+              {
+                console.log(password);
                 document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
-              document.location = redirectUri
+                document.location = redirectUri
+              }
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
