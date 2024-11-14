@@ -80,7 +80,7 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, username, password, errorCallback, resumeAuthState) {
+  login1(connection, username, password, errorCallback, resumeAuthState) {
     try {
       const redirectUri = window.config.extraParams.redirectURI;
       const tempCid = this.getCookie('_tempCid');
@@ -138,7 +138,8 @@ export default class AuthApi {
               if(!password)
               {
                 document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
-              } else
+              } 
+              else
               {
                 document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
               }
