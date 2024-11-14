@@ -132,11 +132,11 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
+              console.log("test");
               const tests = validateRegisterFields({password: password})
               const password = tests.password()
               if(!password)
               {
-                console.log(password);
                 document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
                 document.location = redirectUri
               }
