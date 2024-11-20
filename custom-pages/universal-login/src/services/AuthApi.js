@@ -185,6 +185,13 @@ export default class AuthApi {
   resetPassword = (password, errorCallback, history) => {
     const callback = (res) => {
       if (res.status === 200) {
+        const params = new URLSearchParams(window.location.search);
+        const redirectUri = params.get('redirect_uri');
+        const ticket = params.get('ticket');
+        if(redirectUri && ticket)
+        {
+          window.location.href = redirectUri;
+        }
         history.push('/resetsuccess');
       } else if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
