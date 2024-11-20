@@ -94,7 +94,7 @@ export default class AuthApi {
           password,
           temp_cid: tempCid,
           authorizationParams: {
-            oldPasswordPolicy: true
+            oldPasswordPolicy: false
           }
         }
         method = 'login'
@@ -130,11 +130,9 @@ export default class AuthApi {
         const password = tests.password()
         if(!password)
         { 
-          this.opts.authorizationParams = this.opts.authorizationParams || {};
-          this.opts.authorizationParams.oldPasswordPolicy = true;
-          this.params = Object.assign(this.opts, window.config.internalOptions)
-          this.instance = new Auth0.WebAuth(this.params)
+          options.authorizationParams.oldPasswordPolicy = true;
         } 
+ 
         fetch(`/continue${GETOptions}`, {
           method: 'GET',
           headers: {
