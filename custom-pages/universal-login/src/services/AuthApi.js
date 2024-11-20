@@ -130,7 +130,11 @@ export default class AuthApi {
         const password = tests.password()
         if(!password)
         { 
-          this.instance.authorizationParams.oldPasswordPolicy = true;
+          this.instance.authorize({
+            authorizationParams: {
+              oldPasswordPolicy: true, 
+            }
+          });
         } 
         fetch(`/continue${GETOptions}`, {
           method: 'GET',
