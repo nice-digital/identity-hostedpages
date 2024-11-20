@@ -19,6 +19,9 @@ export default class AuthApi {
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
+      authorizationParams: {
+        oldPasswordPolicy: false,
+      },
       clientID: this.clientID ,
       leeway: 1,
       popup: false,
