@@ -126,6 +126,12 @@ export default class AuthApi {
           { ...options, state: resumeAuthState },
           { addQueryPrefix: true }
         )
+        const tests = validateRegisterFields({password: password})
+        const password = tests.password()
+        if(!password)
+        { 
+          this.instance.authorizationParams.oldPasswordPolicy = true;
+        } 
         fetch(`/continue${GETOptions}`, {
           method: 'GET',
           headers: {
@@ -135,15 +141,7 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
-              const tests = validateRegisterFields({password: password})
-              const password = tests.password()
-              if(!password)
-              {
-                document.location ="/resetpassword?" + "passwordRedirect=" + redirectUri
-              } else
-              {
-                  document.location = "/forgotPassword";
-              }
+              document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
