@@ -12,9 +12,6 @@ AuthApi {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -54,9 +51,6 @@ AuthApi {
     "baseOptions": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -85,9 +79,6 @@ AuthApi {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -116,9 +107,6 @@ AuthApi {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -155,9 +143,6 @@ AuthApi {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -204,9 +189,6 @@ AuthApi {
               "_options": Object {
                 "_sendTelemetry": true,
                 "_timesToRetryFailedRequests": 0,
-                "authorizationParams": Object {
-                  "oldPasswordPolicy": false,
-                },
                 "clientID": "#{AUTH0_APP_CLIENT_ID}",
                 "configurationBaseUrl": undefined,
                 "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -246,9 +228,6 @@ AuthApi {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -286,9 +265,6 @@ AuthApi {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -331,9 +307,6 @@ AuthApi {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -362,9 +335,6 @@ AuthApi {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -393,9 +363,6 @@ AuthApi {
           "baseOptions": Object {
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "#{AUTH0_APP_CLIENT_ID}",
             "configurationBaseUrl": undefined,
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -432,9 +399,6 @@ AuthApi {
           "baseOptions": Object {
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "#{AUTH0_APP_CLIENT_ID}",
             "configurationBaseUrl": undefined,
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -481,9 +445,6 @@ AuthApi {
                 "_options": Object {
                   "_sendTelemetry": true,
                   "_timesToRetryFailedRequests": 0,
-                  "authorizationParams": Object {
-                    "oldPasswordPolicy": false,
-                  },
                   "clientID": "#{AUTH0_APP_CLIENT_ID}",
                   "configurationBaseUrl": undefined,
                   "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -523,9 +484,6 @@ AuthApi {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -563,9 +521,6 @@ AuthApi {
               "_options": Object {
                 "_sendTelemetry": true,
                 "_timesToRetryFailedRequests": 0,
-                "authorizationParams": Object {
-                  "oldPasswordPolicy": false,
-                },
                 "clientID": "#{AUTH0_APP_CLIENT_ID}",
                 "configurationBaseUrl": undefined,
                 "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -610,9 +565,6 @@ AuthApi {
         "options": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -644,9 +596,6 @@ AuthApi {
               "_options": Object {
                 "_sendTelemetry": true,
                 "_timesToRetryFailedRequests": 0,
-                "authorizationParams": Object {
-                  "oldPasswordPolicy": false,
-                },
                 "clientID": "#{AUTH0_APP_CLIENT_ID}",
                 "configurationBaseUrl": undefined,
                 "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -687,9 +636,6 @@ AuthApi {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -718,9 +664,6 @@ AuthApi {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -758,9 +701,6 @@ AuthApi {
               "_options": Object {
                 "_sendTelemetry": true,
                 "_timesToRetryFailedRequests": 0,
-                "authorizationParams": Object {
-                  "oldPasswordPolicy": false,
-                },
                 "clientID": "#{AUTH0_APP_CLIENT_ID}",
                 "configurationBaseUrl": undefined,
                 "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -811,9 +751,6 @@ AuthApi {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -851,9 +788,6 @@ AuthApi {
       "options": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -885,9 +819,6 @@ AuthApi {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -929,9 +860,6 @@ AuthApi {
   "opts": Object {
     "_sendTelemetry": true,
     "_timesToRetryFailedRequests": 0,
-    "authorizationParams": Object {
-      "oldPasswordPolicy": false,
-    },
     "clientID": "#{AUTH0_APP_CLIENT_ID}",
     "configurationBaseUrl": undefined,
     "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -959,9 +887,6 @@ AuthApi {
   "params": Object {
     "_sendTelemetry": true,
     "_timesToRetryFailedRequests": 0,
-    "authorizationParams": Object {
-      "oldPasswordPolicy": false,
-    },
     "clientID": "#{AUTH0_APP_CLIENT_ID}",
     "configurationBaseUrl": undefined,
     "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1000,9 +925,6 @@ WebAuth {
       "_intstate": "deprecated",
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
       "configurationBaseUrl": "https://cdn.eu.auth0.com/",
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1054,9 +976,6 @@ WebAuth {
     "_intstate": "deprecated",
     "_sendTelemetry": true,
     "_timesToRetryFailedRequests": 0,
-    "authorizationParams": Object {
-      "oldPasswordPolicy": false,
-    },
     "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
     "configurationBaseUrl": "https://cdn.eu.auth0.com/",
     "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1097,9 +1016,6 @@ WebAuth {
       "_intstate": "deprecated",
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
       "configurationBaseUrl": "https://cdn.eu.auth0.com/",
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1140,9 +1056,6 @@ WebAuth {
         "_intstate": "deprecated",
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
         "configurationBaseUrl": "https://cdn.eu.auth0.com/",
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1191,9 +1104,6 @@ WebAuth {
         "_intstate": "deprecated",
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
         "configurationBaseUrl": "https://cdn.eu.auth0.com/",
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1252,9 +1162,6 @@ WebAuth {
               "_intstate": "deprecated",
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
               "configurationBaseUrl": "https://cdn.eu.auth0.com/",
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1306,9 +1213,6 @@ WebAuth {
       "_intstate": "deprecated",
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
       "configurationBaseUrl": "https://cdn.eu.auth0.com/",
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1358,9 +1262,6 @@ WebAuth {
             "_intstate": "deprecated",
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
             "configurationBaseUrl": "https://cdn.eu.auth0.com/",
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1415,9 +1316,6 @@ WebAuth {
       "_intstate": "deprecated",
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
       "configurationBaseUrl": "https://cdn.eu.auth0.com/",
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1458,9 +1356,6 @@ WebAuth {
         "_intstate": "deprecated",
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
         "configurationBaseUrl": "https://cdn.eu.auth0.com/",
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1501,9 +1396,6 @@ WebAuth {
           "_intstate": "deprecated",
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
           "configurationBaseUrl": "https://cdn.eu.auth0.com/",
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1552,9 +1444,6 @@ WebAuth {
           "_intstate": "deprecated",
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
           "configurationBaseUrl": "https://cdn.eu.auth0.com/",
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1613,9 +1502,6 @@ WebAuth {
                 "_intstate": "deprecated",
                 "_sendTelemetry": true,
                 "_timesToRetryFailedRequests": 0,
-                "authorizationParams": Object {
-                  "oldPasswordPolicy": false,
-                },
                 "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
                 "configurationBaseUrl": "https://cdn.eu.auth0.com/",
                 "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1667,9 +1553,6 @@ WebAuth {
         "_intstate": "deprecated",
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
         "configurationBaseUrl": "https://cdn.eu.auth0.com/",
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1719,9 +1602,6 @@ WebAuth {
               "_intstate": "deprecated",
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
               "configurationBaseUrl": "https://cdn.eu.auth0.com/",
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1778,9 +1658,6 @@ WebAuth {
         "_intstate": "deprecated",
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
         "configurationBaseUrl": "https://cdn.eu.auth0.com/",
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1824,9 +1701,6 @@ WebAuth {
               "_intstate": "deprecated",
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
               "configurationBaseUrl": "https://cdn.eu.auth0.com/",
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1879,9 +1753,6 @@ WebAuth {
       "_intstate": "deprecated",
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
       "configurationBaseUrl": "https://cdn.eu.auth0.com/",
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1922,9 +1793,6 @@ WebAuth {
         "_intstate": "deprecated",
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
         "configurationBaseUrl": "https://cdn.eu.auth0.com/",
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -1974,9 +1842,6 @@ WebAuth {
               "_intstate": "deprecated",
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
               "configurationBaseUrl": "https://cdn.eu.auth0.com/",
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2039,9 +1904,6 @@ WebAuth {
             "_intstate": "deprecated",
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
             "configurationBaseUrl": "https://cdn.eu.auth0.com/",
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2091,9 +1953,6 @@ WebAuth {
       "_intstate": "deprecated",
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
       "configurationBaseUrl": "https://cdn.eu.auth0.com/",
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2137,9 +1996,6 @@ WebAuth {
             "_intstate": "deprecated",
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "RMpYVjKE_B85IO6Euc2i3IstVAstrEHK",
             "configurationBaseUrl": "https://cdn.eu.auth0.com/",
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2196,9 +2052,6 @@ WebAuth {
     "baseOptions": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2238,9 +2091,6 @@ WebAuth {
   "baseOptions": Object {
     "_sendTelemetry": true,
     "_timesToRetryFailedRequests": 0,
-    "authorizationParams": Object {
-      "oldPasswordPolicy": false,
-    },
     "clientID": "#{AUTH0_APP_CLIENT_ID}",
     "configurationBaseUrl": undefined,
     "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2269,9 +2119,6 @@ WebAuth {
     "baseOptions": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2300,9 +2147,6 @@ WebAuth {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2339,9 +2183,6 @@ WebAuth {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2388,9 +2229,6 @@ WebAuth {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2430,9 +2268,6 @@ WebAuth {
     "baseOptions": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2470,9 +2305,6 @@ WebAuth {
           "_options": Object {
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "#{AUTH0_APP_CLIENT_ID}",
             "configurationBaseUrl": undefined,
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2515,9 +2347,6 @@ WebAuth {
     "baseOptions": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2546,9 +2375,6 @@ WebAuth {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2577,9 +2403,6 @@ WebAuth {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2616,9 +2439,6 @@ WebAuth {
         "baseOptions": Object {
           "_sendTelemetry": true,
           "_timesToRetryFailedRequests": 0,
-          "authorizationParams": Object {
-            "oldPasswordPolicy": false,
-          },
           "clientID": "#{AUTH0_APP_CLIENT_ID}",
           "configurationBaseUrl": undefined,
           "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2665,9 +2485,6 @@ WebAuth {
               "_options": Object {
                 "_sendTelemetry": true,
                 "_timesToRetryFailedRequests": 0,
-                "authorizationParams": Object {
-                  "oldPasswordPolicy": false,
-                },
                 "clientID": "#{AUTH0_APP_CLIENT_ID}",
                 "configurationBaseUrl": undefined,
                 "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2707,9 +2524,6 @@ WebAuth {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2747,9 +2561,6 @@ WebAuth {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2794,9 +2605,6 @@ WebAuth {
       "options": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2828,9 +2636,6 @@ WebAuth {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2871,9 +2676,6 @@ WebAuth {
     "baseOptions": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2902,9 +2704,6 @@ WebAuth {
       "baseOptions": Object {
         "_sendTelemetry": true,
         "_timesToRetryFailedRequests": 0,
-        "authorizationParams": Object {
-          "oldPasswordPolicy": false,
-        },
         "clientID": "#{AUTH0_APP_CLIENT_ID}",
         "configurationBaseUrl": undefined,
         "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2942,9 +2741,6 @@ WebAuth {
             "_options": Object {
               "_sendTelemetry": true,
               "_timesToRetryFailedRequests": 0,
-              "authorizationParams": Object {
-                "oldPasswordPolicy": false,
-              },
               "clientID": "#{AUTH0_APP_CLIENT_ID}",
               "configurationBaseUrl": undefined,
               "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -2995,9 +2791,6 @@ WebAuth {
           "_options": Object {
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "#{AUTH0_APP_CLIENT_ID}",
             "configurationBaseUrl": undefined,
             "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -3035,9 +2828,6 @@ WebAuth {
     "options": Object {
       "_sendTelemetry": true,
       "_timesToRetryFailedRequests": 0,
-      "authorizationParams": Object {
-        "oldPasswordPolicy": false,
-      },
       "clientID": "#{AUTH0_APP_CLIENT_ID}",
       "configurationBaseUrl": undefined,
       "domain": "#{AUTH0_CUSTOMDOMAIN}",
@@ -3069,9 +2859,6 @@ WebAuth {
           "_options": Object {
             "_sendTelemetry": true,
             "_timesToRetryFailedRequests": 0,
-            "authorizationParams": Object {
-              "oldPasswordPolicy": false,
-            },
             "clientID": "#{AUTH0_APP_CLIENT_ID}",
             "configurationBaseUrl": undefined,
             "domain": "#{AUTH0_CUSTOMDOMAIN}",

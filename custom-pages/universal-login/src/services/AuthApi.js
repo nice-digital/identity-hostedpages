@@ -19,9 +19,6 @@ export default class AuthApi {
     this.opts = {
       ...window.config.extraParams,
       domain: authOpts.domain,
-      authorizationParams: {
-        oldPasswordPolicy: false,
-      },
       clientID: this.clientID ,
       leeway: 1,
       popup: false,
@@ -95,7 +92,10 @@ export default class AuthApi {
           realm: connection,
           username,
           password,
-          temp_cid: tempCid
+          temp_cid: tempCid,
+          authorizationParams: {
+            oldPasswordPolicy: true
+          }
         }
         method = 'login'
       } else {
