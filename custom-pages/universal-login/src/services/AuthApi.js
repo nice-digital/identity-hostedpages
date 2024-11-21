@@ -86,6 +86,8 @@ export default class AuthApi {
       const tempCid = this.getCookie('_tempCid');
       let options
       let method
+      const tests = validateRegisterFields({password: password})
+      const password = tests.password()
       if (connection === authOpts.connection) {
         options = {
           ...this.params,
@@ -94,7 +96,7 @@ export default class AuthApi {
           password,
           temp_cid: tempCid,
           authorizationParams: {
-            oldPasswordPolicy: false
+            oldPasswordPolicy: !password
           }
         }
         method = 'login'
@@ -126,13 +128,6 @@ export default class AuthApi {
           { ...options, state: resumeAuthState },
           { addQueryPrefix: true }
         )
-        const tests = validateRegisterFields({password: password})
-        const password = tests.password()
-        if(!password)
-        { 
-          options.authorizationParams.oldPasswordPolicy = true;
-        } 
- 
         fetch(`/continue${GETOptions}`, {
           method: 'GET',
           headers: {
