@@ -11,7 +11,7 @@ class ForgotPassword extends React.Component {
     super(props)
     this.auth = new AuthApi()
     this.state = {
-      message: props.location.state?.message,
+      message:  (props.location && props.location.state && props.location.state?.message) || null,
       email: null,
       errors: {
         email: false

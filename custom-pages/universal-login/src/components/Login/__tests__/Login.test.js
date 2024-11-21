@@ -69,6 +69,7 @@ describe('Login components', () => {
       password,
       expect.any(Function),
       null,
+      null
     )
   })
 
