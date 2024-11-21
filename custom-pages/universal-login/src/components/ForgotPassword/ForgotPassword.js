@@ -11,6 +11,7 @@ class ForgotPassword extends React.Component {
     super(props)
     this.auth = new AuthApi()
     this.state = {
+      message: props.location.state?.message,
       email: null,
       errors: {
         email: false
@@ -112,11 +113,12 @@ class ForgotPassword extends React.Component {
   };
 
   render() {
-    const { serverSideError, errors, loading, email, isAD } = this.state;
+    const { serverSideError, errors, loading, email, isAD, message } = this.state;
 
     return (
       <div>
         <h2>Reset your password</h2>
+        {message && <p class="alert alert--error">{message}</p>}
         <p className="lead">
           Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
         </p>

@@ -3,8 +3,6 @@
 import Auth0 from 'auth0-js'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
-import { validateRegisterFields } from '../helpers';
-
 import { ensureTrailingSlash } from '../helpers'
 
 const __DEV__ = global.__DEV__ || false
@@ -86,17 +84,13 @@ export default class AuthApi {
       const tempCid = this.getCookie('_tempCid');
       let options
       let method
-      const tests = validateRegisterFields({password: password})
       if (connection === authOpts.connection) {
         options = {
           ...this.params,
           realm: connection,
           username,
           password,
-          temp_cid: tempCid,
-          authorizationParams: {
-            newPasswordPolicy: tests.password()
-          }
+          temp_cid: tempCid
         }
         method = 'login'
       } else {
@@ -181,13 +175,6 @@ export default class AuthApi {
   resetPassword = (password, errorCallback, history) => {
     const callback = (res) => {
       if (res.status === 200) {
-        const params = new URLSearchParams(window.location.search);
-        const redirectUri = params.get('redirect_uri');
-        const ticket = params.get('ticket');
-        if(redirectUri && ticket)
-        {
-          window.location.href = redirectUri;
-        }
         history.push('/resetsuccess');
       } else if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
