@@ -4,6 +4,7 @@ import Auth0 from 'auth0-js'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
 import { ensureTrailingSlash } from '../helpers'
+import { validateRegisterFields } from '../helpers';
 
 const __DEV__ = global.__DEV__ || false
 export default class AuthApi {
@@ -78,7 +79,13 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, username, password, errorCallback, resumeAuthState) {
+  login(connection, username, password, errorCallback, resumeAuthState, history) {
+    const tests = validateRegisterFields({password: password})
+    const oldPasswordPolicy = tests.password()
+    if(oldPasswordPolicy)
+    {
+      history.push('/forgotPassword', { message: 'Our password policy has been updated. You will need to provide a password that is at least 14 characters in length and contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*).' });  
+    }
     try {
       const redirectUri = window.config.extraParams.redirectURI;
       const tempCid = this.getCookie('_tempCid');
