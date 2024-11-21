@@ -112,8 +112,7 @@ class Login extends Component {
             username,
             password,
             requestErrorCallback,
-            isResumingAuthState,
-            this.props.history
+            isResumingAuthState
           )
         })
       } catch (err) {
