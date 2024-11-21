@@ -87,7 +87,6 @@ export default class AuthApi {
       let options
       let method
       const tests = validateRegisterFields({password: password})
-      const password = tests.password()
       if (connection === authOpts.connection) {
         options = {
           ...this.params,
@@ -96,7 +95,7 @@ export default class AuthApi {
           password,
           temp_cid: tempCid,
           authorizationParams: {
-            newPasswordPolicy: password
+            newPasswordPolicy: !tests.password()
           }
         }
         method = 'login'
