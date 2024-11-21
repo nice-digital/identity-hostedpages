@@ -96,7 +96,7 @@ export default class AuthApi {
           password,
           temp_cid: tempCid,
           authorizationParams: {
-            oldPasswordPolicy: !password
+            newPasswordPolicy: password
           }
         }
         method = 'login'
