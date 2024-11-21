@@ -12,7 +12,7 @@ class ForgotPassword extends React.Component {
     this.auth = new AuthApi()
     this.state = {
       message:  (props.location && props.location.state && props.location.state?.message) || null,
-      email: null,
+      value: (props.location && props.location.state && props.location.state?.email) || null,
       errors: {
         email: false
       },
@@ -118,10 +118,14 @@ class ForgotPassword extends React.Component {
     return (
       <div>
         <h2>Reset your password</h2>
-        {message && <p class="alert alert--error">{message}</p>}
+        {message && 
+        <p class="alert alert--error">Our password policy has been updated. You will need to provide a password that is at least 14 characters in length and contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*). <br/><br/>Click the reset button below and we'll send you an email with a link to help you reset your password.</p>
+        }
+        {!this.state.value && (
         <p className="lead">
           Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
         </p>
+         )}
         <form className="">
           {serverSideError && (
             <Alert type="error">{serverSideError}</Alert>

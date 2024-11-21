@@ -84,7 +84,7 @@ export default class AuthApi {
     const oldPasswordPolicy = tests.password()
     if(oldPasswordPolicy)
     {
-      history.push('/forgotPassword', { message: 'Our password policy has been updated. You will need to provide a password that is at least 14 characters in length and contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*).' });  
+      history.push('/forgotPassword', { message: true, email:  username});  
     }
     try {
       const redirectUri = window.config.extraParams.redirectURI;
