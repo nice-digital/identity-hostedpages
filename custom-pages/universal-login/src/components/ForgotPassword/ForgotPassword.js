@@ -12,6 +12,7 @@ class ForgotPassword extends React.Component {
     this.auth = new AuthApi()
     this.state = {
       message:  (props.location && props.location.state && props.location.state?.message) || null,
+      value: (props.location && props.location.state && props.location.state?.email) || null,
       errors: {
         email: false
       },
@@ -23,7 +24,8 @@ class ForgotPassword extends React.Component {
 
   forgotPassword = (event) => {
     if (event) event.preventDefault();
-
+    if(this.state.value)
+      this.handleChange(event.target);
     this.setState(function(state) {
       const tests = validateRegisterFields(this.state);
       const email = !state.email || tests.email();

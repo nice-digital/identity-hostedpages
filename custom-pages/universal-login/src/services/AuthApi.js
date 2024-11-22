@@ -84,9 +84,8 @@ export default class AuthApi {
     const oldpasswordPolicy = tests.password()
     if(oldpasswordPolicy)
     {
-      history.push('/forgotPassword', { message: true});  
-    } 
-    else {
+      history.push('/forgotPassword', { message: true, email:  username});  
+    } else {
       try {
         const redirectUri = window.config.extraParams.redirectURI;
         const tempCid = this.getCookie('_tempCid');
@@ -152,7 +151,7 @@ export default class AuthApi {
       } catch (err) {
         console.log(JSON.stringify(err))
       }
-    }
+    } 
   }
 
   submitWSForm = (responseForm) => {
