@@ -25,7 +25,11 @@ class ForgotPassword extends React.Component {
   forgotPassword = (event) => {
     if (event) event.preventDefault();
     if(this.state.value)
-      this.handleChange(event.target);
+    {
+       const simulatedEvent = { target: document.getElementById('email') };
+       this.handleChange(simulatedEvent);
+    }
+     
     this.setState(function(state) {
       const tests = validateRegisterFields(this.state);
       const email = !state.email || tests.email();
