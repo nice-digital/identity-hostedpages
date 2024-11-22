@@ -136,8 +136,9 @@ export default class AuthApi {
               if(oldPasswordPolicy)
               {
                 history.push('/forgotPassword', { message: true, email:  username});  
+              } else {
+                document.location = redirectUri
               }
-              document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
             }
