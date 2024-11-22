@@ -81,8 +81,8 @@ export default class AuthApi {
 
   login(connection, username, password, errorCallback, resumeAuthState, history) {
     const tests = validateRegisterFields({password: password})
-    const newPasswordPolicy = tests.password()
-    if(!newPasswordPolicy)
+    const oldpasswordPolicy = tests.password()
+    if(oldpasswordPolicy)
     {
       history.push('/forgotPassword', { message: true, email:  username});  
     } else {
