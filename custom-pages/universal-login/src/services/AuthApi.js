@@ -80,76 +80,79 @@ export default class AuthApi {
     }, {})
 
   login(connection, username, password, errorCallback, resumeAuthState, history) {
-    try {
-      const redirectUri = window.config.extraParams.redirectURI;
-      const tempCid = this.getCookie('_tempCid');
-      let options
-      let method
-      const tests = validateRegisterFields({password: password})
-      const password = tests.password()
-      if (connection === authOpts.connection) {
-        options = {
-          ...this.params,
-          realm: connection,
-          username,
-          password,
-          temp_cid: tempCid,
-          authorizationParams: {
-            oldPasswordPolicy: !password
+    const tests = validateRegisterFields({password: password})
+    const oldPasswordPolicy = tests.password()
+    if(oldPasswordPolicy)
+    {
+      history.push('/forgotPassword', { message: true, email:  username});  
+    } else {
+      try {
+        const redirectUri = window.config.extraParams.redirectURI;
+        const tempCid = this.getCookie('_tempCid');
+        let options
+        let method
+        if (connection === authOpts.connection) {
+          options = {
+            ...this.params,
+            realm: connection,
+            username,
+            password,
+            temp_cid: tempCid
           }
+          method = 'login'
+        } else {
+          options = {
+            ...this.params,
+            connection,
+            username,
+            sso: true,
+            login_hint: username,
+            response_mode: 'form_post'
+          }
+          method = 'authorize'
         }
-        method = 'login'
-      } else {
-        options = {
-          ...this.params,
-          connection,
-          username,
-          sso: true,
-          login_hint: username,
-          response_mode: 'form_post'
+        if (redirectUri) {
+          options.redirect_uri = redirectUri
         }
-        method = 'authorize'
-      }
-      if (redirectUri) {
-        options.redirect_uri = redirectUri
-      }
-      if (!resumeAuthState) {
-        this.instance[method](options, (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback(err))
-            }
-            console.log(JSON.stringify(err))
-          }
-        })
-      } else {
-        const GETOptions = qs.stringify(
-          { ...options, state: resumeAuthState },
-          { addQueryPrefix: true }
-        )
-        fetch(`/continue${GETOptions}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        })
-          .then((res) => {
-            if (res.status === 200) {
-              document.location = redirectUri
-            } else if (errorCallback) {
-              setTimeout(() => errorCallback(res))
+        if (!resumeAuthState) {
+          this.instance[method](options, (err) => {
+            if (err) {
+              if (errorCallback) {
+                setTimeout(() => errorCallback(err))
+              }
+              console.log(JSON.stringify(err))
             }
           })
-          .catch((err) => {
-            if (errorCallback) {
-              setTimeout(() => errorCallback(err))
+        } else {
+          const GETOptions = qs.stringify(
+            { ...options, state: resumeAuthState },
+            { addQueryPrefix: true }
+          )
+          fetch(`/continue${GETOptions}`, {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
             }
           })
+            .then((res) => {
+              if (res.status === 200) {
+                document.location = redirectUri
+              } else if (errorCallback) {
+                setTimeout(() => errorCallback(res))
+              }
+            })
+            .catch((err) => {
+              if (errorCallback) {
+                setTimeout(() => errorCallback(err))
+              }
+            })
+        }
+      } catch (err) {
+        console.log(JSON.stringify(err))
       }
-    } catch (err) {
-      console.log(JSON.stringify(err))
     }
+   
   }
 
   submitWSForm = (responseForm) => {
@@ -181,13 +184,6 @@ export default class AuthApi {
   resetPassword = (password, errorCallback, history) => {
     const callback = (res) => {
       if (res.status === 200) {
-        const params = new URLSearchParams(window.location.search);
-        const redirectUri = params.get('redirect_uri');
-        const ticket = params.get('ticket');
-        if(redirectUri && ticket)
-        {
-          window.location.href = redirectUri;
-        }
         history.push('/resetsuccess');
       } else if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
