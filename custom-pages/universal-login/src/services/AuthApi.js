@@ -85,6 +85,8 @@ export default class AuthApi {
       const tempCid = this.getCookie('_tempCid');
       let options
       let method
+      const tests = validateRegisterFields({password: password})
+      const password = tests.password()
       if (connection === authOpts.connection) {
         options = {
           ...this.params,
@@ -92,8 +94,9 @@ export default class AuthApi {
           username,
           password,
           temp_cid: tempCid,
-          responseType: 'token id_token', 
-          responseMode: 'web_message'
+          authorizationParams: {
+            oldPasswordPolicy: !password
+          }
         }
         method = 'login'
       } else {
@@ -111,7 +114,14 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
-       console.log('hello');
+        this.instance[method](options, (err) => {
+          if (err) {
+            if (errorCallback) {
+              setTimeout(() => errorCallback(err))
+            }
+            console.log(JSON.stringify(err))
+          }
+        })
       } else {
         const GETOptions = qs.stringify(
           { ...options, state: resumeAuthState },
@@ -171,6 +181,13 @@ export default class AuthApi {
   resetPassword = (password, errorCallback, history) => {
     const callback = (res) => {
       if (res.status === 200) {
+        const params = new URLSearchParams(window.location.search);
+        const redirectUri = params.get('redirect_uri');
+        const ticket = params.get('ticket');
+        if(redirectUri && ticket)
+        {
+          window.location.href = redirectUri;
+        }
         history.push('/resetsuccess');
       } else if (errorCallback) {
         setTimeout(() => errorCallback('There has been an issue'))
