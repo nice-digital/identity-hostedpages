@@ -86,12 +86,6 @@ export default class AuthApi {
       let options
       let method
       if (connection === authOpts.connection) {
-        const tests = validateRegisterFields({password: password})
-        const oldPasswordPolicy = tests.password()
-        if(oldPasswordPolicy)
-        {
-          history.push('/forgotPassword', { message: true, email:  username});  
-        }
         options = {
           ...this.params,
           realm: connection,
@@ -137,6 +131,12 @@ export default class AuthApi {
         })
           .then((res) => {
             if (res.status === 200) {
+              const tests = validateRegisterFields({password: password})
+              const oldPasswordPolicy = tests.password()
+              if(oldPasswordPolicy)
+              {
+                history.push('/forgotPassword', { message: true, email:  username});  
+              }
               document.location = redirectUri
             } else if (errorCallback) {
               setTimeout(() => errorCallback(res))
