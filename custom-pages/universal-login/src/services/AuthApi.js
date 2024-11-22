@@ -80,18 +80,18 @@ export default class AuthApi {
     }, {})
 
   login(connection, username, password, errorCallback, resumeAuthState, history) {
-    const tests = validateRegisterFields({password: password})
-    const oldPasswordPolicy = tests.password()
-    if(oldPasswordPolicy)
-    {
-      history.push('/forgotPassword', { message: true, email:  username});  
-    }
     try {
       const redirectUri = window.config.extraParams.redirectURI;
       const tempCid = this.getCookie('_tempCid');
       let options
       let method
       if (connection === authOpts.connection) {
+        const tests = validateRegisterFields({password: password})
+        const oldPasswordPolicy = tests.password()
+        if(oldPasswordPolicy)
+        {
+          history.push('/forgotPassword', { message: true, email:  username});  
+        }
         options = {
           ...this.params,
           realm: connection,
