@@ -111,22 +111,7 @@ export default class AuthApi {
         options.redirect_uri = redirectUri
       }
       if (!resumeAuthState) {
-        this.instance[method](options, (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback(err))
-            }
-            console.log(JSON.stringify(err))
-          } else {
-            const tests = validateRegisterFields({password: password})
-            const oldPasswordPolicy = tests.password()
-            if(oldPasswordPolicy)
-            {
-              history.push('/forgotPassword', { message: true, email:  username});  
-            }    
-                  
-           }
-        })
+       console.log('hello');
       } else {
         const GETOptions = qs.stringify(
           { ...options, state: resumeAuthState },
