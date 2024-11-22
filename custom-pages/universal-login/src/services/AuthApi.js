@@ -118,36 +118,36 @@ export default class AuthApi {
           }
         })
       } else {
-        const GETOptions = qs.stringify(
-          { ...options, state: resumeAuthState },
-          { addQueryPrefix: true }
-        )
-        fetch(`/continue${GETOptions}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        })
-          .then((res) => {
-            if (res.status === 200) {
-              const tests = validateRegisterFields({password: password})
-              const oldPasswordPolicy = tests.password()
-              if(oldPasswordPolicy)
-              {
-                history.push('/forgotPassword', { message: true, email:  username});  
-              } else {
-                document.location = redirectUri
+          const tests = validateRegisterFields({password: password})
+          const oldPasswordPolicy = tests.password()
+          if(oldPasswordPolicy)
+          {
+            history.push('/forgotPassword', { message: true, email:  username});  
+          } else {
+            const GETOptions = qs.stringify(
+              { ...options, state: resumeAuthState },
+              { addQueryPrefix: true }
+            )
+            fetch(`/continue${GETOptions}`, {
+              method: 'GET',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
               }
-            } else if (errorCallback) {
-              setTimeout(() => errorCallback(res))
+            })
+              .then((res) => {
+                if (res.status === 200) {
+                  document.location = redirectUri
+                } else if (errorCallback) {
+                  setTimeout(() => errorCallback(res))
+                }
+              })
+              .catch((err) => {
+                if (errorCallback) {
+                  setTimeout(() => errorCallback(err))
+                }
+              })
             }
-          })
-          .catch((err) => {
-            if (errorCallback) {
-              setTimeout(() => errorCallback(err))
-            }
-          })
       }
     } catch (err) {
       console.log(JSON.stringify(err))

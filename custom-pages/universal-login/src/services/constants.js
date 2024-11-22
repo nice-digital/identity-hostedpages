@@ -4,15 +4,15 @@
 const __DEV__ = global.__DEV__ || false
 // eslint-disable-next-line
 export const auth = {
-  domain: __DEV__ ? 'dev-nice-identity.eu.auth0.com' : '#{AUTH0_CUSTOMDOMAIN}',
+  domain: __DEV__ ? 'dev-nice-identity.eu.auth0.com' : 'dev-nice-identity.eu.auth0.com',
   clientID: __DEV__
-    ? 'RMpYVjKE_B85IO6Euc2i3IstVAstrEHK'
-    : '#{AUTH0_APP_CLIENT_ID}',
+    ? 'PdZjg3cjWZxNMLrkrRlKIgPJaGS5yYEr'
+    : 'PdZjg3cjWZxNMLrkrRlKIgPJaGS5yYEr',
   scope: 'openid profile email ',
   responseType: 'code',
   connection: __DEV__
     ? 'Identity'
-    : '#{AUTH0_CONNECTION}',
+    : 'Identity',
   auth0CDN: 'https://cdn.eu.auth0.com'
 }
 

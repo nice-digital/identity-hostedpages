@@ -8,7 +8,7 @@ import '@nice-digital/design-system/scss/base.scss';
 import App from './components/App/App';
 
 global.Promise = global.Promise || Promise;
-global.__DEV__ = global.__DEV__ || document.location.host.indexOf('localhost') > -1;
+global.__DEV__ = true;
 
 const rootElement = document.getElementById("root");
 
