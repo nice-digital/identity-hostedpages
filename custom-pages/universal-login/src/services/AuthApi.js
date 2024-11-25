@@ -4,6 +4,7 @@ import Auth0 from 'auth0-js'
 import qs from 'qs'
 import { auth as authOpts, urls } from './constants'
 import { ensureTrailingSlash } from '../helpers'
+import { validateRegisterFields } from '../helpers';
 
 const __DEV__ = global.__DEV__ || false
 export default class AuthApi {
@@ -78,72 +79,79 @@ export default class AuthApi {
       return acc
     }, {})
 
-  login(connection, username, password, errorCallback, resumeAuthState) {
-    try {
-      const redirectUri = window.config.extraParams.redirectURI;
-      const tempCid = this.getCookie('_tempCid');
-      let options
-      let method
-      if (connection === authOpts.connection) {
-        options = {
-          ...this.params,
-          realm: connection,
-          username,
-          password,
-          temp_cid: tempCid
-        }
-        method = 'login'
-      } else {
-        options = {
-          ...this.params,
-          connection,
-          username,
-          sso: true,
-          login_hint: username,
-          response_mode: 'form_post'
-        }
-        method = 'authorize'
-      }
-      if (redirectUri) {
-        options.redirect_uri = redirectUri
-      }
-      if (!resumeAuthState) {
-        this.instance[method](options, (err) => {
-          if (err) {
-            if (errorCallback) {
-              setTimeout(() => errorCallback(err))
-            }
-            console.log(JSON.stringify(err))
+  login(connection, username, password, errorCallback, resumeAuthState, history) {
+    const tests = validateRegisterFields({password: password})
+    const oldpasswordPolicy = tests.password()
+    if(oldpasswordPolicy)
+    {
+      history.push('/forgotPassword', { message: true, email:  username});  
+    } else {
+      try {
+        const redirectUri = window.config.extraParams.redirectURI;
+        const tempCid = this.getCookie('_tempCid');
+        let options
+        let method
+        if (connection === authOpts.connection) {
+          options = {
+            ...this.params,
+            realm: connection,
+            username,
+            password,
+            temp_cid: tempCid
           }
-        })
-      } else {
-        const GETOptions = qs.stringify(
-          { ...options, state: resumeAuthState },
-          { addQueryPrefix: true }
-        )
-        fetch(`/continue${GETOptions}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
+          method = 'login'
+        } else {
+          options = {
+            ...this.params,
+            connection,
+            username,
+            sso: true,
+            login_hint: username,
+            response_mode: 'form_post'
           }
-        })
-          .then((res) => {
-            if (res.status === 200) {
-              document.location = redirectUri
-            } else if (errorCallback) {
-              setTimeout(() => errorCallback(res))
+          method = 'authorize'
+        }
+        if (redirectUri) {
+          options.redirect_uri = redirectUri
+        }
+        if (!resumeAuthState) {
+          this.instance[method](options, (err) => {
+            if (err) {
+              if (errorCallback) {
+                setTimeout(() => errorCallback(err))
+              }
+              console.log(JSON.stringify(err))
             }
           })
-          .catch((err) => {
-            if (errorCallback) {
-              setTimeout(() => errorCallback(err))
+        } else {
+          const GETOptions = qs.stringify(
+            { ...options, state: resumeAuthState },
+            { addQueryPrefix: true }
+          )
+          fetch(`/continue${GETOptions}`, {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
             }
           })
+            .then((res) => {
+              if (res.status === 200) {
+                document.location = redirectUri
+              } else if (errorCallback) {
+                setTimeout(() => errorCallback(res))
+              }
+            })
+            .catch((err) => {
+              if (errorCallback) {
+                setTimeout(() => errorCallback(err))
+              }
+            })
+        }
+      } catch (err) {
+        console.log(JSON.stringify(err))
       }
-    } catch (err) {
-      console.log(JSON.stringify(err))
-    }
+    } 
   }
 
   submitWSForm = (responseForm) => {

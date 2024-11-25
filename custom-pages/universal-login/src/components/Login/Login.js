@@ -97,7 +97,7 @@ class Login extends Component {
         console.log(JSON.stringify(err))
       );
 
-    if (this.validate()){          
+    if (this.validate()){     
       try {
         this.setState({ loading: true, serverSideError: null }, () => {
           const { username, password, connection } = this.state
@@ -112,7 +112,8 @@ class Login extends Component {
             username,
             password,
             requestErrorCallback,
-            isResumingAuthState
+            isResumingAuthState,
+            this.props.history || null
           )
         })
       } catch (err) {
