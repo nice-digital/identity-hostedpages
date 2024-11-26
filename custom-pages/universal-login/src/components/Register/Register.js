@@ -220,7 +220,7 @@ class Register extends Component {
 
     const errorMessages = {
       email: !email ? `Email - ${requiredMessage}` : 'Email address is in an invalid format',
-      password: !password ? `Password - ${requiredMessage}` : 'Please provide a password with least 14 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)',
+      password: !password ? `Password - ${requiredMessage}` : 'Please provide a password with at least 14 characters in length, contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)',
       confirmPassword: !confirmPassword ? `Confirm password - ${requiredMessage}` : 'Password doesn\'t match',
       name: !name ? `First name - ${requiredMessage}` : 'First name should contain letters and should not exceed 100 characters',
       surname: !surname ? `Last name - ${requiredMessage}` : 'Last name should contain letters and should not exceed 100 characters',
