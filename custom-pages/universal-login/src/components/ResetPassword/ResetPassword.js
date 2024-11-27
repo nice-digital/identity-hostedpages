@@ -110,7 +110,7 @@ export class ResetPassword extends React.Component {
               label="Password"
               onChange={this.handleChange}
               error={errors.password}
-              errorMessage="Please provide a password with least 14 characters in length, contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)"
+              errorMessage="Please provide a password with at least 14 characters in length, contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*)"
               onBlur={this.validate}
               onFocus={this.clearError}
               aria-describedby="password-error"
