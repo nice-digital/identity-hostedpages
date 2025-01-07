@@ -42,7 +42,7 @@ describe('ResetPassword components', () => {
     })
 
     it('should call the AuthApi forgotPAssword when login is invoked', () => {
-        const password = 'Password01!'
+        const password = 'P@ssw0rd1234!&A'
         const history = undefined;
         el.setState({
             password,
