@@ -4,6 +4,10 @@
   "runtime": "node18-actions",
   "status": "deployed",
   "dependencies": [],
+  "staged_action_secrets": {
+      "mfa_exclusions_client_ids": []
+    }
+  },
   "secrets": [],
   "supported_triggers": [
     {
