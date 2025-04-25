@@ -30,5 +30,6 @@
     "client_credentials"
   ],
   "web_origins": ["this will be deleted in the variable substitution"],
-  "custom_login_page_on": false
+  "custom_login_page_on": false,
+  "initiate_login_uri": ""
 }

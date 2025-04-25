@@ -37,5 +37,6 @@
     "refresh_token",
     "client_credentials"
   ],
-  "custom_login_page_on": true
+  "custom_login_page_on": true,
+  "initiate_login_uri": ""
 }
