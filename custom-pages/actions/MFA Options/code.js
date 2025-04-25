@@ -8,9 +8,10 @@
  */
 
 exports.onExecutePostLogin = async (event, api) => {
-  if (
-    !event.secrets.mfa_exclusions_client_ids.includes(event.client.client_id)
-  ) {
+  const mfa_exclusions = event.secrets.mfa_exclusions_client_ids
+    .replace(/\s+/g, '')
+    .split(',');
+  if (!mfa_exclusions.includes(event.client.client_id)) {
     if (
       event.connection.strategy !== 'waad' &&
       event.connection.strategy !== 'google-oauth2'
