@@ -5,7 +5,9 @@
   "status": "deployed",
   "dependencies": [],
   "staged_action_secrets": {
-    "mfa_exclusions_client_ids": []
+    "mfa_exclusions_client_ids": [
+      "this will be deleted in the variable substitution"
+    ]
   },
   "secrets": [],
   "supported_triggers": [
