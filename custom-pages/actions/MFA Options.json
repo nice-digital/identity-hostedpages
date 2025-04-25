@@ -9,7 +9,12 @@
       "this will be deleted in the variable substitution"
     ]
   },
-  "secrets": [],
+  "secrets": [
+    {
+      "name": "mfa_exclusions_client_ids",
+      "value": ""
+    }
+  ],
   "supported_triggers": [
     {
       "id": "post-login",
