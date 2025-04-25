@@ -12,7 +12,7 @@
   "secrets": [
     {
       "name": "mfa_exclusions_client_ids",
-      "value": ""
+      "value": []
     }
   ],
   "supported_triggers": [
