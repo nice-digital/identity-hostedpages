@@ -20,7 +20,8 @@ exports.onExecutePostLogin = async (event, api) => {
         type: f.type,
       }));
       if (enrolledFactors.length < 2) {
-        api.authentication.enrollWithAny([{ type: 'otp' }]);
+        api.authentication.enrollWith({ type: 'otp' }, 
+          { additionalFactors: [{ type: 'recovery-code'} ]});
       } else {
         api.authentication.challengeWith(
           { type: 'otp' },
