@@ -4,10 +4,21 @@
     "disable_clickjack_protection_headers": false,
     "enable_public_signup_user_exists_error": true,
     "trust_azure_adfs_email_verified_connection_property": true
-  },
-  "session_lifetime": 0.08333333333333333,
+  },					  
   "idle_session_lifetime": 0.016666666666666666,
   "enabled_locales": [
     "en"
-  ]
+  ],
+  "picture_url": "https://indepth.nice.org.uk/logos/assets/yIOHC7Oexa/logo-landscape-800x281-800x281.png",
+  "session_lifetime": 0.08333333333333333,
+  "customize_mfa_in_postlogin_action": true,
+  "universal_login": {
+    "colors": {
+      "page_background": "#000000",
+      "primary": "#228096"
+    },
+    "passwordless": {
+      "allow_magiclink_verify_without_session": true
+    }
+  }
 }
