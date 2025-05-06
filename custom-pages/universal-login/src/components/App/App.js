@@ -12,6 +12,8 @@ import ResetPasswordSuccess from "../../components/ResetPasswordSuccess/ResetPas
 import NotFound from "../NotFound/NotFound";
 import './App.scss';
 import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
+import { Alert } from "@nice-digital/nds-alert";
+import { Container } from "@nice-digital/nds-container";
 
 class App extends React.Component {
   render() {
@@ -21,6 +23,14 @@ class App extends React.Component {
     return (
       <>
       <GlobalHeader search={false} auth={false} cookie={false} />
+      <div className="alertMFAContainer">
+        <Alert type="caution" >
+          <Container>
+            <p>Read about <a href="https://rise.articulate.com/share/y1zH1XP0J2ptLTUv_4foMq5YeOlQR2Yk" target="_blank" rel="noreferrer"> our approach to multi-factor authentication (MFA)</a>
+            </p>
+          </Container>
+        </Alert>
+      </div>
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
