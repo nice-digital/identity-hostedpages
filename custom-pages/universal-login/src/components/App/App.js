@@ -25,7 +25,9 @@ class App extends React.Component {
       <GlobalHeader search={false} auth={false} cookie={false} />
       <Alert type="caution">
         <Container>
-          <p><a href="#">Read about our approach</a> to multi-factor authentication (MFA)</p>
+          <p>
+            <a href="https://rise.articulate.com/share/y1zH1XP0J2ptLTUv_4foMq5YeOlQR2Yk" target="_blank" rel="noreferrer">Read about our approach</a> to multi-factor authentication (MFA)
+          </p>
         </Container>
       </Alert>
       <div>
