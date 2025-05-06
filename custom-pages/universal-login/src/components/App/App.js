@@ -13,6 +13,7 @@ import NotFound from "../NotFound/NotFound";
 import './App.scss';
 import { Header as GlobalHeader, Footer as GlobalFooter } from "@nice-digital/global-nav";
 import { Alert } from "@nice-digital/nds-alert";
+import {Container} from "@nice-digital/nds-container";
 
 class App extends React.Component {
   render() {
@@ -22,7 +23,11 @@ class App extends React.Component {
     return (
       <>
       <GlobalHeader search={false} auth={false} cookie={false} />
-      <Alert type="caution"><p><a href="#">Read about our approach</a> to multi-factor authentication (MFA)</p></Alert>
+      <Alert type="caution">
+        <Container>
+          <p><a href="#">Read about our approach</a> to multi-factor authentication (MFA)</p>
+        </Container>
+      </Alert>
       <div>
         <div className="wrapper">
           <Header className="col leftCol" />
