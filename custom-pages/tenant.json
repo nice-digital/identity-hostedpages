@@ -5,7 +5,7 @@
     "enable_public_signup_user_exists_error": true,
     "trust_azure_adfs_email_verified_connection_property": true
   },
-  "idle_session_lifetime": 0.016666666666666666,
+  "idle_session_lifetime": 0.06666666666666667,
   "enabled_locales": ["en"],
   "picture_url": "https://s3-eu-west-1.amazonaws.com/nice-identity-hostedpages/live/login/images/nicelogo.png",
   "session_lifetime": 0.08333333333333333,
