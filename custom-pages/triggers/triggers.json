@@ -19,6 +19,10 @@
     {
       "action_name": "Force Email Verification",
       "display_name": "Force Email Verification"
+    },
+	{
+      "action_name": "MFA Options",
+      "display_name": "MFA Options"
     }
   ]
 }

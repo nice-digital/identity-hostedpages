@@ -19,6 +19,39 @@ html {
 
   @media (prefers-reduced-motion) {
     scroll-behavior: auto;
+//=======
+// .col {
+//   height: 100%;
+//   padding: 3rem;
+//   width: $col-width-desktop;
+// }
+
+// .rightCol {
+//   padding-top: 1.4rem !important;
+// }
+
+// .mainContainer {
+//   padding-top: $top;
+//   min-width: $col-width-desktop;
+// }
+
+// .alertMFAContainer > .alert {
+//   padding: 0;
+// }
+
+// @media (max-width: 700px) {
+//   .wrapper {
+//     flex-direction: column;
+//   }
+//   .rightCol,
+//   .leftCol {
+//     width: 100%;
+//     min-width: $col-width-mobile;
+//     padding-bottom: 0;
+//   }
+//   .mainContainer {
+//     min-width: $col-width-mobile;
+//>>>>>>> dd9743737289bba72f4d631f14a16564bc665180
   }
 
   @include media-queries.mq($until: 300px) {

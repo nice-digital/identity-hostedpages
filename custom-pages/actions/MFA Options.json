@@ -1,0 +1,23 @@
+{
+  "name": "MFA Options",
+  "code": "actions\\MFA Options\\code.js",
+  "runtime": "node18-actions",
+  "status": "deployed",
+  "dependencies": [],
+  "staged_action_secrets": {
+    "mfa_exclusions_client_ids": ""
+  },
+  "secrets": [
+    {
+      "name": "mfa_exclusions_client_ids",
+      "value": ""
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v3"
+    }
+  ],
+  "deployed": true
+}
