@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Header, Main, Footer } from "@nice-digital/global-nav";
+import { Alert } from "@nice-digital/nds-alert";
 import { Container } from "@nice-digital/nds-container";
 import { Grid, GridItem } from "@nice-digital/nds-grid";
 import { PageHeader } from "@nice-digital/nds-page-header";
@@ -22,6 +23,14 @@ export const App = () => {
 	return (
 		<>
 			<Header search={false} auth={false} cookie={false} />
+			<div className="alertMFAContainer">
+				<Alert type="caution" >
+					<Container>
+						<p>Read about <a href="https://rise.articulate.com/share/y1zH1XP0J2ptLTUv_4foMq5YeOlQR2Yk" target="_blank" rel="noreferrer"> our approach to multi-factor authentication (MFA)</a>
+						</p>
+					</Container>
+				</Alert>
+			</div>
 			<Main aria-live="polite">
 				<Container>
 					<Grid gutter="loose">

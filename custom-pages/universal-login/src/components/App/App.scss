@@ -19,6 +19,13 @@ html {
 
   @media (prefers-reduced-motion) {
     scroll-behavior: auto;
+  }
+
+  @include media-queries.mq($until: 300px) {
+    font-size: $narrow-viewport-root-font-size;
+  }
+}
+
 //=======
 // .col {
 //   height: 100%;
@@ -51,14 +58,8 @@ html {
 //   }
 //   .mainContainer {
 //     min-width: $col-width-mobile;
+//   }
 //>>>>>>> dd9743737289bba72f4d631f14a16564bc665180
-  }
-
-  @include media-queries.mq($until: 300px) {
-    font-size: $narrow-viewport-root-font-size;
-  }
-
-}
 
 main {
   font-family: var(--sans-font-family);
