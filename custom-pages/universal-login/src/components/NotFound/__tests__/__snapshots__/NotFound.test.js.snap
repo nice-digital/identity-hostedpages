@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFound components should render NotFound correctly 1`] = `ShallowWrapper {}`;
+exports[`NotFound components should render NotFound correctly 1`] = `
+<div>
+  <div
+    class="notFound"
+  >
+    <h4>
+      Something must have gone slightly wrong!
+    </h4>
+  </div>
+</div>
+`;

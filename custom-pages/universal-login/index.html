@@ -5,14 +5,15 @@
 		<meta http-equiv="x-ua-compatible" content="IE=edge; chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
-  		<title>NICE Accounts</title>
+		<title>NICE Accounts</title>
 
+		<!-- <meta name="description" content="" /> -->
+		<meta name="robots" content="index,follow" />
 		<meta name="referrer" content="strict-origin" />
 		<meta name="application-name" content="NICE" />
 		<meta name="theme-color" content="#004650" />
 		<meta name="msapplication-TileColor" content="#004650" />
 
-		<link href="confirmsuccess.css" rel="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,600;1,600&display=swap"	rel="stylesheet" />
 		<link rel="icon" href="//cdn.nice.org.uk/V3/Content/nice/favicon.ico" />
 		<link rel="icon" type="image/png" sizes="16x16" href="//cdn.nice.org.uk/V3/Content/nice/icon-16x16.png" />
@@ -21,12 +22,14 @@
 		<link rel="apple-touch-icon" sizes="152x152" href="//cdn.nice.org.uk/V3/Content/nice/icon-152x152.png" />
 		<link rel="apple-touch-icon" sizes="167x167" href="//cdn.nice.org.uk/V3/Content/nice/icon-167x167.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="//cdn.nice.org.uk/V3/Content/nice/icon-180x180.png" />
+		<!-- FIX THIS --><!-- <link rel="manifest" crossorigin="anonymous" href="%VITE_PUBLIC_URL%/manifest.json" /> -->
 
 		<meta name="DC.Publisher" content="NICE" />
 		<meta name="DC.Rights.Copyright" content="All content on this site is NICE copyright unless otherwise stated. You can download material for private research, study or in-house use only. Do not distribute or publish any material from this site without first obtaining NICE&#x27;s permission. Where Crown copyright applies, see the Office of Public Sector Information (formerly HMSO) website for information." />
 		<meta name="DC.Language" content="eng" />
 		<meta name="x-country" content="gb" />
 
+		<script src="%VITE_COOKIE_BANNER_SCRIPT%" type="text/javascript"></script>
 		<!-- Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -34,78 +37,77 @@
 			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 			})(window,document,'script','dataLayer','GTM-TJ83N43');</script>
 		<!-- End Google Tag Manager -->
+		<script src="https://cdn.auth0.com/js/base64.js"></script>
 	</head>
 	<body>
 		<!-- Google Tag Manager (noscript) -->
 		<noscript>You need to enable JavaScript to run this app.<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ83N43" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
-		<div class="container" data-component="container">
-			<div class="grid grid--loose">
-				<div data-g="12 md:6" data-component="grid-item" class="pv--f">
-					<div class="page-header " data-component="page-header">
-						<h1 class="page-header__heading " id="content-start">NICE accounts</h1>
-					</div>
-				</div>
-				<div data-g="12 md:6" data-component="grid-item" class="pv--f">
-					<!-- CHECK THIS OUT BEFORE COMPLETION -->
-					<div>
-						<div class="navigation" style="display:none;">
-							<div class="navigationLink">
-								<h2 class="mt--0">Log in</h2>
-								<span>Need a NICE Account?</span>
-								<a data-qa-sel="Signup-link-login" activeclassname="activeRoute" href="/register">
-									Create an account
-								</a>
-							</div>
-						</div>
-						<div id="conditional-output"></div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<script>
-			function getParameterByName(name, url) {
-				if (!url) url = window.location.href;
-				name = name.replace(/[\[\]]/g, '\\$&');
-				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-					results = regex.exec(url);
-				if (!results) return null;
-				if (!results[2]) return '';
-				return decodeURIComponent(results[2].replace(/\+/g, ' '));
-			}
-
-			var success = getParameterByName('success') === "true";
-			var message = getParameterByName('message');
-			var outputElement = document.getElementById('conditional-output');
-
-			if (success) {
-				outputElement.innerHTML= "<h3>Thank you!</h3>" +
-					"<div class='alert alert--success'>" +
-						"Your account is now active."
-					"</div>";
+			if ("%VITE_PUBLIC_URL%".indexOf("login") !== -1) {
+				var config =
+					document.location.host.indexOf("localhost") !== -1 ? {} :
+					JSON.parse(decodeURIComponent(escape(window.atob("@@config@@"))));
 			} else {
-				outputElement.innerHTML= "<h3>There has been an error</h3>" +
-					"<div class='alert alert--error'>" +
-						message +
-					"</div>";
+				var rpConfig = {
+					email: "{{email | escape}}", // DO NOT CHANGE THIS
+					csrf_token: "{{csrf_token}}", // DO NOT CHANGE THIS
+					ticket: "{{ticket}}", // DO NOT CHANGE THIS
+					password_policy: "{{password_policy}}"
+				};
 			}
 
-			// Global nav:
-			var urlForLoginButton = getParameterByName("redirect"); //this redirect parameter comes from the querystring parameter on the "resultUrl" octo variable, which adds is used on the verify email json to redirect to after the user verifies their email.
-			var global_nav_config = {
-				header: {
-					search: false,
-					auth: {
-					environment: "live",
-					provider: "idam",
-					links: [{ text: "Sign in", url: urlForLoginButton }]
-					}
+			(function(fallback) {
+				fallback = fallback || function() {};
+
+				// function to trap most of the console functions from the FireBug Console API.
+				var trap = function() {
+					// create an Array from the arguments Object
+					var args = Array.prototype.slice.call(arguments);
+					// console.raw captures the raw args, without converting toString
+					console.raw.push(args);
+					var message = args.join(" ");
+					console.messages.push(message);
+					fallback(message);
+				};
+
+				// redefine console
+				if (typeof console === "undefined") {
+					console = {
+						messages: [],
+						raw: [],
+						dump: function() {
+							return console.messages.join("\n");
+						},
+						log: trap,
+						debug: trap,
+						info: trap,
+						warn: trap,
+						error: trap,
+						assert: trap,
+						clear: function() {
+							console.messages.length = 0;
+							console.raw.length = 0;
+						},
+						dir: trap,
+						dirxml: trap,
+						trace: trap,
+						group: trap,
+						groupCollapsed: trap,
+						groupEnd: trap,
+						time: trap,
+						timeEnd: trap,
+						timeStamp: trap,
+						profile: trap,
+						profileEnd: trap,
+						count: trap,
+						exception: trap,
+						table: trap
+					};
 				}
-			};
+			})(console ? console.log : null);
 		</script>
-		<!--[if lt IE 9]>
-			<script src="//cdn.nice.org.uk/global-nav/global-nav.ie8.min.js"></script>
-		<![endif]-->
-  		<script src="//cdn.nice.org.uk/global-nav/global-nav.min.js"></script>
+		<div id="root"></div>
+		<script type="module" src="/src/main.jsx"></script>
 	</body>
 </html>

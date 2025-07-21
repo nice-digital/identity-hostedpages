@@ -10,9 +10,7 @@ export const validateLoginFields = ({
     return !username;
   },
   password: () => {
-    var requirePasswordToLogin = !isDomainInUsername(username); 
+    var requirePasswordToLogin = !isDomainInUsername(username);
     return  (requirePasswordToLogin && !password);
   }
 });
-
-export default validateLoginFields
