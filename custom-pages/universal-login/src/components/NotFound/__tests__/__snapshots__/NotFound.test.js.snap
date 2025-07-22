@@ -2,12 +2,15 @@
 
 exports[`NotFound components should render NotFound correctly 1`] = `
 <div>
-  <div
-    class="notFound"
-  >
-    <h4>
-      Something must have gone slightly wrong!
-    </h4>
-  </div>
+  <h4>
+    Something must have gone slightly wrong!
+  </h4>
+  <p>
+    <a
+      href="/"
+    >
+      ← Back
+    </a>
+  </p>
 </div>
 `;

@@ -1,4 +1,4 @@
-import { validateRegisterFields } from "../index";
+import { validateRegisterFields } from "../validateRegisterFields";
 
 describe("validateFields ", () => {
   it("should return tests.email => true with invalid email", () => {

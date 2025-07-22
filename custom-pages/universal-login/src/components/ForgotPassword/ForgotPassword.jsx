@@ -14,7 +14,7 @@ export class ForgotPassword extends Component {
     this.auth = new AuthApi()
     this.state = {
       message:  (props.location && props.location.state && props.location.state?.message) || null,
-      value: (props.location && props.location.state && props.location.state?.email) || null,
+      value: (props.location && props.location.state && props.location.state?.email) || undefined,
       errors: {
         email: false
       },
