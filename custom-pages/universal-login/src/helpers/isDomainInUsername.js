@@ -4,6 +4,4 @@ export const isDomainInUsername = (username) => {
     return username.toLowerCase().indexOf(domain.toLowerCase()) !== -1;
   }
   return false;
-}
-
-export default isDomainInUsername;
+};

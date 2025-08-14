@@ -1,7 +1,18 @@
-//This sass file is here to build the css for the confirm success html page, located in the public folder. 
-//it's deployed straight to s3 and just needs it's own css file.
+// This sass file is here to build the css for the confirm success html page, located in the public folder.
+// it's deployed straight to s3 and just needs it's own css file.
 
 @use '@nice-digital/design-system/scss/nice-design-system';
 
-// Component folder structure imports here
-@use "./components/App/App";
+// DELETE ONCE CHECKED
+// @use "@nice-digital/nds-forms/scss/forms";
+// @use "@nice-digital/nds-button/scss/button";
+// @use "styles/variables" as *;
+// @media (max-width: 700px) {
+//   .navigation {
+//     width: calc($col-width-mobile - 5rem);
+//   }
+// }
+// legend {
+//   border: none !important;
+//   width: auto !important;
+// }

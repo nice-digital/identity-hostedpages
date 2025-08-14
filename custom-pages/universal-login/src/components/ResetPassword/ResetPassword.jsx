@@ -1,11 +1,13 @@
-import React from 'react';
-import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-forms';
-import { getFirstErrorElement, validateRegisterFields } from '../../helpers';
-import AuthApi from '../../services/AuthApi';
-import './ResetPassword.scss';
+import React, { Component } from "react";
+import { Alert } from "@nice-digital/nds-alert";
+import { Input } from "@nice-digital/nds-input";
 
-export class ResetPassword extends React.Component {
+import { AuthApi } from "../../services/AuthApi";
+import { getFirstErrorElement, validateRegisterFields } from "../../helpers";
+
+import "./ResetPassword.scss";
+
+export class ResetPassword extends Component {
   constructor(props) {
     super(props)
     this.auth = new AuthApi()
@@ -83,18 +85,20 @@ export class ResetPassword extends React.Component {
   }
 
   render() {
-    const { errors, showAlert } = this.state
+    const { errors, showAlert } = this.state;
     return (
       <div>
-        <h2>Reset password</h2>
+        <h2 className="mt--0">Reset password</h2>
         <p className="lead">Please enter your new password</p>
         <form className="">
-          
+
             <div id="thereIsAnError">
               {showAlert && (
-                <Alert data-qa-sel="problem-alert-resetPassword"
+                <Alert
+									data-qa-sel="problem-alert-resetPassword"
                   type="error"
-                  aria-labelledby="error-summary-title" >
+                  aria-labelledby="error-summary-title"
+									role="alert">
                   <p className="lead">There is a problem</p>
                   <button role="link" tabIndex="0" onKeyPress={this.goToAlert} onClick={this.goToAlert}>
                     Click here to see the errors
@@ -138,11 +142,9 @@ export class ResetPassword extends React.Component {
             >
               Reset password
             </button>
-          
+
         </form>
       </div>
     )
   }
 }
-
-export default ResetPassword
