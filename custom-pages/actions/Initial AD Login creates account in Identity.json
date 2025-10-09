@@ -1,16 +1,16 @@
 {
   "name": "Initial AD Login creates account in Identity",
   "code": "actions\\Initial AD Login creates account in Identity\\code.js",
-  "runtime": "node18-actions",
+  "runtime": "node22",
   "status": "built",
   "dependencies": [],
   "staged_action_secrets": {
-    "gettokenpath":  "",
-    "client_id":  "",
-    "client_secret":  "",
-    "audience":  "",
-    "userspath":  "",
-    "hostname":  ""
+    "gettokenpath": "",
+    "client_id": "",
+    "client_secret": "",
+    "audience": "",
+    "userspath": "",
+    "hostname": ""
   },
   "secrets": [
     {

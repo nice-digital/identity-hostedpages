@@ -1,7 +1,7 @@
 {
   "name": "Create IDAM User",
   "code": "actions\\Create IDAM User\\code.js",
-  "runtime": "node18-actions",
+  "runtime": "node22",
   "status": "built",
   "dependencies": [],
   "staged_action_secrets": {

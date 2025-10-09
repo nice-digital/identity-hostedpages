@@ -1,7 +1,7 @@
 {
   "name": "Force Email Verification",
   "code": "actions\\Force Email Verification\\code.js",
-  "runtime": "node18-actions",
+  "runtime": "node22",
   "status": "deployed",
   "dependencies": [],
   "secrets": [],

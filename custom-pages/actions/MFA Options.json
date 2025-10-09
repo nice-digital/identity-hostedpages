@@ -1,7 +1,7 @@
 {
   "name": "MFA Options",
   "code": "actions\\MFA Options\\code.js",
-  "runtime": "node18-actions",
+  "runtime": "node22",
   "status": "deployed",
   "dependencies": [],
   "staged_action_secrets": {
