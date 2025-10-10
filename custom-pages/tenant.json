@@ -10,8 +10,6 @@
     "en"
   ],
   "picture_url": "https://s3-eu-west-1.amazonaws.com/nice-identity-hostedpages/live/login/images/nicelogo.png",
-  "sandbox_version": "22",
-  "legacy_sandbox_version": "22",
   "session_lifetime": 0.08333333333333333,
   "customize_mfa_in_postlogin_action": true,
   "universal_login": {
