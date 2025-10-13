@@ -41,7 +41,7 @@
   "supported_triggers": [
     {
       "id": "post-user-registration",
-      "version": "v2"
+      "version": "v103"
     }
   ],
   "deployed": true
