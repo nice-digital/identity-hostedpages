@@ -44,7 +44,7 @@ If the octo deployment is being created from scratch, you will need to create a 
 Each action will have two steps associated with it. One for substituting the secrets and one for transforming them. 
 
 - The substitution is done using a standard script which comes with octo called "Variables - Substitute in Json file".
-- The transformation is done using a custom step template, the code for which is stored in the octo-step-scripts folder.
+- The transformation is done using a custom step template, the code for which is stored in the octo-step-scripts folder. Test
 
 ## Stack
 
