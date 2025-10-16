@@ -8,7 +8,7 @@
   "supported_triggers": [
     {
       "id": "post-login",
-      "version": "v4"
+      "version": "v3"
     }
   ],
   "deployed": true
