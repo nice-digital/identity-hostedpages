@@ -7,8 +7,7 @@
   "secrets": [],
   "supported_triggers": [
     {
-      "id": "post-login",
-      "version": "v3"
+      "id": "post-login"
     }
   ],
   "deployed": true
