@@ -40,7 +40,8 @@
   ],
   "supported_triggers": [
     {
-      "id": "post-user-registration"
+      "id": "post-user-registration",
+      "version": "v4"
     }
   ],
   "deployed": true

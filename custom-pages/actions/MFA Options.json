@@ -15,7 +15,8 @@
   ],
   "supported_triggers": [
     {
-      "id": "post-login"
+      "id": "post-login",
+      "version": "v4"
     }
   ],
   "deployed": true
