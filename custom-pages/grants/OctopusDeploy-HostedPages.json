@@ -54,6 +54,7 @@
     "read:actions",
     "update:actions",
     "delete:actions",
-    "create:actions"
+    "create:actions",
+    "update:connections_options"
   ]
 }

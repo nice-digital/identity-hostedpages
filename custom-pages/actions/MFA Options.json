@@ -1,8 +1,8 @@
 {
   "name": "MFA Options",
   "code": "actions\\MFA Options\\code.js",
-  "runtime": "node18-actions",
-  "status": "deployed",
+  "runtime": "node22",
+  "status": "built",
   "dependencies": [],
   "staged_action_secrets": {
     "mfa_exclusions_client_ids": ""
