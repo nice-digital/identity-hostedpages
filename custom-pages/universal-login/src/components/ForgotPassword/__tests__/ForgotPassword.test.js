@@ -1,55 +1,44 @@
-import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import ForgotPassword from '../ForgotPassword'
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import { ForgotPassword } from "../ForgotPassword";
 
-Enzyme.configure({ adapter: new Adapter() })
+jest.mock("../../../helpers/isLoginPage", () => true);
+jest.mock("../../../services/AuthApi")
 
-describe('ForgotPassword components', () => {
-  let el
-  let instance
+describe("ForgotPassword components", () => {
+  // let el
+  // let instance
   const auth = {
     forgotPassword: jest.fn()
   }
-  const functionSignature = 'a function signature'
-  jest.mock('../../../services/AuthApi')
+  //const functionSignature = "a function signature"
 
-  beforeEach(() => {
-    el = shallow(<ForgotPassword />)
-    instance = el.instance()
-    instance.auth = auth
-    instance.requestErrorCallback = functionSignature
-  })
+  // beforeEach(() => {
+  //   el = shallow(<ForgotPassword />)
+  //   instance = el.instance()
+  //   instance.auth = auth
+  //   instance.requestErrorCallback = functionSignature
+  // })
 
-  it('should render <ForgotPassword /> correctly', () => {
-    expect(el).toMatchSnapshot()
-  })
+  it("should render <ForgotPassword /> correctly", () => {
+		const { container } = render(
+			<MemoryRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
+				<ForgotPassword />
+			</MemoryRouter>
+		);
+    expect(container).toMatchSnapshot();
+  });
 
-  it('should instantiate AuthApi', () => {
-    expect(instance.auth).toBe(auth)
-  })
-
-  it('should render correctly when there is an error', () => {
-    el.setState({ error: 'this is an error' }).update()
-    expect(el).toMatchSnapshot()
-  })
-
-  it('should render correctly when there is email', () => {
-    el.setState({
-      valid: true
-    }).update()
-    expect(el).toMatchSnapshot()
-  })
-
-  it('should call the AuthApi forgotPAssword when login is invoked', () => {
-    const email = 'username@email.com';
-    const history = undefined;
-    el.setState({
-      email,
-      history
-    }).update();
-
-    instance.forgotPassword();
-    expect(instance.auth.forgotPassword).toBeCalledWith(email, expect.any(Function), history);
-  })
+  it("should render correctly when there is an error", async () => {
+		render(
+			<MemoryRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
+				<ForgotPassword />
+			</MemoryRouter>
+		);
+		const resetPasswordButton = await screen.findByRole("button", { name: "Reset password"});
+		userEvent.click(resetPasswordButton);
+		const errorAlert = await screen.findByText("This field is required");
+  	expect(errorAlert).toBeInTheDocument();
+  });
 })

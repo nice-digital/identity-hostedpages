@@ -1,7 +1,281 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Register components should render Register correctly 1`] = `ShallowWrapper {}`;
-
-exports[`Register components should render correctly when form is valid 1`] = `ShallowWrapper {}`;
-
-exports[`Register components should render correctly when there is an error 1`] = `ShallowWrapper {}`;
+exports[`Register components should render Register correctly 1`] = `
+<div>
+  <div>
+    <h2
+      class="mt--0"
+    >
+      Create account
+    </h2>
+    <p
+      class="lead"
+    >
+      <a
+        activeclassname="activeRoute"
+        aria-current="page"
+        class="active"
+        data-qa-sel="Signin-link-login"
+        href="/"
+      >
+        Sign in
+      </a>
+       if you already have a NICE account.
+    </p>
+    <form
+      class=""
+    >
+      <p
+        class="lead"
+      >
+        Use your work email address if you have one.
+      </p>
+      <fieldset
+        class="form-group"
+      >
+        <legend
+          class="form-group__legend"
+        >
+          Personal information
+        </legend>
+        <div />
+        <div
+          class="input"
+          data-component="input"
+        >
+          <label
+            class="input__label"
+            for="email"
+          >
+            Email
+          </label>
+          <input
+            aria-describedby="email-error"
+            class="input__input"
+            data-qa-sel="email-register"
+            id="email"
+            name="email"
+            placeholder="eg: your.name@example.com..."
+            type="email"
+            unique="email"
+            value=""
+          />
+        </div>
+        <div
+          class="input"
+          data-component="input"
+        >
+          <label
+            class="input__label"
+            for="password"
+          >
+            Password
+          </label>
+          <input
+            aria-describedby="password-error"
+            autocomplete="new-password"
+            class="input__input"
+            data-qa-sel="password-register"
+            id="password"
+            name="password"
+            type="password"
+            unique="password"
+            value=""
+          />
+        </div>
+        <div
+          class="input"
+          data-component="input"
+        >
+          <label
+            class="input__label"
+            for="confirmPassword"
+          >
+            Confirm password
+          </label>
+          <input
+            aria-describedby="confirmPassword-error"
+            autocomplete="new-password"
+            class="input__input"
+            data-qa-sel="confirm-password-register"
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            unique="confirmPassword"
+            value=""
+          />
+        </div>
+        <div
+          class="input"
+          data-component="input"
+        >
+          <label
+            class="input__label"
+            for="name"
+          >
+            First name
+          </label>
+          <input
+            aria-describedby="name-error"
+            class="input__input"
+            data-qa-sel="name-register"
+            id="name"
+            name="name"
+            type="text"
+            unique="firstName"
+            value=""
+          />
+        </div>
+        <div
+          class="input"
+          data-component="input"
+        >
+          <label
+            class="input__label"
+            for="surname"
+          >
+            Last name
+          </label>
+          <input
+            aria-describedby="surname-error"
+            class="input__input"
+            data-qa-sel="surname-register"
+            id="surname"
+            name="surname"
+            type="text"
+            unique="lastName"
+            value=""
+          />
+        </div>
+      </fieldset>
+      <p
+        class="lead"
+      >
+        We use cookies:
+      </p>
+      <ul>
+        <li>
+          To monitor usage of the NICE websites in order to improve our services
+        </li>
+        <li>
+          To remember what you view on our websites and enable us to tailor our services to you.
+        </li>
+      </ul>
+      <fieldset
+        class="form-group"
+        data-component="form-group"
+      >
+        <legend
+          class="form-group__legend"
+        >
+          Terms and conditions
+        </legend>
+        <div
+          name="tAndC"
+        >
+          <div
+            class="checkbox"
+            data-component="checkbox"
+          >
+            <div>
+              <input
+                aria-describedby="tandc-error"
+                class="checkbox__input"
+                data-qa-sel="tc-checkbox-register"
+                id="tAndC_agree"
+                name="tAndC"
+                type="checkbox"
+                value="agree"
+              />
+              <label
+                class="checkbox__label"
+                for="tAndC_agree"
+              >
+                I agree to NICE's terms and conditions, and the use of cookies.
+              </label>
+            </div>
+          </div>
+          <a
+            class="ml--f"
+            href="https://www.nice.org.uk/terms-and-conditions"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Terms and conditions 
+            <span
+              class="visually-hidden"
+            >
+              (opens in a new tab)
+            </span>
+          </a>
+        </div>
+      </fieldset>
+      <fieldset
+        class="form-group"
+        data-component="form-group"
+      >
+        <legend
+          class="form-group__legend"
+        >
+          Join our Audience Insight Community
+        </legend>
+        <div
+          class="checkbox"
+          data-component="checkbox"
+        >
+          <div>
+            <input
+              class="checkbox__input"
+              data-qa-sel="ai-checkbox-register"
+              id="allowContactMe_agree"
+              name="allowContactMe"
+              type="checkbox"
+              value="agree"
+            />
+            <label
+              class="checkbox__label"
+              for="allowContactMe_agree"
+            >
+              Our insight community helps us improve our products and services. 
+            </label>
+          </div>
+        </div>
+        <a
+          class="ml--f"
+          href="https://www.nice.org.uk/get-involved/help-us-improve"
+          name="allowContactMe"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Find out more about the Audience Insight Community 
+          <span
+            class="visually-hidden"
+          >
+            (opens in a new tab)
+          </span>
+        </a>
+      </fieldset>
+      <div
+        class="alert alert--info"
+        data-component="alert--info"
+      >
+        The information you provide on this form will be used by us to administer your NICE account. For more information about how we process your data, see our
+         
+        <a
+          href="https://www.nice.org.uk/privacy-notice"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          privacy notice
+        </a>
+      </div>
+      <button
+        class="btn btn--cta"
+        data-qa-sel="Register-button"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</div>
+`;

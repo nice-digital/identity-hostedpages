@@ -1,12 +1,16 @@
-import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import RegisterSuccess from '../RegisterSuccess'
 
-Enzyme.configure({ adapter: new Adapter() });
+import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
+import { RegisterSuccess } from "../RegisterSuccess";
 
-describe('RegisterSuccess components', () => {
-  it('should render RegisterSuccess correctly', () => {
-    expect(shallow(<RegisterSuccess />)).toMatchSnapshot()
-  })
+jest.mock("../../../helpers/isLoginPage", () => true);
+
+describe("RegisterSuccess components", () => {
+	it("should render RegisterSuccess correctly", () => {
+		const { container } = render(
+			<MemoryRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
+				<RegisterSuccess />
+			</MemoryRouter>);
+		expect(container).toMatchSnapshot();
+	});
 });

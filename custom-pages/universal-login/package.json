@@ -1,59 +1,81 @@
 {
   "name": "universal-login",
-  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@nice-digital/design-system": "^4.0.0",
-    "@nice-digital/global-nav": "^5.0.890",
-    "auth0-js": "^9.13.2",
-    "es6-promise": "4.1.1",
-    "history": "^4.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0"
-  },
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "start:login-local": "env-cmd -f .env.login.local react-scripts start",
-    "start:passwordreset-local": "env-cmd -f .env.passwordreset.local react-scripts start",
-    "build": "react-scripts build",
-    "build:login": "env-cmd -f .env.login react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
-    "build:passwordreset": "env-cmd -f .env.passwordreset react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
-    "build:login-local": "env-cmd -f .env.login.local react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
-    "build:passwordreset-local": "env-cmd -f .env.passwordreset.local react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
+    "dev": "vite",
+    "dev:login-local": "env-cmd -f .env.login.local vite",
+    "dev:passwordreset-local": "env-cmd -f .env.passwordreset.local vite",
+    "build": "vite build",
+    "build:login": "env-cmd -f .env.login vite build && cpy ./dist/index.html ../pages --flat --rename=login.html && cpy ./dist/**/* build-login/build",
+    "build:login-local": "env-cmd -f .env.login.local vite build && cpy ./dist/index.html ../pages --flat --rename=login.html && cpy ./dist/**/* build-login/build",
+    "build:passwordreset": "env-cmd -f .env.passwordreset vite build && cpy ./dist/index.html ../pages --flat --rename=password_reset.html && cpy ./dist/**/* build-passwordreset/build",
+    "build:passwordreset-local": "env-cmd -f .env.passwordreset.local vite build && cpy ./dist/index.html ../pages --flat --rename=password_reset.html && cpy ./dist/**/* build-passwordreset/build",
     "build:confirmsuccess-css": "sass -I ./node_modules src/confirmsuccess.scss public/confirmsuccess.css",
-    "copy:errorpage": "cpy ./build/error_page.html ../pages",
+    "copy:errorpage": "cpy ./dist/error_page.html ../pages --flat",
+    "lint": "eslint .",
+    "preview": "vite preview",
     "serve": "serve -s build",
     "serve:login-local": "serve -s build-login/build -l 5000",
     "serve:passwordreset-local": "serve -s build-passwordreset/build -l 5001",
-    "test": "react-scripts test",
-    "test:ci": "cross-env CI=true react-scripts test --testResultsProcessor=jest-teamcity-reporter",
-    "test:ci:coverage": "npm run test:ci -- --coverage ",
-    "eject": "react-scripts eject"
+    "test": "jest --watchAll",
+    "test:ci": "cross-env CI=true jest --WatchAll --testResultsProcessor=jest-teamcity-reporter",
+    "test:ci:coverage": "npm run test:ci -- --coverage"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@nice-digital/design-system": "^5.3.0",
+    "@nice-digital/global-nav": "^7.1.1068",
+    "auth0-js": "^9.28.0",
+    "es6-promise": "^4.2.8",
+    "history": "^5.3.0",
+    "qs": "^6.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@eslint/js": "^9.13.0",
+    "@nice-digital/browserslist-config": "^3.0.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "cpy-cli": "^5.0.0",
+    "cross-env": "^7.0.3",
+    "env-cmd": "^10.1.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-svg-transformer": "^1.0.0",
+    "jest-teamcity-reporter": "^0.9.0",
+    "sass": "^1.80.6",
+    "serve": "^14.2.4",
+    "vite": "^5.4.10"
   },
   "browserslist": [
     "extends @nice-digital/browserslist-config"
   ],
-  "devDependencies": {
-    "@nice-digital/browserslist-config": "^2.0.1",
-    "cpy-cli": "^2.0.0",
-    "cross-env": "^5.2.0",
-    "env-cmd": "^9.0.3",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.3",
-    "jest-teamcity-reporter": "^0.9.0",
-    "sass": "^1.53.0",
-    "serve": "^11.3.2"
-  },
   "jest": {
-    "resetMocks": false
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "^.+\\.svg$": "jest-svg-transformer",
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
   },
   "volta": {
-    "node": "14.19.0"
+    "node": "18.20.5"
   }
 }

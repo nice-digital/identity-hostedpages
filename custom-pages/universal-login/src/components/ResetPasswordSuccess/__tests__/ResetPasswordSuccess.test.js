@@ -1,12 +1,9 @@
-import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import ResetPasswordSuccess from '../ResetPasswordSuccess'
+import { render } from "@testing-library/react";
+import { ResetPasswordSuccess } from "../ResetPasswordSuccess";
 
-Enzyme.configure({ adapter: new Adapter() })
-
-describe('ResetPasswordSuccess components', () => {
-  it('should render ResetPasswordSuccess correctly', () => {
-    expect(shallow(<ResetPasswordSuccess />)).toMatchSnapshot()
-  })
-})
+describe("ResetPasswordSuccess components", () => {
+	it("should render ResetPasswordSuccess correctly", () => {
+		const { container } = render(<ResetPasswordSuccess />);
+		expect(container).toMatchSnapshot();
+	});
+});

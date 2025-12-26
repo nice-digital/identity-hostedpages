@@ -1,15 +1,17 @@
-import React, { Component }  from 'react';
-import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-input';
-import { FormGroup } from '@nice-digital/nds-form-group';
-import { Checkbox } from '@nice-digital/nds-checkbox';
-import { validateRegisterFields, isDomainInUsername, scrollToMyRef } from '../../helpers';
-import AuthApi from '../../services/AuthApi';
-import './Register.scss';
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { auth as authOpts } from '../../services/constants';
+import { Alert } from "@nice-digital/nds-alert";
+import { Checkbox } from "@nice-digital/nds-checkbox";
+import { FormGroup } from "@nice-digital/nds-form-group";
+import { Input } from "@nice-digital/nds-input";
 
-class Register extends Component {
+import { AuthApi } from "../../services/AuthApi";
+import { auth as authOpts } from "../../services/constants";
+import { validateRegisterFields, isDomainInUsername, scrollToMyRef } from "../../helpers";
+
+import "./Register.scss";
+
+export class Register extends Component {
   constructor(props) {
     super(props)
     this.auth = new AuthApi()
@@ -34,7 +36,7 @@ class Register extends Component {
       loading: false,
       isAD: false
     }
-    
+
     this.formRefs = Object.keys(this.state.errors).reduce((accumulator, error) => {
       return Object.assign(accumulator, {
         [error]: React.createRef()
@@ -44,7 +46,7 @@ class Register extends Component {
   }
 
   scrollIntoErrorPanel = () => {
-    this.errorAlertContainer.current.scrollIntoView({ behavior: 'smooth', block: 'start' });    
+    this.errorAlertContainer.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     this.errorAlertContainer.current.querySelector('a').focus();
     return true;
   };
@@ -87,7 +89,7 @@ class Register extends Component {
       console.error(err);
 
       return {
-        serverSideError: err.description || err.name, 
+        serverSideError: err.description || err.name,
         loading: false
       }
     }, this.scrollIntoErrorPanel);
@@ -113,7 +115,7 @@ class Register extends Component {
         console.error(err);
 
         return {
-          serverSideError: err.message || err.name, 
+          serverSideError: err.message || err.name,
           loading: false
         }
       }, this.scrollIntoErrorPanel);
@@ -193,7 +195,7 @@ class Register extends Component {
 
   stripFieldNameFromErrorMessage = (errorMessage, requiredMessage) => {
     // removes the 'Email -' portion of the below error messages
-    
+
     if (errorMessage.search(requiredMessage) > 0) {
       return requiredMessage;
     }
@@ -224,12 +226,12 @@ class Register extends Component {
       confirmPassword: !confirmPassword ? `Confirm password - ${requiredMessage}` : 'Password doesn\'t match',
       name: !name ? `First name - ${requiredMessage}` : 'First name should contain letters and should not exceed 100 characters',
       surname: !surname ? `Last name - ${requiredMessage}` : 'Last name should contain letters and should not exceed 100 characters',
-      tAndC: 'You must accept Terms and Conditions to be able to create an account'      
+      tAndC: 'You must accept Terms and Conditions to be able to create an account'
     }
 
     return (
       <div>
-        <h2> Create account </h2>
+        <h2 className="mt--0">Create account</h2>
         <p className="lead"><NavLink
           data-qa-sel="Signin-link-login"
           to="/"
@@ -255,7 +257,7 @@ class Register extends Component {
                 >
                   <p className="lead">There is a problem</p>
 
-                  <ul>                    
+                  <ul>
                     {Object.keys(errors).map((errorName, idx) => {
                       if (errors[errorName]) {
                         return (
@@ -301,7 +303,7 @@ class Register extends Component {
             <Input
               data-qa-sel="email-register"
               label="Email"
-              id="email" 
+              id="email"
               name="email"
               unique="email"
               type="email"
@@ -388,9 +390,9 @@ class Register extends Component {
                 our services to you.
               </li>
             </ul>
-            <FormGroup 
-              legend="Terms and conditions" 
-              name="tAndC" 
+            <FormGroup
+              legend="Terms and conditions"
+              name="tAndC"
               groupError={errors.tAndC ? errorMessages.tAndC : null}
             >
             <div ref={this.formRefs['tAndC']}>
@@ -408,11 +410,11 @@ class Register extends Component {
                 <a href="https://www.nice.org.uk/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="ml--f">Terms and conditions <span className="visually-hidden">(opens in a new tab)</span></a>
               </div>
             </FormGroup>
-            <FormGroup 
-              legend="Join our Audience Insight Community" 
+            <FormGroup
+              legend="Join our Audience Insight Community"
               name="allowContactMe"
             >
-              <Checkbox                
+              <Checkbox
                 data-qa-sel="ai-checkbox-register"
                 name="allowContactMe"
                 checked={allowContactMe}
@@ -452,5 +454,3 @@ class Register extends Component {
     )
   }
 }
-
-export default Register

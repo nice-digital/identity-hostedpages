@@ -1,13 +1,14 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
-import Auth0 from 'auth0-js'
-import qs from 'qs'
-import { auth as authOpts, urls } from './constants'
-import { ensureTrailingSlash } from '../helpers'
-import { validateRegisterFields } from '../helpers';
+import Auth0 from "auth0-js";
+import qs from "qs";
+
+import { auth as authOpts, urls } from "./constants";
+import { ensureTrailingSlash } from "../helpers";
+import { validateRegisterFields } from "../helpers";
 
 const __DEV__ = global.__DEV__ || false
-export default class AuthApi {
+export class AuthApi {
   static instance = null
   constructor() {
     if (!window.config) {
@@ -84,7 +85,7 @@ export default class AuthApi {
     const oldpasswordPolicy = tests.password()
     if(oldpasswordPolicy)
     {
-      history.push('/forgotPassword', { message: true, email:  username});  
+      history.push('/forgotPassword', { message: true, email:  username});
     } else {
       try {
         const redirectUri = window.config.extraParams.redirectURI;
@@ -151,7 +152,7 @@ export default class AuthApi {
       } catch (err) {
         console.log(JSON.stringify(err))
       }
-    } 
+    }
   }
 
   submitWSForm = (responseForm) => {
@@ -177,7 +178,7 @@ export default class AuthApi {
       }
       history.push('/forgotsuccess');
       return true
-    })    
+    })
   }
 
   resetPassword = (password, errorCallback, history) => {
@@ -205,7 +206,7 @@ export default class AuthApi {
         newPassword: password,
         confirmNewPassword: password
       }
-      
+
       fetch('/lo/reset', {
         method: 'POST',
         headers: {
@@ -215,7 +216,7 @@ export default class AuthApi {
         body: JSON.stringify(data)
       })
         .then(callback)
-        .catch(catchCallback)      
+        .catch(catchCallback)
     }
   }
 
@@ -269,7 +270,7 @@ export default class AuthApi {
       user_id: userId
     }
     console.log('about to resend verification email');
-    console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);      
+    console.log(`url: ${urls.resendVerificationEmail} body: ${JSON.stringify(data)}`);
     fetch(urls.resendVerificationEmail, {
       method: 'POST',
       headers: {

@@ -1,6 +1,4 @@
-import React from 'react';
-import { Alert } from '@nice-digital/nds-alert';
-import './ResetPasswordSuccess.scss';
+import { Alert } from "@nice-digital/nds-alert";
 
 export const ResetPasswordSuccess = () => {
   // setTimeout(() => (document.location = '/login'), 5000)
@@ -13,5 +11,3 @@ export const ResetPasswordSuccess = () => {
     </div>
   )
 }
-
-export default ResetPasswordSuccess

@@ -1,20 +1,11 @@
-@use "../../styles/variables" as *;
-
-.mainpanel {
-  display: flex;
-  flex-direction: column;
-  // width: 30%;
-  margin: auto;
-  min-width: $col-width-mobile;
-}
-.iconBtn{
+.iconBtn {
   border:none;
   background: none;
 }
-.iconBtn-icon:hover{
+.iconBtn-icon:hover {
   opacity: 0.8;
 }
-.buttonLabel{
+.buttonLabel {
   font-weight: 700;
   padding-right: 6px;
 }

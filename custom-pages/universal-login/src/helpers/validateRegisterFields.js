@@ -28,5 +28,3 @@ export const validateRegisterFields = ({
   },
   tAndC: () => password && email && name && surname && !tAndC
 });
-
-export default validateRegisterFields

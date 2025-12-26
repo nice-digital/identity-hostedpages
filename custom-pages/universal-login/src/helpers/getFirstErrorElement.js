@@ -7,6 +7,4 @@ export const getFirstErrorElement = (errors) => {
     return array && array.length ? array[0] : null;
   }
   return null;
-}
-
-export default getFirstErrorElement;
+};

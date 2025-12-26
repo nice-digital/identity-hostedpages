@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RegisterSuccess components should render RegisterSuccess correctly 1`] = `ShallowWrapper {}`;
+exports[`RegisterSuccess components should render RegisterSuccess correctly 1`] = `
+<div>
+  <div>
+    <h2
+      class="mt--0"
+    >
+      Thank you
+    </h2>
+    <p
+      class="lead"
+    >
+      We've sent you an email with an activation link. Click on the link to verify your details and start using your account.
+    </p>
+    <div
+      class="alert alert--caution"
+      data-component="alert--caution"
+    >
+      Check your spam folder if you do not receive the activation email.
+    </div>
+    <p>
+      <a
+        data-qa-sel="registerSuccess-link-to-login"
+        href="/"
+      >
+        Return to sign in
+      </a>
+    </p>
+  </div>
+</div>
+`;

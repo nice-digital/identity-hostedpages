@@ -1,71 +1,78 @@
-@use "@nice-digital/nds-forms/scss/forms";
-@use "@nice-digital/nds-button/scss/button";
+@use '@nice-digital/nds-core/scss/media-queries';
+@use '@nice-digital/nds-core/scss/typography';
+@use '@nice-digital/nds-core/scss/utils';
 
-@use "../../styles/variables" as *;
+// COPIED FROM NEXTWEB
 
+/*
+  set font-size to 14px, to handle narrow viewport sizes.
+  e.g. Galaxy Fold 280px
+*/
+$narrow-viewport-root-font-size: utils.rem(typography.$base-font-size * 0.875);
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #fff!important;
-  font-size: 16px;
+footer {
+  margin-top: 0 !important;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+html {
+  scroll-behavior: smooth;
 
-.col {
-  height: 100%;
-  padding: 3rem;
-  width: $col-width-desktop;
-}
-
-.rightCol {
-  padding-top: 1.4rem !important;
-}
-
-.mainContainer {
-  padding-top: $top;
-  min-width: $col-width-desktop;
-}
-
-.alertMFAContainer > .alert {
-  padding: 0;
-}
-
-@media (max-width: 700px) {
-  .wrapper {
-    flex-direction: column;
-  }
-  .rightCol,
-  .leftCol {
-    width: 100%;
-    min-width: $col-width-mobile;
-    padding-bottom: 0;
-  }
-  .mainContainer {
-    min-width: $col-width-mobile;
+  @media (prefers-reduced-motion) {
+    scroll-behavior: auto;
   }
 
-  .navigation {
-    width: calc($col-width-mobile - 5rem);
+  @include media-queries.mq($until: 300px) {
+    font-size: $narrow-viewport-root-font-size;
   }
 }
 
-.btn {
-  text-align: center !important;
-  margin: 0 !important;
+//=======
+// .col {
+//   height: 100%;
+//   padding: 3rem;
+//   width: $col-width-desktop;
+// }
+
+// .rightCol {
+//   padding-top: 1.4rem !important;
+// }
+
+// .mainContainer {
+//   padding-top: $top;
+//   min-width: $col-width-desktop;
+// }
+
+// .alertMFAContainer > .alert {
+//   padding: 0;
+// }
+
+// @media (max-width: 700px) {
+//   .wrapper {
+//     flex-direction: column;
+//   }
+//   .rightCol,
+//   .leftCol {
+//     width: 100%;
+//     min-width: $col-width-mobile;
+//     padding-bottom: 0;
+//   }
+//   .mainContainer {
+//     min-width: $col-width-mobile;
+//   }
+//>>>>>>> dd9743737289bba72f4d631f14a16564bc665180
+
+main {
+  font-family: var(--sans-font-family);
 }
 
-legend{
-  border: none !important;
-  width: auto !important;
+main a {
+  // This is to ensure that we can't tab into a link that's hidden by the "back to top" sticky element
+  scroll-margin: utils.rem(60px);
 }
 
-label{
-  color: #333 !important;
-}
+// ^ COPIED FROM NEXTWEB
+
+// legend {
+//   border: none !important;
+//   width: auto !important;
+// }

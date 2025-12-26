@@ -5,6 +5,4 @@ export const ensureTrailingSlash = (input) => {
     return input + slash
   }
   return input
-}
-
-export default ensureTrailingSlash
+};

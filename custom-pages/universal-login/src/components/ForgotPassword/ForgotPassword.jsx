@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { Component } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { Alert } from "@nice-digital/nds-alert";
-import { Input } from '@nice-digital/nds-forms';
-import { NavLink, Link } from 'react-router-dom';
-import { isDomainInUsername, validateRegisterFields } from '../../helpers';
-import AuthApi from '../../services/AuthApi';
-import './ForgotPassword.scss';
+import { Input } from "@nice-digital/nds-input";
 
-class ForgotPassword extends React.Component {
+import { AuthApi } from "../../services/AuthApi";
+import { isDomainInUsername, validateRegisterFields } from "../../helpers";
+
+import "./ForgotPassword.scss";
+
+export class ForgotPassword extends Component {
   constructor(props) {
     super(props)
     this.auth = new AuthApi()
     this.state = {
       message:  (props.location && props.location.state && props.location.state?.message) || null,
-      value: (props.location && props.location.state && props.location.state?.email) || null,
+      value: (props.location && props.location.state && props.location.state?.email) || undefined,
       errors: {
         email: false
       },
@@ -29,7 +31,7 @@ class ForgotPassword extends React.Component {
        const simulatedEvent = { target: document.getElementById('email') };
        this.handleChange(simulatedEvent);
     }
-     
+
     this.setState(function(state) {
       const tests = validateRegisterFields(this.state);
       const email = !state.email || tests.email();
@@ -45,7 +47,7 @@ class ForgotPassword extends React.Component {
       } else {
         this.setState({ serverSideError: null });
       }
-    });    
+    });
   };
 
   doForgotPassword = () => {
@@ -57,7 +59,7 @@ class ForgotPassword extends React.Component {
         loading: false
       });
     };
-    
+
     try {
       this.setState({ loading: true });
 
@@ -69,9 +71,9 @@ class ForgotPassword extends React.Component {
     } catch (err) {
       console.error(err);
 
-      this.setState({ 
-        serverSideError: err.message || err.name, 
-        loading: false 
+      this.setState({
+        serverSideError: err.message || err.name,
+        loading: false
       });
     }
   };
@@ -109,7 +111,7 @@ class ForgotPassword extends React.Component {
   validate = () => {
     const tests = validateRegisterFields(this.state);
     const email =  this.state.email ? tests.email(this.state.email) : this.state.errors.email;
-    
+
     this.setState({
       errors: {
         email: email,
@@ -122,14 +124,14 @@ class ForgotPassword extends React.Component {
 
     return (
       <div>
-        <h2>Reset your password</h2>
-        {message && 
-        <p class="alert alert--error">Our password policy has been updated. You will need to provide a password that is at least 14 characters in length and contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*). <br/><br/>Click the reset button below and we'll send you an email with a link to help you reset your password.</p>
+        <h2 className="mt--0">Reset your password</h2>
+        {message &&
+        	<p class="alert alert--error">Our password policy has been updated. You will need to provide a password that is at least 14 characters in length and contains at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9) and special characters (e.g. !@#$%^&*). <br/><br/>Click the reset button below and we'll send you an email with a link to help you reset your password.</p>
         }
         {!this.state.value && (
-        <p className="lead">
-          Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
-        </p>
+					<p className="lead">
+						Enter the email address you registered with in the box below and click the reset button. We'll send you an email with a link to help you reset your password.
+					</p>
          )}
         <form className="">
           {serverSideError && (
@@ -157,7 +159,7 @@ class ForgotPassword extends React.Component {
           />
           {isAD ? (
             <Alert type="info">
-              NICE staff should <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">sign in</NavLink> using the password you use to sign in to your work computer. 
+              NICE staff should <NavLink data-qa-sel="Signin-link-login" to="/" activeclassname="activeRoute">sign in</NavLink> using the password you use to sign in to your work computer.
             </Alert>
           ) : (
           !loading ? (
@@ -183,5 +185,3 @@ class ForgotPassword extends React.Component {
     )
   }
 }
-
-export default ForgotPassword

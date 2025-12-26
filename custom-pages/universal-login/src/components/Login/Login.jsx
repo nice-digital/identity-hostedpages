@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-input';
-import qs from 'qs';
 import { Link } from "react-router-dom";
-import { isDomainInUsername, validateLoginFields, scrollToMyRef } from '../../helpers';
-import AuthApi from '../../services/AuthApi';
-import { auth as authOpts } from '../../services/constants';
-import './Login.scss';
+import qs from "qs";
+import { Alert } from "@nice-digital/nds-alert";
+import { Button } from "@nice-digital/nds-button";
+import { Input } from "@nice-digital/nds-input";
 
-class Login extends Component {
+import { AuthApi } from "../../services/AuthApi";
+import { auth as authOpts } from "../../services/constants";
+import { isDomainInUsername, validateLoginFields, scrollToMyRef } from "../../helpers";
+
+import "./Login.scss";
+
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.auth = new AuthApi();
@@ -80,7 +83,7 @@ class Login extends Component {
     const tests = validateLoginFields(this.state);
     const clientSideErrors= {
         username: !this.state.username || tests.username(),
-        password: tests.password()        
+        password: tests.password()
       };
     this.setState({ loading: false, clientSideErrors});
     return !this.clientSideHasErrors(clientSideErrors);
@@ -97,7 +100,7 @@ class Login extends Component {
         console.log(JSON.stringify(err))
       );
 
-    if (this.validate()){     
+    if (this.validate()){
       try {
         this.setState({ loading: true, serverSideError: null }, () => {
           const { username, password, connection } = this.state
@@ -139,7 +142,7 @@ class Login extends Component {
       if (this.clientSideHasErrors(this.state.clientSideErrors)){
         this.validate();
       }
-    });    
+    });
   };
 
   render() {
@@ -163,7 +166,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h2>Log in</h2>
+        <h2 className="mt--0">Log in</h2>
         <p className="lead"><Link
           data-qa-sel="Signup-link-login"
           to="/register"
@@ -171,11 +174,11 @@ class Login extends Component {
         >
           Create a NICE account
         </Link></p>
-        <form>          
+        <form>
             {(serverSideError || this.clientSideHasErrors(this.state.clientSideErrors)) && (
-              <Alert type="error" role="alert" data-qa-sel="problem-alert-login">               
+              <Alert type="error" role="alert" data-qa-sel="problem-alert-login">
                 <p className="lead">There is a problem</p>
-                <ul>                    
+                <ul>
                   {Object.keys(clientSideErrors).map((errorName, idx) => {
                     if (clientSideErrors[errorName]) {
                       return (
@@ -191,7 +194,7 @@ class Login extends Component {
                   {serverSideError && (
                     <li>{serverSideError}</li>
                   )}
-                </ul>                
+                </ul>
                 {' '}
                 {showUserNotVerfiedMessage ? (
                   <button href="#" onClick={this.resendVerificationEmail}>
@@ -207,7 +210,7 @@ class Login extends Component {
               name="username"
               data-qa-sel="login-email"
               label="Email"
-              id="username"              
+              id="username"
               unique="username"
               type="email"
               placeholder="eg: your.name@example.com..."
@@ -241,14 +244,14 @@ class Login extends Component {
           {!loading ? (
             !showUserNotVerfiedMessage ? (
               <div>
-                <button
+                <Button
                   data-qa-sel="login-button"
-                  className="btn btn--cta"
+                  variant="cta"
                   onClick={e => this.login(e, false)}
                   // disabled={!username}
                 >
                   Sign in
-                </button>
+                </Button>
                 {showGoogleLogin && (
                   <button
                     data-qa-sel="login-button-social"
@@ -260,14 +263,14 @@ class Login extends Component {
                     <img
                       className="iconBtn-icon"
                       alt="Sign in with google"
-                      src={ process.env.PUBLIC_URL + "/images/btn_google_signin_light_normal_web.png"}
+                      src={ process.env.VITE_PUBLIC_URL + "/images/btn_google_signin_light_normal_web.png"}
                     />
                   </button>
                 )}
               </div>
             ) : (
               // user is not verified. the login button is not going to work.
-              <div/> 
+              <div/>
             )
           ) : (
             'Loading...'
@@ -283,5 +286,3 @@ class Login extends Component {
     )
   }
 }
-
-export default Login

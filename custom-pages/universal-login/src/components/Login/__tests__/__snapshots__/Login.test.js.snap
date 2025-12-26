@@ -1,7 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login components should render Login correctly 1`] = `ShallowWrapper {}`;
-
-exports[`Login components should render correctly when there is an error 1`] = `ShallowWrapper {}`;
-
-exports[`Login components should render correctly when there is username and password 1`] = `ShallowWrapper {}`;
+exports[`Login components should render Login correctly 1`] = `
+<div>
+  <div>
+    <h2
+      class="mt--0"
+    >
+      Log in
+    </h2>
+    <p
+      class="lead"
+    >
+      <a
+        activeclassname="activeRoute"
+        data-qa-sel="Signup-link-login"
+        href="/register"
+      >
+        Create a NICE account
+      </a>
+    </p>
+    <form>
+      <div
+        class="input"
+        data-component="input"
+      >
+        <label
+          class="input__label"
+          for="username"
+        >
+          Email
+        </label>
+        <input
+          autocomplete="email"
+          class="input__input"
+          data-qa-sel="login-email"
+          id="username"
+          name="username"
+          placeholder="eg: your.name@example.com..."
+          type="email"
+          unique="username"
+          value=""
+        />
+      </div>
+      <div
+        class="input"
+        data-component="input"
+      >
+        <label
+          class="input__label"
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          autocomplete="current-password"
+          class="input__input"
+          data-qa-sel="login-password"
+          id="password"
+          name="password"
+          type="password"
+          unique="password"
+          value=""
+        />
+      </div>
+      <div>
+        <button
+          class="btn btn--cta"
+          data-component="button--cta"
+          data-qa-sel="login-button"
+          type="button"
+        >
+          Sign in
+        </button>
+      </div>
+    </form>
+    <a
+      class="forgotPasswordLink"
+      data-qa-sel="forgotPassword-link"
+      href="/forgotPassword"
+    >
+      Forgot password?
+    </a>
+  </div>
+</div>
+`;
