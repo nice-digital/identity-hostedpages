@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "script": "./Add roles to id token for nextjs client.js",
+  "name": "Add roles to id token for nextjs client",
+  "order": 7,
+  "stage": "login_success"
+}

@@ -15,7 +15,8 @@
   "client_id": "",
   "client_secret": "",
   "client_metadata": {	
-    "authorise_uri": ""	
+    "authorise_uri": "",
+    "role_issuers": ""
   },
   "jwt_configuration": {
     "alg": "RS256",
