@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@nice-digital/design-system": "^4.0.0",
-    "@nice-digital/global-nav": "^5.0.890",
+    "@nice-digital/global-nav": "7.1.1198-GN-264-load-aws-chal",
     "auth0-js": "^9.13.2",
     "es6-promise": "4.1.1",
     "history": "^4.9.0",
@@ -15,21 +15,21 @@
     "react-scripts": "4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:login-local": "env-cmd -f .env.login.local react-scripts start",
-    "start:passwordreset-local": "env-cmd -f .env.passwordreset.local react-scripts start",
-    "build": "react-scripts build",
-    "build:login": "env-cmd -f .env.login react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
-    "build:passwordreset": "env-cmd -f .env.passwordreset react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
-    "build:login-local": "env-cmd -f .env.login.local react-scripts build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
-    "build:passwordreset-local": "env-cmd -f .env.passwordreset.local react-scripts build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
+    "start": "craco start",
+    "start:login-local": "env-cmd -f .env.login.local craco start",
+    "start:passwordreset-local": "env-cmd -f .env.passwordreset.local craco start",
+    "build": "craco build",
+    "build:login": "env-cmd -f .env.login craco build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
+    "build:passwordreset": "env-cmd -f .env.passwordreset craco build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
+    "build:login-local": "env-cmd -f .env.login.local craco build && cpy ./build/index.html ../pages --rename=login.html && cpy ./build ./build-login --parents",
+    "build:passwordreset-local": "env-cmd -f .env.passwordreset.local craco build && cpy ./build/index.html ../pages --rename=password_reset.html && cpy ./build ./build-passwordreset --parents",
     "build:confirmsuccess-css": "sass -I ./node_modules src/confirmsuccess.scss public/confirmsuccess.css",
     "copy:errorpage": "cpy ./build/error_page.html ../pages",
     "serve": "serve -s build",
     "serve:login-local": "serve -s build-login/build -l 5000",
     "serve:passwordreset-local": "serve -s build-passwordreset/build -l 5001",
-    "test": "react-scripts test",
-    "test:ci": "cross-env CI=true react-scripts test --testResultsProcessor=jest-teamcity-reporter",
+    "test": "craco test",
+    "test:ci": "cross-env CI=true craco test --testResultsProcessor=jest-teamcity-reporter",
     "test:ci:coverage": "npm run test:ci -- --coverage ",
     "eject": "react-scripts eject"
   },
@@ -40,6 +40,7 @@
     "extends @nice-digital/browserslist-config"
   ],
   "devDependencies": {
+    "@craco/craco": "6.4.5",
     "@nice-digital/browserslist-config": "^2.0.1",
     "cpy-cli": "^2.0.0",
     "cross-env": "^5.2.0",
