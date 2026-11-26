@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert } from '@nice-digital/nds-alert';
-import { Input } from '@nice-digital/nds-forms';
+import { Input } from '@nice-digital/nds-input';
 import { getFirstErrorElement, validateRegisterFields } from '../../helpers';
 import AuthApi from '../../services/AuthApi';
 import './ResetPassword.scss';

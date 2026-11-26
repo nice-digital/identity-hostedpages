@@ -22,6 +22,30 @@ module.exports = {
         include: /node_modules/,
         type: "javascript/auto",
       });
+
+      // @mantine/hooks also ships modern syntax (optional chaining `?.`,
+      // nullish coalescing `??`) which Webpack 4's parser cannot read. CRA's
+      // node_modules Babel rule leaves it alone because of the browserslist
+      // targets. global-nav's dependency tree (@mantine, @tanstack, ...) uses
+      // them in several packages, so apply the two syntax transforms to all
+      // of node_modules rather than chasing packages one at a time.
+      // Added before the existing rules so it runs first on these files.
+      webpackConfig.module.rules.unshift({
+        test: /\.m?js$/,
+        include: /node_modules/,
+        exclude: /node_modules[\\/](core-js|webpack|style-loader|css-loader)[\\/]/,
+        loader: require.resolve("babel-loader"),
+        options: {
+          babelrc: false,
+          configFile: false,
+          compact: false,
+          sourceType: "unambiguous",
+          plugins: [
+            require.resolve("@babel/plugin-proposal-optional-chaining"),
+            require.resolve("@babel/plugin-proposal-nullish-coalescing-operator"),
+          ],
+        },
+      });
       return webpackConfig;
     },
   },
